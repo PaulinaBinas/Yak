@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Yak</string>
+    <string name="welcome">Hello, please create a new account:</string>
+    <string name="greeting">Greetings,&#160;</string>
+    <string name="login">Log in</string>
+    <string name="signup">Sign up</string>
+    <string name="logout">Log out</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="passwordRepeat">Repeat password</string>
 </resources>
