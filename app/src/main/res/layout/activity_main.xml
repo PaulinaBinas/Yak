@@ -8,7 +8,7 @@
 
 
     <TextView
-        android:id="@+id/greeting"
+        android:id="@+id/greetingTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/greeting"
@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/uid"
+        android:id="@+id/uidTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@+id/logoutButton"
