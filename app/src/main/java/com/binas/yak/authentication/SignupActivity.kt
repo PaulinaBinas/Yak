@@ -43,6 +43,11 @@ class SignupActivity : AppCompatActivity() {
             }
     }
 
+    fun onClickLoginButtonInSignup(view: View) {
+        val intent = Intent(this, LoginActivity::class.java)
+        startActivity(intent)
+    }
+
     fun updateUI(user: FirebaseUser?) {
         if(user != null) {
             val intent = Intent(this, MainActivity::class.java)
