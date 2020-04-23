@@ -1,15 +1,16 @@
-package com.binas.yak.authentication
+package com.binas.yak.ui.login
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.EditText
 import android.widget.Toast
-import com.binas.yak.MainActivity
+import com.binas.yak.ui.main.MainActivity
 import com.binas.yak.R
+import com.binas.yak.ui.signup.SignupActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import kotlinx.android.synthetic.main.activity_login.*;
 
 class LoginActivity : AppCompatActivity() {
 
@@ -21,14 +22,7 @@ class LoginActivity : AppCompatActivity() {
         mAuth = FirebaseAuth.getInstance()
     }
 
-    override fun onStart() {
-        super.onStart()
-        val user = mAuth.currentUser
-    }
-
     fun onClickLoginButton(view: View) {
-        val emailEditText = findViewById<EditText>(R.id.emailEditText)
-        val passwordEditText = findViewById<EditText>(R.id.passwordEditText)
         val email = emailEditText.text.toString()
         val password = passwordEditText.text.toString()
         mAuth.signInWithEmailAndPassword(email, password)

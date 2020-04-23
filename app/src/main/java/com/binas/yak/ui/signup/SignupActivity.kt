@@ -1,15 +1,16 @@
-package com.binas.yak.authentication
+package com.binas.yak.ui.signup
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.EditText
 import android.widget.Toast
-import com.binas.yak.MainActivity
+import com.binas.yak.ui.main.MainActivity
 import com.binas.yak.R
+import com.binas.yak.ui.login.LoginActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import kotlinx.android.synthetic.main.activity_signup.*
 
 class SignupActivity : AppCompatActivity() {
 
@@ -22,8 +23,6 @@ class SignupActivity : AppCompatActivity() {
     }
 
     fun signUpNewUser(view: View) {
-        var emailEditText = findViewById(R.id.emailEditText) as EditText
-        var passwordEditText = findViewById(R.id.passwordEditText) as EditText
         var email = emailEditText.text.toString()
         var password = passwordEditText.text.toString()
         mAuth.createUserWithEmailAndPassword(email, password)
