@@ -4,48 +4,98 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/login_bg"
+
     tools:context=".ui.login.LoginActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/open_sans_extrabold"
+        android:gravity="center"
+        android:padding="15dp"
+        android:text="@string/app_name"
+        android:textSize="17sp"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_marginTop="70dp"
         android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintTop_toTopOf="parent">
 
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="90dp"
+            android:layout_marginBottom="90dp"
+            app:srcCompat="@drawable/small_yak" />
+
         <EditText
             android:id="@+id/emailEditText"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="35dp"
+            android:layout_marginStart="45dp"
+            android:layout_marginEnd="45dp"
+            android:background="@drawable/rounded_input"
             android:ems="10"
+            android:fontFamily="@font/open_sans_extrabold"
+            android:gravity="center"
             android:hint="@string/email"
-            android:inputType="textEmailAddress" />
+            android:inputType="textEmailAddress"
+            android:padding="15dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:textSize="20sp" />
 
         <EditText
             android:id="@+id/passwordEditText"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="45dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="45dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/rounded_input"
             android:ems="10"
+            android:fontFamily="@font/open_sans_extrabold"
+            android:gravity="center"
             android:hint="@string/password"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:padding="15dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/loginButton"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="35dp"
-            android:onClick="onClickLoginButton"
-            android:text="@string/login" />
+            android:layout_marginStart="45dp"
+            android:layout_marginEnd="45dp"
+            android:background="@drawable/rounded_button"
+            android:fontFamily="@font/open_sans_extrabold"
+            android:gravity="center"
+            android:padding="15dp"
+            android:text="@string/remindPassword"
+            android:textSize="20sp" />
 
-        <Button
+        <ImageButton
             android:id="@+id/signupButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onClickSignupButton"
-            android:text="@string/signup" />
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="end"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="1dp"
+            android:background="@drawable/next_button"
+            android:onClick="onClickLoginButton" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
