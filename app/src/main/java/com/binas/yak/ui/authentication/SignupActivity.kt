@@ -1,12 +1,12 @@
 package com.binas.yak.ui.authentication
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import com.binas.yak.ui.main.MainActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.binas.yak.R
+import com.binas.yak.ui.main.MainActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.activity_signup.*

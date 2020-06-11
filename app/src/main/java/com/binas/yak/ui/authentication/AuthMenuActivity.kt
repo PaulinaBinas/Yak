@@ -1,13 +1,15 @@
 package com.binas.yak.ui.authentication
 
+import android.content.Context
 import android.content.Intent
+import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.binas.yak.R
-import com.binas.yak.ui.main.MainActivity
+import java.util.*
 
-class AuthMenu : AppCompatActivity() {
+class AuthMenuActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

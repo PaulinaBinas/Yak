@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">YAK</string>
+    <string name="login">ZALOGUJ SIĘ</string>
+    <string name="signup">ZAREJESTRUJ SIĘ</string>
+    <string name="logout">WYLOGUJ SIĘ</string>
+    <string name="email">EMAIL</string>
+    <string name="enterEmail">WPISZ EMAIL</string>
+    <string name="password">HASŁO</string>
+    <string name="passwordRepeat">POWTÓRZ HASŁO</string>
+    <string name="remindPassword">PRZYPOMNIJ HASŁO</string>
+    <string name="studiedElements">PRZEROBIONY MATERIAŁ</string>
+    <string name="study">NAUKA</string>
+    <string name="achievements">OSIĄGNIĘCIA</string>
+    <string name="credits">Autorzy</string>
+    <string name="creditsValues">Programistka: Paulina Binas\nEkspert języka tybetańskiego: Tenzin Choewang\nProjektantka graficzna: Anna Ludwin</string>
+    <string name="changeLanguage">ZMIEŃ JĘZYK</string>
+    <string name="changePassword">ZMIEŃ HASŁO</string>
+    <string name="english">ANGIELSKI</string>
+    <string name="polish">POLSKI</string>
+    <string name="oldPassword">OBECNE HASŁO</string>
+    <string name="newPassword">NOWE HASŁO</string>
+</resources>
