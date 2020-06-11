@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">YAK</string>
-    <string name="welcome">Hello, please create a new account:</string>
     <string name="greeting">Greetings,&#160;</string>
     <string name="login">LOG IN</string>
     <string name="signup">SIGN UP</string>

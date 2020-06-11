@@ -5,8 +5,9 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.binas.yak.R
-import com.binas.yak.ui.login.LoginActivity
-import com.binas.yak.ui.signup.SignupActivity
+import com.binas.yak.ui.authentication.AuthMenu
+import com.binas.yak.ui.authentication.LoginActivity
+import com.binas.yak.ui.authentication.SignupActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.activity_main.*;
@@ -41,7 +42,8 @@ class MainActivity : AppCompatActivity() {
 
     fun onClickLogoutButton(view: View) {
         mAuth.signOut()
-        val intent = Intent(this, LoginActivity::class.java)
+        val intent = Intent(this, AuthMenu::class.java)
         startActivity(intent)
+        overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom);
     }
 }
