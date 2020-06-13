@@ -19,4 +19,6 @@
     <string name="polish">POLSKI</string>
     <string name="oldPassword">OBECNE HASŁO</string>
     <string name="newPassword">NOWE HASŁO</string>
+    <string name="passwordChangeFailure">Zmiana hasła się nie powiodła!\nSpróbuj ponownie</string>
+    <string name="passwordChangeSuccess">Hasło zmienione!</string>
 </resources>

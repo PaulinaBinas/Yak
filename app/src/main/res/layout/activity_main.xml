@@ -64,7 +64,8 @@
             android:gravity="center"
             android:padding="15dp"
             android:text="@string/studiedElements"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:onClick="onClickGoToStudiedElements"/>
 
         <Button
             android:id="@+id/studyButton"

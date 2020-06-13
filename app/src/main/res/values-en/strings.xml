@@ -19,4 +19,6 @@
     <string name="polish">POLISH</string>
     <string name="oldPassword">OLD PASSWORD</string>
     <string name="newPassword">NEW PASSWORD</string>
+    <string name="passwordChangeFailure">Password change failed!\nTry again</string>
+    <string name="passwordChangeSuccess">Password changed!</string>
 </resources>

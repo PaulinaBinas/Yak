@@ -11,7 +11,8 @@
         android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.settings.ChangePasswordActivity"></activity>
+        <activity android:name=".ui.studiedElements.StudiedElementsActivity"></activity>
+        <activity android:name=".ui.settings.ChangePasswordActivity" />
         <activity android:name=".ui.settings.ChangeLanguageActivity" />
         <activity android:name=".ui.settings.SettingsActivity" />
         <activity android:name=".ui.study.LearnNewSignActivity" />

@@ -33,17 +33,27 @@ class ChangePasswordActivity : AppCompatActivity() {
                 ?.addOnCompleteListener(this) { task ->
                     if (task.isSuccessful()) {
                         mAuth.currentUser?.updatePassword(newPass)
+                        Toast.makeText(applicationContext, getString(R.string.passwordChangeSuccess),Toast.LENGTH_SHORT).show()
                         val intent = Intent(this, SettingsActivity::class.java)
                         startActivity(intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK))
                         overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom)
                         finish()
                     } else {
-                        Toast.makeText(applicationContext,"Password change failed!\nTry again",Toast.LENGTH_SHORT).show()
+                        Toast.makeText(applicationContext,getString(R.string.passwordChangeFailure),Toast.LENGTH_LONG).show()
                         oldPassword.text.clear()
                         newPassword.text.clear()
                         newPasswordRepeat.text.clear()
                     }
                 }
         }
+    }
+
+    fun onClickSettingsButton(view: View) {
+        val intent = Intent(this, SettingsActivity::class.java)
+        startActivity(intent)
+    }
+
+    fun onClickBackButton(view: View) {
+        onBackPressed()
     }
 }
