@@ -26,6 +26,10 @@ class StudiedElementsActivity : AppCompatActivity() {
         Glide.with(baseContext)
             .load(resources.getIdentifier("img1", "drawable", this.packageName))
             .into(studiedElementsImage.studiedElementsImageView)
+
+        Glide.with(baseContext)
+            .load(resources.getIdentifier("img2", "drawable", this.packageName))
+            .into(studiedElementsImage2.studiedElementsImageView)
     }
 
     fun onClickSettingsButton(view: View) {
@@ -41,7 +45,19 @@ class StudiedElementsActivity : AppCompatActivity() {
         if (!playing) {
             playing = true
             val mp: MediaPlayer = MediaPlayer()
-            val uri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.read)
+            val uri = Uri.parse("android.resource://" + packageName + "/" + R.raw.read)
+            mp.setDataSource(this, uri)
+            mp.prepare()
+            mp.setOnPreparedListener { mp.start() }
+            mp.setOnCompletionListener { playing = false }
+        }
+    }
+
+    fun onClickPlaySoundSmart(view: View) {
+        if (!playing) {
+            playing = true
+            val mp: MediaPlayer = MediaPlayer()
+            val uri = Uri.parse("android.resource://" + packageName + "/" + R.raw.smart)
             mp.setDataSource(this, uri)
             mp.prepare()
             mp.setOnPreparedListener { mp.start() }
