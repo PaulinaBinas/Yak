@@ -11,4 +11,5 @@
     <color name="orange">#E97910</color>
     <color name="black">#000000</color>
     <color name="invisible">#00FFFFFF</color>
+    <color name="transparentWhite">#80FFFFFF</color>
 </resources>

@@ -25,7 +25,7 @@ class StudiedElementsActivity : AppCompatActivity() {
     private fun loadImage() {
         Glide.with(baseContext)
             .load(resources.getIdentifier("img1", "drawable", this.packageName))
-            .into(studiedElementsImage.studiedElementsImageView)
+            .into(studiedElementsImageButton)
 
         Glide.with(baseContext)
             .load(resources.getIdentifier("img2", "drawable", this.packageName))
@@ -35,6 +35,7 @@ class StudiedElementsActivity : AppCompatActivity() {
     fun onClickSettingsButton(view: View) {
         val intent = Intent(this, SettingsActivity::class.java)
         startActivity(intent)
+        overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom)
     }
 
     fun onClickBackButton(view: View) {
@@ -63,5 +64,11 @@ class StudiedElementsActivity : AppCompatActivity() {
             mp.setOnPreparedListener { mp.start() }
             mp.setOnCompletionListener { playing = false }
         }
+    }
+
+    fun onClickGoToStudiedElementDetails(view: View) {
+        val intent = Intent(this, StudiedElementDetailsActivity::class.java)
+        startActivity(intent)
+        overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom)
     }
 }

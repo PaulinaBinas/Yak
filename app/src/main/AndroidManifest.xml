@@ -11,7 +11,10 @@
         android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.studiedElements.StudiedElementsActivity"></activity>
+        <activity android:name=".ui.achievements.AchievementsActivity"></activity>
+        <activity android:name=".ui.studiedElements.CalendarActivity" />
+        <activity android:name=".ui.studiedElements.StudiedElementDetailsActivity" />
+        <activity android:name=".ui.studiedElements.StudiedElementsActivity" />
         <activity android:name=".ui.settings.ChangePasswordActivity" />
         <activity android:name=".ui.settings.ChangeLanguageActivity" />
         <activity android:name=".ui.settings.SettingsActivity" />

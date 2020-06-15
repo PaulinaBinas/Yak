@@ -7,7 +7,7 @@
     tools:context=".ui.settings.ChangeLanguageActivity">
 
     <fragment
-        android:name="com.binas.yak.ui.main.ActionBar"
+        android:name="com.binas.yak.ui.main.TransparentActionBarFragment"
         android:id="@+id/action_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -3,10 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/action_bar_container"
-    android:background="@drawable/rounded_bottom"
+    android:background="@color/invisible"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".ui.main.ActionBar">
+    tools:context=".ui.main.TransparentActionBarFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

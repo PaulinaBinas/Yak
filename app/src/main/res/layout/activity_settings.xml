@@ -21,7 +21,7 @@
 
             <fragment
                 android:id="@+id/fragment"
-                android:name="com.binas.yak.ui.main.ActionBar"
+                android:name="com.binas.yak.ui.main.TransparentActionBarFragment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"

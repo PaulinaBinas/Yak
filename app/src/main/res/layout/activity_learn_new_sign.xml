@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/loggedInActionBar"
-        android:name="com.binas.yak.ui.main.ActionBar"
+        android:name="com.binas.yak.ui.main.TransparentActionBarFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"/>

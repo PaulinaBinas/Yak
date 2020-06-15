@@ -12,7 +12,7 @@
     <string name="study">STUDY</string>
     <string name="achievements">ACHIEVEMENTS</string>
     <string name="credits">Credits</string>
-    <string name="creditsValues">Programmer: Paulina Binas\nTibetan language expert: Tenzin Choewang\nGraphic designer: Anna Ludwin</string>
+    <string name="creditsValues">Programmer: Paulina Binas\nTibetan language consultant: Tenzin Choewang\nGraphic designer: Anna Ludwin</string>
     <string name="changeLanguage">CHANGE LANGUAGE</string>
     <string name="changePassword">CHANGE PASSWORD</string>
     <string name="english">ENGLISH</string>
@@ -21,4 +21,7 @@
     <string name="newPassword">NEW PASSWORD</string>
     <string name="passwordChangeFailure">Password change failed!\nTry again</string>
     <string name="passwordChangeSuccess">Password changed!</string>
+    <string name="reviseIn">revise in: </string>
+    <string name="wordsLearnt">words learnt: </string>
+    <string name="grammarLearnt">grammar learnt: </string>
 </resources>

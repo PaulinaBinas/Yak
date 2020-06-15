@@ -12,7 +12,7 @@
     <string name="study">NAUKA</string>
     <string name="achievements">OSIĄGNIĘCIA</string>
     <string name="credits">Autorzy</string>
-    <string name="creditsValues">Programistka: Paulina Binas\nEkspert języka tybetańskiego: Tenzin Choewang\nProjektantka graficzna: Anna Ludwin</string>
+    <string name="creditsValues">Programistka: Paulina Binas\nKonsultant języka tybetańskiego: Tenzin Choewang\nProjektantka graficzna: Anna Ludwin</string>
     <string name="changeLanguage">ZMIEŃ JĘZYK</string>
     <string name="changePassword">ZMIEŃ HASŁO</string>
     <string name="english">ANGIELSKI</string>
@@ -21,4 +21,7 @@
     <string name="newPassword">NOWE HASŁO</string>
     <string name="passwordChangeFailure">Zmiana hasła się nie powiodła!\nSpróbuj ponownie</string>
     <string name="passwordChangeSuccess">Hasło zmienione!</string>
+    <string name="reviseIn">powtórka za: </string>
+    <string name="wordsLearnt">nauczone słówka: </string>
+    <string name="grammarLearnt">nauczona gramatyka: </string>
 </resources>
