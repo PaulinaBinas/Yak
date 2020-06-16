@@ -24,4 +24,5 @@
     <string name="reviseIn">revise in: </string>
     <string name="wordsLearnt">words learnt: </string>
     <string name="grammarLearnt">grammar learnt: </string>
+    <string name="writeSign">write the sign down</string>
 </resources>
