@@ -5,10 +5,12 @@ import java.time.LocalDate
 import javax.inject.Inject
 
 class SignRevisionFlashcard @Inject constructor(val id: Int,
-                                                val revisionType: RevisionType,
+                                                override var revisionType: RevisionType,
                                                 val scheduler: SpacedRepetitionScheduler,
                                                 override var retention: Double = 0.0,
-                                                override var nextDisplayTime: LocalDate? = null
+                                                override var nextDisplayTime: LocalDate? = null,
+                                                override var interval: Long = 0L
+
 ) : RevisionFlashcard {
 
     override fun forget() {

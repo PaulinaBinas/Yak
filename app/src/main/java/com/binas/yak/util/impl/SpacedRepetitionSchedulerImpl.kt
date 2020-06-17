@@ -23,7 +23,7 @@ class SpacedRepetitionSchedulerImpl @Inject constructor() :
         } else {
             flashcard.nextDisplayTime = LocalDate.now()
         }
-        flashcard.interval = flashcard.nextDisplayTime!!.until(LocalDate.now(), ChronoUnit.DAYS)
+        flashcard.interval = LocalDate.now().until(flashcard.nextDisplayTime!!, ChronoUnit.DAYS)
         flashcard.retention = calculateRetention(0, flashcard.interval!!)
     }
 
