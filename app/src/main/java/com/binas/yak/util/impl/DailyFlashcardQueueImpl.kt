@@ -1,9 +1,11 @@
-package com.binas.yak.util
+package com.binas.yak.util.impl
 
 import com.binas.yak.data.model.Flashcard
+import com.binas.yak.util.DailyFlashcardQueue
 import java.util.*
 
-class DailyFlashcardQueueImpl(override var todaysFlashcards: Queue<Flashcard>) : DailyFlashcardQueue {
+class DailyFlashcardQueueImpl(override var todaysFlashcards: Queue<Flashcard>) :
+    DailyFlashcardQueue {
 
     override fun addFlashcard(flashcard: Flashcard) {
         todaysFlashcards.add(flashcard)

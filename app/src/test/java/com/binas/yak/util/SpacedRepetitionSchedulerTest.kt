@@ -1,5 +1,6 @@
 package com.binas.yak.util
 
+import com.binas.yak.util.impl.SpacedRepetitionSchedulerImpl
 import junit.framework.Assert.assertEquals
 import org.junit.Test
 import java.math.BigDecimal
@@ -9,7 +10,8 @@ class SpacedRepetitionSchedulerTest {
     @Test
     fun scheduleNewlyStudiedCardTest() {
         /* arrange */
-        val scheduler: SpacedRepetitionScheduler = SpacedRepetitionSchedulerImpl()
+        val scheduler: SpacedRepetitionScheduler =
+            SpacedRepetitionSchedulerImpl()
 
         /* act */
 
@@ -20,7 +22,8 @@ class SpacedRepetitionSchedulerTest {
     @Test
     fun calculateRetentionAfterADay() {
         /* arrange */
-        val scheduler: SpacedRepetitionScheduler = SpacedRepetitionSchedulerImpl()
+        val scheduler: SpacedRepetitionScheduler =
+            SpacedRepetitionSchedulerImpl()
         val interval = 1L
         val days = 1
 
@@ -36,7 +39,8 @@ class SpacedRepetitionSchedulerTest {
     @Test
     fun calculateRetentionOfOutdatedCard() {
         /* arrange */
-        val scheduler: SpacedRepetitionScheduler = SpacedRepetitionSchedulerImpl()
+        val scheduler: SpacedRepetitionScheduler =
+            SpacedRepetitionSchedulerImpl()
         val interval = 1L
         val days = 3
 
