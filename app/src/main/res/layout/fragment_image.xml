@@ -7,7 +7,7 @@
     tools:context=".ui.studiedElements.ImageFragment">
 
     <ImageView
-        android:id="@+id/studiedElementsImageView"
+        android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </FrameLayout>

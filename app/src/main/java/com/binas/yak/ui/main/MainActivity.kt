@@ -11,6 +11,7 @@ import com.binas.yak.ui.achievements.AchievementsActivity
 import com.binas.yak.ui.authentication.SignupActivity
 import com.binas.yak.ui.studiedElements.StudiedElementsActivity
 import com.binas.yak.ui.study.LearnNewSignActivity
+import com.binas.yak.ui.study.StudyActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import java.util.*
@@ -40,7 +41,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun onClickGoToStudy(view: View) {
-        val intent = Intent(this, LearnNewSignActivity::class.java)
+        val intent = Intent(this, StudyActivity::class.java)
         startActivity(intent)
         overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom)
     }

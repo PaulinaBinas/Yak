@@ -29,7 +29,7 @@ class StudiedElementsActivity : AppCompatActivity() {
 
         Glide.with(baseContext)
             .load(resources.getIdentifier("img2", "drawable", this.packageName))
-            .into(studiedElementsImage2.studiedElementsImageView)
+            .into(studiedElementsImage2.imageView)
     }
 
     fun onClickSettingsButton(view: View) {
