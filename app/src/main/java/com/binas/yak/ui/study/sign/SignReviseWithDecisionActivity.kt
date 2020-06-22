@@ -1,16 +1,27 @@
 package com.binas.yak.ui.study.sign
 
 import android.content.Intent
+import android.media.MediaPlayer
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.binas.yak.R
 import com.binas.yak.ui.settings.SettingsActivity
+import kotlinx.android.synthetic.main.activity_sign_revise_with_decision.*
 
 class SignReviseWithDecisionActivity : AppCompatActivity() {
+
+    private var playing: Boolean = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_revise_with_decision)
+    }
+
+    override fun onStart() {
+        super.onStart()
+        playSoundButton.callOnClick()
     }
 
     fun onClickSettingsButton(view: View) {
@@ -21,5 +32,17 @@ class SignReviseWithDecisionActivity : AppCompatActivity() {
 
     fun onClickBackButton(view: View) {
         onBackPressed()
+    }
+
+    fun onClickPlaySound(view: View) {
+        if (!playing) {
+            playing = true
+            val mp: MediaPlayer = MediaPlayer()
+            val uri = Uri.parse("android.resource://" + packageName + "/" + R.raw.sa)
+            mp.setDataSource(this, uri)
+            mp.prepare()
+            mp.setOnPreparedListener { mp.start() }
+            mp.setOnCompletionListener { playing = false }
+        }
     }
 }

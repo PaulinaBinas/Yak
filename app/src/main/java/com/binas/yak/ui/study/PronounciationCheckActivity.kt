@@ -1,4 +1,4 @@
-package com.binas.yak.ui.study.grammar
+package com.binas.yak.ui.study
 
 import android.content.Intent
 import android.media.MediaPlayer
@@ -8,16 +8,18 @@ import android.os.Bundle
 import android.view.View
 import com.binas.yak.R
 import com.binas.yak.ui.settings.SettingsActivity
-import com.binas.yak.ui.study.ReviseWritingActivity
-import kotlinx.android.synthetic.main.activity_grammar_revise_writing.*
+import com.bumptech.glide.Glide
+import kotlinx.android.synthetic.main.activity_pronounciation_check.*
+import kotlinx.android.synthetic.main.fragment_image.*
 
-class GrammarReviseWritingActivity : AppCompatActivity() {
+class PronounciationCheckActivity : AppCompatActivity() {
 
     private var playing: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_grammar_revise_writing)
+        setContentView(R.layout.activity_pronounciation_check)
+        loadImage()
     }
 
     override fun onStart() {
@@ -25,10 +27,10 @@ class GrammarReviseWritingActivity : AppCompatActivity() {
         playSoundButton.callOnClick()
     }
 
-    fun onClickGoToReviseWriting(view: View) {
-        val intent = Intent(this, ReviseWritingActivity::class.java)
-        startActivity(intent)
-        overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom)
+    fun loadImage() {
+        Glide.with(baseContext)
+            .load(resources.getIdentifier("sa", "drawable", this.packageName))
+            .into(imageFragment.imageView)
     }
 
     fun onClickSettingsButton(view: View) {
@@ -45,7 +47,7 @@ class GrammarReviseWritingActivity : AppCompatActivity() {
         if (!playing) {
             playing = true
             val mp: MediaPlayer = MediaPlayer()
-            val uri = Uri.parse("android.resource://" + packageName + "/" + R.raw.doesnt)
+            val uri = Uri.parse("android.resource://" + packageName + "/" + R.raw.sa)
             mp.setDataSource(this, uri)
             mp.prepare()
             mp.setOnPreparedListener { mp.start() }

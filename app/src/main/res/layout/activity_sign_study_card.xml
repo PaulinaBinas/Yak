@@ -23,7 +23,7 @@
         android:orientation="vertical">
 
         <fragment
-            android:id="@+id/drawingSignFragment"
+            android:id="@+id/imageFragment"
             android:name="com.binas.yak.ui.studiedElements.ImageFragment"
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -55,14 +55,16 @@
                 android:textAlignment="center"
                 android:fontFamily="@font/noto_sans_tibetan_bold"
                 android:textSize="20sp"
-                android:text="ས"/>
+                android:text="ས (sa)"/>
 
             <ImageButton
+                android:id="@+id/playSoundButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
                 android:src="@drawable/sound_icon"
-                android:background="?selectableItemBackground" />
+                android:background="?selectableItemBackground"
+                android:onClick="onClickPlaySound"/>
 
         </LinearLayout>
 

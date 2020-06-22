@@ -11,7 +11,8 @@
         android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.study.ReviseWritingActivity"></activity>
+        <activity android:name=".ui.study.PronounciationCheckActivity"></activity>
+        <activity android:name=".ui.study.ReviseWritingActivity" />
         <activity android:name=".ui.study.LearnNewVocabularyActivity" />
         <activity android:name=".ui.study.vocabulary.VocabularyReviseWritingActivity" />
         <activity android:name=".ui.study.vocabulary.VocabularyReviseSoundActivity" />

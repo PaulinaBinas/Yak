@@ -2,10 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.study.vocabulary.VocabularyStudyCardActivity">
+    android:orientation="vertical"
+    tools:context=".ui.study.PronounciationCheckActivityy">
 
     <fragment
         android:id="@+id/fragment"
@@ -23,7 +23,7 @@
         android:orientation="vertical">
 
         <fragment
-            android:id="@+id/imageStudyFragment"
+            android:id="@+id/imageFragment"
             android:name="com.binas.yak.ui.studiedElements.ImageFragment"
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -31,7 +31,7 @@
             android:layout_marginEnd="40dp"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
-            android:layout_weight="3.2"/>
+            android:layout_weight="3.2" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -55,7 +55,7 @@
                 android:textAlignment="center"
                 android:fontFamily="@font/noto_sans_tibetan_bold"
                 android:textSize="20sp"
-                android:text="ཀློག་"/>
+                android:text="ས (sa)"/>
 
             <ImageButton
                 android:id="@+id/playSoundButton"
@@ -71,19 +71,27 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/rounded_input"
-            android:drawableStart="@drawable/pencil_icon"
-            android:drawableEnd="@drawable/next_button"
-            android:text="@string/writeItDown"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginStart="40dp"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:text="CORRECT"
             android:textSize="20sp"
-            android:textAllCaps="false"
+            android:background="@drawable/rounded_button"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
             android:layout_marginEnd="40dp"
-            android:paddingStart="15dp"
-            android:paddingEnd="15dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/rounded_button"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
-            android:onClick="onClickGoToLearnNewVocabulary"/>
+            android:text="INCORRECT"
+            android:textSize="20sp" />
 
     </LinearLayout>
 

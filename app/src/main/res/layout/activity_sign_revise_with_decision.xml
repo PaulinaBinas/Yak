@@ -21,12 +21,14 @@
         android:gravity="center"
         android:orientation="vertical">
         <ImageButton
+            android:id="@+id/playSoundButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:src="@drawable/sound_icon"
             android:layout_marginBottom="20dp"
-            android:background="?selectableItemBackground"/>
+            android:background="?selectableItemBackground"
+            android:onClick="onClickPlaySound"/>
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -36,7 +38,8 @@
             android:layout_marginStart="40dp"
             android:paddingBottom="10dp"
             android:paddingTop="10dp"
-            android:text="OPTION 1"
+            android:text="ས"
+            android:fontFamily="@font/noto_sans_tibetan_bold"
             android:textSize="20sp"
             android:background="@drawable/rounded_button"/>
 
@@ -49,7 +52,8 @@
             android:background="@drawable/rounded_button"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
-            android:text="OPTION 2"
+            android:text="ཟ​"
+            android:fontFamily="@font/noto_sans_tibetan_bold"
             android:textSize="20sp" />
     </LinearLayout>
 

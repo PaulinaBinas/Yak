@@ -1,23 +1,31 @@
 package com.binas.yak.ui.study.vocabulary
 
 import android.content.Intent
+import android.media.MediaPlayer
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.binas.yak.R
 import com.binas.yak.ui.settings.SettingsActivity
-import com.binas.yak.ui.study.LearnNewSignActivity
 import com.binas.yak.ui.study.LearnNewVocabularyActivity
 import com.bumptech.glide.Glide
-import kotlinx.android.synthetic.main.activity_studied_elements.*
 import kotlinx.android.synthetic.main.activity_vocabulary_study_card.*
 import kotlinx.android.synthetic.main.fragment_image.*
 
 class VocabularyStudyCardActivity : AppCompatActivity() {
+
+    private var playing: Boolean = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_vocabulary_study_card)
         loadImage()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        playSoundButton.callOnClick()
     }
 
     private fun loadImage() {
@@ -40,5 +48,17 @@ class VocabularyStudyCardActivity : AppCompatActivity() {
 
     fun onClickBackButton(view: View) {
         onBackPressed()
+    }
+
+    fun onClickPlaySound(view: View) {
+        if (!playing) {
+            playing = true
+            val mp: MediaPlayer = MediaPlayer()
+            val uri = Uri.parse("android.resource://" + packageName + "/" + R.raw.read)
+            mp.setDataSource(this, uri)
+            mp.prepare()
+            mp.setOnPreparedListener { mp.start() }
+            mp.setOnCompletionListener { playing = false }
+        }
     }
 }

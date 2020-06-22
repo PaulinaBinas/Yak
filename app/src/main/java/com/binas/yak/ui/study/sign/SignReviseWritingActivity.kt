@@ -9,6 +9,7 @@ import android.view.View
 import com.binas.yak.R
 import com.binas.yak.ui.settings.SettingsActivity
 import com.binas.yak.ui.study.ReviseWritingActivity
+import kotlinx.android.synthetic.main.activity_vocabulary_revise_writing.*
 
 class SignReviseWritingActivity : AppCompatActivity() {
 
@@ -17,6 +18,11 @@ class SignReviseWritingActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_revise_writing)
+    }
+
+    override fun onStart() {
+        super.onStart()
+        playSoundButton.callOnClick()
     }
 
     fun onClickGoToReviseWriting(view: View) {

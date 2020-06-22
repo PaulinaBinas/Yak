@@ -26,4 +26,5 @@
     <string name="grammarLearnt">nauczona gramatyka: </string>
     <string name="writeSign">napisz znak</string>
     <string name="writeItDown">napisz słowo:</string>
+    <string name="pronounceIt">przeczytaj na głos</string>
 </resources>
