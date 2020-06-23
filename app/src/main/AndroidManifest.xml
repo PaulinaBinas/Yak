@@ -23,7 +23,7 @@
             android:name=".ui.study.ReviseWritingActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.study.LearnNewVocabularyActivity"
+            android:name=".ui.study.LearnVocabularyWritingActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.study.vocabulary.VocabularyReviseWritingActivity"

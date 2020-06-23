@@ -16,7 +16,7 @@ class LearnSignWritingActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_learn_new_sign)
+        setContentView(R.layout.activity_learn_sign_writing)
         loadImage()
     }
 

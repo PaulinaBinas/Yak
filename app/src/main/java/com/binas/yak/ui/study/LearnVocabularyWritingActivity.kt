@@ -7,10 +7,10 @@ import android.view.View
 import com.binas.yak.R
 import com.binas.yak.ui.settings.SettingsActivity
 
-class LearnNewVocabularyActivity : AppCompatActivity() {
+class LearnVocabularyWritingActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_learn_new_vocabulary)
+        setContentView(R.layout.activity_learn_vocabulary_writing)
     }
 
     fun onClickSettingsButton(view: View) {
@@ -22,4 +22,6 @@ class LearnNewVocabularyActivity : AppCompatActivity() {
     fun onClickBackButton(view: View) {
         onBackPressed()
     }
+
+    fun onClickGoNext(view: View) {}
 }
