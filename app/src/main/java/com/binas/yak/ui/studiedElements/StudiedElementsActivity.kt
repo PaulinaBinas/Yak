@@ -28,7 +28,7 @@ class StudiedElementsActivity : AppCompatActivity() {
             .into(studiedElementsImageButton)
 
         Glide.with(baseContext)
-            .load(resources.getIdentifier("img2", "drawable", this.packageName))
+            .load(resources.getIdentifier("smart", "drawable", this.packageName))
             .into(studiedElementsImage2.imageView)
     }
 
