@@ -11,7 +11,7 @@ import com.google.firebase.auth.FirebaseUser
 
 class SplashActivity : AppCompatActivity() {
 
-    private val SPLASH_SCREEN_TIME: Long = 3000;
+    private val SPLASH_SCREEN_TIME: Long = 1500;
 
     private lateinit var mAuth: FirebaseAuth
 

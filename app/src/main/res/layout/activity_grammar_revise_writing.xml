@@ -25,13 +25,13 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:textAlignment="center"
-            android:fontFamily="@font/noto_sans_tibetan_bold"
             android:layout_marginStart="40dp"
             android:layout_marginEnd="40dp"
             android:layout_marginBottom="20dp"
-            android:text="ཁོང་དེབ་ཀློག་...​།"/>
+            android:fontFamily="@font/noto_sans_tibetan_bold"
+            android:text="ཁོང་དེབ་ཀློག་...​།"
+            android:textAlignment="center"
+            android:textSize="20sp" />
 
         <ImageButton
             android:id="@+id/playSoundButton"
@@ -39,29 +39,28 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
-            android:src="@drawable/sound_icon"
             android:background="?selectableItemBackground"
-            android:onClick="onClickPlaySound"/>
+            android:onClick="onClickPlaySound"
+            android:src="@drawable/sound_icon" />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="20dp"
             android:background="@drawable/rounded_input"
             android:drawableStart="@drawable/pencil_icon"
             android:drawableEnd="@drawable/next_button"
-            android:text="@string/writeItDown"
-            android:textSize="20sp"
-            android:textAllCaps="false"
-            android:layout_marginStart="40dp"
-            android:layout_marginEnd="40dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
+            android:onClick="onClickGoToReviseWriting"
             android:paddingStart="15dp"
-            android:paddingEnd="15dp"
             android:paddingTop="10dp"
+            android:paddingEnd="15dp"
             android:paddingBottom="10dp"
-            android:onClick="onClickGoToReviseWriting"/>
-
+            android:text="@string/writeItDown"
+            android:textAllCaps="false"
+            android:textSize="20sp" />
 
     </LinearLayout>
 

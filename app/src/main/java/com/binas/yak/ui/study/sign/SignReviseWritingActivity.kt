@@ -52,4 +52,6 @@ class SignReviseWritingActivity : AppCompatActivity() {
             mp.setOnCompletionListener { playing = false }
         }
     }
+
+    fun onClickGoNext(view: View) {}
 }

@@ -22,4 +22,6 @@ class ReviseWritingActivity : AppCompatActivity() {
     fun onClickBackButton(view: View) {
         onBackPressed()
     }
+
+    fun onClickGoNext(view: View) {}
 }
