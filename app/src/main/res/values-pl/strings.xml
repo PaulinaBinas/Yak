@@ -27,4 +27,7 @@
     <string name="writeSign">napisz znak</string>
     <string name="writeItDown">napisz słowo:</string>
     <string name="pronounceIt">przeczytaj na głos</string>
+    <string name="correct">DOBRZE</string>
+    <string name="incorrect">ŹLE</string>
+    <string name="visualizeMeaning">Przypomnij sobie znaczenie:</string>
 </resources>

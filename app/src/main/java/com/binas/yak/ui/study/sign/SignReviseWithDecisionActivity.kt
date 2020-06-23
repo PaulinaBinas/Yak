@@ -8,6 +8,8 @@ import android.os.Bundle
 import android.view.View
 import com.binas.yak.R
 import com.binas.yak.ui.settings.SettingsActivity
+import com.binas.yak.ui.study.CorrectActivity
+import com.binas.yak.ui.study.IncorrectActivity
 import kotlinx.android.synthetic.main.activity_sign_revise_with_decision.*
 
 class SignReviseWithDecisionActivity : AppCompatActivity() {
@@ -17,6 +19,8 @@ class SignReviseWithDecisionActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_revise_with_decision)
+        firstDecisionButton.setOnClickListener { goToCorrectScreen() }
+        secondDecisionButton.setOnClickListener { goToIncorrectScreen() }
     }
 
     override fun onStart() {
@@ -44,5 +48,17 @@ class SignReviseWithDecisionActivity : AppCompatActivity() {
             mp.setOnPreparedListener { mp.start() }
             mp.setOnCompletionListener { playing = false }
         }
+    }
+
+    private fun goToCorrectScreen() {
+        val intent = Intent(this, CorrectActivity::class.java)
+        startActivity(intent)
+        overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom)
+    }
+
+    private fun goToIncorrectScreen() {
+        val intent = Intent(this, IncorrectActivity::class.java)
+        startActivity(intent)
+        overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom)
     }
 }

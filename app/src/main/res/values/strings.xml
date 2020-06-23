@@ -27,4 +27,7 @@
     <string name="writeSign">write the sign down</string>
     <string name="writeItDown">write it down:</string>
     <string name="pronounceIt">pronounce it</string>
+    <string name="correct">CORRECT</string>
+    <string name="incorrect">INCORRECT</string>
+    <string name="visualizeMeaning">Visualize the meaning of:</string>
 </resources>
