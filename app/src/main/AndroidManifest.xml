@@ -80,7 +80,7 @@
             android:name=".ui.settings.SettingsActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.study.LearnNewSignActivity"
+            android:name=".ui.study.sign.LearnSignWritingActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.authentication.ResetPasswordActivity"

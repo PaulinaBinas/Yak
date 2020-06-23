@@ -8,7 +8,6 @@ import android.os.Bundle
 import android.view.View
 import com.binas.yak.R
 import com.binas.yak.ui.settings.SettingsActivity
-import com.binas.yak.ui.study.LearnNewSignActivity
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_sign_study_card.*
 import kotlinx.android.synthetic.main.activity_sign_study_card.imageFragment
@@ -36,7 +35,7 @@ class SignStudyCardActivity : AppCompatActivity() {
     }
 
     fun onClickGoToLearnNewSign(view: View) {
-        val intent: Intent = Intent(this, LearnNewSignActivity::class.java)
+        val intent: Intent = Intent(this, LearnSignWritingActivity::class.java)
         startActivity(intent)
         overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom)
     }

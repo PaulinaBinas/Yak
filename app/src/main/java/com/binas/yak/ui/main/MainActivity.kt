@@ -1,8 +1,6 @@
 package com.binas.yak.ui.main
 
-import android.content.Context
 import android.content.Intent
-import android.content.res.Configuration
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -10,11 +8,9 @@ import com.binas.yak.R
 import com.binas.yak.ui.achievements.AchievementsActivity
 import com.binas.yak.ui.authentication.SignupActivity
 import com.binas.yak.ui.studiedElements.StudiedElementsActivity
-import com.binas.yak.ui.study.LearnNewSignActivity
 import com.binas.yak.ui.study.StudyActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
