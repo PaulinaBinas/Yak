@@ -36,6 +36,9 @@ class SignReviseSoundActivity : AppCompatActivity() {
 
     fun onClickGoToPronounciationCheck(view: View) {
         val intent = Intent(this, PronounciationCheckActivity::class.java)
+        intent.putExtra("text", "ས (sa)")
+        intent.putExtra("image", "sa")
+        intent.putExtra("sound", "sa")
         startActivity(intent)
         overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom)
     }

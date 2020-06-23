@@ -15,11 +15,17 @@ import kotlinx.android.synthetic.main.fragment_image.*
 class PronounciationCheckActivity : AppCompatActivity() {
 
     private var playing: Boolean = false
+    private var text: String = ""
+    private var imageName: String = ""
+    private var soundName: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pronounciation_check)
-        loadImage()
+        text = intent.getStringExtra("text")
+        imageName = intent.getStringExtra("image")
+        soundName = intent.getStringExtra("sound")
+        loadImageAndText()
     }
 
     override fun onStart() {
@@ -27,10 +33,12 @@ class PronounciationCheckActivity : AppCompatActivity() {
         playSoundButton.callOnClick()
     }
 
-    fun loadImage() {
+    fun loadImageAndText() {
         Glide.with(baseContext)
-            .load(resources.getIdentifier("sa", "drawable", this.packageName))
+            .load(resources.getIdentifier(imageName, "drawable", this.packageName))
             .into(imageFragment.imageView)
+
+        textView.text = text
     }
 
     fun onClickSettingsButton(view: View) {
@@ -47,7 +55,8 @@ class PronounciationCheckActivity : AppCompatActivity() {
         if (!playing) {
             playing = true
             val mp: MediaPlayer = MediaPlayer()
-            val uri = Uri.parse("android.resource://" + packageName + "/" + R.raw.sa)
+            val uri = Uri.parse("android.resource://" + packageName + "/" +
+                    getResources().getIdentifier(soundName, "raw", getPackageName()))
             mp.setDataSource(this, uri)
             mp.prepare()
             mp.setOnPreparedListener { mp.start() }

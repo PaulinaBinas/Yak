@@ -31,7 +31,7 @@ class VocabularyReviseWritingActivity : AppCompatActivity() {
 
     private fun loadImage() {
         Glide.with(baseContext)
-            .load(resources.getIdentifier("img1", "drawable", this.packageName))
+            .load(resources.getIdentifier("read", "drawable", this.packageName))
             .into(imageFragment.imageView)
     }
 
