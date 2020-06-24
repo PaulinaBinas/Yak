@@ -14,6 +14,8 @@ import kotlinx.android.synthetic.main.activity_grammar_revise_writing.*
 class GrammarReviseWritingActivity : AppCompatActivity() {
 
     private var playing: Boolean = false
+    var sentence: String = "ཁོང་དེབ་ཀློག་"
+    var grammar: String = "གི་མི་འདུག"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,6 +29,8 @@ class GrammarReviseWritingActivity : AppCompatActivity() {
 
     fun onClickGoToReviseWriting(view: View) {
         val intent = Intent(this, ReviseWritingActivity::class.java)
+        intent.putExtra("sentence", sentence)
+        intent.putExtra("grammar", grammar)
         startActivity(intent)
         overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom)
     }

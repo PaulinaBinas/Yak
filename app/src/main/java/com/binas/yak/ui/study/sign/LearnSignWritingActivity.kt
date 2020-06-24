@@ -42,8 +42,5 @@ class LearnSignWritingActivity : AppCompatActivity() {
     }
 
     fun onClickGoNext(view: View) {
-        val intent = Intent(this, CompareWritingActivity::class.java)
-        startActivity(intent)
-        overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom)
     }
 }

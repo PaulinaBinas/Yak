@@ -14,6 +14,7 @@ import kotlinx.android.synthetic.main.activity_vocabulary_revise_writing.*
 class SignReviseWritingActivity : AppCompatActivity() {
 
     var playing: Boolean = false
+    var imageName: String = "sa"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,6 +28,7 @@ class SignReviseWritingActivity : AppCompatActivity() {
 
     fun onClickGoToReviseWriting(view: View) {
         val intent = Intent(this, ReviseWritingActivity::class.java)
+        intent.putExtra("image", imageName)
         startActivity(intent)
         overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom)
     }

@@ -17,6 +17,8 @@ import kotlinx.android.synthetic.main.fragment_image.*
 class VocabularyReviseWritingActivity : AppCompatActivity() {
 
     var playing: Boolean = false
+    var imageName: String = "read"
+    var word: String = "ཀློག་"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,12 +33,13 @@ class VocabularyReviseWritingActivity : AppCompatActivity() {
 
     private fun loadImage() {
         Glide.with(baseContext)
-            .load(resources.getIdentifier("read", "drawable", this.packageName))
+            .load(resources.getIdentifier(imageName, "drawable", this.packageName))
             .into(imageFragment.imageView)
     }
 
     fun onClickGoToReviseWriting(view: View) {
         val intent = Intent(this, ReviseWritingActivity::class.java)
+        intent.putExtra("word", word)
         startActivity(intent)
         overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom)
     }
