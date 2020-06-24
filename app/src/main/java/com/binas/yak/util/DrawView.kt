@@ -1,13 +1,11 @@
 package com.binas.yak.util
 
 import android.content.Context
-import android.graphics.Canvas
-import android.graphics.Color
-import android.graphics.Paint
-import android.graphics.Path
+import android.graphics.*
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
+
 
 class DrawView(context: Context, attrs: AttributeSet): View(context, attrs) {
 

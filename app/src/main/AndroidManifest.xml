@@ -10,7 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.study.MeaningCheckActivity"></activity>
+        <activity android:name=".ui.study.CompareWritingActivity"></activity>
+        <activity android:name=".ui.study.MeaningCheckActivity" />
         <activity android:name=".ui.study.IncorrectActivity" />
         <activity android:name=".ui.study.CorrectActivity" />
         <activity

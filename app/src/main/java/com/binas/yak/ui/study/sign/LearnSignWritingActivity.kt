@@ -1,14 +1,19 @@
 package com.binas.yak.ui.study.sign
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.graphics.Bitmap
+import android.graphics.Canvas
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import com.binas.yak.R
 import com.binas.yak.ui.settings.SettingsActivity
+import com.binas.yak.ui.study.CompareWritingActivity
 import com.bumptech.glide.Glide
-import kotlinx.android.synthetic.main.activity_sign_study_card.*
+import kotlinx.android.synthetic.main.activity_sign_study_card.imageFragment
+import kotlinx.android.synthetic.main.fragment_drawing.*
 import kotlinx.android.synthetic.main.fragment_image.*
+import java.io.ByteArrayOutputStream
 
 class LearnSignWritingActivity : AppCompatActivity() {
 
@@ -29,11 +34,28 @@ class LearnSignWritingActivity : AppCompatActivity() {
     fun onClickSettingsButton(view: View) {
         val intent = Intent(this, SettingsActivity::class.java)
         startActivity(intent)
+        overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom)
     }
 
     fun onClickBackButton(view: View) {
         onBackPressed()
     }
 
-    fun onClickGoNext(view: View) {}
+    fun onClickGoNext(view: View) {
+        val intent = Intent(this, CompareWritingActivity::class.java)
+        val stream = ByteArrayOutputStream()
+        viewToBitmap(draw_view)?.compress(Bitmap.CompressFormat.PNG, 100, stream)
+        val bytes: ByteArray = stream.toByteArray()
+        intent.putExtra("bitmap", bytes)
+        startActivity(intent)
+        overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom)
+    }
+
+    fun viewToBitmap(view: View): Bitmap? {
+        val bitmap =
+            Bitmap.createBitmap(view.width, view.height, Bitmap.Config.ARGB_8888)
+        val canvas = Canvas(bitmap)
+        view.draw(canvas)
+        return bitmap
+    }
 }
