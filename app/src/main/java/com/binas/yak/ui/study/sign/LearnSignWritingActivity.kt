@@ -43,19 +43,7 @@ class LearnSignWritingActivity : AppCompatActivity() {
 
     fun onClickGoNext(view: View) {
         val intent = Intent(this, CompareWritingActivity::class.java)
-        val stream = ByteArrayOutputStream()
-        viewToBitmap(draw_view)?.compress(Bitmap.CompressFormat.PNG, 100, stream)
-        val bytes: ByteArray = stream.toByteArray()
-        intent.putExtra("bitmap", bytes)
         startActivity(intent)
         overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom)
-    }
-
-    fun viewToBitmap(view: View): Bitmap? {
-        val bitmap =
-            Bitmap.createBitmap(view.width, view.height, Bitmap.Config.ARGB_8888)
-        val canvas = Canvas(bitmap)
-        view.draw(canvas)
-        return bitmap
     }
 }

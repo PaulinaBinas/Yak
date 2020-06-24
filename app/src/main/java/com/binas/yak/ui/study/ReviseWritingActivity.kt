@@ -1,11 +1,15 @@
 package com.binas.yak.ui.study
 
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.Canvas
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.binas.yak.R
 import com.binas.yak.ui.settings.SettingsActivity
+import kotlinx.android.synthetic.main.fragment_drawing.*
+import java.io.ByteArrayOutputStream
 
 class ReviseWritingActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,5 +27,21 @@ class ReviseWritingActivity : AppCompatActivity() {
         onBackPressed()
     }
 
-    fun onClickGoNext(view: View) {}
+    fun onClickGoNext(view: View) {
+        val intent = Intent(this, CompareWritingActivity::class.java)
+        val stream = ByteArrayOutputStream()
+        viewToBitmap(draw_view)?.compress(Bitmap.CompressFormat.PNG, 100, stream)
+        val bytes: ByteArray = stream.toByteArray()
+        intent.putExtra("bitmap", bytes)
+        startActivity(intent)
+        overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom)
+    }
+
+    fun viewToBitmap(view: View): Bitmap? {
+        val bitmap =
+            Bitmap.createBitmap(view.width, view.height, Bitmap.Config.ARGB_8888)
+        val canvas = Canvas(bitmap)
+        view.draw(canvas)
+        return bitmap
+    }
 }
