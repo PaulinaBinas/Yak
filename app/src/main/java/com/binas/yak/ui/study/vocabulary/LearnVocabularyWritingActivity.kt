@@ -1,4 +1,4 @@
-package com.binas.yak.ui.study
+package com.binas.yak.ui.study.vocabulary
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity

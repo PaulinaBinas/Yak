@@ -7,12 +7,11 @@ import android.os.Bundle
 import android.text.SpannableStringBuilder
 import android.view.View
 import androidx.core.text.color
-import androidx.core.text.underline
 import com.binas.yak.R
 import com.binas.yak.ui.settings.SettingsActivity
-import kotlinx.android.synthetic.main.activity_grammar_revise_sound.*
+import kotlinx.android.synthetic.main.activity_learn_grammar_writing.*
 
-class GrammarReviseSoundActivity : AppCompatActivity() {
+class LearnGrammarWritingActivity : AppCompatActivity() {
 
     private var sentenceStart: String = "ཁོང་དེབ་ཀློག་"
     private var grammar: String = "གི་མི་འདུག"
@@ -20,16 +19,18 @@ class GrammarReviseSoundActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_grammar_revise_sound)
+        setContentView(R.layout.activity_learn_grammar_writing)
         loadText()
     }
 
-    fun loadText() {
-        var text = SpannableStringBuilder()
+    private fun loadText() {
+        sentenceStart = intent.getStringExtra("sentenceStart")
+        sentenceEnd = intent.getStringExtra("sentenceEnd")
+        grammar = intent.getStringExtra("grammar")
+        sentenceTextView.text = SpannableStringBuilder()
             .append(sentenceStart)
-            .color(Color.rgb(100, 171, 113)) { underline { append(grammar) }}
+            .color(Color.rgb(100, 171, 113)) { append(grammar) }
             .append(sentenceEnd)
-        grammarTextView.text = text
     }
 
     fun onClickSettingsButton(view: View) {
@@ -42,12 +43,5 @@ class GrammarReviseSoundActivity : AppCompatActivity() {
         onBackPressed()
     }
 
-    fun onClickGoToPronounciationCheck(view: View) {
-        val intent = Intent(this, GrammarPronounciationCheckActivity::class.java)
-        intent.putExtra("sentence", sentenceStart)
-        intent.putExtra("grammar", grammar)
-        intent.putExtra("sound", "doesnt")
-        startActivity(intent)
-        overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom)
-    }
+    fun onClickGoNext(view: View) {}
 }
