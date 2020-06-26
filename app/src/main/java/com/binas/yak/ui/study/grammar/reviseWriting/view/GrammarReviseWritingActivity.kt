@@ -9,9 +9,16 @@ import android.view.View
 import com.binas.yak.R
 import com.binas.yak.ui.settings.view.SettingsActivity
 import com.binas.yak.ui.study.common.view.ReviseWritingActivity
+import com.binas.yak.ui.study.grammar.reviseWriting.interactor.GrammarReviseWritingInteractor
+import com.binas.yak.ui.study.grammar.reviseWriting.presenter.GrammarReviseWritingPresenter
 import kotlinx.android.synthetic.main.activity_grammar_revise_writing.*
+import javax.inject.Inject
 
 class GrammarReviseWritingActivity : AppCompatActivity() {
+
+    @Inject
+    internal lateinit var presenter: GrammarReviseWritingPresenter<GrammarReviseWritingView,
+            GrammarReviseWritingInteractor>
 
     private var playing: Boolean = false
     var sentence: String = "ཁོང་དེབ་ཀློག་"

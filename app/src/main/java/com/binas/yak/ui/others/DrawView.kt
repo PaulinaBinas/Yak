@@ -1,4 +1,4 @@
-package com.binas.yak.util
+package com.binas.yak.ui.others
 
 import android.content.Context
 import android.graphics.*
