@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/login_bg"
-    tools:context=".ui.studiedElements.StudiedElementDetailsActivity">
+    tools:context=".ui.studiedElements.view.StudiedElementDetailsActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -42,7 +42,7 @@
 
             <fragment
                 android:id="@+id/action_bar_fragment"
-                android:name="com.binas.yak.ui.main.ActionBar"
+                android:name="com.binas.yak.ui.main.view.ActionBar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"

@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/login_bg"
     android:weightSum="2"
-    tools:context=".ui.settings.SettingsActivity">
+    tools:context=".ui.settings.view.SettingsActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,7 +21,7 @@
 
             <fragment
                 android:id="@+id/fragment"
-                android:name="com.binas.yak.ui.main.TransparentActionBarFragment"
+                android:name="com.binas.yak.ui.main.view.TransparentActionBarFragment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"

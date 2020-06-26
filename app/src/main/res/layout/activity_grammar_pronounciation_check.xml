@@ -5,11 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.study.grammar.GrammarPronounciationCheckActivity">
+    tools:context=".ui.study.grammar.reviseSound.view.GrammarPronounciationCheckActivity">
 
     <fragment
         android:id="@+id/fragment"
-        android:name="com.binas.yak.ui.main.TransparentActionBarFragment"
+        android:name="com.binas.yak.ui.main.view.TransparentActionBarFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"

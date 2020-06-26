@@ -5,11 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.study.sign.SignStudyCardActivity">
+    tools:context=".ui.study.sign.learn.view.SignStudyCardActivity">
 
     <fragment
         android:id="@+id/fragment"
-        android:name="com.binas.yak.ui.main.TransparentActionBarFragment"
+        android:name="com.binas.yak.ui.main.view.TransparentActionBarFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,7 +24,7 @@
 
         <fragment
             android:id="@+id/imageFragment"
-            android:name="com.binas.yak.ui.studiedElements.ImageFragment"
+            android:name="com.binas.yak.ui.studiedElements.view.ImageFragment"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginStart="40dp"

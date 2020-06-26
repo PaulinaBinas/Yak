@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.study.CompareWritingActivity">
+    tools:context=".ui.study.common.view.CompareWritingActivity">
 
     <fragment
         android:id="@+id/fragment"
-        android:name="com.binas.yak.ui.main.TransparentActionBarFragment"
+        android:name="com.binas.yak.ui.main.view.TransparentActionBarFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
@@ -55,7 +55,7 @@
 
         <fragment
             android:id="@+id/imageFragmentWithReference"
-            android:name="com.binas.yak.ui.studiedElements.ImageFragment"
+            android:name="com.binas.yak.ui.studiedElements.view.ImageFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginStart="40dp"
@@ -67,7 +67,7 @@
 
         <fragment
             android:id="@+id/imageFragment"
-            android:name="com.binas.yak.ui.studiedElements.ImageFragment"
+            android:name="com.binas.yak.ui.studiedElements.view.ImageFragment"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1.4"

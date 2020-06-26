@@ -4,18 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.study.ReviseWritingActivity">
+    tools:context=".ui.study.common.view.ReviseWritingActivity">
 
     <fragment
         android:id="@+id/loggedInActionBar"
-        android:name="com.binas.yak.ui.main.TransparentActionBarFragment"
+        android:name="com.binas.yak.ui.main.view.TransparentActionBarFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"/>
 
     <fragment
         android:id="@+id/drawing_fragment"
-        android:name="com.binas.yak.ui.study.DrawingFragment"
+        android:name="com.binas.yak.ui.study.common.view.DrawingFragment"
         android:layout_marginTop="50dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.settings.ChangeLanguageActivity">
+    tools:context=".ui.settings.view.ChangeLanguageActivity">
 
     <fragment
-        android:name="com.binas.yak.ui.main.TransparentActionBarFragment"
+        android:name="com.binas.yak.ui.main.view.TransparentActionBarFragment"
         android:id="@+id/action_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

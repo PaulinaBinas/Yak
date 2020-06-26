@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/login_bg"
-    tools:context=".ui.studiedElements.StudiedElementsActivity">
+    tools:context=".ui.studiedElements.view.StudiedElementsActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,7 +15,7 @@
 
             <fragment
                 android:id="@+id/fragment"
-                android:name="com.binas.yak.ui.main.TransparentActionBarFragment"
+                android:name="com.binas.yak.ui.main.view.TransparentActionBarFragment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -113,7 +113,7 @@
 
                     <fragment
                         android:id="@+id/studiedElementsImage2"
-                        android:name="com.binas.yak.ui.studiedElements.ImageFragment"
+                        android:name="com.binas.yak.ui.studiedElements.view.ImageFragment"
                         android:layout_width="280dp"
                         android:layout_height="match_parent"
                         android:layout_marginTop="40dp"

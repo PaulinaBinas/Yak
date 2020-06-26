@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/login_bg"
     android:weightSum="2"
-    tools:context=".ui.authentication.AuthMenuActivity">
+    tools:context=".ui.authentication.view.AuthMenuActivity">
 
     <LinearLayout
         android:orientation="vertical"

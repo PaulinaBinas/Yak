@@ -10,88 +10,88 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.study.grammar.LearnGrammarWritingActivity"></activity>
-        <activity android:name=".ui.study.CompareWritingActivity" />
-        <activity android:name=".ui.study.MeaningCheckActivity" />
-        <activity android:name=".ui.study.IncorrectActivity" />
-        <activity android:name=".ui.study.CorrectActivity" />
+        <activity android:name=".ui.study.grammar.learn.view.LearnGrammarWritingActivity"></activity>
+        <activity android:name=".ui.study.common.view.CompareWritingActivity" />
+        <activity android:name=".ui.study.common.view.MeaningCheckActivity" />
+        <activity android:name=".ui.study.common.view.IncorrectActivity" />
+        <activity android:name=".ui.study.common.view.CorrectActivity" />
         <activity
-            android:name=".ui.study.grammar.GrammarPronounciationCheckActivity"
+            android:name=".ui.study.grammar.reviseSound.view.GrammarPronounciationCheckActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.study.PronounciationCheckActivity"
+            android:name=".ui.study.common.view.PronounciationCheckActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.study.ReviseWritingActivity"
+            android:name=".ui.study.common.view.ReviseWritingActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.study.vocabulary.LearnVocabularyWritingActivity"
+            android:name=".ui.study.vocabulary.learn.view.LearnVocabularyWritingActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.study.vocabulary.VocabularyReviseWritingActivity"
+            android:name=".ui.study.vocabulary.reviseWriting.view.VocabularyReviseWritingActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.study.vocabulary.VocabularyReviseSoundActivity"
+            android:name=".ui.study.vocabulary.reviseSound.view.VocabularyReviseSoundActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.study.vocabulary.VocabularyReviseMeaningActivity"
+            android:name=".ui.study.vocabulary.reviseMeaning.view.VocabularyReviseMeaningActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.study.grammar.GrammarReviseWritingActivity"
+            android:name=".ui.study.grammar.reviseWriting.view.GrammarReviseWritingActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.study.grammar.GrammarReviseSoundActivity"
+            android:name=".ui.study.grammar.reviseSound.view.GrammarReviseSoundActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.study.grammar.GrammarStudyCardActivity"
+            android:name=".ui.study.grammar.learn.view.GrammarStudyCardActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.study.vocabulary.VocabularyStudyCardActivity"
+            android:name=".ui.study.vocabulary.learn.view.VocabularyStudyCardActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.study.sign.SignReviseWithDecisionActivity"
+            android:name=".ui.study.sign.reviseWithDecision.view.SignReviseWithDecisionActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.study.sign.SignReviseWritingActivity"
+            android:name=".ui.study.sign.reviseWriting.view.SignReviseWritingActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.study.sign.SignReviseSoundActivity"
+            android:name=".ui.study.sign.reviseSound.view.SignReviseSoundActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.study.sign.SignStudyCardActivity"
+            android:name=".ui.study.sign.learn.view.SignStudyCardActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.achievements.AchievementsActivity"
+            android:name=".ui.achievements.view.AchievementsActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.studiedElements.CalendarActivity"
+            android:name=".ui.studiedElements.view.CalendarActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.studiedElements.StudiedElementDetailsActivity"
+            android:name=".ui.studiedElements.view.StudiedElementDetailsActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.studiedElements.StudiedElementsActivity"
+            android:name=".ui.studiedElements.view.StudiedElementsActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.settings.ChangePasswordActivity"
+            android:name=".ui.settings.view.ChangePasswordActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.settings.ChangeLanguageActivity"
+            android:name=".ui.settings.view.ChangeLanguageActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.settings.SettingsActivity"
+            android:name=".ui.settings.view.SettingsActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.study.sign.LearnSignWritingActivity"
+            android:name=".ui.study.sign.learn.view.LearnSignWritingActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.authentication.ResetPasswordActivity"
+            android:name=".ui.authentication.view.ResetPasswordActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.authentication.AuthMenuActivity"
+            android:name=".ui.authentication.view.AuthMenuActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.main.SplashActivity"
+            android:name=".ui.main.view.SplashActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -100,16 +100,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.study.StudyActivity"
+            android:name=".ui.study.common.view.StudyActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.authentication.LoginActivity"
+            android:name=".ui.authentication.view.LoginActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.authentication.SignupActivity"
+            android:name=".ui.authentication.view.SignupActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.main.MainActivity"
+            android:name=".ui.main.view.MainActivity"
             android:screenOrientation="portrait" />
     </application>
 
