@@ -7,11 +7,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.binas.yak.R
+import com.binas.yak.ui.base.view.BaseActivity
+import com.binas.yak.ui.base.view.BaseView
 import com.binas.yak.ui.settings.view.SettingsActivity
 import com.binas.yak.ui.study.common.view.MeaningCheckActivity
 import kotlinx.android.synthetic.main.activity_vocabulary_revise_meaning.*
 
-class VocabularyReviseMeaningActivity : AppCompatActivity() {
+class VocabularyReviseMeaningActivity : BaseActivity(), VocabularyReviseMeaningView {
 
     private var playing: Boolean = false
     private var soundName: String = "read"

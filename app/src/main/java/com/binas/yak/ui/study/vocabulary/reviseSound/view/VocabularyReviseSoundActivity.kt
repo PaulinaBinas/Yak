@@ -1,17 +1,17 @@
 package com.binas.yak.ui.study.vocabulary.reviseSound.view
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.binas.yak.R
+import com.binas.yak.ui.base.view.BaseActivity
 import com.binas.yak.ui.settings.view.SettingsActivity
 import com.binas.yak.ui.study.common.view.PronounciationCheckActivity
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_vocabulary_revise_sound.*
 import kotlinx.android.synthetic.main.fragment_image.*
 
-class VocabularyReviseSoundActivity : AppCompatActivity() {
+class VocabularyReviseSoundActivity : BaseActivity(), VocabularyReviseSoundView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_vocabulary_revise_sound)
