@@ -1,6 +1,6 @@
 package com.binas.yak.ui.achievements.interactor
 
-import com.binas.yak.ui.base.interactor.BaseInteractor
+import com.binas.yak.ui.base.interactor.Interactor
 
-interface AchievementsInteractor: BaseInteractor {
+interface AchievementsInteractor: Interactor {
 }

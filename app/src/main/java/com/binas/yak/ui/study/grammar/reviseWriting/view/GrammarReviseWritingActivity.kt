@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.binas.yak.R
+import com.binas.yak.ui.base.view.BaseActivity
 import com.binas.yak.ui.settings.view.SettingsActivity
 import com.binas.yak.ui.study.common.view.ReviseWritingActivity
 import com.binas.yak.ui.study.grammar.reviseWriting.interactor.GrammarReviseWritingInteractor
@@ -14,7 +15,7 @@ import com.binas.yak.ui.study.grammar.reviseWriting.presenter.GrammarReviseWriti
 import kotlinx.android.synthetic.main.activity_grammar_revise_writing.*
 import javax.inject.Inject
 
-class GrammarReviseWritingActivity : AppCompatActivity() {
+class GrammarReviseWritingActivity : BaseActivity(), GrammarReviseWritingView {
 
     @Inject
     internal lateinit var presenter: GrammarReviseWritingPresenter<GrammarReviseWritingView,

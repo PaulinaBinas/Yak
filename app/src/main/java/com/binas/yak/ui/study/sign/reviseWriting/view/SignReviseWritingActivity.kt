@@ -7,11 +7,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.binas.yak.R
+import com.binas.yak.ui.base.view.BaseActivity
 import com.binas.yak.ui.settings.view.SettingsActivity
 import com.binas.yak.ui.study.common.view.ReviseWritingActivity
 import kotlinx.android.synthetic.main.activity_vocabulary_revise_writing.*
 
-class SignReviseWritingActivity : AppCompatActivity() {
+class SignReviseWritingActivity : BaseActivity(), SignReviseWritingView {
 
     var playing: Boolean = false
     var imageName: String = "sa"
