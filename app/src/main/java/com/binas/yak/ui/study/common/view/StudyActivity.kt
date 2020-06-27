@@ -15,7 +15,7 @@ import com.binas.yak.ui.study.sign.learn.view.SignStudyCardActivity
 import com.binas.yak.ui.study.vocabulary.reviseMeaning.view.VocabularyReviseMeaningActivity
 import com.binas.yak.ui.study.vocabulary.reviseSound.view.VocabularyReviseSoundActivity
 import com.binas.yak.ui.study.vocabulary.reviseWriting.view.VocabularyReviseWritingActivity
-import com.binas.yak.ui.study.vocabulary.learn.view.VocabularyStudyCardActivity
+import com.binas.yak.ui.study.vocabulary.learn.studyCard.view.VocabularyStudyCardActivity
 
 class StudyActivity : AppCompatActivity() {
 

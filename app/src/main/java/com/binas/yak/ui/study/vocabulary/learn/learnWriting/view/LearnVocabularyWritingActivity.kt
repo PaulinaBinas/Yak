@@ -1,13 +1,15 @@
-package com.binas.yak.ui.study.vocabulary.learn.view
+package com.binas.yak.ui.study.vocabulary.learn.learnWriting.view
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.binas.yak.R
+import com.binas.yak.ui.base.view.BaseActivity
+import com.binas.yak.ui.base.view.BaseView
 import com.binas.yak.ui.settings.view.SettingsActivity
 
-class LearnVocabularyWritingActivity : AppCompatActivity() {
+class LearnVocabularyWritingActivity : BaseActivity(), LearnVocabularyWritingView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_learn_vocabulary_writing)

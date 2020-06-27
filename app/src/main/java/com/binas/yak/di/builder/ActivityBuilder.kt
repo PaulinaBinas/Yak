@@ -10,6 +10,10 @@ import com.binas.yak.ui.study.sign.reviseWithDecision.SignReviseWithDecisionModu
 import com.binas.yak.ui.study.sign.reviseWithDecision.view.SignReviseWithDecisionActivity
 import com.binas.yak.ui.study.sign.reviseWriting.SignReviseWritingModule
 import com.binas.yak.ui.study.sign.reviseWriting.view.SignReviseWritingActivity
+import com.binas.yak.ui.study.vocabulary.learn.learnWriting.LearnVocabularyWritingModule
+import com.binas.yak.ui.study.vocabulary.learn.learnWriting.view.LearnVocabularyWritingActivity
+import com.binas.yak.ui.study.vocabulary.learn.studyCard.VocabularyStudyCardModule
+import com.binas.yak.ui.study.vocabulary.learn.studyCard.view.VocabularyStudyCardActivity
 import com.binas.yak.ui.study.vocabulary.reviseMeaning.VocabularyReviseMeaningModule
 import com.binas.yak.ui.study.vocabulary.reviseMeaning.view.VocabularyReviseMeaningActivity
 import com.binas.yak.ui.study.vocabulary.reviseSound.VocabularyReviseSoundModule
@@ -46,4 +50,9 @@ abstract class ActivityBuilder {
     @ContributesAndroidInjector(modules = [(VocabularyReviseWritingModule::class)])
     abstract fun bindVocabularyReviseWritingActivity(): VocabularyReviseWritingActivity
 
+    @ContributesAndroidInjector(modules = [(LearnVocabularyWritingModule::class)])
+    abstract fun bindLearnVocabularyWritingActivity(): LearnVocabularyWritingActivity
+
+    @ContributesAndroidInjector(modules = [(VocabularyStudyCardModule::class)])
+    abstract fun bindVocabularyStudyCardActivity(): VocabularyStudyCardActivity
 }

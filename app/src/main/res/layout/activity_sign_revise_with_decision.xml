@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.study.vocabulary.learn.view.VocabularyStudyCardActivity">
+    tools:context=".ui.study.vocabulary.learn.studyCard.view.VocabularyStudyCardActivity">
 
     <fragment
         android:id="@+id/fragment"
