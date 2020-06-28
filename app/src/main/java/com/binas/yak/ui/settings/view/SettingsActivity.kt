@@ -8,7 +8,7 @@ import com.binas.yak.ui.authentication.authMenu.view.AuthMenuActivity
 import com.binas.yak.ui.base.view.BaseActivity
 import com.binas.yak.ui.base.view.BaseView
 import com.binas.yak.ui.settings.changeLanguage.view.ChangeLanguageActivity
-import com.binas.yak.ui.settings.changePassword.ChangePasswordActivity
+import com.binas.yak.ui.settings.changePassword.view.ChangePasswordActivity
 import com.google.firebase.auth.FirebaseAuth
 
 class SettingsActivity : BaseActivity(), BaseView {

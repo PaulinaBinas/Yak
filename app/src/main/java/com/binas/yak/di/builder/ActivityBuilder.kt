@@ -17,6 +17,8 @@ import com.binas.yak.ui.main.view.MainActivity
 import com.binas.yak.ui.settings.SettingsModule
 import com.binas.yak.ui.settings.changeLanguage.ChangeLanguageModule
 import com.binas.yak.ui.settings.changeLanguage.view.ChangeLanguageActivity
+import com.binas.yak.ui.settings.changePassword.ChangePasswordModule
+import com.binas.yak.ui.settings.changePassword.view.ChangePasswordActivity
 import com.binas.yak.ui.settings.view.SettingsActivity
 import com.binas.yak.ui.study.grammar.reviseWriting.GrammarReviseWritingModule
 import com.binas.yak.ui.study.grammar.reviseWriting.view.GrammarReviseWritingActivity
@@ -95,4 +97,7 @@ abstract class ActivityBuilder {
 
     @ContributesAndroidInjector(modules = [(ChangeLanguageModule::class)])
     abstract fun bindChangeLanguageActivity(): ChangeLanguageActivity
+
+    @ContributesAndroidInjector(modules = [(ChangePasswordModule::class)])
+    abstract fun bindChangePasswordActivity(): ChangePasswordActivity
 }
