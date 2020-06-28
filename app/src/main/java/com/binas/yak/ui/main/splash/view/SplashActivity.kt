@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import com.binas.yak.R
-import com.binas.yak.ui.authentication.menu.AuthMenuActivity
+import com.binas.yak.ui.authentication.authMenu.view.AuthMenuActivity
 import com.binas.yak.ui.base.view.BaseActivity
 import com.binas.yak.ui.main.view.MainActivity
 import com.google.firebase.auth.FirebaseAuth

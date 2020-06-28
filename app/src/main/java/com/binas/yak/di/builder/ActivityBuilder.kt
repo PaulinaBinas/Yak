@@ -2,6 +2,8 @@ package com.binas.yak.di.builder
 
 import com.binas.yak.ui.achievements.AchievementsActivityModule
 import com.binas.yak.ui.achievements.view.AchievementsActivity
+import com.binas.yak.ui.authentication.authMenu.AuthMenuModule
+import com.binas.yak.ui.authentication.authMenu.view.AuthMenuActivity
 import com.binas.yak.ui.authentication.login.LoginModule
 import com.binas.yak.ui.authentication.login.view.LoginActivity
 import com.binas.yak.ui.main.MainModule
@@ -70,4 +72,7 @@ abstract class ActivityBuilder {
 
     @ContributesAndroidInjector(modules = [(LoginModule::class)])
     abstract fun bindLoginActitivy(): LoginActivity
+
+    @ContributesAndroidInjector(modules = [(AuthMenuModule::class)])
+    abstract fun bindAuthMenuActivity(): AuthMenuActivity
 }

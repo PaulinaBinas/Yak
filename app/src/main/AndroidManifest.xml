@@ -88,7 +88,7 @@
             android:name=".ui.authentication.resetPassword.ResetPasswordActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.authentication.menu.AuthMenuActivity"
+            android:name=".ui.authentication.authMenu.view.AuthMenuActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.main.splash.view.SplashActivity"

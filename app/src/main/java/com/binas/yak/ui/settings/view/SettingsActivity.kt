@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.binas.yak.R
-import com.binas.yak.ui.authentication.menu.AuthMenuActivity
+import com.binas.yak.ui.authentication.authMenu.view.AuthMenuActivity
 import com.google.firebase.auth.FirebaseAuth
 
 class SettingsActivity : AppCompatActivity() {
