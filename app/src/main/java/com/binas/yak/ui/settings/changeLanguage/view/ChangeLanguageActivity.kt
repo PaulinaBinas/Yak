@@ -1,15 +1,16 @@
-package com.binas.yak.ui.settings.changeLanguage
+package com.binas.yak.ui.settings.changeLanguage.view
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.binas.yak.R
+import com.binas.yak.ui.base.view.BaseActivity
 import com.binas.yak.ui.main.view.MainActivity
 import com.binas.yak.ui.settings.view.SettingsActivity
 import com.yariksoffice.lingver.Lingver
 
-class ChangeLanguageActivity : AppCompatActivity() {
+class ChangeLanguageActivity : BaseActivity(), ChangeLanguageView {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

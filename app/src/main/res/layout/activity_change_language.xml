@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.settings.changeLanguage.ChangeLanguageActivity">
+    tools:context=".ui.settings.changeLanguage.view.ChangeLanguageActivity">
 
     <fragment
         android:name="com.binas.yak.ui.main.view.TransparentActionBarFragment"

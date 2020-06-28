@@ -1,14 +1,13 @@
 package com.binas.yak.ui.settings.view
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.binas.yak.R
 import com.binas.yak.ui.authentication.authMenu.view.AuthMenuActivity
 import com.binas.yak.ui.base.view.BaseActivity
 import com.binas.yak.ui.base.view.BaseView
-import com.binas.yak.ui.settings.changeLanguage.ChangeLanguageActivity
+import com.binas.yak.ui.settings.changeLanguage.view.ChangeLanguageActivity
 import com.binas.yak.ui.settings.changePassword.ChangePasswordActivity
 import com.google.firebase.auth.FirebaseAuth
 
