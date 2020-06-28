@@ -7,13 +7,14 @@ import androidx.appcompat.app.AppCompatActivity
 import com.binas.yak.R
 import com.binas.yak.ui.achievements.view.AchievementsActivity
 import com.binas.yak.ui.authentication.view.SignupActivity
+import com.binas.yak.ui.base.view.BaseActivity
 import com.binas.yak.ui.studiedElements.view.StudiedElementsActivity
 import com.binas.yak.ui.study.common.view.StudyActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity(), MainView {
 
     private lateinit var mAuth: FirebaseAuth
 
