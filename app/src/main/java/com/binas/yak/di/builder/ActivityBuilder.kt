@@ -14,6 +14,8 @@ import com.binas.yak.ui.main.MainModule
 import com.binas.yak.ui.main.splash.SplashModule
 import com.binas.yak.ui.main.splash.view.SplashActivity
 import com.binas.yak.ui.main.view.MainActivity
+import com.binas.yak.ui.settings.SettingsModule
+import com.binas.yak.ui.settings.view.SettingsActivity
 import com.binas.yak.ui.study.grammar.reviseWriting.GrammarReviseWritingModule
 import com.binas.yak.ui.study.grammar.reviseWriting.view.GrammarReviseWritingActivity
 import com.binas.yak.ui.study.sign.reviseSound.SignReviseSoundModule
@@ -85,4 +87,7 @@ abstract class ActivityBuilder {
 
     @ContributesAndroidInjector(modules = [(SignupModule::class)])
     abstract fun bindSignupActivity(): SignupActivity
+
+    @ContributesAndroidInjector(modules = [(SettingsModule::class)])
+    abstract fun bindSettingsActivity(): SettingsActivity
 }

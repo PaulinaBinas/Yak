@@ -1,4 +1,4 @@
-package com.binas.yak.ui.settings.view
+package com.binas.yak.ui.settings.changeLanguage
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,6 +6,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.binas.yak.R
 import com.binas.yak.ui.main.view.MainActivity
+import com.binas.yak.ui.settings.view.SettingsActivity
 import com.yariksoffice.lingver.Lingver
 
 class ChangeLanguageActivity : AppCompatActivity() {

@@ -1,4 +1,4 @@
-package com.binas.yak.ui.settings.view
+package com.binas.yak.ui.settings.changePassword
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.binas.yak.R
+import com.binas.yak.ui.settings.view.SettingsActivity
 import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_change_password.*

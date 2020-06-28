@@ -73,10 +73,10 @@
             android:name=".ui.studiedElements.view.StudiedElementsActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.settings.view.ChangePasswordActivity"
+            android:name=".ui.settings.changePassword.ChangePasswordActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.settings.view.ChangeLanguageActivity"
+            android:name=".ui.settings.changeLanguage.ChangeLanguageActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.settings.view.SettingsActivity"
