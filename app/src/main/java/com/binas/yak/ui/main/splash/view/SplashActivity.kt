@@ -1,11 +1,10 @@
 package com.binas.yak.ui.main.splash.view
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import com.binas.yak.R
-import com.binas.yak.ui.authentication.view.AuthMenuActivity
+import com.binas.yak.ui.authentication.menu.AuthMenuActivity
 import com.binas.yak.ui.base.view.BaseActivity
 import com.binas.yak.ui.main.view.MainActivity
 import com.google.firebase.auth.FirebaseAuth

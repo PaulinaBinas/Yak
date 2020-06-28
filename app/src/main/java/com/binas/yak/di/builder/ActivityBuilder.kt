@@ -2,6 +2,8 @@ package com.binas.yak.di.builder
 
 import com.binas.yak.ui.achievements.AchievementsActivityModule
 import com.binas.yak.ui.achievements.view.AchievementsActivity
+import com.binas.yak.ui.authentication.login.LoginModule
+import com.binas.yak.ui.authentication.login.view.LoginActivity
 import com.binas.yak.ui.main.MainModule
 import com.binas.yak.ui.main.splash.SplashModule
 import com.binas.yak.ui.main.splash.view.SplashActivity
@@ -65,4 +67,7 @@ abstract class ActivityBuilder {
 
     @ContributesAndroidInjector(modules = [(MainModule::class)])
     abstract fun bindMainActivity(): MainActivity
+
+    @ContributesAndroidInjector(modules = [(LoginModule::class)])
+    abstract fun bindLoginActitivy(): LoginActivity
 }

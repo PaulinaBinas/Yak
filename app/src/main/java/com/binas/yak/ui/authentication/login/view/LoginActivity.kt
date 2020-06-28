@@ -1,17 +1,20 @@
-package com.binas.yak.ui.authentication.view
+package com.binas.yak.ui.authentication.login.view
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.BaseAdapter
 import android.widget.Toast
 import com.binas.yak.ui.main.view.MainActivity
 import com.binas.yak.R
+import com.binas.yak.ui.authentication.resetPassword.ResetPasswordActivity
+import com.binas.yak.ui.base.view.BaseActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.activity_login.*
 
-class LoginActivity : AppCompatActivity() {
+class LoginActivity : BaseActivity(), LoginView {
 
     private lateinit var mAuth: FirebaseAuth
 

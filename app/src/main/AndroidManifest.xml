@@ -85,10 +85,10 @@
             android:name=".ui.study.sign.learn.view.LearnSignWritingActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.authentication.view.ResetPasswordActivity"
+            android:name=".ui.authentication.resetPassword.ResetPasswordActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.authentication.view.AuthMenuActivity"
+            android:name=".ui.authentication.menu.AuthMenuActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.main.splash.view.SplashActivity"
@@ -103,10 +103,10 @@
             android:name=".ui.study.common.view.StudyActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.authentication.view.LoginActivity"
+            android:name=".ui.authentication.login.view.LoginActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.authentication.view.SignupActivity"
+            android:name=".ui.authentication.signup.SignupActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.main.view.MainActivity"

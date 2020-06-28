@@ -1,4 +1,4 @@
-package com.binas.yak.ui.authentication.view
+package com.binas.yak.ui.authentication.signup
 
 import android.content.Intent
 import android.os.Bundle

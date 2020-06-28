@@ -1,10 +1,11 @@
-package com.binas.yak.ui.authentication.view
+package com.binas.yak.ui.authentication.resetPassword
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.binas.yak.R
+import com.binas.yak.ui.authentication.login.view.LoginActivity
 
 class ResetPasswordActivity : AppCompatActivity() {
 
