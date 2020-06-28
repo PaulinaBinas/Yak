@@ -2,6 +2,8 @@ package com.binas.yak.di.builder
 
 import com.binas.yak.ui.achievements.AchievementsActivityModule
 import com.binas.yak.ui.achievements.view.AchievementsActivity
+import com.binas.yak.ui.main.splash.SplashModule
+import com.binas.yak.ui.main.splash.view.SplashActivity
 import com.binas.yak.ui.study.grammar.reviseWriting.GrammarReviseWritingModule
 import com.binas.yak.ui.study.grammar.reviseWriting.view.GrammarReviseWritingActivity
 import com.binas.yak.ui.study.sign.reviseSound.SignReviseSoundModule
@@ -55,4 +57,7 @@ abstract class ActivityBuilder {
 
     @ContributesAndroidInjector(modules = [(VocabularyStudyCardModule::class)])
     abstract fun bindVocabularyStudyCardActivity(): VocabularyStudyCardActivity
+
+    @ContributesAndroidInjector(modules = [(SplashModule::class)])
+    abstract fun bindSplashActivity(): SplashActivity
 }

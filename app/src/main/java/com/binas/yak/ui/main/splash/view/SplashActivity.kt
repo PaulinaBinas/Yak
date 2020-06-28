@@ -1,4 +1,4 @@
-package com.binas.yak.ui.main.view
+package com.binas.yak.ui.main.splash.view
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,10 +6,12 @@ import android.os.Bundle
 import android.os.Handler
 import com.binas.yak.R
 import com.binas.yak.ui.authentication.view.AuthMenuActivity
+import com.binas.yak.ui.base.view.BaseActivity
+import com.binas.yak.ui.main.view.MainActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 
-class SplashActivity : AppCompatActivity() {
+class SplashActivity : BaseActivity(), SplashView {
 
     private val SPLASH_SCREEN_TIME: Long = 1500;
 

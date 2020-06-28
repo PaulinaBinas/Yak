@@ -91,7 +91,7 @@
             android:name=".ui.authentication.view.AuthMenuActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.main.view.SplashActivity"
+            android:name=".ui.main.splash.view.SplashActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
