@@ -85,7 +85,7 @@
             android:name=".ui.study.sign.learn.view.LearnSignWritingActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.authentication.resetPassword.ResetPasswordActivity"
+            android:name=".ui.authentication.resetPassword.view.ResetPasswordActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.authentication.authMenu.view.AuthMenuActivity"

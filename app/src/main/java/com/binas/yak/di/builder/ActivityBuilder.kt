@@ -6,6 +6,8 @@ import com.binas.yak.ui.authentication.authMenu.AuthMenuModule
 import com.binas.yak.ui.authentication.authMenu.view.AuthMenuActivity
 import com.binas.yak.ui.authentication.login.LoginModule
 import com.binas.yak.ui.authentication.login.view.LoginActivity
+import com.binas.yak.ui.authentication.resetPassword.ResetPasswordModule
+import com.binas.yak.ui.authentication.resetPassword.view.ResetPasswordActivity
 import com.binas.yak.ui.main.MainModule
 import com.binas.yak.ui.main.splash.SplashModule
 import com.binas.yak.ui.main.splash.view.SplashActivity
@@ -75,4 +77,7 @@ abstract class ActivityBuilder {
 
     @ContributesAndroidInjector(modules = [(AuthMenuModule::class)])
     abstract fun bindAuthMenuActivity(): AuthMenuActivity
+
+    @ContributesAndroidInjector(modules = [(ResetPasswordModule::class)])
+    abstract fun bindResetPasswordActivity(): ResetPasswordActivity
 }
