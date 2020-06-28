@@ -106,7 +106,7 @@
             android:name=".ui.authentication.login.view.LoginActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.authentication.signup.SignupActivity"
+            android:name=".ui.authentication.signup.view.SignupActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.main.view.MainActivity"

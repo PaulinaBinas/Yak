@@ -1,4 +1,4 @@
-package com.binas.yak.ui.authentication.signup
+package com.binas.yak.ui.authentication.signup.view
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,12 +6,13 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.binas.yak.R
+import com.binas.yak.ui.base.view.BaseActivity
 import com.binas.yak.ui.main.view.MainActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.activity_signup.*
 
-class SignupActivity : AppCompatActivity() {
+class SignupActivity : BaseActivity(), SignupView {
 
     private lateinit var mAuth: FirebaseAuth
 

@@ -1,12 +1,11 @@
 package com.binas.yak.ui.authentication.authMenu.view
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.binas.yak.R
 import com.binas.yak.ui.authentication.login.view.LoginActivity
-import com.binas.yak.ui.authentication.signup.SignupActivity
+import com.binas.yak.ui.authentication.signup.view.SignupActivity
 import com.binas.yak.ui.base.view.BaseActivity
 
 class AuthMenuActivity : BaseActivity(), AuthMenuView {

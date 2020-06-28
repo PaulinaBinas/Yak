@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.view.View
 import com.binas.yak.R
 import com.binas.yak.ui.achievements.view.AchievementsActivity
-import com.binas.yak.ui.authentication.signup.SignupActivity
+import com.binas.yak.ui.authentication.signup.view.SignupActivity
 import com.binas.yak.ui.base.view.BaseActivity
 import com.binas.yak.ui.studiedElements.view.StudiedElementsActivity
 import com.binas.yak.ui.study.common.view.StudyActivity
