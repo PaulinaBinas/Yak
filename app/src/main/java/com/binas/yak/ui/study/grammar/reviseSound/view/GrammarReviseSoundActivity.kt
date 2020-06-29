@@ -9,11 +9,12 @@ import android.view.View
 import androidx.core.text.color
 import androidx.core.text.underline
 import com.binas.yak.R
+import com.binas.yak.ui.base.view.BaseActivity
 import com.binas.yak.ui.settings.view.SettingsActivity
 import com.binas.yak.ui.study.grammar.reviseSound.pronounciationCheck.view.GrammarPronounciationCheckActivity
 import kotlinx.android.synthetic.main.activity_grammar_revise_sound.*
 
-class GrammarReviseSoundActivity : AppCompatActivity() {
+class GrammarReviseSoundActivity : BaseActivity(), GrammarReviseSoundView {
 
     private var sentenceStart: String = "ཁོང་དེབ་ཀློག་"
     private var grammar: String = "གི་མི་འདུག"

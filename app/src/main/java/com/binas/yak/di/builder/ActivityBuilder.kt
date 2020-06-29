@@ -30,6 +30,10 @@ import com.binas.yak.ui.study.grammar.learn.learnWriting.LearnGrammarWritingModu
 import com.binas.yak.ui.study.grammar.learn.learnWriting.view.LearnGrammarWritingActivity
 import com.binas.yak.ui.study.grammar.learn.studyCard.GrammarStudyCardModule
 import com.binas.yak.ui.study.grammar.learn.studyCard.view.GrammarStudyCardActivity
+import com.binas.yak.ui.study.grammar.reviseSound.GrammarReviseSoundModule
+import com.binas.yak.ui.study.grammar.reviseSound.pronounciationCheck.GrammarPronounciationCheckModule
+import com.binas.yak.ui.study.grammar.reviseSound.pronounciationCheck.view.GrammarPronounciationCheckActivity
+import com.binas.yak.ui.study.grammar.reviseSound.view.GrammarReviseSoundActivity
 import com.binas.yak.ui.study.grammar.reviseWriting.GrammarReviseWritingModule
 import com.binas.yak.ui.study.grammar.reviseWriting.view.GrammarReviseWritingActivity
 import com.binas.yak.ui.study.sign.reviseSound.SignReviseSoundModule
@@ -125,4 +129,10 @@ abstract class ActivityBuilder {
 
     @ContributesAndroidInjector(modules = [(GrammarStudyCardModule::class)])
     abstract fun bindGrammarStudyCardActivity(): GrammarStudyCardActivity
+
+    @ContributesAndroidInjector(modules = [(GrammarPronounciationCheckModule::class)])
+    abstract fun bindGrammarPronounciationCheckActivity(): GrammarPronounciationCheckActivity
+
+    @ContributesAndroidInjector(modules = [(GrammarReviseSoundModule::class)])
+    abstract fun bindGrammarReviseSoundActivity(): GrammarReviseSoundActivity
 }

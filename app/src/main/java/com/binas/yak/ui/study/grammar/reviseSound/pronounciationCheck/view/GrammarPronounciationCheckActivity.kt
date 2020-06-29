@@ -11,10 +11,11 @@ import android.view.View
 import androidx.core.text.color
 import androidx.core.text.underline
 import com.binas.yak.R
+import com.binas.yak.ui.base.view.BaseActivity
 import com.binas.yak.ui.settings.view.SettingsActivity
 import kotlinx.android.synthetic.main.activity_grammar_pronounciation_check.*
 
-class GrammarPronounciationCheckActivity : AppCompatActivity() {
+class GrammarPronounciationCheckActivity : BaseActivity(), GrammarPronounciationCheckView {
 
     private var sentence: String = ""
     private var grammar: String = ""
