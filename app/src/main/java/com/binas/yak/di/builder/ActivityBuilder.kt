@@ -14,6 +14,9 @@ import com.binas.yak.ui.main.MainModule
 import com.binas.yak.ui.main.splash.SplashModule
 import com.binas.yak.ui.main.splash.view.SplashActivity
 import com.binas.yak.ui.main.view.MainActivity
+import com.binas.yak.ui.others.drawing.DrawingProvider
+import com.binas.yak.ui.others.drawing.view.DrawingFragment
+import com.binas.yak.ui.others.image.ImageProvider
 import com.binas.yak.ui.settings.SettingsModule
 import com.binas.yak.ui.settings.changeLanguage.ChangeLanguageModule
 import com.binas.yak.ui.settings.changeLanguage.view.ChangeLanguageActivity
@@ -86,22 +89,22 @@ abstract class ActivityBuilder {
     @ContributesAndroidInjector(modules= [(SignReviseWithDecisionModule::class)])
     abstract fun bindSignReviseWithDecisionActivity(): SignReviseWithDecisionActivity
 
-    @ContributesAndroidInjector(modules = [(SignReviseSoundModule::class)])
+    @ContributesAndroidInjector(modules = [(SignReviseSoundModule::class), (ImageProvider::class)])
     abstract fun bindSignReviseSoundActivity(): SignReviseSoundActivity
 
     @ContributesAndroidInjector(modules = [(VocabularyReviseMeaningModule::class)])
     abstract fun bindVocabularyReviseMeaningActivity(): VocabularyReviseMeaningActivity
 
-    @ContributesAndroidInjector(modules = [(VocabularyReviseSoundModule::class)])
+    @ContributesAndroidInjector(modules = [(VocabularyReviseSoundModule::class), (ImageProvider::class)])
     abstract fun bindVocabularyReviseSoundActivity(): VocabularyReviseSoundActivity
 
-    @ContributesAndroidInjector(modules = [(VocabularyReviseWritingModule::class)])
+    @ContributesAndroidInjector(modules = [(VocabularyReviseWritingModule::class), (ImageProvider::class)])
     abstract fun bindVocabularyReviseWritingActivity(): VocabularyReviseWritingActivity
 
-    @ContributesAndroidInjector(modules = [(LearnVocabularyWritingModule::class)])
+    @ContributesAndroidInjector(modules = [(LearnVocabularyWritingModule::class), (DrawingProvider::class)])
     abstract fun bindLearnVocabularyWritingActivity(): LearnVocabularyWritingActivity
 
-    @ContributesAndroidInjector(modules = [(VocabularyStudyCardModule::class)])
+    @ContributesAndroidInjector(modules = [(VocabularyStudyCardModule::class), (ImageProvider::class)])
     abstract fun bindVocabularyStudyCardActivity(): VocabularyStudyCardActivity
 
     @ContributesAndroidInjector(modules = [(SplashModule::class)])
@@ -134,13 +137,13 @@ abstract class ActivityBuilder {
     @ContributesAndroidInjector(modules = [(CalendarModule::class)])
     abstract fun bindCalendarActivity(): CalendarActivity
 
-    @ContributesAndroidInjector(modules = [(StudiedElementDetailsModule::class)])
+    @ContributesAndroidInjector(modules = [(StudiedElementDetailsModule::class), (ImageProvider::class)])
     abstract fun bindStudiedElementDetailsActivity(): StudiedElementDetailsActivity
 
-    @ContributesAndroidInjector(modules = [(StudiedElementsModule::class)])
+    @ContributesAndroidInjector(modules = [(StudiedElementsModule::class), (ImageProvider::class)])
     abstract fun bindStudiedElementsActivity(): StudiedElementsActivity
 
-    @ContributesAndroidInjector(modules = [(LearnGrammarWritingModule::class)])
+    @ContributesAndroidInjector(modules = [(LearnGrammarWritingModule::class), (DrawingProvider::class)])
     abstract fun bindLearnGrammarWritingActivity(): LearnGrammarWritingActivity
 
     @ContributesAndroidInjector(modules = [(GrammarStudyCardModule::class)])
@@ -152,13 +155,13 @@ abstract class ActivityBuilder {
     @ContributesAndroidInjector(modules = [(GrammarReviseSoundModule::class)])
     abstract fun bindGrammarReviseSoundActivity(): GrammarReviseSoundActivity
 
-    @ContributesAndroidInjector(modules = [(SignStudyCardModule::class)])
+    @ContributesAndroidInjector(modules = [(SignStudyCardModule::class), (ImageProvider::class)])
     abstract fun bindSignStudyCardActivity(): SignStudyCardActivity
 
-    @ContributesAndroidInjector(modules = [(LearnSignWritingModule::class)])
+    @ContributesAndroidInjector(modules = [(LearnSignWritingModule::class), (DrawingProvider::class), (ImageProvider::class)])
     abstract fun bindLearnSignWritingActivity(): LearnSignWritingActivity
 
-    @ContributesAndroidInjector(modules = [(CompareWritingModule::class)])
+    @ContributesAndroidInjector(modules = [(CompareWritingModule::class), (ImageProvider::class)])
     abstract fun bindCompareWritingActivity(): CompareWritingActivity
 
     @ContributesAndroidInjector(modules = [(CorrectModule::class)])
@@ -167,12 +170,12 @@ abstract class ActivityBuilder {
     @ContributesAndroidInjector(modules = [(IncorrectModule::class)])
     abstract fun bindIncorrectActivity(): IncorrectActivity
 
-    @ContributesAndroidInjector(modules = [(MeaningCheckModule::class)])
+    @ContributesAndroidInjector(modules = [(MeaningCheckModule::class), (ImageProvider::class)])
     abstract fun bindMeaningCheckActivity(): MeaningCheckActivity
 
-    @ContributesAndroidInjector(modules = [(PronunciationCheckModule::class)])
+    @ContributesAndroidInjector(modules = [(PronunciationCheckModule::class), (ImageProvider::class)])
     abstract fun bindPronunciationCheckActivity(): PronunciationCheckActivity
 
-    @ContributesAndroidInjector(modules = [(ReviseWritingModule::class)])
+    @ContributesAndroidInjector(modules = [(ReviseWritingModule::class), (DrawingProvider::class)])
     abstract fun bindReviseWritingActivity(): ReviseWritingActivity
 }

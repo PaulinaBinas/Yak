@@ -1,4 +1,4 @@
-package com.binas.yak.ui.others
+package com.binas.yak.ui.others.drawing.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,13 +7,22 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.binas.yak.R
+import com.binas.yak.ui.base.view.BaseFragment
+import com.binas.yak.ui.others.drawing.interactor.DrawingInteractor
+import com.binas.yak.ui.others.drawing.presenter.DrawingPresenter
+import javax.inject.Inject
 
 /**
  * A simple [Fragment] subclass.
  * Use the [DrawingFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class DrawingFragment : Fragment() {
+class DrawingFragment : BaseFragment(), DrawingView {
+
+    @Inject
+    internal lateinit var drawingAdapter: DrawingAdapter
+    @Inject
+    internal lateinit var presenter: DrawingPresenter<DrawingView, DrawingInteractor>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,16 +37,8 @@ class DrawingFragment : Fragment() {
     }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment DrawingFragment.
-         */
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
+        fun newInstance() =
             DrawingFragment()
     }
 }

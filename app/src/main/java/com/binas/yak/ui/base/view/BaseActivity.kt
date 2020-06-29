@@ -12,4 +12,6 @@ abstract class BaseActivity: AppCompatActivity(), BaseView {
     }
 
     private fun injectDependencies() = AndroidInjection.inject(this)
+
+
 }
