@@ -11,7 +11,7 @@ import com.binas.yak.ui.study.grammar.learn.studyCard.view.GrammarStudyCardActiv
 import com.binas.yak.ui.study.sign.reviseSound.view.SignReviseSoundActivity
 import com.binas.yak.ui.study.sign.reviseWithDecision.view.SignReviseWithDecisionActivity
 import com.binas.yak.ui.study.sign.reviseWriting.view.SignReviseWritingActivity
-import com.binas.yak.ui.study.sign.learn.view.SignStudyCardActivity
+import com.binas.yak.ui.study.sign.learn.studyCard.view.SignStudyCardActivity
 import com.binas.yak.ui.study.vocabulary.reviseMeaning.view.VocabularyReviseMeaningActivity
 import com.binas.yak.ui.study.vocabulary.reviseSound.view.VocabularyReviseSoundActivity
 import com.binas.yak.ui.study.vocabulary.reviseWriting.view.VocabularyReviseWritingActivity

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.study.sign.learn.view.SignStudyCardActivity">
+    tools:context=".ui.study.sign.learn.studyCard.view.SignStudyCardActivity">
 
     <fragment
         android:id="@+id/fragment"

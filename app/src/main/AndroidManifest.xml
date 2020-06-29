@@ -58,7 +58,7 @@
             android:name=".ui.study.sign.reviseSound.view.SignReviseSoundActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.study.sign.learn.view.SignStudyCardActivity"
+            android:name=".ui.study.sign.learn.studyCard.view.SignStudyCardActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.achievements.view.AchievementsActivity"
@@ -82,7 +82,7 @@
             android:name=".ui.settings.view.SettingsActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.study.sign.learn.view.LearnSignWritingActivity"
+            android:name=".ui.study.sign.learn.writing.view.LearnSignWritingActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.authentication.resetPassword.view.ResetPasswordActivity"

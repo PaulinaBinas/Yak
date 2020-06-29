@@ -1,4 +1,4 @@
-package com.binas.yak.ui.study.sign.learn.view
+package com.binas.yak.ui.study.sign.learn.studyCard.view
 
 import android.content.Intent
 import android.media.MediaPlayer
@@ -7,13 +7,15 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.binas.yak.R
+import com.binas.yak.ui.base.view.BaseActivity
 import com.binas.yak.ui.settings.view.SettingsActivity
+import com.binas.yak.ui.study.sign.learn.writing.view.LearnSignWritingActivity
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_sign_study_card.*
 import kotlinx.android.synthetic.main.activity_sign_study_card.imageFragment
 import kotlinx.android.synthetic.main.fragment_image.*
 
-class SignStudyCardActivity : AppCompatActivity() {
+class SignStudyCardActivity : BaseActivity(), SignStudyCardView {
 
     private var playing: Boolean = false
 
