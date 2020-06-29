@@ -24,7 +24,7 @@
 
         <fragment
             android:id="@+id/imageFragment"
-            android:name="com.binas.yak.ui.studiedElements.view.ImageFragment"
+            android:name="com.binas.yak.ui.others.ImageFragment"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginStart="40dp"

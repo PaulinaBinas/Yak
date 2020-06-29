@@ -1,13 +1,15 @@
-package com.binas.yak.ui.studiedElements.view
+package com.binas.yak.ui.studiedElements.calendar.view
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.binas.yak.R
+import com.binas.yak.ui.base.view.BaseActivity
+import com.binas.yak.ui.base.view.BaseView
 import com.binas.yak.ui.settings.view.SettingsActivity
 
-class CalendarActivity : AppCompatActivity() {
+class CalendarActivity : BaseActivity(), BaseView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_calendar)

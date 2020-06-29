@@ -20,6 +20,12 @@ import com.binas.yak.ui.settings.changeLanguage.view.ChangeLanguageActivity
 import com.binas.yak.ui.settings.changePassword.ChangePasswordModule
 import com.binas.yak.ui.settings.changePassword.view.ChangePasswordActivity
 import com.binas.yak.ui.settings.view.SettingsActivity
+import com.binas.yak.ui.studiedElements.StudiedElementsModule
+import com.binas.yak.ui.studiedElements.calendar.CalendarModule
+import com.binas.yak.ui.studiedElements.calendar.view.CalendarActivity
+import com.binas.yak.ui.studiedElements.details.StudiedElementDetailsModule
+import com.binas.yak.ui.studiedElements.details.view.StudiedElementDetailsActivity
+import com.binas.yak.ui.studiedElements.view.StudiedElementsActivity
 import com.binas.yak.ui.study.grammar.reviseWriting.GrammarReviseWritingModule
 import com.binas.yak.ui.study.grammar.reviseWriting.view.GrammarReviseWritingActivity
 import com.binas.yak.ui.study.sign.reviseSound.SignReviseSoundModule
@@ -81,7 +87,7 @@ abstract class ActivityBuilder {
     abstract fun bindMainActivity(): MainActivity
 
     @ContributesAndroidInjector(modules = [(LoginModule::class)])
-    abstract fun bindLoginActitivy(): LoginActivity
+    abstract fun bindLoginActivity(): LoginActivity
 
     @ContributesAndroidInjector(modules = [(AuthMenuModule::class)])
     abstract fun bindAuthMenuActivity(): AuthMenuActivity
@@ -100,4 +106,13 @@ abstract class ActivityBuilder {
 
     @ContributesAndroidInjector(modules = [(ChangePasswordModule::class)])
     abstract fun bindChangePasswordActivity(): ChangePasswordActivity
+
+    @ContributesAndroidInjector(modules = [(CalendarModule::class)])
+    abstract fun bindCalendarActivity(): CalendarActivity
+
+    @ContributesAndroidInjector(modules = [(StudiedElementDetailsModule::class)])
+    abstract fun bindStudiedElementDetailsActivity(): StudiedElementDetailsActivity
+
+    @ContributesAndroidInjector(modules = [(StudiedElementsModule::class)])
+    abstract fun bindStudiedElementsActivity(): StudiedElementsActivity
 }

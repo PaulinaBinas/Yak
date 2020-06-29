@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.study.grammar.reviseSound.view.GrammarPronounciationCheckActivity">
+    tools:context=".ui.study.grammar.reviseSound.pronounciationCheck.view.GrammarPronounciationCheckActivity">
 
     <fragment
         android:id="@+id/fragment"

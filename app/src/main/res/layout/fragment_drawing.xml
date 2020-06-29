@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.study.common.view.DrawingFragment">
+    tools:context=".ui.others.DrawingFragment">
 
     <com.binas.yak.ui.others.DrawView
         android:id="@+id/draw_view"

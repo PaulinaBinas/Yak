@@ -1,4 +1,4 @@
-package com.binas.yak.ui.studiedElements.view
+package com.binas.yak.ui.others
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

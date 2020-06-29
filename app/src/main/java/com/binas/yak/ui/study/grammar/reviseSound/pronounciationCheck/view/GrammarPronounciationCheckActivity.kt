@@ -1,4 +1,4 @@
-package com.binas.yak.ui.study.grammar.reviseSound.view
+package com.binas.yak.ui.study.grammar.reviseSound.pronounciationCheck.view
 
 import android.content.Intent
 import android.graphics.Color

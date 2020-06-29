@@ -16,7 +16,7 @@
         <activity android:name=".ui.study.common.view.IncorrectActivity" />
         <activity android:name=".ui.study.common.view.CorrectActivity" />
         <activity
-            android:name=".ui.study.grammar.reviseSound.view.GrammarPronounciationCheckActivity"
+            android:name=".ui.study.grammar.reviseSound.pronounciationCheck.view.GrammarPronounciationCheckActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.study.common.view.PronounciationCheckActivity"
@@ -64,10 +64,10 @@
             android:name=".ui.achievements.view.AchievementsActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.studiedElements.view.CalendarActivity"
+            android:name=".ui.studiedElements.calendar.view.CalendarActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.studiedElements.view.StudiedElementDetailsActivity"
+            android:name=".ui.studiedElements.details.view.StudiedElementDetailsActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.studiedElements.view.StudiedElementsActivity"

@@ -33,7 +33,7 @@
 
         <fragment
             android:id="@+id/drawing_fragment"
-            android:name="com.binas.yak.ui.study.common.view.DrawingFragment"
+            android:name="com.binas.yak.ui.others.DrawingFragment"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"

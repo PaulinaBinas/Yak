@@ -28,7 +28,7 @@
 
     <fragment
         android:id="@+id/drawing_fragment"
-        android:name="com.binas.yak.ui.study.common.view.DrawingFragment"
+        android:name="com.binas.yak.ui.others.DrawingFragment"
         android:layout_marginTop="40dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

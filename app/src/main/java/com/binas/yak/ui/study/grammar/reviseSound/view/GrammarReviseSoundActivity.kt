@@ -10,6 +10,7 @@ import androidx.core.text.color
 import androidx.core.text.underline
 import com.binas.yak.R
 import com.binas.yak.ui.settings.view.SettingsActivity
+import com.binas.yak.ui.study.grammar.reviseSound.pronounciationCheck.view.GrammarPronounciationCheckActivity
 import kotlinx.android.synthetic.main.activity_grammar_revise_sound.*
 
 class GrammarReviseSoundActivity : AppCompatActivity() {
