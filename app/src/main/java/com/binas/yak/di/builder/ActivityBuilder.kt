@@ -26,6 +26,10 @@ import com.binas.yak.ui.studiedElements.calendar.view.CalendarActivity
 import com.binas.yak.ui.studiedElements.details.StudiedElementDetailsModule
 import com.binas.yak.ui.studiedElements.details.view.StudiedElementDetailsActivity
 import com.binas.yak.ui.studiedElements.view.StudiedElementsActivity
+import com.binas.yak.ui.study.grammar.learn.learnWriting.LearnGrammarWritingModule
+import com.binas.yak.ui.study.grammar.learn.learnWriting.view.LearnGrammarWritingActivity
+import com.binas.yak.ui.study.grammar.learn.studyCard.GrammarStudyCardModule
+import com.binas.yak.ui.study.grammar.learn.studyCard.view.GrammarStudyCardActivity
 import com.binas.yak.ui.study.grammar.reviseWriting.GrammarReviseWritingModule
 import com.binas.yak.ui.study.grammar.reviseWriting.view.GrammarReviseWritingActivity
 import com.binas.yak.ui.study.sign.reviseSound.SignReviseSoundModule
@@ -115,4 +119,10 @@ abstract class ActivityBuilder {
 
     @ContributesAndroidInjector(modules = [(StudiedElementsModule::class)])
     abstract fun bindStudiedElementsActivity(): StudiedElementsActivity
+
+    @ContributesAndroidInjector(modules = [(LearnGrammarWritingModule::class)])
+    abstract fun bindLearnGrammarWritingActivity(): LearnGrammarWritingActivity
+
+    @ContributesAndroidInjector(modules = [(GrammarStudyCardModule::class)])
+    abstract fun bindGrammarStudyCardActivity(): GrammarStudyCardActivity
 }

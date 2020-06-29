@@ -7,7 +7,7 @@ import android.view.View
 import com.binas.yak.R
 import com.binas.yak.ui.study.grammar.reviseSound.view.GrammarReviseSoundActivity
 import com.binas.yak.ui.study.grammar.reviseWriting.view.GrammarReviseWritingActivity
-import com.binas.yak.ui.study.grammar.learn.view.GrammarStudyCardActivity
+import com.binas.yak.ui.study.grammar.learn.studyCard.view.GrammarStudyCardActivity
 import com.binas.yak.ui.study.sign.reviseSound.view.SignReviseSoundActivity
 import com.binas.yak.ui.study.sign.reviseWithDecision.view.SignReviseWithDecisionActivity
 import com.binas.yak.ui.study.sign.reviseWriting.view.SignReviseWritingActivity

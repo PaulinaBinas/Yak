@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.study.grammar.learn.view.LearnGrammarWritingActivity">
+    tools:context=".ui.study.grammar.learn.learnWriting.view.LearnGrammarWritingActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

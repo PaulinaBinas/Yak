@@ -10,7 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.study.grammar.learn.view.LearnGrammarWritingActivity"></activity>
+        <activity android:name=".ui.study.grammar.learn.learnWriting.view.LearnGrammarWritingActivity"></activity>
         <activity android:name=".ui.study.common.view.CompareWritingActivity" />
         <activity android:name=".ui.study.common.view.MeaningCheckActivity" />
         <activity android:name=".ui.study.common.view.IncorrectActivity" />
@@ -43,7 +43,7 @@
             android:name=".ui.study.grammar.reviseSound.view.GrammarReviseSoundActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.study.grammar.learn.view.GrammarStudyCardActivity"
+            android:name=".ui.study.grammar.learn.studyCard.view.GrammarStudyCardActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.study.vocabulary.learn.studyCard.view.VocabularyStudyCardActivity"

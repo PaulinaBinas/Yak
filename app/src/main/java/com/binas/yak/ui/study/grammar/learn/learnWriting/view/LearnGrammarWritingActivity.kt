@@ -1,4 +1,4 @@
-package com.binas.yak.ui.study.grammar.learn.view
+package com.binas.yak.ui.study.grammar.learn.learnWriting.view
 
 import android.content.Intent
 import android.graphics.Color
@@ -8,10 +8,11 @@ import android.text.SpannableStringBuilder
 import android.view.View
 import androidx.core.text.color
 import com.binas.yak.R
+import com.binas.yak.ui.base.view.BaseActivity
 import com.binas.yak.ui.settings.view.SettingsActivity
 import kotlinx.android.synthetic.main.activity_learn_grammar_writing.*
 
-class LearnGrammarWritingActivity : AppCompatActivity() {
+class LearnGrammarWritingActivity : BaseActivity(), LearnGrammarWritingView {
 
     private var sentenceStart: String = "ཁོང་དེབ་ཀློག་"
     private var grammar: String = "གི་མི་འདུག"
