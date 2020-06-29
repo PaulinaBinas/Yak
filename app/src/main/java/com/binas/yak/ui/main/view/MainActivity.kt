@@ -8,7 +8,7 @@ import com.binas.yak.ui.achievements.view.AchievementsActivity
 import com.binas.yak.ui.authentication.signup.view.SignupActivity
 import com.binas.yak.ui.base.view.BaseActivity
 import com.binas.yak.ui.studiedElements.view.StudiedElementsActivity
-import com.binas.yak.ui.study.common.view.StudyActivity
+import com.binas.yak.ui.study.common.StudyActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 

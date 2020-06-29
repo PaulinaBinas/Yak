@@ -2,7 +2,6 @@ package com.binas.yak.ui.study.grammar.reviseSound.view
 
 import android.content.Intent
 import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.SpannableStringBuilder
 import android.view.View
@@ -11,7 +10,7 @@ import androidx.core.text.underline
 import com.binas.yak.R
 import com.binas.yak.ui.base.view.BaseActivity
 import com.binas.yak.ui.settings.view.SettingsActivity
-import com.binas.yak.ui.study.grammar.reviseSound.pronounciationCheck.view.GrammarPronounciationCheckActivity
+import com.binas.yak.ui.study.grammar.reviseSound.pronunciationCheck.view.GrammarPronunciationCheckActivity
 import kotlinx.android.synthetic.main.activity_grammar_revise_sound.*
 
 class GrammarReviseSoundActivity : BaseActivity(), GrammarReviseSoundView {
@@ -44,8 +43,8 @@ class GrammarReviseSoundActivity : BaseActivity(), GrammarReviseSoundView {
         onBackPressed()
     }
 
-    fun onClickGoToPronounciationCheck(view: View) {
-        val intent = Intent(this, GrammarPronounciationCheckActivity::class.java)
+    fun onClickGoToPronunciationCheck(view: View) {
+        val intent = Intent(this, GrammarPronunciationCheckActivity::class.java)
         intent.putExtra("sentence", sentenceStart)
         intent.putExtra("grammar", grammar)
         intent.putExtra("sound", "doesnt")

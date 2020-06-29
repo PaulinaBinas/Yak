@@ -3,13 +3,12 @@ package com.binas.yak.ui.study.grammar.reviseWriting.view
 import android.content.Intent
 import android.media.MediaPlayer
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.binas.yak.R
 import com.binas.yak.ui.base.view.BaseActivity
 import com.binas.yak.ui.settings.view.SettingsActivity
-import com.binas.yak.ui.study.common.view.ReviseWritingActivity
+import com.binas.yak.ui.study.common.reviseWriting.view.ReviseWritingActivity
 import com.binas.yak.ui.study.grammar.reviseWriting.interactor.GrammarReviseWritingInteractor
 import com.binas.yak.ui.study.grammar.reviseWriting.presenter.GrammarReviseWritingPresenter
 import kotlinx.android.synthetic.main.activity_grammar_revise_writing.*

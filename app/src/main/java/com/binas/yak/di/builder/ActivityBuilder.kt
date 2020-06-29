@@ -26,13 +26,25 @@ import com.binas.yak.ui.studiedElements.calendar.view.CalendarActivity
 import com.binas.yak.ui.studiedElements.details.StudiedElementDetailsModule
 import com.binas.yak.ui.studiedElements.details.view.StudiedElementDetailsActivity
 import com.binas.yak.ui.studiedElements.view.StudiedElementsActivity
+import com.binas.yak.ui.study.common.compareWriting.CompareWritingModule
+import com.binas.yak.ui.study.common.compareWriting.view.CompareWritingActivity
+import com.binas.yak.ui.study.common.correct.CorrectModule
+import com.binas.yak.ui.study.common.correct.view.CorrectActivity
+import com.binas.yak.ui.study.common.incorrect.IncorrectModule
+import com.binas.yak.ui.study.common.incorrect.view.IncorrectActivity
+import com.binas.yak.ui.study.common.meaningCheck.MeaningCheckModule
+import com.binas.yak.ui.study.common.meaningCheck.view.MeaningCheckActivity
+import com.binas.yak.ui.study.common.pronunciationCheck.PronunciationCheckModule
+import com.binas.yak.ui.study.common.pronunciationCheck.view.PronunciationCheckActivity
+import com.binas.yak.ui.study.common.reviseWriting.ReviseWritingModule
+import com.binas.yak.ui.study.common.reviseWriting.view.ReviseWritingActivity
 import com.binas.yak.ui.study.grammar.learn.learnWriting.LearnGrammarWritingModule
 import com.binas.yak.ui.study.grammar.learn.learnWriting.view.LearnGrammarWritingActivity
 import com.binas.yak.ui.study.grammar.learn.studyCard.GrammarStudyCardModule
 import com.binas.yak.ui.study.grammar.learn.studyCard.view.GrammarStudyCardActivity
 import com.binas.yak.ui.study.grammar.reviseSound.GrammarReviseSoundModule
-import com.binas.yak.ui.study.grammar.reviseSound.pronounciationCheck.GrammarPronounciationCheckModule
-import com.binas.yak.ui.study.grammar.reviseSound.pronounciationCheck.view.GrammarPronounciationCheckActivity
+import com.binas.yak.ui.study.grammar.reviseSound.pronunciationCheck.GrammarPronunciationCheckModule
+import com.binas.yak.ui.study.grammar.reviseSound.pronunciationCheck.view.GrammarPronunciationCheckActivity
 import com.binas.yak.ui.study.grammar.reviseSound.view.GrammarReviseSoundActivity
 import com.binas.yak.ui.study.grammar.reviseWriting.GrammarReviseWritingModule
 import com.binas.yak.ui.study.grammar.reviseWriting.view.GrammarReviseWritingActivity
@@ -134,8 +146,8 @@ abstract class ActivityBuilder {
     @ContributesAndroidInjector(modules = [(GrammarStudyCardModule::class)])
     abstract fun bindGrammarStudyCardActivity(): GrammarStudyCardActivity
 
-    @ContributesAndroidInjector(modules = [(GrammarPronounciationCheckModule::class)])
-    abstract fun bindGrammarPronounciationCheckActivity(): GrammarPronounciationCheckActivity
+    @ContributesAndroidInjector(modules = [(GrammarPronunciationCheckModule::class)])
+    abstract fun bindGrammarPronunciationCheckActivity(): GrammarPronunciationCheckActivity
 
     @ContributesAndroidInjector(modules = [(GrammarReviseSoundModule::class)])
     abstract fun bindGrammarReviseSoundActivity(): GrammarReviseSoundActivity
@@ -145,4 +157,22 @@ abstract class ActivityBuilder {
 
     @ContributesAndroidInjector(modules = [(LearnSignWritingModule::class)])
     abstract fun bindLearnSignWritingActivity(): LearnSignWritingActivity
+
+    @ContributesAndroidInjector(modules = [(CompareWritingModule::class)])
+    abstract fun bindCompareWritingActivity(): CompareWritingActivity
+
+    @ContributesAndroidInjector(modules = [(CorrectModule::class)])
+    abstract fun bindCorrectActivity(): CorrectActivity
+
+    @ContributesAndroidInjector(modules = [(IncorrectModule::class)])
+    abstract fun bindIncorrectActivity(): IncorrectActivity
+
+    @ContributesAndroidInjector(modules = [(MeaningCheckModule::class)])
+    abstract fun bindMeaningCheckActivity(): MeaningCheckActivity
+
+    @ContributesAndroidInjector(modules = [(PronunciationCheckModule::class)])
+    abstract fun bindPronunciationCheckActivity(): PronunciationCheckActivity
+
+    @ContributesAndroidInjector(modules = [(ReviseWritingModule::class)])
+    abstract fun bindReviseWritingActivity(): ReviseWritingActivity
 }

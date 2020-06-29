@@ -1,7 +1,7 @@
 package com.binas.yak.di.component
 
 import android.app.Application
-import com.binas.yak.CustomApplication
+import com.binas.yak.YakApplication
 import com.binas.yak.di.builder.ActivityBuilder
 import com.binas.yak.di.module.AppModule
 import dagger.BindsInstance
@@ -22,5 +22,5 @@ interface AppComponent {
         fun build(): AppComponent
     }
 
-    fun inject(app: CustomApplication)
+    fun inject(app: YakApplication)
 }

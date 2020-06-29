@@ -3,14 +3,13 @@ package com.binas.yak.ui.study.sign.reviseWithDecision.view
 import android.content.Intent
 import android.media.MediaPlayer
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.binas.yak.R
 import com.binas.yak.ui.base.view.BaseActivity
 import com.binas.yak.ui.settings.view.SettingsActivity
-import com.binas.yak.ui.study.common.view.CorrectActivity
-import com.binas.yak.ui.study.common.view.IncorrectActivity
+import com.binas.yak.ui.study.common.correct.view.CorrectActivity
+import com.binas.yak.ui.study.common.incorrect.view.IncorrectActivity
 import kotlinx.android.synthetic.main.activity_sign_revise_with_decision.*
 
 class SignReviseWithDecisionActivity : BaseActivity(), SignReviseWithDecisionView {
