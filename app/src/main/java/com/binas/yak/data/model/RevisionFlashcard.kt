@@ -2,7 +2,7 @@ package com.binas.yak.data.model
 
 import java.time.LocalDate
 
-interface RevisionFlashcard {
+interface RevisionFlashcard: Flashcard {
 
     var retention: Double
     var revisionType: RevisionType

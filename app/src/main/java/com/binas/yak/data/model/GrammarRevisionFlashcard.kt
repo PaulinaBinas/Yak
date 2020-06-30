@@ -5,19 +5,18 @@ import androidx.room.ForeignKey
 import androidx.room.Ignore
 import androidx.room.PrimaryKey
 import com.binas.yak.util.SpacedRepetitionScheduler
-import com.binas.yak.util.impl.SpacedRepetitionSchedulerImpl
 import java.time.LocalDate
 import javax.inject.Inject
 
-@Entity(tableName = "signRevisionFlashcard", foreignKeys = [(ForeignKey(entity = Sign::class,
+@Entity(tableName = "grammarRevisionFlashcard", foreignKeys = [(ForeignKey(entity = Grammar::class,
     parentColumns = arrayOf("id"),
-    childColumns = arrayOf("signId"),
+    childColumns = arrayOf("grammarId"),
     onDelete = ForeignKey.CASCADE))])
-class SignRevisionFlashcard constructor(
+data class GrammarRevisionFlashcard constructor(
 
     @PrimaryKey(autoGenerate = true) val id: Long,
-    override var revisionType: RevisionType,
-    var signId: Long
+    var grammarId: Long,
+    override var revisionType: RevisionType
 ) : RevisionFlashcard {
 
     @Ignore

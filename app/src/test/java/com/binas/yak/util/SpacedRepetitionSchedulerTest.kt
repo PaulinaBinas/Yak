@@ -62,7 +62,7 @@ class SpacedRepetitionSchedulerTest {
         /* arrange */
         val scheduler: SpacedRepetitionScheduler =
             SpacedRepetitionSchedulerImpl()
-        val flashcard: RevisionFlashcard = SignRevisionFlashcard(11, RevisionType.MEANING, scheduler, 0.5)
+        val flashcard: RevisionFlashcard = SignRevisionFlashcard(11, RevisionType.MEANING, 1)
         flashcard.interval = 21
         flashcard.nextDisplayTime = LocalDate.now()
 

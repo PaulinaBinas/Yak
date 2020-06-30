@@ -4,11 +4,15 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.binas.yak.R
+import com.binas.yak.data.model.RevisionType
+import com.binas.yak.data.model.SignRevisionFlashcard
 import com.binas.yak.ui.achievements.view.AchievementsActivity
 import com.binas.yak.ui.authentication.signup.view.SignupActivity
 import com.binas.yak.ui.base.view.BaseActivity
 import com.binas.yak.ui.studiedElements.view.StudiedElementsActivity
 import com.binas.yak.ui.study.common.StudyActivity
+import com.binas.yak.util.SpacedRepetitionScheduler
+import com.binas.yak.util.impl.SpacedRepetitionSchedulerImpl
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 
