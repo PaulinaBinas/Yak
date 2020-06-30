@@ -6,7 +6,7 @@
     android:background="@drawable/rounded_bottom"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".ui.main.view.ActionBar">
+    tools:context=".ui.others.ActionBar">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
