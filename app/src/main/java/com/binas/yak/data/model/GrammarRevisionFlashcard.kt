@@ -8,10 +8,9 @@ import com.binas.yak.util.SpacedRepetitionScheduler
 import java.time.LocalDate
 import javax.inject.Inject
 
-@Entity(tableName = "grammarRevisionFlashcard", foreignKeys = [(ForeignKey(entity = Grammar::class,
+@Entity(tableName = "GrammarRevisionFlashcard", foreignKeys = [(ForeignKey(entity = Grammar::class,
     parentColumns = arrayOf("id"),
-    childColumns = arrayOf("grammarId"),
-    onDelete = ForeignKey.CASCADE))])
+    childColumns = arrayOf("grammarId")))])
 data class GrammarRevisionFlashcard constructor(
 
     @PrimaryKey(autoGenerate = true) val id: Long,
@@ -25,6 +24,7 @@ data class GrammarRevisionFlashcard constructor(
     override var retention: Double = 0.0
     override var nextDisplayTime: LocalDate? = null
     override var interval: Long = 0L
+    var userDescription: String? = null
 
     override fun forget() {
         this.scheduler.schedule(this, false)

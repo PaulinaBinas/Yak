@@ -2,8 +2,8 @@ package com.binas.yak.data.model.userVocabularyRevisionFlashcard
 
 import androidx.room.Entity
 
-@Entity(primaryKeys = ["userId", "flashcardId"])
+@Entity(tableName = "User_VocabularyRevisionFlashcard", primaryKeys = ["userId", "vocabularyRevisionFlashcardId"])
 data class UserVocabularyRevisionFlashcard (
     val userId: Long,
-    val flashcardId: Long
+    val vocabularyRevisionFlashcardId: Long
 )

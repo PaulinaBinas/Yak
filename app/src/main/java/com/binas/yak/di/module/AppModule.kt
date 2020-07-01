@@ -9,11 +9,12 @@ import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
 
+
 @Module
 class AppModule {
 
     @Provides
-    internal fun provideprefFileName(): String = ApplicationConstants.PREF_NAME
+    internal fun providePrefFileName(): String = ApplicationConstants.PREF_NAME
 
     @Provides
     @Singleton

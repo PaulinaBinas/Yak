@@ -4,10 +4,9 @@ import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "grammarStudyFlashcard", foreignKeys = [(ForeignKey(entity = Grammar::class,
+@Entity(tableName = "GrammarStudyFlashcard", foreignKeys = [(ForeignKey(entity = Grammar::class,
 parentColumns = arrayOf("id"),
-childColumns = arrayOf("grammarId"),
-onDelete = ForeignKey.CASCADE))])
+childColumns = arrayOf("grammarId")))])
 data class GrammarStudyFlashcard (
     @PrimaryKey(autoGenerate = true) var id: Long,
     var grammarId: Long

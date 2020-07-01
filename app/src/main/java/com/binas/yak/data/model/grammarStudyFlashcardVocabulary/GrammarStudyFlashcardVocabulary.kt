@@ -2,8 +2,8 @@ package com.binas.yak.data.model.grammarStudyFlashcardVocabulary
 
 import androidx.room.Entity
 
-@Entity(primaryKeys = ["flashcardId", "vocabularyid"])
+@Entity(tableName = "VocabularyListChoiceForGrammarFlashcard", primaryKeys = ["grammarStudyFlashcardId", "vocabularyId"])
 data class GrammarStudyFlashcardVocabulary (
-    val flashcardId: Long,
+    val grammarStudyFlashcardId: Long,
     val vocabularyId: Long
 )

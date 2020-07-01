@@ -4,10 +4,9 @@ import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "grammar", foreignKeys = [(ForeignKey(entity = Translation::class,
+@Entity(tableName = "Achievement", foreignKeys = [(ForeignKey(entity = Translation::class,
     parentColumns = arrayOf("id"),
-    childColumns = arrayOf("nameTranslationId"),
-    onDelete = ForeignKey.CASCADE)), (ForeignKey(entity = Translation::class,
+    childColumns = arrayOf("nameTranslationId"))), (ForeignKey(entity = Translation::class,
     parentColumns = arrayOf("id"),
     childColumns = arrayOf("descriptionTranslationId")))])
 data class Achievement (

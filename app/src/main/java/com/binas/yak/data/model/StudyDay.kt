@@ -4,7 +4,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import java.time.LocalDate
 
-@Entity(tableName = "studyDay")
+@Entity(tableName = "StudyDay")
 data class StudyDay (
     @PrimaryKey(autoGenerate = true) var id: Long,
     var date: LocalDate

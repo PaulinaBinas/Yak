@@ -15,7 +15,7 @@ data class GrammarStudyFlashcardWithVocabulary (
         entityColumn = "id",
         associateBy = Junction(
             value = GrammarStudyFlashcardVocabulary::class,
-            parentColumn = "flashcardId",
+            parentColumn = "grammarStudyFlashcardId",
             entityColumn = "vocabularyId"
         )
     )

@@ -3,7 +3,7 @@ package com.binas.yak.data.model.userSignRevisionFlashcard
 import androidx.room.Embedded
 import androidx.room.Junction
 import androidx.room.Relation
-import com.binas.yak.data.model.SignRevisionFlashcard
+import com.binas.yak.data.model.sign.SignRevisionFlashcard
 import com.binas.yak.data.model.User
 
 data class UserWithSignRevisionFlashcard (
@@ -15,7 +15,7 @@ data class UserWithSignRevisionFlashcard (
         associateBy = Junction(
             value = UserSignRevisionFlashcard::class,
             parentColumn = "userId",
-            entityColumn = "flashcardId"
+            entityColumn = "signRevisionFlashcardId"
         )
     )
     val flashcards: List<SignRevisionFlashcard>

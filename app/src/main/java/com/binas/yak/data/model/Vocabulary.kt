@@ -5,10 +5,9 @@ import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.Expose
 
-@Entity(tableName = "vocabulary", foreignKeys = [(ForeignKey(entity = Translation::class,
+@Entity(tableName = "Vocabulary", foreignKeys = [(ForeignKey(entity = Translation::class,
     parentColumns = arrayOf("id"),
-    childColumns = arrayOf("translationId"),
-    onDelete = ForeignKey.CASCADE))])
+    childColumns = arrayOf("translationId")))])
 data class Vocabulary (
 
     @PrimaryKey(autoGenerate = true) val id: Long,

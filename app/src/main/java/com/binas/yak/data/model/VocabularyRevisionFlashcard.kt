@@ -8,10 +8,9 @@ import com.binas.yak.util.SpacedRepetitionScheduler
 import java.time.LocalDate
 import javax.inject.Inject
 
-@Entity(tableName = "vocabularyRevisionFlashcard", foreignKeys = [(ForeignKey(entity = Vocabulary::class,
+@Entity(tableName = "VocabularyRevisionFlashcard", foreignKeys = [(ForeignKey(entity = Vocabulary::class,
     parentColumns = arrayOf("id"),
-    childColumns = arrayOf("vocabularyId"),
-    onDelete = ForeignKey.CASCADE))])
+    childColumns = arrayOf("vocabularyId")))])
 data class VocabularyRevisionFlashcard (
     @PrimaryKey(autoGenerate = true) var id: Long,
     var vocabularyId: Long,

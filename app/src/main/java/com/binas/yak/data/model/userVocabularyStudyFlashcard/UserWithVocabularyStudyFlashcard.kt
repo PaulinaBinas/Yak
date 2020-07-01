@@ -6,7 +6,7 @@ import androidx.room.Relation
 import com.binas.yak.data.model.User
 import com.binas.yak.data.model.VocabularyStudyFlashcard
 
-class UserWithVocabularyStudyFlashcard (
+data class UserWithVocabularyStudyFlashcard (
     @Embedded
     val user: User,
     @Relation(
@@ -15,7 +15,7 @@ class UserWithVocabularyStudyFlashcard (
         associateBy = Junction(
             value = UserVocabularyStudyFlashcard::class,
             parentColumn = "userId",
-            entityColumn = "flashcardId"
+            entityColumn = "vocabularyStudyFlashcardId"
         )
     )
     val flashcards: List<VocabularyStudyFlashcard>

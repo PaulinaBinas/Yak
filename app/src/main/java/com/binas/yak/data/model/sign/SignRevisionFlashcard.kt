@@ -1,18 +1,18 @@
-package com.binas.yak.data.model
+package com.binas.yak.data.model.sign
 
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.Ignore
 import androidx.room.PrimaryKey
+import com.binas.yak.data.model.RevisionFlashcard
+import com.binas.yak.data.model.RevisionType
 import com.binas.yak.util.SpacedRepetitionScheduler
-import com.binas.yak.util.impl.SpacedRepetitionSchedulerImpl
 import java.time.LocalDate
 import javax.inject.Inject
 
-@Entity(tableName = "signRevisionFlashcard", foreignKeys = [(ForeignKey(entity = Sign::class,
+@Entity(tableName = "SignRevisionFlashcard", foreignKeys = [(ForeignKey(entity = Sign::class,
     parentColumns = arrayOf("id"),
-    childColumns = arrayOf("signId"),
-    onDelete = ForeignKey.CASCADE))])
+    childColumns = arrayOf("signId")))])
 class SignRevisionFlashcard constructor(
 
     @PrimaryKey(autoGenerate = true) val id: Long,

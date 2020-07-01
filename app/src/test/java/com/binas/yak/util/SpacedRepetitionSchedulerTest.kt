@@ -2,7 +2,7 @@ package com.binas.yak.util
 
 import com.binas.yak.data.model.RevisionFlashcard
 import com.binas.yak.data.model.RevisionType
-import com.binas.yak.data.model.SignRevisionFlashcard
+import com.binas.yak.data.model.sign.SignRevisionFlashcard
 import com.binas.yak.util.impl.SpacedRepetitionSchedulerImpl
 import junit.framework.Assert.assertEquals
 import org.junit.Test
@@ -62,7 +62,12 @@ class SpacedRepetitionSchedulerTest {
         /* arrange */
         val scheduler: SpacedRepetitionScheduler =
             SpacedRepetitionSchedulerImpl()
-        val flashcard: RevisionFlashcard = SignRevisionFlashcard(11, RevisionType.MEANING, 1)
+        val flashcard: RevisionFlashcard =
+            SignRevisionFlashcard(
+                11,
+                RevisionType.MEANING,
+                1
+            )
         flashcard.interval = 21
         flashcard.nextDisplayTime = LocalDate.now()
 

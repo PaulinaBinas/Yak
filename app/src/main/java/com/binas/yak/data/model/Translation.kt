@@ -5,7 +5,7 @@ import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.Expose
 
-@Entity(tableName = "translation")
+@Entity(tableName = "Translation")
 data class Translation(
     @PrimaryKey(autoGenerate = true) val id: Long,
     var polish: String,
