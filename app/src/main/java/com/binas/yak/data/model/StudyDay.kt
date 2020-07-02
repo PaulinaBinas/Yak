@@ -7,5 +7,5 @@ import java.time.LocalDate
 @Entity(tableName = "StudyDay")
 data class StudyDay (
     @PrimaryKey(autoGenerate = true) var id: Long,
-    var date: LocalDate
+    var date: LocalDate?
 )

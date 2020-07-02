@@ -1,4 +1,4 @@
-package com.binas.yak.data.model
+package com.binas.yak.data.model.translation
 
 import androidx.room.Entity
 import androidx.room.ForeignKey

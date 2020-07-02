@@ -3,7 +3,7 @@ package com.binas.yak.data.model.sign
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
-import com.binas.yak.data.model.Translation
+import com.binas.yak.data.model.translation.Translation
 
 @Entity(tableName = "Sign", foreignKeys = [(ForeignKey(entity = Translation::class,
     parentColumns = arrayOf("id"),

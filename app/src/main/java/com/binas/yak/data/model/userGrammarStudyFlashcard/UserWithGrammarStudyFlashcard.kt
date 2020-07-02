@@ -15,7 +15,7 @@ class UserWithGrammarStudyFlashcard (
         associateBy = Junction(
             value = UserGrammarStudyFlashcard::class,
             parentColumn = "userId",
-            entityColumn = "flashcardId"
+            entityColumn = "grammarStudyFlashcardId"
         )
     )
     val flashcards: List<GrammarStudyFlashcard>

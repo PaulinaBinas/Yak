@@ -10,7 +10,7 @@ import com.binas.yak.data.model.sign.Sign
     childColumns = arrayOf("signId")))])
 data class SignStudyFlashcard (
     @PrimaryKey(autoGenerate = true) var id: Long,
-    var signId: Long,
     var ifStudied: Long = 0,
-    var userDescription: String? = null
+    var userDescription: String? = null,
+    var signId: Long
 )

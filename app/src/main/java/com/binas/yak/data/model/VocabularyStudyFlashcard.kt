@@ -10,4 +10,8 @@ childColumns = arrayOf("vocabularyId")))])
 data class VocabularyStudyFlashcard (
     @PrimaryKey(autoGenerate = true) var id: Long,
     var vocabularyId: Long
-)
+) {
+    var ifStudied: Long = 0
+    var chosenPictureId: Long? = null
+    var userDescription: String? = null
+}

@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class StudyOrder (
-    @PrimaryKey val id: Long,
+    @PrimaryKey(autoGenerate = true) val id: Long,
     var signRevisionId: Long?,
     var grammarRevisionId: Long?,
     var vocabularyRevisionId: Long?,

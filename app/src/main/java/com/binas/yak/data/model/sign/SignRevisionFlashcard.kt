@@ -14,7 +14,6 @@ import javax.inject.Inject
     parentColumns = arrayOf("id"),
     childColumns = arrayOf("signId")))])
 class SignRevisionFlashcard constructor(
-
     @PrimaryKey(autoGenerate = true) val id: Long,
     override var revisionType: RevisionType,
     var signId: Long
@@ -23,9 +22,10 @@ class SignRevisionFlashcard constructor(
     @Ignore
     @Inject
     lateinit var scheduler: SpacedRepetitionScheduler
-    override var retention: Double = 0.0
+    override var retention: Double? = 0.0
     override var nextDisplayTime: LocalDate? = null
-    override var interval: Long = 0L
+    override var interval: Long? = 0L
+    var userDescription: String? = null
 
     override fun forget() {
         this.scheduler.schedule(this, false)

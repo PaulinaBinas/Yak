@@ -13,11 +13,12 @@ import kotlinx.android.synthetic.main.fragment_image.*
 
 class LearnSignWritingActivity : BaseActivity(), LearnSignWritingView {
 
-    private var imageName: String = "sa"
+    private var imageName: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_learn_sign_writing)
+        imageName = intent.getStringExtra("imageName")
         loadImage()
     }
 

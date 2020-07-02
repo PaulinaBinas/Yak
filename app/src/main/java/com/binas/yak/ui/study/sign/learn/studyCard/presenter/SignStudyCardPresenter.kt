@@ -6,4 +6,7 @@ import com.binas.yak.ui.study.sign.learn.studyCard.view.SignStudyCardView
 
 interface SignStudyCardPresenter<V: SignStudyCardView, I: SignStudyCardInteractor>: Presenter<V, I> {
 
+    fun start()
+
+    fun goToLearnSignStudyCard()
 }

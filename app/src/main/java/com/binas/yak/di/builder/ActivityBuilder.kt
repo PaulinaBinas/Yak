@@ -2,6 +2,7 @@ package com.binas.yak.di.builder
 
 import com.binas.yak.data.DatabaseModule
 import com.binas.yak.data.model.sign.SignModule
+import com.binas.yak.data.model.translation.TranslationModule
 import com.binas.yak.ui.achievements.AchievementsActivityModule
 import com.binas.yak.ui.achievements.view.AchievementsActivity
 import com.binas.yak.ui.authentication.authMenu.AuthMenuModule
@@ -156,7 +157,7 @@ abstract class ActivityBuilder {
     @ContributesAndroidInjector(modules = [(GrammarReviseSoundModule::class)])
     abstract fun bindGrammarReviseSoundActivity(): GrammarReviseSoundActivity
 
-    @ContributesAndroidInjector(modules = [(SignStudyCardModule::class), (ImageProvider::class), (SignModule::class), (DatabaseModule::class)])
+    @ContributesAndroidInjector(modules = [(SignStudyCardModule::class), (ImageProvider::class), (SignModule::class), (TranslationModule::class), (DatabaseModule::class)])
     abstract fun bindSignStudyCardActivity(): SignStudyCardActivity
 
     @ContributesAndroidInjector(modules = [(LearnSignWritingModule::class), (DrawingProvider::class), (ImageProvider::class)])

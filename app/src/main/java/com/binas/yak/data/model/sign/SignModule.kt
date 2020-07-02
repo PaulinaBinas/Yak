@@ -7,5 +7,5 @@ import dagger.Provides
 class SignModule {
 
     @Provides
-    fun provideSignRepository(signRepository: SignRepository): SignRepo = signRepository
+    fun provideSignRepository(signRepository: SignRepositoryImpl): SignRepository = signRepository
 }

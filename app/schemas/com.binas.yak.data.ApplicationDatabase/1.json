@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "41942925fe9ef2f7f1526310be068d11",
+    "identityHash": "64b9fde52fb9d711e59e5839ddc94508",
     "entities": [
       {
         "tableName": "Sign",
@@ -56,7 +56,7 @@
       },
       {
         "tableName": "Grammar",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `firstPartOfSentence` TEXT NOT NULL, `grammarPhase` TEXT NOT NULL, `secondPartOfSentence` TEXT NOT NULL, `audioFileName` TEXT NOT NULL, `translationId` INTEGER NOT NULL, PRIMARY KEY(`id`), FOREIGN KEY(`translationId`) REFERENCES `Translation`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `firstPartOfSentence` TEXT, `grammarPhase` TEXT, `secondPartOfSentence` TEXT, `audioFileName` TEXT, `translationId` INTEGER, PRIMARY KEY(`id`), FOREIGN KEY(`translationId`) REFERENCES `Translation`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
         "fields": [
           {
             "fieldPath": "id",
@@ -68,31 +68,31 @@
             "fieldPath": "firstPartOfSentence",
             "columnName": "firstPartOfSentence",
             "affinity": "TEXT",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "grammarPhase",
             "columnName": "grammarPhase",
             "affinity": "TEXT",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "secondPartOfSentence",
             "columnName": "secondPartOfSentence",
             "affinity": "TEXT",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "audioFileName",
             "columnName": "audioFileName",
             "affinity": "TEXT",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "translationId",
             "columnName": "translationId",
             "affinity": "INTEGER",
-            "notNull": true
+            "notNull": false
           }
         ],
         "primaryKey": {
@@ -105,7 +105,7 @@
         "foreignKeys": [
           {
             "table": "Translation",
-            "onDelete": "CASCADE",
+            "onDelete": "NO ACTION",
             "onUpdate": "NO ACTION",
             "columns": [
               "translationId"
@@ -118,7 +118,7 @@
       },
       {
         "tableName": "Vocabulary",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `tibetanWord` TEXT NOT NULL, `audioFileName` TEXT NOT NULL, `pictureFileName` TEXT NOT NULL, `translationId` INTEGER NOT NULL, FOREIGN KEY(`translationId`) REFERENCES `Translation`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `tibetanWord` TEXT, `audioFileName` TEXT, `pictureFileName` TEXT, `translationId` INTEGER, FOREIGN KEY(`translationId`) REFERENCES `Translation`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
         "fields": [
           {
             "fieldPath": "id",
@@ -130,25 +130,25 @@
             "fieldPath": "tibetanWord",
             "columnName": "tibetanWord",
             "affinity": "TEXT",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "audioFileName",
             "columnName": "audioFileName",
             "affinity": "TEXT",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "pictureFileName",
             "columnName": "pictureFileName",
             "affinity": "TEXT",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "translationId",
             "columnName": "translationId",
             "affinity": "INTEGER",
-            "notNull": true
+            "notNull": false
           }
         ],
         "primaryKey": {
@@ -161,7 +161,7 @@
         "foreignKeys": [
           {
             "table": "Translation",
-            "onDelete": "CASCADE",
+            "onDelete": "NO ACTION",
             "onUpdate": "NO ACTION",
             "columns": [
               "translationId"
@@ -174,13 +174,13 @@
       },
       {
         "tableName": "SignRevisionFlashcard",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`retention` REAL NOT NULL, `nextDisplayTime` TEXT, `interval` INTEGER NOT NULL, `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `revisionType` TEXT NOT NULL, `signId` INTEGER NOT NULL, FOREIGN KEY(`signId`) REFERENCES `Sign`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`retention` REAL, `nextDisplayTime` TEXT, `interval` INTEGER, `userDescription` TEXT, `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `revisionType` TEXT NOT NULL, `signId` INTEGER NOT NULL, FOREIGN KEY(`signId`) REFERENCES `Sign`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
         "fields": [
           {
             "fieldPath": "retention",
             "columnName": "retention",
             "affinity": "REAL",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "nextDisplayTime",
@@ -192,7 +192,13 @@
             "fieldPath": "interval",
             "columnName": "interval",
             "affinity": "INTEGER",
-            "notNull": true
+            "notNull": false
+          },
+          {
+            "fieldPath": "userDescription",
+            "columnName": "userDescription",
+            "affinity": "TEXT",
+            "notNull": false
           },
           {
             "fieldPath": "id",
@@ -223,7 +229,7 @@
         "foreignKeys": [
           {
             "table": "Sign",
-            "onDelete": "CASCADE",
+            "onDelete": "NO ACTION",
             "onUpdate": "NO ACTION",
             "columns": [
               "signId"
@@ -236,17 +242,11 @@
       },
       {
         "tableName": "SignStudyFlashcard",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `signId` INTEGER NOT NULL, `ifStudied` INTEGER NOT NULL, `userDescription` TEXT, FOREIGN KEY(`signId`) REFERENCES `Sign`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `ifStudied` INTEGER NOT NULL, `userDescription` TEXT, `signId` INTEGER NOT NULL, FOREIGN KEY(`signId`) REFERENCES `Sign`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
         "fields": [
           {
             "fieldPath": "id",
             "columnName": "id",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "signId",
-            "columnName": "signId",
             "affinity": "INTEGER",
             "notNull": true
           },
@@ -261,6 +261,12 @@
             "columnName": "userDescription",
             "affinity": "TEXT",
             "notNull": false
+          },
+          {
+            "fieldPath": "signId",
+            "columnName": "signId",
+            "affinity": "INTEGER",
+            "notNull": true
           }
         ],
         "primaryKey": {
@@ -273,7 +279,7 @@
         "foreignKeys": [
           {
             "table": "Sign",
-            "onDelete": "CASCADE",
+            "onDelete": "NO ACTION",
             "onUpdate": "NO ACTION",
             "columns": [
               "signId"
@@ -286,13 +292,13 @@
       },
       {
         "tableName": "GrammarRevisionFlashcard",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`retention` REAL NOT NULL, `nextDisplayTime` TEXT, `interval` INTEGER NOT NULL, `userDescription` TEXT, `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `grammarId` INTEGER NOT NULL, `revisionType` TEXT NOT NULL, FOREIGN KEY(`grammarId`) REFERENCES `Grammar`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`retention` REAL, `nextDisplayTime` TEXT, `interval` INTEGER, `chosenVocabularyId` INTEGER, `userDescription` TEXT, `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `grammarId` INTEGER NOT NULL, `revisionType` TEXT NOT NULL, FOREIGN KEY(`grammarId`) REFERENCES `Grammar`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
         "fields": [
           {
             "fieldPath": "retention",
             "columnName": "retention",
             "affinity": "REAL",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "nextDisplayTime",
@@ -304,7 +310,13 @@
             "fieldPath": "interval",
             "columnName": "interval",
             "affinity": "INTEGER",
-            "notNull": true
+            "notNull": false
+          },
+          {
+            "fieldPath": "chosenVocabularyId",
+            "columnName": "chosenVocabularyId",
+            "affinity": "INTEGER",
+            "notNull": false
           },
           {
             "fieldPath": "userDescription",
@@ -341,7 +353,7 @@
         "foreignKeys": [
           {
             "table": "Grammar",
-            "onDelete": "CASCADE",
+            "onDelete": "NO ACTION",
             "onUpdate": "NO ACTION",
             "columns": [
               "grammarId"
@@ -354,8 +366,26 @@
       },
       {
         "tableName": "GrammarStudyFlashcard",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `grammarId` INTEGER NOT NULL, FOREIGN KEY(`grammarId`) REFERENCES `Grammar`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`ifStudied` INTEGER NOT NULL, `userDescription` TEXT, `chosenVocabularyId` INTEGER, `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `grammarId` INTEGER NOT NULL, FOREIGN KEY(`grammarId`) REFERENCES `Grammar`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION , FOREIGN KEY(`chosenVocabularyId`) REFERENCES `Vocabulary`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
         "fields": [
+          {
+            "fieldPath": "ifStudied",
+            "columnName": "ifStudied",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "userDescription",
+            "columnName": "userDescription",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "chosenVocabularyId",
+            "columnName": "chosenVocabularyId",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
           {
             "fieldPath": "id",
             "columnName": "id",
@@ -379,10 +409,21 @@
         "foreignKeys": [
           {
             "table": "Grammar",
-            "onDelete": "CASCADE",
+            "onDelete": "NO ACTION",
             "onUpdate": "NO ACTION",
             "columns": [
               "grammarId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          },
+          {
+            "table": "Vocabulary",
+            "onDelete": "NO ACTION",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "chosenVocabularyId"
             ],
             "referencedColumns": [
               "id"
@@ -392,13 +433,13 @@
       },
       {
         "tableName": "VocabularyRevisionFlashcard",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`retention` REAL NOT NULL, `nextDisplayTime` TEXT, `interval` INTEGER NOT NULL, `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `vocabularyId` INTEGER NOT NULL, `revisionType` TEXT NOT NULL, FOREIGN KEY(`vocabularyId`) REFERENCES `Vocabulary`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`retention` REAL, `nextDisplayTime` TEXT, `interval` INTEGER, `chosenPictureId` INTEGER, `userDescription` TEXT, `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `vocabularyId` INTEGER NOT NULL, `revisionType` TEXT NOT NULL, FOREIGN KEY(`vocabularyId`) REFERENCES `Vocabulary`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
         "fields": [
           {
             "fieldPath": "retention",
             "columnName": "retention",
             "affinity": "REAL",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "nextDisplayTime",
@@ -410,7 +451,19 @@
             "fieldPath": "interval",
             "columnName": "interval",
             "affinity": "INTEGER",
-            "notNull": true
+            "notNull": false
+          },
+          {
+            "fieldPath": "chosenPictureId",
+            "columnName": "chosenPictureId",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "userDescription",
+            "columnName": "userDescription",
+            "affinity": "TEXT",
+            "notNull": false
           },
           {
             "fieldPath": "id",
@@ -441,7 +494,7 @@
         "foreignKeys": [
           {
             "table": "Vocabulary",
-            "onDelete": "CASCADE",
+            "onDelete": "NO ACTION",
             "onUpdate": "NO ACTION",
             "columns": [
               "vocabularyId"
@@ -454,8 +507,26 @@
       },
       {
         "tableName": "VocabularyStudyFlashcard",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `vocabularyId` INTEGER NOT NULL, FOREIGN KEY(`vocabularyId`) REFERENCES `Vocabulary`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`ifStudied` INTEGER NOT NULL, `chosenPictureId` INTEGER, `userDescription` TEXT, `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `vocabularyId` INTEGER NOT NULL, FOREIGN KEY(`vocabularyId`) REFERENCES `Vocabulary`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
         "fields": [
+          {
+            "fieldPath": "ifStudied",
+            "columnName": "ifStudied",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "chosenPictureId",
+            "columnName": "chosenPictureId",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "userDescription",
+            "columnName": "userDescription",
+            "affinity": "TEXT",
+            "notNull": false
+          },
           {
             "fieldPath": "id",
             "columnName": "id",
@@ -479,7 +550,7 @@
         "foreignKeys": [
           {
             "table": "Vocabulary",
-            "onDelete": "CASCADE",
+            "onDelete": "NO ACTION",
             "onUpdate": "NO ACTION",
             "columns": [
               "vocabularyId"
@@ -518,7 +589,7 @@
       },
       {
         "tableName": "User_GrammarRevisionFlashcard",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`userId` INTEGER NOT NULL, `flashcardId` INTEGER NOT NULL, PRIMARY KEY(`userId`, `flashcardId`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`userId` INTEGER NOT NULL, `grammarRevisionFlashcardId` INTEGER NOT NULL, PRIMARY KEY(`userId`, `grammarRevisionFlashcardId`), FOREIGN KEY(`userId`) REFERENCES `User`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION , FOREIGN KEY(`grammarRevisionFlashcardId`) REFERENCES `GrammarRevisionFlashcard`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
         "fields": [
           {
             "fieldPath": "userId",
@@ -527,8 +598,8 @@
             "notNull": true
           },
           {
-            "fieldPath": "flashcardId",
-            "columnName": "flashcardId",
+            "fieldPath": "grammarRevisionFlashcardId",
+            "columnName": "grammarRevisionFlashcardId",
             "affinity": "INTEGER",
             "notNull": true
           }
@@ -536,16 +607,39 @@
         "primaryKey": {
           "columnNames": [
             "userId",
-            "flashcardId"
+            "grammarRevisionFlashcardId"
           ],
           "autoGenerate": false
         },
         "indices": [],
-        "foreignKeys": []
+        "foreignKeys": [
+          {
+            "table": "User",
+            "onDelete": "NO ACTION",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "userId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          },
+          {
+            "table": "GrammarRevisionFlashcard",
+            "onDelete": "NO ACTION",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "grammarRevisionFlashcardId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
       },
       {
         "tableName": "VocabularyListChoiceForGrammarFlashcard",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`grammarStudyFlashcardId` INTEGER NOT NULL, `vocabularyId` INTEGER NOT NULL, PRIMARY KEY(`grammarStudyFlashcardId`, `vocabularyId`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`grammarStudyFlashcardId` INTEGER NOT NULL, `vocabularyId` INTEGER NOT NULL, PRIMARY KEY(`grammarStudyFlashcardId`, `vocabularyId`), FOREIGN KEY(`grammarStudyFlashcardId`) REFERENCES `GrammarStudyFlashcard`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION , FOREIGN KEY(`vocabularyId`) REFERENCES `Vocabulary`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
         "fields": [
           {
             "fieldPath": "grammarStudyFlashcardId",
@@ -568,11 +662,34 @@
           "autoGenerate": false
         },
         "indices": [],
-        "foreignKeys": []
+        "foreignKeys": [
+          {
+            "table": "GrammarStudyFlashcard",
+            "onDelete": "NO ACTION",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "grammarStudyFlashcardId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          },
+          {
+            "table": "Vocabulary",
+            "onDelete": "NO ACTION",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "vocabularyId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
       },
       {
         "tableName": "User_GrammarStudyFlashcard",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`userId` INTEGER NOT NULL, `flashcardId` INTEGER NOT NULL, PRIMARY KEY(`userId`, `flashcardId`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`userId` INTEGER NOT NULL, `grammarStudyFlashcardId` INTEGER NOT NULL, PRIMARY KEY(`userId`), FOREIGN KEY(`userId`) REFERENCES `User`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION , FOREIGN KEY(`grammarStudyFlashcardId`) REFERENCES `GrammarStudyFlashcard`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
         "fields": [
           {
             "fieldPath": "userId",
@@ -581,25 +698,47 @@
             "notNull": true
           },
           {
-            "fieldPath": "flashcardId",
-            "columnName": "flashcardId",
+            "fieldPath": "grammarStudyFlashcardId",
+            "columnName": "grammarStudyFlashcardId",
             "affinity": "INTEGER",
             "notNull": true
           }
         ],
         "primaryKey": {
           "columnNames": [
-            "userId",
-            "flashcardId"
+            "userId"
           ],
           "autoGenerate": false
         },
         "indices": [],
-        "foreignKeys": []
+        "foreignKeys": [
+          {
+            "table": "User",
+            "onDelete": "NO ACTION",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "userId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          },
+          {
+            "table": "GrammarStudyFlashcard",
+            "onDelete": "NO ACTION",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "grammarStudyFlashcardId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
       },
       {
         "tableName": "User_SignRevisionFlashcard",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`userId` INTEGER NOT NULL, `signRevisionFlashcardId` INTEGER NOT NULL, PRIMARY KEY(`userId`, `signRevisionFlashcardId`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`userId` INTEGER NOT NULL, `signRevisionFlashcardId` INTEGER NOT NULL, PRIMARY KEY(`userId`, `signRevisionFlashcardId`), FOREIGN KEY(`userId`) REFERENCES `User`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION , FOREIGN KEY(`signRevisionFlashcardId`) REFERENCES `SignRevisionFlashcard`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
         "fields": [
           {
             "fieldPath": "userId",
@@ -622,11 +761,34 @@
           "autoGenerate": false
         },
         "indices": [],
-        "foreignKeys": []
+        "foreignKeys": [
+          {
+            "table": "User",
+            "onDelete": "NO ACTION",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "userId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          },
+          {
+            "table": "SignRevisionFlashcard",
+            "onDelete": "NO ACTION",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "signRevisionFlashcardId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
       },
       {
         "tableName": "User_SignStudyFlashcard",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`userId` INTEGER NOT NULL, `signStudyFlashcardId` INTEGER NOT NULL, PRIMARY KEY(`userId`, `signStudyFlashcardId`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`userId` INTEGER NOT NULL, `signStudyFlashcardId` INTEGER NOT NULL, PRIMARY KEY(`userId`), FOREIGN KEY(`userId`) REFERENCES `User`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION , FOREIGN KEY(`signStudyFlashcardId`) REFERENCES `SignStudyFlashcard`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
         "fields": [
           {
             "fieldPath": "userId",
@@ -643,44 +805,88 @@
         ],
         "primaryKey": {
           "columnNames": [
-            "userId",
-            "signStudyFlashcardId"
+            "userId"
           ],
           "autoGenerate": false
         },
         "indices": [],
-        "foreignKeys": []
+        "foreignKeys": [
+          {
+            "table": "User",
+            "onDelete": "NO ACTION",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "userId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          },
+          {
+            "table": "SignStudyFlashcard",
+            "onDelete": "NO ACTION",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "signStudyFlashcardId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
       },
       {
         "tableName": "StudyDay_User",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`studyDayId` INTEGER NOT NULL, `userId` INTEGER NOT NULL, PRIMARY KEY(`studyDayId`, `userId`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`userId` INTEGER NOT NULL, `studyDayId` INTEGER NOT NULL, PRIMARY KEY(`userId`), FOREIGN KEY(`userId`) REFERENCES `User`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION , FOREIGN KEY(`studyDayId`) REFERENCES `StudyDay`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
         "fields": [
           {
-            "fieldPath": "studyDayId",
-            "columnName": "studyDayId",
+            "fieldPath": "userId",
+            "columnName": "userId",
             "affinity": "INTEGER",
             "notNull": true
           },
           {
-            "fieldPath": "userId",
-            "columnName": "userId",
+            "fieldPath": "studyDayId",
+            "columnName": "studyDayId",
             "affinity": "INTEGER",
             "notNull": true
           }
         ],
         "primaryKey": {
           "columnNames": [
-            "studyDayId",
             "userId"
           ],
           "autoGenerate": false
         },
         "indices": [],
-        "foreignKeys": []
+        "foreignKeys": [
+          {
+            "table": "User",
+            "onDelete": "NO ACTION",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "userId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          },
+          {
+            "table": "StudyDay",
+            "onDelete": "NO ACTION",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "studyDayId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
       },
       {
         "tableName": "User_VocabularyRevisionFlashcard",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`userId` INTEGER NOT NULL, `vocabularyRevisionFlashcardId` INTEGER NOT NULL, PRIMARY KEY(`userId`, `vocabularyRevisionFlashcardId`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`userId` INTEGER NOT NULL, `vocabularyRevisionFlashcardId` INTEGER NOT NULL, PRIMARY KEY(`userId`, `vocabularyRevisionFlashcardId`), FOREIGN KEY(`userId`) REFERENCES `User`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION , FOREIGN KEY(`vocabularyRevisionFlashcardId`) REFERENCES `VocabularyRevisionFlashcard`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
         "fields": [
           {
             "fieldPath": "userId",
@@ -703,11 +909,34 @@
           "autoGenerate": false
         },
         "indices": [],
-        "foreignKeys": []
+        "foreignKeys": [
+          {
+            "table": "User",
+            "onDelete": "NO ACTION",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "userId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          },
+          {
+            "table": "VocabularyRevisionFlashcard",
+            "onDelete": "NO ACTION",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "vocabularyRevisionFlashcardId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
       },
       {
         "tableName": "User_VocabularyStudyFlashcard",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`userId` INTEGER NOT NULL, `vocabularyStudyFlashcardId` INTEGER NOT NULL, PRIMARY KEY(`userId`, `vocabularyStudyFlashcardId`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`userId` INTEGER NOT NULL, `vocabularyStudyFlashcardId` INTEGER NOT NULL, PRIMARY KEY(`userId`), FOREIGN KEY(`userId`) REFERENCES `User`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION , FOREIGN KEY(`vocabularyStudyFlashcardId`) REFERENCES `VocabularyStudyFlashcard`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
         "fields": [
           {
             "fieldPath": "userId",
@@ -724,17 +953,39 @@
         ],
         "primaryKey": {
           "columnNames": [
-            "userId",
-            "vocabularyStudyFlashcardId"
+            "userId"
           ],
           "autoGenerate": false
         },
         "indices": [],
-        "foreignKeys": []
+        "foreignKeys": [
+          {
+            "table": "User",
+            "onDelete": "NO ACTION",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "userId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          },
+          {
+            "table": "VocabularyStudyFlashcard",
+            "onDelete": "NO ACTION",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "vocabularyStudyFlashcardId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
       },
       {
         "tableName": "StudyDay",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `date` TEXT NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `date` TEXT)",
         "fields": [
           {
             "fieldPath": "id",
@@ -746,7 +997,7 @@
             "fieldPath": "date",
             "columnName": "date",
             "affinity": "TEXT",
-            "notNull": true
+            "notNull": false
           }
         ],
         "primaryKey": {
@@ -794,7 +1045,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '41942925fe9ef2f7f1526310be068d11')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '64b9fde52fb9d711e59e5839ddc94508')"
     ]
   }
 }

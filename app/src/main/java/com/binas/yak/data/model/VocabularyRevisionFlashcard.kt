@@ -20,9 +20,11 @@ data class VocabularyRevisionFlashcard (
     @Ignore
     @Inject
     lateinit var scheduler: SpacedRepetitionScheduler
-    override var retention: Double = 0.0
+    override var retention: Double? = 0.0
     override var nextDisplayTime: LocalDate? = null
-    override var interval: Long = 0L
+    override var interval: Long? = 0L
+    var chosenPictureId: Long? = null
+    var userDescription: String? = null
 
     override fun forget() {
         this.scheduler.schedule(this, false)
