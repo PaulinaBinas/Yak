@@ -4,6 +4,9 @@ import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.binas.yak.data.model.*
+import com.binas.yak.data.model.grammar.Grammar
+import com.binas.yak.data.model.grammar.GrammarRevisionFlashcard
+import com.binas.yak.data.model.grammar.GrammarStudyFlashcard
 import com.binas.yak.data.model.grammarStudyFlashcardVocabulary.GrammarStudyFlashcardVocabulary
 import com.binas.yak.data.model.sign.Sign
 import com.binas.yak.data.model.sign.SignDao
@@ -19,6 +22,10 @@ import com.binas.yak.data.model.userSignStudyFlashcard.UserSignStudyFlashcardDao
 import com.binas.yak.data.model.userStudyDay.UserStudyDay
 import com.binas.yak.data.model.userVocabularyRevisionFlashcard.UserVocabularyRevisionFlashcard
 import com.binas.yak.data.model.userVocabularyStudyFlashcard.UserVocabularyStudyFlashcard
+import com.binas.yak.data.model.vocabulary.Vocabulary
+import com.binas.yak.data.model.vocabulary.VocabularyDao
+import com.binas.yak.data.model.vocabulary.VocabularyRevisionFlashcard
+import com.binas.yak.data.model.vocabulary.VocabularyStudyFlashcard
 import com.binas.yak.util.impl.Converters
 
 
@@ -35,4 +42,5 @@ abstract class ApplicationDatabase: RoomDatabase() {
     abstract fun userSignStudyFlashcardDao(): UserSignStudyFlashcardDao
     abstract fun signDao(): SignDao
     abstract fun translationDao(): TranslationDao
+    abstract fun vocabularyDao(): VocabularyDao
 }

@@ -16,6 +16,7 @@ import com.binas.yak.ui.study.sign.learn.studyCard.interactor.SignStudyCardInter
 import com.binas.yak.ui.study.sign.learn.studyCard.presenter.SignStudyCardPresenter
 import com.binas.yak.ui.study.sign.learn.writing.view.LearnSignWritingActivity
 import com.bumptech.glide.Glide
+import com.yariksoffice.lingver.Lingver
 import kotlinx.android.synthetic.main.activity_sign_study_card.*
 import kotlinx.android.synthetic.main.activity_sign_study_card.imageFragment
 import kotlinx.android.synthetic.main.fragment_image.*
@@ -40,15 +41,14 @@ class SignStudyCardActivity : BaseActivity(), SignStudyCardView {
         presenter?.start()
     }
 
-    override fun onStart() {
-        super.onStart()
-        playSoundButton.callOnClick()
-    }
-
     override fun loadImage() {
         Glide.with(this)
             .load(resources.getIdentifier(imgName, "drawable", this.packageName))
             .into(imageFragment.imageView)
+    }
+
+    override fun clickPlaySound() {
+        playSoundButton.callOnClick()
     }
 
     fun onClickGoToLearnNewSign(view: View) {
@@ -73,7 +73,7 @@ class SignStudyCardActivity : BaseActivity(), SignStudyCardView {
         if (!playing && sound != null) {
             playing = true
             val mp = MediaPlayer()
-            val uri = Uri.parse("android.resource://" + packageName + "/" + sound)
+            val uri = Uri.parse("android.resource://$packageName/$sound")
             mp.setDataSource(this, uri)
             mp.prepare()
             mp.setOnPreparedListener { mp.start() }
@@ -83,6 +83,11 @@ class SignStudyCardActivity : BaseActivity(), SignStudyCardView {
 
     override fun setContent(card: SignStudyFlashcard?, sign: Sign?, translation: Translation?) {
         signText.text = sign!!.tibetanSign + " (" + sign!!.audioFileName + ")"
+        if(Lingver.getInstance().getLanguage() == "pl") {
+            description.text = translation?.polish
+        } else {
+            description.text = translation?.english
+        }
         imgName = sign!!.audioFileName.toString()
         soundName = sign!!.audioFileName.toString()
     }

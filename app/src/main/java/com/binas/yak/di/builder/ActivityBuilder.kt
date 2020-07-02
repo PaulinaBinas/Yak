@@ -3,6 +3,7 @@ package com.binas.yak.di.builder
 import com.binas.yak.data.DatabaseModule
 import com.binas.yak.data.model.sign.SignModule
 import com.binas.yak.data.model.translation.TranslationModule
+import com.binas.yak.data.model.vocabulary.VocabularyModule
 import com.binas.yak.ui.achievements.AchievementsActivityModule
 import com.binas.yak.ui.achievements.view.AchievementsActivity
 import com.binas.yak.ui.authentication.authMenu.AuthMenuModule
@@ -106,7 +107,7 @@ abstract class ActivityBuilder {
     @ContributesAndroidInjector(modules = [(LearnVocabularyWritingModule::class), (DrawingProvider::class)])
     abstract fun bindLearnVocabularyWritingActivity(): LearnVocabularyWritingActivity
 
-    @ContributesAndroidInjector(modules = [(VocabularyStudyCardModule::class), (ImageProvider::class)])
+    @ContributesAndroidInjector(modules = [(VocabularyStudyCardModule::class), (ImageProvider::class), (VocabularyModule::class), (TranslationModule::class), (DatabaseModule::class)])
     abstract fun bindVocabularyStudyCardActivity(): VocabularyStudyCardActivity
 
     @ContributesAndroidInjector(modules = [(SplashModule::class)])

@@ -28,12 +28,9 @@ class SignStudyCardPresenterImpl<V: SignStudyCardView, I: SignStudyCardInteracto
             }
             if(coroutine.isCompleted) {
                 getView()?.loadImage()
+                getView()?.clickPlaySound()
             }
         }
-    }
-
-    override fun onAttach(view: V?) {
-        super.onAttach(view)
     }
 
     override fun goToLearnSignStudyCard() {

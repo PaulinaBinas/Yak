@@ -2,7 +2,7 @@ package com.binas.yak.data.model.userGrammarRevisionFlashcard
 
 import androidx.room.Entity
 import androidx.room.ForeignKey
-import com.binas.yak.data.model.GrammarRevisionFlashcard
+import com.binas.yak.data.model.grammar.GrammarRevisionFlashcard
 import com.binas.yak.data.model.User
 
 @Entity(tableName = "User_GrammarRevisionFlashcard", primaryKeys = ["userId", "grammarRevisionFlashcardId"],

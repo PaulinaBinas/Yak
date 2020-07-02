@@ -1,8 +1,9 @@
-package com.binas.yak.data.model
+package com.binas.yak.data.model.grammar
 
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
+import com.binas.yak.data.model.vocabulary.Vocabulary
 
 @Entity(tableName = "GrammarStudyFlashcard", foreignKeys = [(ForeignKey(entity = Grammar::class,
 parentColumns = arrayOf("id"),

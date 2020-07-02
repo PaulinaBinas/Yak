@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "64b9fde52fb9d711e59e5839ddc94508",
+    "identityHash": "014fddd6a20f0639eb51dfbba9d5c355",
     "entities": [
       {
         "tableName": "Sign",
@@ -118,7 +118,7 @@
       },
       {
         "tableName": "Vocabulary",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `tibetanWord` TEXT, `audioFileName` TEXT, `pictureFileName` TEXT, `translationId` INTEGER, FOREIGN KEY(`translationId`) REFERENCES `Translation`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `tibetanWord` TEXT, `audioFileName` TEXT, `translationId` INTEGER, FOREIGN KEY(`translationId`) REFERENCES `Translation`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
         "fields": [
           {
             "fieldPath": "id",
@@ -135,12 +135,6 @@
           {
             "fieldPath": "audioFileName",
             "columnName": "audioFileName",
-            "affinity": "TEXT",
-            "notNull": false
-          },
-          {
-            "fieldPath": "pictureFileName",
-            "columnName": "pictureFileName",
             "affinity": "TEXT",
             "notNull": false
           },
@@ -1045,7 +1039,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '64b9fde52fb9d711e59e5839ddc94508')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '014fddd6a20f0639eb51dfbba9d5c355')"
     ]
   }
 }

@@ -2,8 +2,8 @@ package com.binas.yak.data.model.grammarStudyFlashcardVocabulary
 
 import androidx.room.Entity
 import androidx.room.ForeignKey
-import com.binas.yak.data.model.GrammarStudyFlashcard
-import com.binas.yak.data.model.Vocabulary
+import com.binas.yak.data.model.grammar.GrammarStudyFlashcard
+import com.binas.yak.data.model.vocabulary.Vocabulary
 
 @Entity(tableName = "VocabularyListChoiceForGrammarFlashcard", primaryKeys = ["grammarStudyFlashcardId", "vocabularyId"],
     foreignKeys = [(ForeignKey(entity = GrammarStudyFlashcard::class,

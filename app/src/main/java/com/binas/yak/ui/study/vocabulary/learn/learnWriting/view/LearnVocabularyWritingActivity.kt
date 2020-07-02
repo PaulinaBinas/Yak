@@ -8,11 +8,13 @@ import com.binas.yak.R
 import com.binas.yak.ui.base.view.BaseActivity
 import com.binas.yak.ui.base.view.BaseView
 import com.binas.yak.ui.settings.view.SettingsActivity
+import kotlinx.android.synthetic.main.activity_learn_vocabulary_writing.*
 
 class LearnVocabularyWritingActivity : BaseActivity(), LearnVocabularyWritingView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_learn_vocabulary_writing)
+        vocabularyTextView.text = intent.getStringExtra("word")
     }
 
     fun onClickSettingsButton(view: View) {

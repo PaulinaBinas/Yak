@@ -3,7 +3,7 @@ package com.binas.yak.data.model.userGrammarRevisionFlashcard
 import androidx.room.Embedded
 import androidx.room.Junction
 import androidx.room.Relation
-import com.binas.yak.data.model.GrammarRevisionFlashcard
+import com.binas.yak.data.model.grammar.GrammarRevisionFlashcard
 import com.binas.yak.data.model.User
 
 data class UserWithGrammarRevisionFlashcard (

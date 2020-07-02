@@ -5,4 +5,6 @@ import com.binas.yak.ui.study.vocabulary.learn.studyCard.interactor.VocabularySt
 import com.binas.yak.ui.study.vocabulary.learn.studyCard.view.VocabularyStudyCardView
 
 interface VocabularyStudyCardPresenter<V: VocabularyStudyCardView, I: VocabularyStudyCardInteractor>: Presenter<V, I> {
+
+    fun start()
 }

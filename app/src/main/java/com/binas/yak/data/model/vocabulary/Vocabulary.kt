@@ -1,4 +1,4 @@
-package com.binas.yak.data.model
+package com.binas.yak.data.model.vocabulary
 
 import androidx.room.Entity
 import androidx.room.ForeignKey
@@ -13,6 +13,5 @@ data class Vocabulary (
     @PrimaryKey(autoGenerate = true) val id: Long,
     var tibetanWord: String?,
     var audioFileName: String?,
-    var pictureFileName: String?,
     var translationId: Long?
 )
