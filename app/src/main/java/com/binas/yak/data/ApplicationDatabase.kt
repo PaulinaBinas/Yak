@@ -5,6 +5,7 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.binas.yak.data.model.*
 import com.binas.yak.data.model.grammar.Grammar
+import com.binas.yak.data.model.grammar.GrammarDao
 import com.binas.yak.data.model.grammar.GrammarRevisionFlashcard
 import com.binas.yak.data.model.grammar.GrammarStudyFlashcard
 import com.binas.yak.data.model.grammarStudyFlashcardVocabulary.GrammarStudyFlashcardVocabulary
@@ -43,4 +44,5 @@ abstract class ApplicationDatabase: RoomDatabase() {
     abstract fun signDao(): SignDao
     abstract fun translationDao(): TranslationDao
     abstract fun vocabularyDao(): VocabularyDao
+    abstract fun grammarDao(): GrammarDao
 }

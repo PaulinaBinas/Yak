@@ -1,6 +1,7 @@
 package com.binas.yak.di.builder
 
 import com.binas.yak.data.DatabaseModule
+import com.binas.yak.data.model.grammar.GrammarModule
 import com.binas.yak.data.model.sign.SignModule
 import com.binas.yak.data.model.translation.TranslationModule
 import com.binas.yak.data.model.vocabulary.VocabularyModule
@@ -149,7 +150,7 @@ abstract class ActivityBuilder {
     @ContributesAndroidInjector(modules = [(LearnGrammarWritingModule::class), (DrawingProvider::class)])
     abstract fun bindLearnGrammarWritingActivity(): LearnGrammarWritingActivity
 
-    @ContributesAndroidInjector(modules = [(GrammarStudyCardModule::class)])
+    @ContributesAndroidInjector(modules = [(GrammarStudyCardModule::class), (GrammarModule::class), (TranslationModule::class), (DatabaseModule::class)])
     abstract fun bindGrammarStudyCardActivity(): GrammarStudyCardActivity
 
     @ContributesAndroidInjector(modules = [(GrammarPronunciationCheckModule::class)])

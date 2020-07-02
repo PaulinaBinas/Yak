@@ -10,25 +10,34 @@ import android.text.SpannableStringBuilder
 import android.view.View
 import androidx.core.text.color
 import com.binas.yak.R
+import com.binas.yak.data.model.grammar.Grammar
+import com.binas.yak.data.model.grammar.GrammarStudyFlashcard
+import com.binas.yak.data.model.translation.Translation
 import com.binas.yak.ui.base.view.BaseActivity
 import com.binas.yak.ui.settings.view.SettingsActivity
 import com.binas.yak.ui.study.grammar.learn.learnWriting.view.LearnGrammarWritingActivity
+import com.binas.yak.ui.study.grammar.learn.studyCard.interactor.GrammarStudyCardInteractor
+import com.binas.yak.ui.study.grammar.learn.studyCard.presenter.GrammarStudyCardPresenter
+import com.yariksoffice.lingver.Lingver
 import kotlinx.android.synthetic.main.activity_grammar_study_card.*
+import javax.inject.Inject
 
 class GrammarStudyCardActivity : BaseActivity(), GrammarStudyCardView {
 
-    private var sentenceStart: String = "ཁོང་དེབ་ཀློག་"
-    private var grammar: String = "གི་མི་འདུག"
-    private var sentenceEnd: String = "།"
-    private var translation: String = "He is not reading a book."
-    private var soundName: String = "doesnt"
+    @Inject
+    lateinit var presenter: GrammarStudyCardPresenter<GrammarStudyCardView, GrammarStudyCardInteractor>
+    private var sentenceStart: String? = "ཁོང་དེབ་ཀློག་"
+    private var grammar: String? = "གི་མི་འདུག"
+    private var sentenceEnd: String? = "།"
+    private var translation: String? = "He is not reading a book."
+    private var soundName: String? = "doesnt"
     private var playing: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_grammar_study_card)
-        loadText()
-        playSoundButton.callOnClick()
+        presenter?.onAttach(this)
+        presenter?.start()
     }
 
     private fun loadText() {
@@ -69,5 +78,22 @@ class GrammarStudyCardActivity : BaseActivity(), GrammarStudyCardView {
 
     fun onClickBackButton(view: View) {
         onBackPressed()
+    }
+
+    override fun setContent(card: GrammarStudyFlashcard, grammar: Grammar, text: Translation?) {
+        this.sentenceStart = grammar.firstPartOfSentence
+        this.sentenceEnd = grammar.secondPartOfSentence
+        this.grammar = grammar.grammarPhase
+        if(Lingver.getInstance().getLanguage().equals("pl")) {
+            this.translation = text?.polish
+        } else {
+            this.translation = text?.english
+        }
+        this.soundName = grammar.audioFileName
+        loadText()
+    }
+
+    override fun clickPlaySound() {
+        playSoundButton.callOnClick()
     }
 }

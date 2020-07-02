@@ -5,4 +5,6 @@ import com.binas.yak.ui.study.grammar.learn.studyCard.interactor.GrammarStudyCar
 import com.binas.yak.ui.study.grammar.learn.studyCard.view.GrammarStudyCardView
 
 interface GrammarStudyCardPresenter<V: GrammarStudyCardView, I: GrammarStudyCardInteractor>: Presenter<V, I> {
+
+    fun start()
 }
