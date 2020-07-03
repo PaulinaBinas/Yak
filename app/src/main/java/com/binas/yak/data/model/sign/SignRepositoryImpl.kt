@@ -1,5 +1,6 @@
 package com.binas.yak.data.model.sign
 
+import com.binas.yak.data.model.RevisionType
 import javax.inject.Inject
 
 
@@ -9,6 +10,10 @@ class SignRepositoryImpl @Inject internal constructor(var signDao: SignDao): Sig
 
     override fun getSignStudyFlashcardById(id: Long): SignStudyFlashcard {
         return signDao.getSignStudyFlashcardById(id)
+    }
+
+    override fun getSignRevisionFlashcardById(id: Long): SignRevisionFlashcard {
+        return signDao.getSignRevisionFlashcard(id)
     }
 
     override fun getSignByFlashcardId(id: Long): Sign {

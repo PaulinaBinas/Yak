@@ -5,4 +5,6 @@ import com.binas.yak.ui.study.sign.reviseSound.interactor.SignReviseSoundInterac
 import com.binas.yak.ui.study.sign.reviseSound.view.SignReviseSoundView
 
 interface SignReviseSoundPresenter<V: SignReviseSoundView, I: SignReviseSoundInteractor>: Presenter<V, I> {
+
+    fun start()
 }
