@@ -5,4 +5,6 @@ import com.binas.yak.ui.study.sign.reviseWriting.interactor.SignReviseWritingInt
 import com.binas.yak.ui.study.sign.reviseWriting.view.SignReviseWritingView
 
 interface SignReviseWritingPresenter<V: SignReviseWritingView, I: SignReviseWritingInteractor>: Presenter<V, I> {
+
+    fun start()
 }

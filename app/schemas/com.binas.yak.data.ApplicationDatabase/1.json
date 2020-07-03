@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "014fddd6a20f0639eb51dfbba9d5c355",
+    "identityHash": "af8e458a400edadbfbe54f0a4bdcbef8",
     "entities": [
       {
         "tableName": "Sign",
@@ -168,7 +168,7 @@
       },
       {
         "tableName": "SignRevisionFlashcard",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`retention` REAL, `nextDisplayTime` TEXT, `interval` INTEGER, `userDescription` TEXT, `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `revisionType` TEXT NOT NULL, `signId` INTEGER NOT NULL, FOREIGN KEY(`signId`) REFERENCES `Sign`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`retention` REAL, `nextDisplayTime` TEXT, `interval` INTEGER, `userDescription` TEXT, `comparisonSignId` TEXT, `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `revisionType` TEXT NOT NULL, `signId` INTEGER NOT NULL, FOREIGN KEY(`signId`) REFERENCES `Sign`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
         "fields": [
           {
             "fieldPath": "retention",
@@ -191,6 +191,12 @@
           {
             "fieldPath": "userDescription",
             "columnName": "userDescription",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "comparisonSignId",
+            "columnName": "comparisonSignId",
             "affinity": "TEXT",
             "notNull": false
           },
@@ -1039,7 +1045,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '014fddd6a20f0639eb51dfbba9d5c355')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'af8e458a400edadbfbe54f0a4bdcbef8')"
     ]
   }
 }

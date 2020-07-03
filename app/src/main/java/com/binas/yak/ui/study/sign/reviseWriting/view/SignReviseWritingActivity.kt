@@ -6,24 +6,29 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import com.binas.yak.R
+import com.binas.yak.data.model.sign.Sign
+import com.binas.yak.data.model.sign.SignRevisionFlashcard
 import com.binas.yak.ui.base.view.BaseActivity
 import com.binas.yak.ui.settings.view.SettingsActivity
 import com.binas.yak.ui.study.common.reviseWriting.view.ReviseWritingActivity
+import com.binas.yak.ui.study.sign.reviseWriting.interactor.SignReviseWritingInteractor
+import com.binas.yak.ui.study.sign.reviseWriting.presenter.SignReviseWritingPresenter
 import kotlinx.android.synthetic.main.activity_vocabulary_revise_writing.*
+import javax.inject.Inject
 
 class SignReviseWritingActivity : BaseActivity(), SignReviseWritingView {
 
     var playing: Boolean = false
-    var imageName: String = "sa"
+    var imageName: String = ""
+    var audioName: String = ""
+    @Inject
+    lateinit var presenter: SignReviseWritingPresenter<SignReviseWritingView, SignReviseWritingInteractor>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_revise_writing)
-    }
-
-    override fun onStart() {
-        super.onStart()
-        playSoundButton.callOnClick()
+        presenter?.onAttach(this)
+        presenter?.start()
     }
 
     fun onClickGoToReviseWriting(view: View) {
@@ -44,10 +49,11 @@ class SignReviseWritingActivity : BaseActivity(), SignReviseWritingView {
     }
 
     fun onClickPlaySound(view: View) {
-        if (!playing) {
+        var sound = resources.getIdentifier(this.audioName, "raw", packageName)
+        if (!playing && sound != null) {
             playing = true
-            val mp: MediaPlayer = MediaPlayer()
-            val uri = Uri.parse("android.resource://" + packageName + "/" + R.raw.sa)
+            val mp = MediaPlayer()
+            val uri = Uri.parse("android.resource://$packageName/$sound")
             mp.setDataSource(this, uri)
             mp.prepare()
             mp.setOnPreparedListener { mp.start() }
@@ -55,5 +61,12 @@ class SignReviseWritingActivity : BaseActivity(), SignReviseWritingView {
         }
     }
 
-    fun onClickGoNext(view: View) {}
+    override fun setContent(card: SignRevisionFlashcard, sign: Sign) {
+        this.audioName = sign.audioFileName.toString()
+        this.imageName = audioName
+    }
+
+    override fun clickSoundButton() {
+        playSoundButton.callOnClick()
+    }
 }
