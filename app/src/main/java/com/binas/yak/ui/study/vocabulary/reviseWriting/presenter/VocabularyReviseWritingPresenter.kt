@@ -5,4 +5,6 @@ import com.binas.yak.ui.study.vocabulary.reviseWriting.interactor.VocabularyRevi
 import com.binas.yak.ui.study.vocabulary.reviseWriting.view.VocabularyReviseWritingView
 
 interface VocabularyReviseWritingPresenter<V: VocabularyReviseWritingView, I: VocabularyReviseWritingInteractor>: Presenter<V, I> {
+
+    fun start()
 }
