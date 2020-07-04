@@ -6,6 +6,7 @@ import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import com.airbnb.lottie.LottieDrawable
 import com.binas.yak.R
 import com.binas.yak.data.model.sign.Sign
 import com.binas.yak.data.model.sign.SignStudyFlashcard
@@ -42,9 +43,13 @@ class SignStudyCardActivity : BaseActivity(), SignStudyCardView {
     }
 
     override fun loadImage() {
-        Glide.with(this)
-            .load(resources.getIdentifier(imgName, "drawable", this.packageName))
-            .into(imageFragment.imageView)
+//        Glide.with(this)
+//            .load(resources.getIdentifier(imgName, "drawable", this.packageName))
+//            .into(imageFragment.imageView)
+        imageFragment.animationView.setAnimation("animations/" + this.imgName + ".json")
+        imageFragment.animationView.repeatCount = LottieDrawable.INFINITE
+        imageFragment.animationView.speed = 4f
+        imageFragment.animationView.playAnimation()
     }
 
     override fun clickPlaySound() {

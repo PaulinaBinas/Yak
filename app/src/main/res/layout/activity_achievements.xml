@@ -47,6 +47,15 @@
         android:padding="40dp">
 
         <TextView
+            android:id="@+id/signsCount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:text="@string/signsLearnt" />
+
+        <TextView
+            android:id="@+id/wordsCount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
@@ -54,6 +63,7 @@
             android:text="@string/wordsLearnt" />
 
         <TextView
+            android:id="@+id/grammarCount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"

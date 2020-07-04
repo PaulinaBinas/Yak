@@ -23,6 +23,7 @@
     <string name="passwordChangeSuccess">Password changed!</string>
     <string name="reviseIn">revise in: </string>
     <string name="wordsLearnt">words learnt: </string>
+    <string name="signsLearnt">signs learnt: </string>
     <string name="grammarLearnt">grammar learnt: </string>
     <string name="writeSign">write the sign down</string>
     <string name="writeItDown">write it down:</string>

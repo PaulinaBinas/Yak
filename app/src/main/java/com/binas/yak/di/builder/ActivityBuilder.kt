@@ -1,6 +1,7 @@
 package com.binas.yak.di.builder
 
 import com.binas.yak.data.DatabaseModule
+import com.binas.yak.data.model.achievements.AchievementsModule
 import com.binas.yak.data.model.grammar.GrammarModule
 import com.binas.yak.data.model.sign.SignModule
 import com.binas.yak.data.model.translation.TranslationModule
@@ -81,7 +82,7 @@ import dagger.android.ContributesAndroidInjector
 @Module
 abstract class ActivityBuilder {
 
-    @ContributesAndroidInjector(modules = [(AchievementsActivityModule::class)])
+    @ContributesAndroidInjector(modules = [(AchievementsActivityModule::class), (AchievementsModule::class), (DatabaseModule::class)])
     abstract fun bindAchievementsActivity(): AchievementsActivity
 
     @ContributesAndroidInjector(modules = [(GrammarReviseWritingModule::class)])

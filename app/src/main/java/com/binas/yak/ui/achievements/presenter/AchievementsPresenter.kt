@@ -7,4 +7,6 @@ import com.binas.yak.ui.base.presenter.Presenter
 
 interface AchievementsPresenter<V: AchievementsView, I: AchievementsInteractor>:
     Presenter<V, I> {
+
+    fun start()
 }

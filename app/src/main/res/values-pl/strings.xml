@@ -23,6 +23,7 @@
     <string name="passwordChangeSuccess">Hasło zmienione!</string>
     <string name="reviseIn">powtórka za: </string>
     <string name="wordsLearnt">nauczone słówka: </string>
+    <string name="signsLearnt">nauczone znaki: </string>
     <string name="grammarLearnt">nauczona gramatyka: </string>
     <string name="writeSign">napisz znak</string>
     <string name="writeItDown">napisz element:</string>
