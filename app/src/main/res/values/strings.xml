@@ -31,4 +31,7 @@
     <string name="correct">CORRECT</string>
     <string name="incorrect">INCORRECT</string>
     <string name="visualizeMeaning">Visualize the meaning of:</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="question">\?</string>
 </resources>

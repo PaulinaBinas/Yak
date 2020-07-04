@@ -97,7 +97,7 @@ abstract class ActivityBuilder {
     @ContributesAndroidInjector(modules = [(SignReviseSoundModule::class), (ImageProvider::class), (SignModule::class), (DatabaseModule::class)])
     abstract fun bindSignReviseSoundActivity(): SignReviseSoundActivity
 
-    @ContributesAndroidInjector(modules = [(VocabularyReviseMeaningModule::class)])
+    @ContributesAndroidInjector(modules = [(VocabularyReviseMeaningModule::class), (VocabularyModule::class), (TranslationModule::class), (DatabaseModule::class)])
     abstract fun bindVocabularyReviseMeaningActivity(): VocabularyReviseMeaningActivity
 
     @ContributesAndroidInjector(modules = [(VocabularyReviseSoundModule::class), (ImageProvider::class)])

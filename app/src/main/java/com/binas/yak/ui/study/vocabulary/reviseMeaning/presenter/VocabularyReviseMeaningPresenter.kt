@@ -5,4 +5,6 @@ import com.binas.yak.ui.study.vocabulary.reviseMeaning.interactor.VocabularyRevi
 import com.binas.yak.ui.study.vocabulary.reviseMeaning.view.VocabularyReviseMeaningView
 
 interface VocabularyReviseMeaningPresenter<V: VocabularyReviseMeaningView, I: VocabularyReviseMeaningInteractor>: Presenter<V, I> {
+
+    fun start()
 }

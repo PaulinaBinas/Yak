@@ -9,7 +9,7 @@ interface SignStudyCardView: BaseView {
 
     fun setContent(card: SignStudyFlashcard?, sign: Sign?, translation: Translation?)
 
-    fun loadImage()
+    fun loadAnimation()
 
     fun clickPlaySound()
 }

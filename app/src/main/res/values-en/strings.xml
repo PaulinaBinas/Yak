@@ -31,4 +31,5 @@
     <string name="correct">CORRECT</string>
     <string name="incorrect">INCORRECT</string>
     <string name="visualizeMeaning">Visualize the meaning of:</string>
+    <string name="question">\?</string>
 </resources>

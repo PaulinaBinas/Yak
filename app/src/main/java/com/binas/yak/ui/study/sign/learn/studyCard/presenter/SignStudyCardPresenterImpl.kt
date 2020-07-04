@@ -1,13 +1,8 @@
 package com.binas.yak.ui.study.sign.learn.studyCard.presenter
 
-import com.binas.yak.data.model.sign.Sign
-import com.binas.yak.data.model.sign.SignStudyFlashcard
-import com.binas.yak.data.model.translation.Translation
 import com.binas.yak.ui.base.presenter.BasePresenter
 import com.binas.yak.ui.study.sign.learn.studyCard.interactor.SignStudyCardInteractor
 import com.binas.yak.ui.study.sign.learn.studyCard.view.SignStudyCardView
-import kotlinx.android.synthetic.main.activity_sign_study_card.*
-import kotlinx.android.synthetic.main.fragment_image.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -27,7 +22,7 @@ class SignStudyCardPresenterImpl<V: SignStudyCardView, I: SignStudyCardInteracto
 
             }
             if(coroutine.isCompleted) {
-                getView()?.loadImage()
+                getView()?.loadAnimation()
                 getView()?.clickPlaySound()
             }
         }

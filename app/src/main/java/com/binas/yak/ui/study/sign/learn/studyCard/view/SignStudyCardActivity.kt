@@ -1,7 +1,6 @@
 package com.binas.yak.ui.study.sign.learn.studyCard.view
 
 import android.content.Intent
-import android.graphics.drawable.Drawable
 import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Bundle
@@ -16,11 +15,9 @@ import com.binas.yak.ui.settings.view.SettingsActivity
 import com.binas.yak.ui.study.sign.learn.studyCard.interactor.SignStudyCardInteractor
 import com.binas.yak.ui.study.sign.learn.studyCard.presenter.SignStudyCardPresenter
 import com.binas.yak.ui.study.sign.learn.writing.view.LearnSignWritingActivity
-import com.bumptech.glide.Glide
 import com.yariksoffice.lingver.Lingver
 import kotlinx.android.synthetic.main.activity_sign_study_card.*
-import kotlinx.android.synthetic.main.activity_sign_study_card.imageFragment
-import kotlinx.android.synthetic.main.fragment_image.*
+import kotlinx.android.synthetic.main.fragment_animation.*
 import javax.inject.Inject
 
 class SignStudyCardActivity : BaseActivity(), SignStudyCardView {
@@ -42,14 +39,11 @@ class SignStudyCardActivity : BaseActivity(), SignStudyCardView {
         presenter?.start()
     }
 
-    override fun loadImage() {
-//        Glide.with(this)
-//            .load(resources.getIdentifier(imgName, "drawable", this.packageName))
-//            .into(imageFragment.imageView)
-        imageFragment.animationView.setAnimation("animations/" + this.imgName + ".json")
-        imageFragment.animationView.repeatCount = LottieDrawable.INFINITE
-        imageFragment.animationView.speed = 4f
-        imageFragment.animationView.playAnimation()
+    override fun loadAnimation() {
+        animationFragment.animationView.setAnimation("animations/" + this.imgName + ".json")
+        animationFragment.animationView.repeatCount = LottieDrawable.INFINITE
+        animationFragment.animationView.speed = 4f
+        animationFragment.animationView.playAnimation()
     }
 
     override fun clickPlaySound() {

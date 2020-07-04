@@ -31,4 +31,5 @@
     <string name="correct">DOBRZE</string>
     <string name="incorrect">ŹLE</string>
     <string name="visualizeMeaning">Przypomnij sobie znaczenie:</string>
+    <string name="question">\?</string>
 </resources>

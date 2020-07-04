@@ -12,7 +12,7 @@ import com.binas.yak.ui.study.common.pronunciationCheck.view.PronunciationCheckA
 import com.binas.yak.ui.study.sign.reviseSound.interactor.SignReviseSoundInteractor
 import com.binas.yak.ui.study.sign.reviseSound.presenter.SignReviseSoundPresenter
 import com.bumptech.glide.Glide
-import kotlinx.android.synthetic.main.activity_sign_study_card.*
+import kotlinx.android.synthetic.main.activity_sign_revise_sound.*
 import kotlinx.android.synthetic.main.fragment_image.*
 import javax.inject.Inject
 
