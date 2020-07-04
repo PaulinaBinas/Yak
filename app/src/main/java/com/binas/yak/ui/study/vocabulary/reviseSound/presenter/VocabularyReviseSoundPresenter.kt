@@ -5,4 +5,6 @@ import com.binas.yak.ui.study.vocabulary.reviseSound.interactor.VocabularyRevise
 import com.binas.yak.ui.study.vocabulary.reviseSound.view.VocabularyReviseSoundView
 
 interface VocabularyReviseSoundPresenter<V: VocabularyReviseSoundView, I: VocabularyReviseSoundInteractor>: Presenter<V, I> {
+
+    fun start()
 }

@@ -100,7 +100,7 @@ abstract class ActivityBuilder {
     @ContributesAndroidInjector(modules = [(VocabularyReviseMeaningModule::class), (VocabularyModule::class), (TranslationModule::class), (DatabaseModule::class)])
     abstract fun bindVocabularyReviseMeaningActivity(): VocabularyReviseMeaningActivity
 
-    @ContributesAndroidInjector(modules = [(VocabularyReviseSoundModule::class), (ImageProvider::class)])
+    @ContributesAndroidInjector(modules = [(VocabularyReviseSoundModule::class), (ImageProvider::class), (VocabularyModule::class), (DatabaseModule::class)])
     abstract fun bindVocabularyReviseSoundActivity(): VocabularyReviseSoundActivity
 
     @ContributesAndroidInjector(modules = [(VocabularyReviseWritingModule::class), (ImageProvider::class)])
