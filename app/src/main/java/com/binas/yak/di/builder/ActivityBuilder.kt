@@ -90,7 +90,7 @@ abstract class ActivityBuilder {
     @ContributesAndroidInjector(modules = [(SignReviseWritingModule::class), (SignModule::class), (DatabaseModule::class)])
     abstract fun bindSignReviseWritingActivity(): SignReviseWritingActivity
 
-    @ContributesAndroidInjector(modules= [(SignReviseWithDecisionModule::class)])
+    @ContributesAndroidInjector(modules= [(SignReviseWithDecisionModule::class), (SignModule::class), (DatabaseModule::class)])
     abstract fun bindSignReviseWithDecisionActivity(): SignReviseWithDecisionActivity
 
     @ContributesAndroidInjector(modules = [(SignReviseSoundModule::class), (ImageProvider::class), (SignModule::class), (DatabaseModule::class)])

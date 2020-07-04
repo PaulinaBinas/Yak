@@ -7,6 +7,7 @@ import android.view.ViewGroup
 
 import com.binas.yak.R
 import com.binas.yak.ui.base.view.BaseFragment
+import kotlinx.android.synthetic.main.fragment_image.*
 
 
 class ImageFragment : BaseFragment(), ImageView {

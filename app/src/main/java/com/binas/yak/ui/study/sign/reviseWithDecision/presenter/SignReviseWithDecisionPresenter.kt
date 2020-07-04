@@ -5,4 +5,6 @@ import com.binas.yak.ui.study.sign.reviseWithDecision.interactor.SignReviseWithD
 import com.binas.yak.ui.study.sign.reviseWithDecision.view.SignReviseWithDecisionView
 
 interface SignReviseWithDecisionPresenter<V: SignReviseWithDecisionView, I: SignReviseWithDecisionInteractor>: Presenter<V, I> {
+
+    fun start()
 }

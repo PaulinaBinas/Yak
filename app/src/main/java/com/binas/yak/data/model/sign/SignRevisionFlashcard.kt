@@ -26,7 +26,7 @@ class SignRevisionFlashcard constructor(
     override var nextDisplayTime: LocalDate? = null
     override var interval: Long? = 0L
     var userDescription: String? = null
-    var comparisonSignId: String? = null
+    var comparisonSignId: Long? = null
 
     override fun forget() {
         this.scheduler.schedule(this, false)
