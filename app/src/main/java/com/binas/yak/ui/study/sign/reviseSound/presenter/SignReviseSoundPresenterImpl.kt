@@ -20,7 +20,7 @@ class SignReviseSoundPresenterImpl<V: SignReviseSoundView, I: SignReviseSoundInt
             }
             while(!coroutine.isCompleted) {}
             if(coroutine.isCompleted) {
-                getView()?.loadImage()
+                getView()?.loadAnimation()
             }
         }
     }

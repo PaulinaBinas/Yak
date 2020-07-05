@@ -8,14 +8,14 @@ import android.text.SpannableStringBuilder
 import android.view.View
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.widget.LinearLayout
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.text.color
 import androidx.core.text.underline
+import com.airbnb.lottie.LottieDrawable
 import com.binas.yak.R
 import com.binas.yak.ui.base.view.BaseActivity
 import com.binas.yak.ui.settings.view.SettingsActivity
-import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_compare_writing.*
+import kotlinx.android.synthetic.main.fragment_animation.*
 import kotlinx.android.synthetic.main.fragment_image.*
 
 
@@ -24,6 +24,7 @@ class CompareWritingActivity : BaseActivity(), CompareWritingView {
     private var sentence: String = ""
     private var grammar: String = ""
     private var imageName: String = ""
+    private var animationName = ""
     private var word: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,7 +40,7 @@ class CompareWritingActivity : BaseActivity(), CompareWritingView {
         if(intent.hasExtra("image")) {
             imageName = intent.getStringExtra("image")
             imageLinearLayout.layoutParams = params
-            loadImage()
+            loadAnimation()
         } else if(intent.hasExtra("sentence") && intent.hasExtra("grammar")) {
             sentence = intent.getStringExtra("sentence")
             grammar = intent.getStringExtra("grammar")
@@ -55,10 +56,11 @@ class CompareWritingActivity : BaseActivity(), CompareWritingView {
         imageFragment.imageView.setImageBitmap(bitmap)
     }
 
-    private fun loadImage() {
-        Glide.with(baseContext)
-            .load(resources.getIdentifier(imageName, "drawable", this.packageName))
-            .into(imageFragmentWithReference.imageView)
+    private fun loadAnimation() {
+        animationFragment.animationView.setAnimation("animations/" + this.imageName + ".json")
+        animationFragment.animationView.repeatCount = LottieDrawable.INFINITE
+        animationFragment.animationView.speed = 4f
+        animationFragment.animationView.playAnimation()
     }
 
     fun loadGrammarText() {
