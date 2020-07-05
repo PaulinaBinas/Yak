@@ -5,7 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
+import com.airbnb.lottie.LottieDrawable
 import com.binas.yak.R
+import kotlinx.android.synthetic.main.fragment_animation.*
+import kotlinx.android.synthetic.main.fragment_studied_element.*
 
 
 /**
@@ -27,6 +31,16 @@ class AnimationFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_animation, container, false)
+    }
+
+    fun setAnimation(fileName: String) {
+        animationFragment.animationView.setAnimation("animations/$fileName.json")
+        animationFragment.animationView.repeatCount = LottieDrawable.INFINITE
+        animationFragment.animationView.speed = 4f
+        animationFragment.animationView.playAnimation()
+        var params = animationFragment.view?.layoutParams
+        params?.height = FrameLayout.LayoutParams.MATCH_PARENT
+        animationFragment.view?.layoutParams = params
     }
 
     companion object {

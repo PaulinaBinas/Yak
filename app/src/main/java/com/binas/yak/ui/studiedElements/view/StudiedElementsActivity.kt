@@ -17,6 +17,7 @@ import com.binas.yak.ui.base.view.BaseActivity
 import com.binas.yak.ui.base.view.BaseView
 import com.binas.yak.ui.settings.view.SettingsActivity
 import com.binas.yak.ui.studiedElements.details.view.StudiedElementDetailsActivity
+import com.binas.yak.ui.studiedElements.element.StudiedElementFragment
 import com.binas.yak.ui.studiedElements.interactor.StudiedElementsInteractor
 import com.binas.yak.ui.studiedElements.presenter.StudiedElementsPresenter
 import com.bumptech.glide.Glide
@@ -39,10 +40,6 @@ class StudiedElementsActivity : BaseActivity(), StudiedElementsView {
     }
 
     private fun loadImage() {
-        Glide.with(baseContext)
-            .load(resources.getIdentifier("read", "drawable", this.packageName))
-            .into(studiedElementsImageButton)
-
         Glide.with(baseContext)
             .load(resources.getIdentifier("smart", "drawable", this.packageName))
             .into(studiedElementsImage2.imageView)
@@ -89,14 +86,14 @@ class StudiedElementsActivity : BaseActivity(), StudiedElementsView {
     }
 
     override fun addNewSignElement(card: SignStudyFlashcard, sign: Sign) {
-        TODO("Not yet implemented")
+        supportFragmentManager.beginTransaction().add(fragmentContainer.id, StudiedElementFragment.newInstance(sign, null, null)).commitAllowingStateLoss()
     }
 
     override fun addNewVocabularyElement(card: VocabularyStudyFlashcard, vocabulary: Vocabulary) {
-        TODO("Not yet implemented")
+        supportFragmentManager.beginTransaction().add(fragmentContainer.id, StudiedElementFragment.newInstance(null, vocabulary, null)).commitAllowingStateLoss()
     }
 
     override fun addNewGrammarElement(card: GrammarStudyFlashcard, grammar: Grammar) {
-        TODO("Not yet implemented")
+        supportFragmentManager.beginTransaction().add(fragmentContainer.id, StudiedElementFragment.newInstance(null, null, grammar)).commitAllowingStateLoss()
     }
 }

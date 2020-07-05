@@ -145,7 +145,7 @@ abstract class ActivityBuilder {
     @ContributesAndroidInjector(modules = [(StudiedElementDetailsModule::class), (ImageProvider::class)])
     abstract fun bindStudiedElementDetailsActivity(): StudiedElementDetailsActivity
 
-    @ContributesAndroidInjector(modules = [(StudiedElementsModule::class), (ImageProvider::class)])
+    @ContributesAndroidInjector(modules = [(StudiedElementsModule::class), (ImageProvider::class), (SignModule::class), (VocabularyModule::class), (GrammarModule::class), (TranslationModule::class), (DatabaseModule::class)])
     abstract fun bindStudiedElementsActivity(): StudiedElementsActivity
 
     @ContributesAndroidInjector(modules = [(LearnGrammarWritingModule::class), (DrawingProvider::class)])
