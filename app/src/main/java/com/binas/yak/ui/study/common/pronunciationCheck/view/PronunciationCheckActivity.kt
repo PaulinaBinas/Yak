@@ -38,7 +38,6 @@ class PronunciationCheckActivity : BaseActivity(), PronunciationCheckView {
         animationFragment.animationView.repeatCount = LottieDrawable.INFINITE
         animationFragment.animationView.speed = 4f
         animationFragment.animationView.playAnimation()
-
         textView.text = text
     }
 

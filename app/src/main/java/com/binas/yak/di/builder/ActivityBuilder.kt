@@ -157,7 +157,7 @@ abstract class ActivityBuilder {
     @ContributesAndroidInjector(modules = [(GrammarPronunciationCheckModule::class)])
     abstract fun bindGrammarPronunciationCheckActivity(): GrammarPronunciationCheckActivity
 
-    @ContributesAndroidInjector(modules = [(GrammarReviseSoundModule::class)])
+    @ContributesAndroidInjector(modules = [(GrammarReviseSoundModule::class), (GrammarModule::class), (TranslationModule::class), (DatabaseModule::class)])
     abstract fun bindGrammarReviseSoundActivity(): GrammarReviseSoundActivity
 
     @ContributesAndroidInjector(modules = [(SignStudyCardModule::class), (ImageProvider::class), (SignModule::class), (TranslationModule::class), (DatabaseModule::class)])

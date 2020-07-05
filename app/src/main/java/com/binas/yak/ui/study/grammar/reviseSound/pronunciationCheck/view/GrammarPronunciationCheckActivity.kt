@@ -1,32 +1,41 @@
 package com.binas.yak.ui.study.grammar.reviseSound.pronunciationCheck.view
 
+import android.app.Activity
+import android.content.Context
+import android.content.ContextWrapper
 import android.content.Intent
 import android.graphics.Color
 import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Bundle
 import android.text.SpannableStringBuilder
+import android.view.MotionEvent
 import android.view.View
 import androidx.core.text.color
-import androidx.core.text.underline
 import com.binas.yak.R
 import com.binas.yak.ui.base.view.BaseActivity
 import com.binas.yak.ui.settings.view.SettingsActivity
+import com.binas.yak.ui.study.common.meaningCheck.view.MeaningCheckView
 import kotlinx.android.synthetic.main.activity_grammar_pronunciation_check.*
+import kotlinx.android.synthetic.main.activity_grammar_pronunciation_check.playSoundButton
+import kotlinx.android.synthetic.main.activity_grammar_pronunciation_check.revealTranslation
+import kotlinx.android.synthetic.main.activity_grammar_pronunciation_check.translationTextView
 
 class GrammarPronunciationCheckActivity : BaseActivity(), GrammarPronunciationCheckView {
 
     private var sentence: String = ""
     private var grammar: String = ""
     private var soundName: String = ""
+    private var translation: String = ""
     private var playing: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_grammar_pronunciation_check)
-        sentence = intent.getStringExtra("sentence")
-        grammar = intent.getStringExtra("grammar")
-        soundName = intent.getStringExtra("sound")
+        this.sentence = intent.getStringExtra("sentence")
+        this.grammar = intent.getStringExtra("grammar")
+        this.soundName = intent.getStringExtra("sound")
+        this.translation = intent.getStringExtra("translation")
         setText()
     }
 
@@ -35,12 +44,31 @@ class GrammarPronunciationCheckActivity : BaseActivity(), GrammarPronunciationCh
         playSoundButton.callOnClick()
     }
 
-    fun setText() {
+    private fun setText() {
         var text = SpannableStringBuilder()
             .append(sentence)
-            .color(Color.rgb(100, 171, 113)) { underline { append(grammar) }}
+            .color(Color.rgb(100, 171, 113)) { append(grammar) }
             .append("།")
         grammarTextView.text = text
+        revealTranslation.setOnTouchListener(object: View.OnTouchListener {
+            override fun onTouch(v: View?, event: MotionEvent?): Boolean {
+                var context: Context? = v?.context
+                var activity: Activity? = null
+                while (context is ContextWrapper) {
+                    if (context is Activity) {
+                        activity = context
+                    }
+                    context = (context as ContextWrapper).baseContext
+                }
+                if(event?.action == MotionEvent.ACTION_DOWN) {
+                    (activity as GrammarPronunciationCheckActivity)?.setTranslation()
+                }
+                if(event?.action == MotionEvent.ACTION_UP) {
+                    translationTextView.text = ""
+                }
+                return true
+            }
+        })
     }
 
     fun onClickSettingsButton(view: View) {
@@ -64,5 +92,9 @@ class GrammarPronunciationCheckActivity : BaseActivity(), GrammarPronunciationCh
             mp.setOnPreparedListener { mp.start() }
             mp.setOnCompletionListener { playing = false }
         }
+    }
+
+    override fun setTranslation() {
+        translationTextView.text = this.translation
     }
 }
