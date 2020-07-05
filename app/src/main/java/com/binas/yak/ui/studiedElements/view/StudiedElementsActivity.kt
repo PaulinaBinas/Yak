@@ -7,21 +7,34 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.binas.yak.R
+import com.binas.yak.data.model.grammar.Grammar
+import com.binas.yak.data.model.grammar.GrammarStudyFlashcard
+import com.binas.yak.data.model.sign.Sign
+import com.binas.yak.data.model.sign.SignStudyFlashcard
+import com.binas.yak.data.model.vocabulary.Vocabulary
+import com.binas.yak.data.model.vocabulary.VocabularyStudyFlashcard
 import com.binas.yak.ui.base.view.BaseActivity
 import com.binas.yak.ui.base.view.BaseView
 import com.binas.yak.ui.settings.view.SettingsActivity
 import com.binas.yak.ui.studiedElements.details.view.StudiedElementDetailsActivity
+import com.binas.yak.ui.studiedElements.interactor.StudiedElementsInteractor
+import com.binas.yak.ui.studiedElements.presenter.StudiedElementsPresenter
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_studied_elements.*
 import kotlinx.android.synthetic.main.fragment_image.*
+import javax.inject.Inject
 
-class StudiedElementsActivity : BaseActivity(), BaseView {
+class StudiedElementsActivity : BaseActivity(), StudiedElementsView {
 
+    @Inject
+    lateinit var presenter: StudiedElementsPresenter<StudiedElementsView, StudiedElementsInteractor>
     private var playing: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_studied_elements)
+        presenter?.onAttach(this)
+        presenter?.start()
         loadImage()
     }
 
@@ -73,5 +86,17 @@ class StudiedElementsActivity : BaseActivity(), BaseView {
         val intent = Intent(this, StudiedElementDetailsActivity::class.java)
         startActivity(intent)
         overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom)
+    }
+
+    override fun addNewSignElement(card: SignStudyFlashcard, sign: Sign) {
+        TODO("Not yet implemented")
+    }
+
+    override fun addNewVocabularyElement(card: VocabularyStudyFlashcard, vocabulary: Vocabulary) {
+        TODO("Not yet implemented")
+    }
+
+    override fun addNewGrammarElement(card: GrammarStudyFlashcard, grammar: Grammar) {
+        TODO("Not yet implemented")
     }
 }

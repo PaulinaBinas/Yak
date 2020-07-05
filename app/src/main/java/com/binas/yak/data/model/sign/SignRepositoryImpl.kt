@@ -2,6 +2,7 @@ package com.binas.yak.data.model.sign
 
 import com.binas.yak.data.model.RevisionType
 import javax.inject.Inject
+import kotlin.math.sign
 
 
 class SignRepositoryImpl @Inject internal constructor(var signDao: SignDao): SignRepository {
@@ -22,5 +23,9 @@ class SignRepositoryImpl @Inject internal constructor(var signDao: SignDao): Sig
 
     override fun addSignStudyFlashcards(flashcards: List<SignStudyFlashcard>) {
         signDao.addSignStudyFlashcards(flashcards)
+    }
+
+    override fun getAllStudiedCards(): List<SignStudyFlashcard> {
+       return signDao.getAllStudiedSignFlashcards()
     }
 }

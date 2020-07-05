@@ -5,4 +5,6 @@ import com.binas.yak.ui.studiedElements.interactor.StudiedElementsInteractor
 import com.binas.yak.ui.studiedElements.view.StudiedElementsView
 
 interface StudiedElementsPresenter<V: StudiedElementsView, I: StudiedElementsInteractor>: Presenter<V, I> {
+
+    fun start()
 }

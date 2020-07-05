@@ -8,4 +8,5 @@ interface SignRepository {
     fun getSignRevisionFlashcardById(id: Long): SignRevisionFlashcard
     fun getSignByFlashcardId(id: Long): Sign
     fun addSignStudyFlashcards(flashcards: List<SignStudyFlashcard>)
+    fun getAllStudiedCards(): List<SignStudyFlashcard>
 }

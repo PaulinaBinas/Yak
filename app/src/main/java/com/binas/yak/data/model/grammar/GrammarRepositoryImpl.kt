@@ -15,4 +15,8 @@ class GrammarRepositoryImpl @Inject internal constructor(var grammarDao: Grammar
     override fun getGrammarRevisionCard(id: Long): GrammarRevisionFlashcard {
         return grammarDao.getGrammarRevisionFlashcardById(id)
     }
+
+    override fun getAllStudiedGrammarStudyFlashcards(): List<GrammarStudyFlashcard> {
+        return grammarDao.getAllStudiedGrammarStudyFlashcards()
+    }
 }

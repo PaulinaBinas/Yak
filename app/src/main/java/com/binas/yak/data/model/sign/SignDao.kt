@@ -22,4 +22,7 @@ interface SignDao {
 
     @Insert
     fun addSignStudyFlashcards(flashcards: List<SignStudyFlashcard>)
+
+    @Query("SELECT * FROM SignStudyFlashcard WHERE SignStudyFlashcard.ifStudied = 1")
+    fun getAllStudiedSignFlashcards(): List<SignStudyFlashcard>
 }
