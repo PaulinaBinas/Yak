@@ -41,7 +41,7 @@ class ReviseWritingActivity : BaseActivity(), ReviseWritingView {
         overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom)
     }
 
-    fun viewToBitmap(view: View): Bitmap? {
+    private fun viewToBitmap(view: View): Bitmap? {
         val bitmap =
             Bitmap.createBitmap(view.width, view.height, Bitmap.Config.ARGB_8888)
         val canvas = Canvas(bitmap)
@@ -50,10 +50,12 @@ class ReviseWritingActivity : BaseActivity(), ReviseWritingView {
     }
 
     private fun loadExtras(newIntent: Intent) {
+        var int = intent.extras
         if(intent.hasExtra("image")) {
             newIntent.putExtra("image", intent.getStringExtra("image"))
-        } else if(intent.hasExtra("sentence") && intent.hasExtra("grammar")) {
-            newIntent.putExtra("sentence", intent.getStringExtra("sentence"))
+        } else if(intent.hasExtra("sentenceStart") && intent.hasExtra("grammar") && intent.hasExtra("sentenceEnd")) {
+            newIntent.putExtra("sentenceStart", intent.getStringExtra("sentenceStart"))
+            newIntent.putExtra("sentenceEnd", intent.getStringExtra("sentenceEnd"))
             newIntent.putExtra("grammar", intent.getStringExtra("grammar"))
         } else if(intent.hasExtra("word")) {
             newIntent.putExtra("word", intent.getStringExtra("word"))

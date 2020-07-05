@@ -6,6 +6,8 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import com.binas.yak.R
+import com.binas.yak.data.model.grammar.Grammar
+import com.binas.yak.data.model.grammar.GrammarRevisionFlashcard
 import com.binas.yak.ui.base.view.BaseActivity
 import com.binas.yak.ui.settings.view.SettingsActivity
 import com.binas.yak.ui.study.common.reviseWriting.view.ReviseWritingActivity
@@ -21,22 +23,22 @@ class GrammarReviseWritingActivity : BaseActivity(), GrammarReviseWritingView {
             GrammarReviseWritingInteractor>
 
     private var playing: Boolean = false
-    var sentence: String = "ཁོང་དེབ་ཀློག་"
-    var grammar: String = "གི་མི་འདུག"
+    private var sentenceStart: String = ""
+    private var sentenceEnd: String = ""
+    private var grammar: String = ""
+    private var audioFileName: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_grammar_revise_writing)
-    }
-
-    override fun onStart() {
-        super.onStart()
-        playSoundButton.callOnClick()
+        presenter?.onAttach(this)
+        presenter?.start()
     }
 
     fun onClickGoToReviseWriting(view: View) {
         val intent = Intent(this, ReviseWritingActivity::class.java)
-        intent.putExtra("sentence", sentence)
+        intent.putExtra("sentenceStart", this.sentenceStart)
+        intent.putExtra("sentenceEnd", this.sentenceEnd)
         intent.putExtra("grammar", grammar)
         startActivity(intent)
         overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom)
@@ -53,14 +55,27 @@ class GrammarReviseWritingActivity : BaseActivity(), GrammarReviseWritingView {
     }
 
     fun onClickPlaySound(view: View) {
-        if (!playing) {
+        var sound = resources.getIdentifier(this.audioFileName, "raw", packageName)
+        if (!playing && sound != null) {
             playing = true
-            val mp: MediaPlayer = MediaPlayer()
-            val uri = Uri.parse("android.resource://" + packageName + "/" + R.raw.doesnt)
+            val mp = MediaPlayer()
+            val uri = Uri.parse("android.resource://$packageName/$sound")
             mp.setDataSource(this, uri)
             mp.prepare()
             mp.setOnPreparedListener { mp.start() }
             mp.setOnCompletionListener { playing = false }
         }
+    }
+
+    override fun setContent(card: GrammarRevisionFlashcard, grammar: Grammar) {
+        this.grammar = grammar.grammarPhase.toString()
+        this.sentenceStart = grammar.firstPartOfSentence.toString()
+        this.sentenceEnd = grammar.secondPartOfSentence.toString()
+        this.audioFileName = grammar.audioFileName.toString()
+        sentence.text = "$sentenceStart..."
+    }
+
+    override fun clickSoundButton() {
+        playSoundButton.callOnClick()
     }
 }

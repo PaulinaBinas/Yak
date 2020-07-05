@@ -6,4 +6,6 @@ import com.binas.yak.ui.study.grammar.reviseWriting.interactor.GrammarReviseWrit
 import com.binas.yak.ui.study.grammar.reviseWriting.view.GrammarReviseWritingView
 
 interface GrammarReviseWritingPresenter<V: GrammarReviseWritingView, I: GrammarReviseWritingInteractor>: Presenter<V, I> {
+
+    fun start()
 }

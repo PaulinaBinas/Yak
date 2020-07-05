@@ -85,7 +85,7 @@ abstract class ActivityBuilder {
     @ContributesAndroidInjector(modules = [(AchievementsActivityModule::class), (AchievementsModule::class), (DatabaseModule::class)])
     abstract fun bindAchievementsActivity(): AchievementsActivity
 
-    @ContributesAndroidInjector(modules = [(GrammarReviseWritingModule::class)])
+    @ContributesAndroidInjector(modules = [(GrammarReviseWritingModule::class), (GrammarModule::class), (DatabaseModule::class)])
     abstract fun bindGrammarReviseWritingActivity(): GrammarReviseWritingActivity
 
     @ContributesAndroidInjector(modules = [(SignReviseWritingModule::class), (SignModule::class), (DatabaseModule::class)])

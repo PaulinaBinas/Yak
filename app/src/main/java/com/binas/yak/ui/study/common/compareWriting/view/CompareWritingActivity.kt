@@ -9,7 +9,6 @@ import android.view.View
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.widget.LinearLayout
 import androidx.core.text.color
-import androidx.core.text.underline
 import com.airbnb.lottie.LottieDrawable
 import com.binas.yak.R
 import com.binas.yak.ui.base.view.BaseActivity
@@ -21,10 +20,10 @@ import kotlinx.android.synthetic.main.fragment_image.*
 
 class CompareWritingActivity : BaseActivity(), CompareWritingView {
 
-    private var sentence: String = ""
+    private var sentenceStart: String = ""
+    private var sentenceEnd: String = ""
     private var grammar: String = ""
     private var imageName: String = ""
-    private var animationName = ""
     private var word: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,9 +40,10 @@ class CompareWritingActivity : BaseActivity(), CompareWritingView {
             imageName = intent.getStringExtra("image")
             imageLinearLayout.layoutParams = params
             loadAnimation()
-        } else if(intent.hasExtra("sentence") && intent.hasExtra("grammar")) {
-            sentence = intent.getStringExtra("sentence")
+        } else if(intent.hasExtra("sentenceStart") && intent.hasExtra("grammar") && intent.hasExtra("sentenceEnd")) {
+            sentenceStart = intent.getStringExtra("sentenceStart")
             grammar = intent.getStringExtra("grammar")
+            sentenceEnd = intent.getStringExtra("sentenceEnd")
             sentenceLinearLayout.layoutParams = params
             loadGrammarText()
         } else if(intent.hasExtra("word")) {
@@ -63,11 +63,11 @@ class CompareWritingActivity : BaseActivity(), CompareWritingView {
         animationFragment.animationView.playAnimation()
     }
 
-    fun loadGrammarText() {
+    private fun loadGrammarText() {
         var text = SpannableStringBuilder()
-            .append(sentence)
-            .color(Color.rgb(100, 171, 113)) { underline { append(grammar) }}
-            .append("།")
+            .append(sentenceStart)
+            .color(Color.rgb(100, 171, 113)) { append(grammar) }
+            .append(sentenceEnd)
         sentenceTextView.text = text
     }
 
