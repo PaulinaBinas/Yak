@@ -5,18 +5,23 @@ import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import android.widget.LinearLayout
 import com.airbnb.lottie.LottieDrawable
 import com.binas.yak.R
 import com.binas.yak.ui.base.view.BaseActivity
 import com.binas.yak.ui.settings.view.SettingsActivity
+import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_pronunciation_check.*
+import kotlinx.android.synthetic.main.activity_vocabulary_revise_sound.*
 import kotlinx.android.synthetic.main.fragment_animation.*
+import kotlinx.android.synthetic.main.fragment_image.*
 
 class PronunciationCheckActivity : BaseActivity(), PronunciationCheckView {
 
     private var playing: Boolean = false
     private var text: String = ""
     private var imageName: String = ""
+    private var animated: Boolean = false
     private var soundName: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,7 +30,12 @@ class PronunciationCheckActivity : BaseActivity(), PronunciationCheckView {
         text = intent.getStringExtra("text")
         imageName = intent.getStringExtra("image")
         soundName = intent.getStringExtra("sound")
-        loadAnimationAndText()
+        if(animated) {
+            loadAnimationAndText()
+        } else {
+            loadImage()
+            textView.text = text
+        }
     }
 
     override fun onStart() {
@@ -38,7 +48,19 @@ class PronunciationCheckActivity : BaseActivity(), PronunciationCheckView {
         animationFragment.animationView.repeatCount = LottieDrawable.INFINITE
         animationFragment.animationView.speed = 4f
         animationFragment.animationView.playAnimation()
+        var params = animationFragment.view?.layoutParams as LinearLayout.LayoutParams
+        params.weight = 3.2F
+        animationFragment.view?.layoutParams = params
         textView.text = text
+    }
+
+    private fun loadImage() {
+        var params = image.view?.layoutParams as LinearLayout.LayoutParams
+        params.weight = 3.2F
+        image.view?.layoutParams = params
+        Glide.with(baseContext)
+            .load(resources.getIdentifier(imageName, "drawable", this.packageName))
+            .into(image.imageView)
     }
 
     fun onClickSettingsButton(view: View) {

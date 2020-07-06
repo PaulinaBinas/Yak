@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/decision_making"
     tools:context=".ui.study.common.pronunciationCheck.view.PronunciationCheckActivity">
 
     <fragment
@@ -31,7 +32,18 @@
             android:layout_marginEnd="40dp"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
-            android:layout_weight="3.2" />
+            android:layout_weight="0" />
+
+        <fragment
+            android:id="@+id/image"
+            android:name="com.binas.yak.ui.others.image.view.ImageFragment"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_weight="0" />
 
         <LinearLayout
             android:layout_width="match_parent"

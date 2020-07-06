@@ -5,6 +5,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/write_grammar"
     tools:context=".ui.study.grammar.learn.studyCard.view.GrammarStudyCardActivity">
 
     <fragment
@@ -72,7 +73,7 @@
             android:background="@drawable/rounded_input"
             android:drawableStart="@drawable/pencil_icon"
             android:drawableEnd="@drawable/next_button"
-            android:text="@string/writeSign"
+            android:text="@string/writeItDown"
             android:textSize="20sp"
             android:textAllCaps="false"
             android:layout_marginStart="40dp"

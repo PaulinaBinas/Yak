@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/login_bg"
+    android:background="@drawable/studied_element_detail"
     tools:context=".ui.studiedElements.details.view.StudiedElementDetailsActivity">
 
     <RelativeLayout
@@ -35,7 +35,7 @@
                 android:id="@+id/sentence"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:layout_gravity="center"
+                android:gravity="center"
                 android:textAlignment="center"
                 android:fontFamily="@font/noto_sans_tibetan_bold"
                 android:textSize="28sp"/>
@@ -132,8 +132,9 @@
 
                 <ImageButton
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:layout_gravity="center"
+                    android:scaleType="fitCenter"
                     android:src="@drawable/calendar"
                     android:layout_weight="1"
                     android:background="?selectableItemBackground"
