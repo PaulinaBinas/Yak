@@ -19,4 +19,8 @@ class VocabularyRepositoryImpl @Inject internal constructor(var vocabularyDao: V
     override fun getAllStudiedCards(): List<VocabularyStudyFlashcard> {
         return vocabularyDao.getAllStudiedVocabularyFlashcards()
     }
+
+    override fun getRevisionFlashcardsWithVocabularyId(id: Long): List<VocabularyRevisionFlashcard> {
+        return vocabularyDao.getVocabularyRevisionFlashcardsWithVocabularyId(id)
+    }
 }

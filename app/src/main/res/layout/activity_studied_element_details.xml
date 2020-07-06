@@ -19,10 +19,26 @@
             android:orientation="vertical">
 
             <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:adjustViewBounds="true"
-                android:src="@drawable/read"/>
+                android:id="@+id/image"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:adjustViewBounds="true"/>
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/animation"
+                android:layout_marginTop="100dp"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:adjustViewBounds="true" />
+
+            <TextView
+                android:id="@+id/sentence"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:fontFamily="@font/noto_sans_tibetan_bold"
+                android:textSize="28sp"/>
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -87,15 +103,16 @@
                         android:layout_weight="1" />
 
                     <TextView
+                        android:id="@+id/term"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:fontFamily="@font/noto_sans_tibetan_regular"
-                        android:text="ཀློག་"
                         android:textAlignment="center"
                         android:textSize="20sp" />
 
                     <ImageButton
+                        android:id="@+id/playSoundButton"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -106,12 +123,12 @@
                 </LinearLayout>
 
                 <TextView
+                    android:id="@+id/translation"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAlignment="center"
                     android:layout_weight="1"
-                    android:textSize="20sp"
-                    android:text="to read"/>
+                    android:textSize="20sp"/>
 
                 <ImageButton
                     android:layout_width="wrap_content"

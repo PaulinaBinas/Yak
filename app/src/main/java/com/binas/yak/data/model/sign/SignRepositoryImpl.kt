@@ -28,4 +28,8 @@ class SignRepositoryImpl @Inject internal constructor(var signDao: SignDao): Sig
     override fun getAllStudiedCards(): List<SignStudyFlashcard> {
        return signDao.getAllStudiedSignFlashcards()
     }
+
+    override fun getRevisionFlashcardsWithSignId(id: Long): List<SignRevisionFlashcard> {
+        return signDao.getSignRevisionFlashcardsWithSignId(id)
+    }
 }

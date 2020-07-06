@@ -6,4 +6,5 @@ interface VocabularyRepository {
     fun getVocabularyStudyFlashcardById(id: Long): VocabularyStudyFlashcard
     fun getVocabularyRevisionFlashcardById(id: Long): VocabularyRevisionFlashcard
     fun getAllStudiedCards(): List<VocabularyStudyFlashcard>
+    fun getRevisionFlashcardsWithVocabularyId(id: Long): List<VocabularyRevisionFlashcard>
 }

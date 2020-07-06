@@ -17,4 +17,7 @@ interface GrammarDao {
 
     @Query("SELECT * FROM GrammarStudyFlashcard WHERE GrammarStudyFlashcard.ifStudied = 1")
     fun getAllStudiedGrammarStudyFlashcards(): List<GrammarStudyFlashcard>
+
+    @Query("SELECT * FROM GrammarRevisionFlashcard WHERE GrammarRevisionFlashcard.grammarId = :id")
+    fun getGrammarRevisionFlashcardsWithGrammarId(id: Long): List<GrammarRevisionFlashcard>
 }

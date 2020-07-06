@@ -25,4 +25,7 @@ interface SignDao {
 
     @Query("SELECT * FROM SignStudyFlashcard WHERE SignStudyFlashcard.ifStudied = 1")
     fun getAllStudiedSignFlashcards(): List<SignStudyFlashcard>
+
+    @Query("SELECT * FROM SignRevisionFlashcard WHERE SignRevisionFlashcard.signId = :id")
+    fun getSignRevisionFlashcardsWithSignId(id: Long): List<SignRevisionFlashcard>
 }

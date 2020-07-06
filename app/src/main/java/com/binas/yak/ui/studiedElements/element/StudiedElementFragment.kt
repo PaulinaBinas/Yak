@@ -1,6 +1,7 @@
 package com.binas.yak.ui.studiedElements.element
 
 import android.app.Activity
+import android.content.Intent
 import android.content.res.Resources
 import android.graphics.Color
 import android.media.MediaPlayer
@@ -19,7 +20,10 @@ import com.binas.yak.data.model.grammar.Grammar
 import com.binas.yak.data.model.sign.Sign
 import com.binas.yak.data.model.vocabulary.Vocabulary
 import com.binas.yak.ui.others.animation.AnimationFragment
+import com.binas.yak.ui.studiedElements.details.view.StudiedElementDetailsActivity
+import com.binas.yak.ui.studiedElements.view.StudiedElementsActivity
 import com.bumptech.glide.Glide
+import kotlinx.android.synthetic.main.fragment_animation.*
 import kotlinx.android.synthetic.main.fragment_studied_element.*
 
 
@@ -78,6 +82,9 @@ class StudiedElementFragment : Fragment() {
         soundButton.setOnClickListener {
             this.sign?.audioFileName?.let { it1 -> this.onClickPlaySound(it, it1) }
         }
+        fragment.animationView.setOnClickListener {
+            (activity as StudiedElementsActivity).onClickGoToStudiedElementDetails(sign, null, null)
+        }
     }
 
     private fun setupVocabulary(){
@@ -85,6 +92,9 @@ class StudiedElementFragment : Fragment() {
         contentTextView.text = vocabulary?.tibetanWord.toString()
         soundButton.setOnClickListener {
             this.vocabulary?.audioFileName?.let { it1 -> this.onClickPlaySound(it, it1) }
+        }
+        studiedElementsImageButton.setOnClickListener {
+            (activity as StudiedElementsActivity).onClickGoToStudiedElementDetails(null, vocabulary, null)
         }
     }
 
@@ -100,6 +110,9 @@ class StudiedElementFragment : Fragment() {
         contentTextView.text = grammar?.grammarPhase.toString()
         soundButton.setOnClickListener {
             this.grammar?.audioFileName?.let { it1 -> this.onClickPlaySound(it, it1) }
+        }
+        grammarSentence.setOnClickListener {
+            (activity as StudiedElementsActivity).onClickGoToStudiedElementDetails(null, null, grammar)
         }
     }
 

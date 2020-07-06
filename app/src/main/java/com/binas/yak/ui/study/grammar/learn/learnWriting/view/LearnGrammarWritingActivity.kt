@@ -14,9 +14,9 @@ import kotlinx.android.synthetic.main.activity_learn_grammar_writing.*
 
 class LearnGrammarWritingActivity : BaseActivity(), LearnGrammarWritingView {
 
-    private var sentenceStart: String = "ཁོང་དེབ་ཀློག་"
-    private var grammar: String = "གི་མི་འདུག"
-    private var sentenceEnd: String = "།"
+    private var sentenceStart: String = ""
+    private var grammar: String = ""
+    private var sentenceEnd: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

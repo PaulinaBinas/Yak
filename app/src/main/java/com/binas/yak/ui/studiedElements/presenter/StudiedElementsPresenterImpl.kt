@@ -22,7 +22,7 @@ class StudiedElementsPresenterImpl<V: StudiedElementsView, I: StudiedElementsInt
             var signCards: List<SignStudyFlashcard> = ArrayList()
             var vocabularyCards: List<VocabularyStudyFlashcard> = ArrayList()
             var grammarCards: List<GrammarStudyFlashcard> = ArrayList()
-            var signs: MutableList<Sign> = ArrayList<Sign>()
+            var signs: MutableList<Sign> = ArrayList()
             var words: MutableList<Vocabulary> = ArrayList()
             var grammars: MutableList<Grammar> = ArrayList()
             var coroutine = GlobalScope.launch {

@@ -9,6 +9,8 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import com.airbnb.lottie.LottieDrawable
 import com.binas.yak.R
+import com.binas.yak.data.model.sign.Sign
+import com.binas.yak.ui.studiedElements.view.StudiedElementsActivity
 import kotlinx.android.synthetic.main.fragment_animation.*
 import kotlinx.android.synthetic.main.fragment_studied_element.*
 

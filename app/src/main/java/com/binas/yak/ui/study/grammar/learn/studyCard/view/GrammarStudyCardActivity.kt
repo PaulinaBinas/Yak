@@ -26,11 +26,11 @@ class GrammarStudyCardActivity : BaseActivity(), GrammarStudyCardView {
 
     @Inject
     lateinit var presenter: GrammarStudyCardPresenter<GrammarStudyCardView, GrammarStudyCardInteractor>
-    private var sentenceStart: String? = "ཁོང་དེབ་ཀློག་"
-    private var grammar: String? = "གི་མི་འདུག"
-    private var sentenceEnd: String? = "།"
-    private var translation: String? = "He is not reading a book."
-    private var soundName: String? = "doesnt"
+    private var sentenceStart: String = ""
+    private var grammar: String = ""
+    private var sentenceEnd: String = ""
+    private var translation: String = ""
+    private var soundName: String = ""
     private var playing: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -81,15 +81,15 @@ class GrammarStudyCardActivity : BaseActivity(), GrammarStudyCardView {
     }
 
     override fun setContent(card: GrammarStudyFlashcard, grammar: Grammar, text: Translation?) {
-        this.sentenceStart = grammar.firstPartOfSentence
-        this.sentenceEnd = grammar.secondPartOfSentence
-        this.grammar = grammar.grammarPhase
+        this.sentenceStart = grammar.firstPartOfSentence.toString()
+        this.sentenceEnd = grammar.secondPartOfSentence.toString()
+        this.grammar = grammar.grammarPhase.toString()
         if(Lingver.getInstance().getLanguage().equals("pl")) {
-            this.translation = text?.polish
+            this.translation = text?.polish.toString()
         } else {
-            this.translation = text?.english
+            this.translation = text?.english.toString()
         }
-        this.soundName = grammar.audioFileName
+        this.soundName = grammar.audioFileName.toString()
         loadText()
     }
 

@@ -142,7 +142,7 @@ abstract class ActivityBuilder {
     @ContributesAndroidInjector(modules = [(CalendarModule::class)])
     abstract fun bindCalendarActivity(): CalendarActivity
 
-    @ContributesAndroidInjector(modules = [(StudiedElementDetailsModule::class), (ImageProvider::class)])
+    @ContributesAndroidInjector(modules = [(StudiedElementDetailsModule::class), (ImageProvider::class), (TranslationModule::class), (SignModule::class), (VocabularyModule::class), (GrammarModule::class), (DatabaseModule::class)])
     abstract fun bindStudiedElementDetailsActivity(): StudiedElementDetailsActivity
 
     @ContributesAndroidInjector(modules = [(StudiedElementsModule::class), (ImageProvider::class), (SignModule::class), (VocabularyModule::class), (GrammarModule::class), (TranslationModule::class), (DatabaseModule::class)])

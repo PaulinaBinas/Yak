@@ -9,4 +9,6 @@ interface GrammarRepository {
     fun getGrammarRevisionCard(id: Long): GrammarRevisionFlashcard
 
     fun getAllStudiedGrammarStudyFlashcards(): List<GrammarStudyFlashcard>
+
+    fun getRevisionFlashcardsWithGrammarId(id: Long): List<GrammarRevisionFlashcard>
 }

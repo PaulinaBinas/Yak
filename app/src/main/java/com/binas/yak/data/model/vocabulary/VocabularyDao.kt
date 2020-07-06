@@ -17,4 +17,7 @@ interface VocabularyDao {
 
     @Query("SELECT * FROM VocabularyStudyFlashcard WHERE VocabularyStudyFlashcard.ifStudied = 1")
     fun getAllStudiedVocabularyFlashcards(): List<VocabularyStudyFlashcard>
+
+    @Query("SELECT * FROM VocabularyRevisionFlashcard WHERE VocabularyRevisionFlashcard.vocabularyId = :id")
+    fun getVocabularyRevisionFlashcardsWithVocabularyId(id: Long): List<VocabularyRevisionFlashcard>
 }

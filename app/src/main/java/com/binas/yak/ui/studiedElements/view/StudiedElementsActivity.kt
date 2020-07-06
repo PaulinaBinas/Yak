@@ -22,6 +22,7 @@ import com.binas.yak.ui.studiedElements.interactor.StudiedElementsInteractor
 import com.binas.yak.ui.studiedElements.presenter.StudiedElementsPresenter
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_studied_elements.*
+import kotlinx.android.synthetic.main.activity_vocabulary_study_card.*
 import kotlinx.android.synthetic.main.fragment_image.*
 import javax.inject.Inject
 
@@ -47,8 +48,29 @@ class StudiedElementsActivity : BaseActivity(), StudiedElementsView {
         onBackPressed()
     }
 
-    fun onClickGoToStudiedElementDetails(view: View) {
+    fun onClickGoToStudiedElementDetails(sign: Sign?, word: Vocabulary?, grammar: Grammar?) {
         val intent = Intent(this, StudiedElementDetailsActivity::class.java)
+        when {
+            sign != null -> {
+                intent.putExtra("audio", sign.audioFileName)
+                intent.putExtra("sign", sign.tibetanSign)
+                intent.putExtra("signId", sign.id)
+            }
+            word != null -> {
+                intent.putExtra("audio", word.audioFileName)
+                intent.putExtra("word", word.tibetanWord)
+                intent.putExtra("translationId", word.translationId)
+                intent.putExtra("vocabularyId", word.id)
+            }
+            grammar != null -> {
+                intent.putExtra("audio", grammar.audioFileName)
+                intent.putExtra("sentenceStart", grammar.firstPartOfSentence)
+                intent.putExtra("sentenceEnd", grammar.secondPartOfSentence)
+                intent.putExtra("grammar", grammar.grammarPhase)
+                intent.putExtra("translationId", grammar.translationId)
+                intent.putExtra("grammarId", grammar.id)
+            }
+        }
         startActivity(intent)
         overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom)
     }

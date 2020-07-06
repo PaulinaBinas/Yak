@@ -8,11 +8,14 @@ import com.binas.yak.R
 import com.binas.yak.ui.base.view.BaseActivity
 import com.binas.yak.ui.base.view.BaseView
 import com.binas.yak.ui.settings.view.SettingsActivity
+import kotlinx.android.synthetic.main.activity_calendar.*
 
 class CalendarActivity : BaseActivity(), BaseView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_calendar)
+        var days = intent.getIntExtra("days", 0)
+        revise.text = revise.text.toString() + " " + intent.getIntExtra("days", 0) + " days"
     }
 
     fun onClickSettingsButton(view: View) {
