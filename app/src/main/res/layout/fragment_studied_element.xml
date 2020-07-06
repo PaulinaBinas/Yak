@@ -3,25 +3,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginEnd="40dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.studiedElements.element.StudiedElementFragment">
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:weightSum="4">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="3"
+            android:paddingBottom="20dp"
             android:orientation="vertical">
 
             <fragment
                 android:id="@+id/animationFragment"
                 android:name="com.binas.yak.ui.others.animation.AnimationFragment"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="0dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -30,7 +32,7 @@
 
             <ImageButton
                 android:id="@+id/studiedElementsImageButton"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:background="@color/invisible"
                 android:layout_marginEnd="20dp"
@@ -44,8 +46,11 @@
 
             <TextView
                 android:id="@+id/grammarSentence"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:fontFamily="@font/noto_sans_tibetan_bold"
+                android:textSize="28sp"
+                android:gravity="center"
                 android:textAlignment="center"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -67,13 +72,13 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:layout_weight="0.5" />
 
             <TextView
                 android:id="@+id/contentTextView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="2"
                 android:fontFamily="@font/noto_sans_tibetan_regular"
                 android:textAlignment="center"
                 android:textSize="20sp" />
@@ -82,7 +87,9 @@
                 android:id="@+id/soundButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="0.5"
+                android:scaleType="fitEnd"
+                android:gravity="right"
                 android:background="?selectableItemBackground"
                 android:src="@drawable/sound_icon" />
 

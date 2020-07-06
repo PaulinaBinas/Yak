@@ -1,25 +1,27 @@
 package com.binas.yak.ui.studiedElements.element
 
+import android.app.Activity
+import android.content.res.Resources
 import android.graphics.Color
 import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Bundle
 import android.text.SpannableStringBuilder
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import android.widget.LinearLayout
 import androidx.core.text.color
-import com.airbnb.lottie.LottieDrawable
+import androidx.fragment.app.Fragment
 import com.binas.yak.R
 import com.binas.yak.data.model.grammar.Grammar
 import com.binas.yak.data.model.sign.Sign
 import com.binas.yak.data.model.vocabulary.Vocabulary
 import com.binas.yak.ui.others.animation.AnimationFragment
 import com.bumptech.glide.Glide
-import kotlinx.android.synthetic.main.fragment_animation.*
 import kotlinx.android.synthetic.main.fragment_studied_element.*
+
 
 /**
  * A simple [Fragment] subclass.
@@ -32,6 +34,7 @@ class StudiedElementFragment : Fragment() {
     private var vocabulary: Vocabulary? = null
     private var grammar: Grammar? = null
     private var v: View? = null
+    private var screenWidth: Int? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,8 +59,9 @@ class StudiedElementFragment : Fragment() {
         startFragment()
     }
 
-    fun startFragment() {
+    private fun startFragment() {
         super.onResume()
+        screenWidth = Resources.getSystem().displayMetrics.widthPixels
         if(sign != null) {
             this.setupSign()
         } else if(vocabulary != null) {
@@ -68,7 +72,7 @@ class StudiedElementFragment : Fragment() {
     }
 
     private fun setupSign(){
-        var fragment = childFragmentManager.fragments.get(0)
+        var fragment = childFragmentManager.fragments.last()
         sign?.audioFileName?.let { (fragment as AnimationFragment).setAnimation(it) }
         contentTextView.text = this.sign?.tibetanSign + " (" + (this.sign?.audioFileName ?: "") + ")"
         soundButton.setOnClickListener {
@@ -85,6 +89,10 @@ class StudiedElementFragment : Fragment() {
     }
 
     private fun setupGrammar() {
+        var params = grammarSentence.layoutParams
+        params?.height = LinearLayout.LayoutParams.MATCH_PARENT
+        params?.width = screenWidth?.minus(200)
+        grammarSentence.layoutParams = params
         grammarSentence.text = SpannableStringBuilder()
             .append(grammar?.firstPartOfSentence)
             .color(Color.rgb(100, 171, 113)) { append(grammar?.grammarPhase) }
@@ -100,7 +108,7 @@ class StudiedElementFragment : Fragment() {
         if (!playing && sound != null) {
             playing = true
             val mp = MediaPlayer()
-            val uri = Uri.parse("android.resource://$activity?.packageName/$sound")
+            val uri = Uri.parse("android.resource://" + activity?.packageName + "/" + sound)
             context?.let { mp.setDataSource(it, uri) }
             mp.prepare()
             mp.setOnPreparedListener { mp.start() }
@@ -109,14 +117,15 @@ class StudiedElementFragment : Fragment() {
     }
 
     private  fun loadImage() {
-        activity?.baseContext?.let {
+        this.context?.let {
             Glide.with(it)
                 .load(resources.getIdentifier(vocabulary?.audioFileName, "drawable", activity?.packageName))
                 .into(studiedElementsImageButton)
         }
         studiedElementsImageButton.layoutParams
         var params = studiedElementsImageButton.layoutParams
-        params?.height = ViewGroup.LayoutParams.MATCH_PARENT
+        params?.height = LinearLayout.LayoutParams.MATCH_PARENT
+        params?.width = screenWidth?.minus(200)
         studiedElementsImageButton.layoutParams = params
     }
 

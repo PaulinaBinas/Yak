@@ -29,20 +29,12 @@ class StudiedElementsActivity : BaseActivity(), StudiedElementsView {
 
     @Inject
     lateinit var presenter: StudiedElementsPresenter<StudiedElementsView, StudiedElementsInteractor>
-    private var playing: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_studied_elements)
         presenter?.onAttach(this)
         presenter?.start()
-        loadImage()
-    }
-
-    private fun loadImage() {
-        Glide.with(baseContext)
-            .load(resources.getIdentifier("smart", "drawable", this.packageName))
-            .into(studiedElementsImage2.imageView)
     }
 
     fun onClickSettingsButton(view: View) {
@@ -53,30 +45,6 @@ class StudiedElementsActivity : BaseActivity(), StudiedElementsView {
 
     fun onClickBackButton(view: View) {
         onBackPressed()
-    }
-
-    fun onClickPlaySound(view: View) {
-        if (!playing) {
-            playing = true
-            val mp: MediaPlayer = MediaPlayer()
-            val uri = Uri.parse("android.resource://" + packageName + "/" + R.raw.read)
-            mp.setDataSource(this, uri)
-            mp.prepare()
-            mp.setOnPreparedListener { mp.start() }
-            mp.setOnCompletionListener { playing = false }
-        }
-    }
-
-    fun onClickPlaySoundSmart(view: View) {
-        if (!playing) {
-            playing = true
-            val mp: MediaPlayer = MediaPlayer()
-            val uri = Uri.parse("android.resource://" + packageName + "/" + R.raw.smart)
-            mp.setDataSource(this, uri)
-            mp.prepare()
-            mp.setOnPreparedListener { mp.start() }
-            mp.setOnCompletionListener { playing = false }
-        }
     }
 
     fun onClickGoToStudiedElementDetails(view: View) {

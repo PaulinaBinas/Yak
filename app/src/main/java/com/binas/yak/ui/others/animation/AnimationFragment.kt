@@ -1,5 +1,6 @@
 package com.binas.yak.ui.others.animation
 
+import android.content.res.Resources
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -40,6 +41,7 @@ class AnimationFragment : Fragment() {
         animationFragment.animationView.playAnimation()
         var params = animationFragment.view?.layoutParams
         params?.height = FrameLayout.LayoutParams.MATCH_PARENT
+        params?.width = Resources.getSystem().displayMetrics.widthPixels.minus(200)
         animationFragment.view?.layoutParams = params
     }
 
@@ -50,7 +52,6 @@ class AnimationFragment : Fragment() {
          *
          * @return A new instance of fragment AnimationFragment.
          */
-        // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
             AnimationFragment().apply {
