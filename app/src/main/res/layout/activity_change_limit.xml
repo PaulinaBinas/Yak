@@ -38,6 +38,7 @@
 
             <EditText
                 android:background="@drawable/rounded_input"
+                android:textColorHint="@drawable/selector"
                 android:cursorVisible="true"
                 android:textCursorDrawable="@null"
                 android:id="@+id/editTextNumber"

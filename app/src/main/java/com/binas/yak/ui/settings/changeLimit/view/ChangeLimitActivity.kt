@@ -26,7 +26,7 @@ class ChangeLimitActivity : BaseActivity(), ChangeLimitView {
 
     override fun setNumberOfCards(number: Int) {
         var i = editTextNumber
-        editTextNumber.setText(number.toString())
+        editTextNumber.hint = number.toString()
     }
 
     fun saveNewLimit(view: View) {

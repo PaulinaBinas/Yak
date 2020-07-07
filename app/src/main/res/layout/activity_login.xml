@@ -53,6 +53,7 @@
 
         <EditText
             android:id="@+id/emailEditText"
+            android:textColorHint="@drawable/selector"
             android:cursorVisible="true"
             android:textCursorDrawable="@null"
             android:layout_width="fill_parent"
@@ -67,11 +68,11 @@
             android:inputType="textEmailAddress"
             android:padding="15dp"
             android:textColor="@color/black"
-            android:textColorHint="@color/black"
             android:textSize="20sp" />
 
         <EditText
             android:id="@+id/passwordEditText"
+            android:textColorHint="@drawable/selector"
             android:cursorVisible="true"
             android:textCursorDrawable="@null"
             android:layout_width="fill_parent"
@@ -88,7 +89,6 @@
             android:inputType="textPassword"
             android:padding="15dp"
             android:textColor="@color/black"
-            android:textColorHint="@color/black"
             android:textSize="20sp" />
 
         <Button
