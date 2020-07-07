@@ -14,6 +14,8 @@ import com.binas.yak.data.model.sign.Sign
 import com.binas.yak.data.model.sign.SignDao
 import com.binas.yak.data.model.sign.SignRevisionFlashcard
 import com.binas.yak.data.model.sign.SignStudyFlashcard
+import com.binas.yak.data.model.studyOrder.StudyOrder
+import com.binas.yak.data.model.studyOrder.StudyOrderDao
 import com.binas.yak.data.model.translation.Translation
 import com.binas.yak.data.model.translation.TranslationDao
 import com.binas.yak.data.model.userGrammarRevisionFlashcard.UserGrammarRevisionFlashcard
@@ -38,7 +40,7 @@ import com.binas.yak.util.impl.Converters
     (UserGrammarRevisionFlashcard::class), (GrammarStudyFlashcardVocabulary::class),
     (UserGrammarStudyFlashcard::class), (UserSignRevisionFlashcard::class),
     (UserSignStudyFlashcard::class), (UserStudyDay::class), (UserVocabularyRevisionFlashcard::class),
-    (UserVocabularyStudyFlashcard::class), (StudyDay::class), (Translation::class)], version = 1)
+    (UserVocabularyStudyFlashcard::class), (StudyDay::class), (StudyOrder::class), (Translation::class)], version = 1)
 @TypeConverters(Converters::class)
 abstract class ApplicationDatabase: RoomDatabase() {
     abstract fun userSignStudyFlashcardDao(): UserSignStudyFlashcardDao
@@ -47,4 +49,5 @@ abstract class ApplicationDatabase: RoomDatabase() {
     abstract fun vocabularyDao(): VocabularyDao
     abstract fun grammarDao(): GrammarDao
     abstract fun achievementsDao(): AchievementsDao
+    abstract fun studyOrderDao(): StudyOrderDao
 }

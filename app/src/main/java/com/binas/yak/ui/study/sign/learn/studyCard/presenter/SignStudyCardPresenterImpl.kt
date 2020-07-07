@@ -10,20 +10,22 @@ import javax.inject.Inject
 class SignStudyCardPresenterImpl<V: SignStudyCardView, I: SignStudyCardInteractor>
 @Inject internal constructor(interactor: I): BasePresenter<V, I>(interactor = interactor), SignStudyCardPresenter<V, I> {
 
-    override fun start() {
-        interactor?.let {
-            var coroutine = GlobalScope.launch {
-                var card = it.getSignStudyCard(1)
-                var sign = it.getSign(card!!.signId)
-                var translation = it.getTranslation(sign?.mnemonicDescriptionTranslationId)
-                getView()?.setContent(card, sign, translation)
-            }
-            while(!coroutine.isCompleted) {
+    override fun start(id: Long) {
+        if(id >= 0) {
+            interactor?.let {
+                var coroutine = GlobalScope.launch {
+                    var card = it.getSignStudyCard(id)
+                    var sign = it.getSign(card!!.signId)
+                    var translation = it.getTranslation(sign?.mnemonicDescriptionTranslationId)
+                    getView()?.setContent(card, sign, translation)
+                }
+                while (!coroutine.isCompleted) {
 
-            }
-            if(coroutine.isCompleted) {
-                getView()?.loadAnimation()
-                getView()?.clickPlaySound()
+                }
+                if (coroutine.isCompleted) {
+                    getView()?.loadAnimation()
+                    getView()?.clickPlaySound()
+                }
             }
         }
     }

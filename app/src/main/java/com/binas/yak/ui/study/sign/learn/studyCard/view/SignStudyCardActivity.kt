@@ -36,7 +36,7 @@ class SignStudyCardActivity : BaseActivity(), SignStudyCardView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_study_card)
         presenter.onAttach(this)
-        presenter?.start()
+        presenter?.start(intent.getLongExtra("id", -1))
     }
 
     override fun loadAnimation() {

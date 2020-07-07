@@ -5,6 +5,7 @@ import androidx.room.Room
 import com.binas.yak.data.model.achievements.AchievementsDao
 import com.binas.yak.data.model.grammar.GrammarDao
 import com.binas.yak.data.model.sign.SignDao
+import com.binas.yak.data.model.studyOrder.StudyOrderDao
 import com.binas.yak.data.model.translation.TranslationDao
 import com.binas.yak.data.model.vocabulary.VocabularyDao
 import dagger.Module
@@ -27,6 +28,9 @@ class DatabaseModule {
 
     @Provides
     fun provideAchievementsDao(db: ApplicationDatabase): AchievementsDao = db.achievementsDao()
+
+    @Provides
+    fun provideStudyOrderDao(db: ApplicationDatabase): StudyOrderDao = db.studyOrderDao()
 
     @Provides
     fun provideDatabase(context: Application): ApplicationDatabase = Room

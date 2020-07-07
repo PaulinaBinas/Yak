@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "9428b7ff1ebbf6db272ab1f3f582f246",
+    "identityHash": "bdfb69000d66986039c3cc442c65784b",
     "entities": [
       {
         "tableName": "Sign",
@@ -1010,6 +1010,78 @@
         "foreignKeys": []
       },
       {
+        "tableName": "StudyOrder",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `signStudyId` INTEGER, `grammarStudyId` INTEGER, `vocabularyStudyId` INTEGER, FOREIGN KEY(`signStudyId`) REFERENCES `SignStudyFlashcard`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION , FOREIGN KEY(`grammarStudyId`) REFERENCES `GrammarStudyFlashcard`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION , FOREIGN KEY(`vocabularyStudyId`) REFERENCES `VocabularyStudyFlashcard`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "signStudyId",
+            "columnName": "signStudyId",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "grammarStudyId",
+            "columnName": "grammarStudyId",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "vocabularyStudyId",
+            "columnName": "vocabularyStudyId",
+            "affinity": "INTEGER",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": [
+          {
+            "table": "SignStudyFlashcard",
+            "onDelete": "NO ACTION",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "signStudyId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          },
+          {
+            "table": "GrammarStudyFlashcard",
+            "onDelete": "NO ACTION",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "grammarStudyId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          },
+          {
+            "table": "VocabularyStudyFlashcard",
+            "onDelete": "NO ACTION",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "vocabularyStudyId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
         "tableName": "Translation",
         "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `polish` TEXT NOT NULL, `english` TEXT NOT NULL)",
         "fields": [
@@ -1045,7 +1117,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '9428b7ff1ebbf6db272ab1f3f582f246')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'bdfb69000d66986039c3cc442c65784b')"
     ]
   }
 }

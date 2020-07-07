@@ -9,8 +9,7 @@ import javax.inject.Singleton
 import kotlin.math.exp
 
 @Singleton
-class SpacedRepetitionSchedulerImpl @Inject constructor() :
-    SpacedRepetitionScheduler {
+class SpacedRepetitionSchedulerImpl: SpacedRepetitionScheduler {
 
     private val firstInterval: Long = 1
 

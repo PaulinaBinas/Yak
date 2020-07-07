@@ -101,7 +101,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.study.common.StudyActivity"
+            android:name=".ui.study.view.StudyActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.authentication.login.view.LoginActivity"

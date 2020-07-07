@@ -35,6 +35,6 @@
     <string name="days">dni</string>
     <string name="one_day">dzień</string>
     <string name="changeLimit">ZMIEŃ ILOŚĆ FISZEK NA DZIEŃ</string>
-    <string name="newCardsPerDay">"Nowe fiszeki na dzień: "</string>
+    <string name="newCardsPerDay">"Nowe fiszki na dzień: "</string>
     <string name="save">ZAPISZ</string>
 </resources>

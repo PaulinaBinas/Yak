@@ -1,4 +1,4 @@
 package com.binas.yak.data.model
 
-interface Flashcard {
+interface Flashcard: Comparable<Flashcard> {
 }

@@ -4,8 +4,10 @@ import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.Ignore
 import androidx.room.PrimaryKey
+import com.binas.yak.data.model.Flashcard
 import com.binas.yak.data.model.RevisionFlashcard
 import com.binas.yak.data.model.RevisionType
+import com.binas.yak.data.model.grammar.GrammarStudyFlashcard
 import com.binas.yak.util.SpacedRepetitionScheduler
 import java.time.LocalDate
 import javax.inject.Inject
@@ -34,5 +36,9 @@ class SignRevisionFlashcard constructor(
 
     override fun reviseSuccessfully() {
         this.scheduler.schedule(this, true)
+    }
+
+    override fun compareTo(other: Flashcard): Int {
+        return if(other is SignRevisionFlashcard && other.id > this.id) 0 else 1
     }
 }

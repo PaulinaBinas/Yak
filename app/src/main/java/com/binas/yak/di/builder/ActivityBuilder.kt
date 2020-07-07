@@ -1,9 +1,11 @@
 package com.binas.yak.di.builder
 
+import android.provider.ContactsContract
 import com.binas.yak.data.DatabaseModule
 import com.binas.yak.data.model.achievements.AchievementsModule
 import com.binas.yak.data.model.grammar.GrammarModule
 import com.binas.yak.data.model.sign.SignModule
+import com.binas.yak.data.model.studyOrder.StudyOrderModule
 import com.binas.yak.data.model.translation.TranslationModule
 import com.binas.yak.data.model.vocabulary.VocabularyModule
 import com.binas.yak.di.module.AppModule
@@ -37,6 +39,7 @@ import com.binas.yak.ui.studiedElements.calendar.view.CalendarActivity
 import com.binas.yak.ui.studiedElements.details.StudiedElementDetailsModule
 import com.binas.yak.ui.studiedElements.details.view.StudiedElementDetailsActivity
 import com.binas.yak.ui.studiedElements.view.StudiedElementsActivity
+import com.binas.yak.ui.study.StudyModule
 import com.binas.yak.ui.study.common.compareWriting.CompareWritingModule
 import com.binas.yak.ui.study.common.compareWriting.view.CompareWritingActivity
 import com.binas.yak.ui.study.common.correct.CorrectModule
@@ -69,6 +72,7 @@ import com.binas.yak.ui.study.sign.reviseWithDecision.SignReviseWithDecisionModu
 import com.binas.yak.ui.study.sign.reviseWithDecision.view.SignReviseWithDecisionActivity
 import com.binas.yak.ui.study.sign.reviseWriting.SignReviseWritingModule
 import com.binas.yak.ui.study.sign.reviseWriting.view.SignReviseWritingActivity
+import com.binas.yak.ui.study.view.StudyActivity
 import com.binas.yak.ui.study.vocabulary.learn.learnWriting.LearnVocabularyWritingModule
 import com.binas.yak.ui.study.vocabulary.learn.learnWriting.view.LearnVocabularyWritingActivity
 import com.binas.yak.ui.study.vocabulary.learn.studyCard.VocabularyStudyCardModule
@@ -79,6 +83,7 @@ import com.binas.yak.ui.study.vocabulary.reviseSound.VocabularyReviseSoundModule
 import com.binas.yak.ui.study.vocabulary.reviseSound.view.VocabularyReviseSoundActivity
 import com.binas.yak.ui.study.vocabulary.reviseWriting.VocabularyReviseWritingModule
 import com.binas.yak.ui.study.vocabulary.reviseWriting.view.VocabularyReviseWritingActivity
+import com.binas.yak.util.UtilModule
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -189,4 +194,7 @@ abstract class ActivityBuilder {
 
     @ContributesAndroidInjector(modules = [(ReviseWritingModule::class), (DrawingProvider::class)])
     abstract fun bindReviseWritingActivity(): ReviseWritingActivity
+
+    @ContributesAndroidInjector(modules = [(StudyModule::class), (StudyOrderModule::class), (SignModule::class), (VocabularyModule::class), (GrammarModule::class), (DatabaseModule::class), (UtilModule::class)])
+    abstract fun bindStudyActivity(): StudyActivity
 }
