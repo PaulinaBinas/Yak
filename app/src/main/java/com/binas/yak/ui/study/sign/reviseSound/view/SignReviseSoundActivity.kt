@@ -54,6 +54,7 @@ class SignReviseSoundActivity : BaseActivity(), SignReviseSoundView {
         intent.putExtra("text", this.text)
         intent.putExtra("image", this.imageFileName)
         intent.putExtra("sound", this.audioFileName)
+        intent.putExtra("animated", true)
         startActivity(intent)
         overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom)
     }

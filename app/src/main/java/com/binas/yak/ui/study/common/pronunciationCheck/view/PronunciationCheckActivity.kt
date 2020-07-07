@@ -30,6 +30,7 @@ class PronunciationCheckActivity : BaseActivity(), PronunciationCheckView {
         text = intent.getStringExtra("text")
         imageName = intent.getStringExtra("image")
         soundName = intent.getStringExtra("sound")
+        animated = intent.getBooleanExtra("animated", false)
         if(animated) {
             loadAnimationAndText()
         } else {

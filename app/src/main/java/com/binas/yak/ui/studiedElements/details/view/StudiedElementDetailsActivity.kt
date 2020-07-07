@@ -88,7 +88,7 @@ class StudiedElementDetailsActivity : BaseActivity(), StudiedElementDetailsView 
     }
 
     private fun loadAnimation(imgName: String) {
-        animation.setAnimation("animations/" + imgName + ".json")
+        animation.setAnimation("animations/$imgName.json")
         animation.repeatCount = LottieDrawable.INFINITE
         animation.speed = 4f
         var params = animation.layoutParams

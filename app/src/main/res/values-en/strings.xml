@@ -32,4 +32,6 @@
     <string name="incorrect">INCORRECT</string>
     <string name="visualizeMeaning">Visualize the meaning of:</string>
     <string name="question">\?</string>
+    <string name="days">days</string>
+    <string name="one_day">day</string>
 </resources>

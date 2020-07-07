@@ -32,4 +32,6 @@
     <string name="incorrect">ŹLE</string>
     <string name="visualizeMeaning">Przypomnij sobie znaczenie:</string>
     <string name="question">\?</string>
+    <string name="days">dni</string>
+    <string name="one_day">dzień</string>
 </resources>
