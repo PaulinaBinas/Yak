@@ -69,8 +69,9 @@ class GrammarReviseSoundActivity : BaseActivity(), GrammarReviseSoundView {
 
     fun onClickGoToPronunciationCheck(view: View) {
         val intent = Intent(this, GrammarPronunciationCheckActivity::class.java)
-        intent.putExtra("sentence", this.sentenceStart)
+        intent.putExtra("sentenceStart", this.sentenceStart)
         intent.putExtra("grammar", this.grammar)
+        intent.putExtra("sentenceEnd", this.sentenceEnd)
         intent.putExtra("sound", this.audioFileName)
         intent.putExtra("translation", this.translation)
         startActivity(intent)

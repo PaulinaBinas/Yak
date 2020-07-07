@@ -23,7 +23,8 @@ import kotlinx.android.synthetic.main.activity_grammar_pronunciation_check.trans
 
 class GrammarPronunciationCheckActivity : BaseActivity(), GrammarPronunciationCheckView {
 
-    private var sentence: String = ""
+    private var sentenceStart: String = ""
+    private var sentenceEnd: String = ""
     private var grammar: String = ""
     private var soundName: String = ""
     private var translation: String = ""
@@ -32,7 +33,8 @@ class GrammarPronunciationCheckActivity : BaseActivity(), GrammarPronunciationCh
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_grammar_pronunciation_check)
-        this.sentence = intent.getStringExtra("sentence")
+        this.sentenceStart = intent.getStringExtra("sentenceStart")
+        this.sentenceEnd = intent.getStringExtra("sentenceEnd")
         this.grammar = intent.getStringExtra("grammar")
         this.soundName = intent.getStringExtra("sound")
         this.translation = intent.getStringExtra("translation")
@@ -46,9 +48,9 @@ class GrammarPronunciationCheckActivity : BaseActivity(), GrammarPronunciationCh
 
     private fun setText() {
         var text = SpannableStringBuilder()
-            .append(sentence)
+            .append(sentenceStart)
             .color(Color.rgb(100, 171, 113)) { append(grammar) }
-            .append("།")
+            .append(sentenceEnd)
         grammarTextView.text = text
         revealTranslation.setOnTouchListener(object: View.OnTouchListener {
             override fun onTouch(v: View?, event: MotionEvent?): Boolean {

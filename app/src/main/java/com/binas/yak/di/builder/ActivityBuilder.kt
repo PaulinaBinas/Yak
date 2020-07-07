@@ -6,6 +6,7 @@ import com.binas.yak.data.model.grammar.GrammarModule
 import com.binas.yak.data.model.sign.SignModule
 import com.binas.yak.data.model.translation.TranslationModule
 import com.binas.yak.data.model.vocabulary.VocabularyModule
+import com.binas.yak.di.module.AppModule
 import com.binas.yak.ui.achievements.AchievementsActivityModule
 import com.binas.yak.ui.achievements.view.AchievementsActivity
 import com.binas.yak.ui.authentication.authMenu.AuthMenuModule
@@ -25,6 +26,8 @@ import com.binas.yak.ui.others.image.ImageProvider
 import com.binas.yak.ui.settings.SettingsModule
 import com.binas.yak.ui.settings.changeLanguage.ChangeLanguageModule
 import com.binas.yak.ui.settings.changeLanguage.view.ChangeLanguageActivity
+import com.binas.yak.ui.settings.changeLimit.ChangeLimitModule
+import com.binas.yak.ui.settings.changeLimit.view.ChangeLimitActivity
 import com.binas.yak.ui.settings.changePassword.ChangePasswordModule
 import com.binas.yak.ui.settings.changePassword.view.ChangePasswordActivity
 import com.binas.yak.ui.settings.view.SettingsActivity
@@ -129,6 +132,9 @@ abstract class ActivityBuilder {
 
     @ContributesAndroidInjector(modules = [(SignupModule::class)])
     abstract fun bindSignupActivity(): SignupActivity
+
+    @ContributesAndroidInjector(modules = [(ChangeLimitModule::class)])
+    abstract fun bindChangeLimitActivity(): ChangeLimitActivity
 
     @ContributesAndroidInjector(modules = [(SettingsModule::class)])
     abstract fun bindSettingsActivity(): SettingsActivity

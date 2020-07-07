@@ -6,12 +6,12 @@ import android.view.View
 import com.binas.yak.R
 import com.binas.yak.ui.authentication.authMenu.view.AuthMenuActivity
 import com.binas.yak.ui.base.view.BaseActivity
-import com.binas.yak.ui.base.view.BaseView
 import com.binas.yak.ui.settings.changeLanguage.view.ChangeLanguageActivity
+import com.binas.yak.ui.settings.changeLimit.view.ChangeLimitActivity
 import com.binas.yak.ui.settings.changePassword.view.ChangePasswordActivity
 import com.google.firebase.auth.FirebaseAuth
 
-class SettingsActivity : BaseActivity(), BaseView {
+class SettingsActivity : BaseActivity(), SettingsView {
 
     private lateinit var mAuth: FirebaseAuth
 
@@ -46,6 +46,12 @@ class SettingsActivity : BaseActivity(), BaseView {
 
     fun onClickGoToChangePassword(view: View) {
         val intent = Intent(this, ChangePasswordActivity::class.java)
+        startActivity(intent)
+        overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom)
+    }
+
+    fun onClickChangeLimit(view: View) {
+        val intent = Intent(this, ChangeLimitActivity::class.java)
         startActivity(intent)
         overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom)
     }

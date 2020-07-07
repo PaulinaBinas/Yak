@@ -53,6 +53,8 @@
 
         <EditText
             android:id="@+id/emailEditText"
+            android:cursorVisible="true"
+            android:textCursorDrawable="@null"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="45dp"
@@ -70,6 +72,8 @@
 
         <EditText
             android:id="@+id/passwordEditText"
+            android:cursorVisible="true"
+            android:textCursorDrawable="@null"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="45dp"

@@ -10,6 +10,7 @@ import com.binas.yak.data.ApplicationDatabase
 import com.binas.yak.ui.achievements.view.AchievementsActivity
 import com.binas.yak.ui.authentication.signup.view.SignupActivity
 import com.binas.yak.ui.base.view.BaseActivity
+import com.binas.yak.ui.settings.view.SettingsActivity
 import com.binas.yak.ui.studiedElements.view.StudiedElementsActivity
 import com.binas.yak.ui.study.common.StudyActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -53,6 +54,12 @@ class MainActivity : BaseActivity(), MainView {
 
     fun onClickGoToAchievements(view: View) {
         val intent = Intent(this, AchievementsActivity::class.java)
+        startActivity(intent)
+        overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom)
+    }
+
+    fun onClickSettingsButton(view: View) {
+        val intent = Intent(this, SettingsActivity::class.java)
         startActivity(intent)
         overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom)
     }

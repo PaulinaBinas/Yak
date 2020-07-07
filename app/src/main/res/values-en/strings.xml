@@ -34,4 +34,7 @@
     <string name="question">\?</string>
     <string name="days">days</string>
     <string name="one_day">day</string>
+    <string name="changeLimit">CHANGE NEW DAILY CARDS LIMIT</string>
+    <string name="newCardsPerDay">"New cards per day: "</string>
+    <string name="save">SAVE</string>
 </resources>
