@@ -35,7 +35,7 @@ class SignReviseSoundActivity : BaseActivity(), SignReviseSoundView {
     override fun loadAnimation() {
         animationFragment.animationView.setAnimation("animations/" + this.imageFileName + ".json")
         animationFragment.animationView.repeatCount = LottieDrawable.INFINITE
-        animationFragment.animationView.speed = 4f
+        animationFragment.animationView.speed = 1f
         animationFragment.animationView.playAnimation()
     }
 

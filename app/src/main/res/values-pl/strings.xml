@@ -15,7 +15,7 @@
     <string name="creditsValues">Programistka: Paulina Binas\nKonsultant języka tybetańskiego: Tenzin Choewang\nProjektantka graficzna: Anna Ludwin</string>
     <string name="changeLanguage">ZMIEŃ JĘZYK</string>
     <string name="changePassword">ZMIEŃ HASŁO</string>
-    <string name="english">ANGIELSKI</string>
+    <string name="english">ENGLISH</string>
     <string name="polish">POLSKI</string>
     <string name="oldPassword">OBECNE HASŁO</string>
     <string name="newPassword">NOWE HASŁO</string>

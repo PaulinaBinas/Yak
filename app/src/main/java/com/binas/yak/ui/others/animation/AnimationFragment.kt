@@ -39,7 +39,7 @@ class AnimationFragment : Fragment() {
     fun setAnimation(fileName: String) {
         animationFragment.animationView.setAnimation("animations/$fileName.json")
         animationFragment.animationView.repeatCount = LottieDrawable.INFINITE
-        animationFragment.animationView.speed = 4f
+        animationFragment.animationView.speed = 1f
         animationFragment.animationView.playAnimation()
         var params = animationFragment.view?.layoutParams
         params?.height = FrameLayout.LayoutParams.MATCH_PARENT

@@ -90,7 +90,7 @@ class StudiedElementDetailsActivity : BaseActivity(), StudiedElementDetailsView 
     private fun loadAnimation(imgName: String) {
         animation.setAnimation("animations/$imgName.json")
         animation.repeatCount = LottieDrawable.INFINITE
-        animation.speed = 4f
+        animation.speed = 1f
         var params = animation.layoutParams
         params.width = LinearLayout.LayoutParams.MATCH_PARENT
         params.height = LinearLayout.LayoutParams.WRAP_CONTENT

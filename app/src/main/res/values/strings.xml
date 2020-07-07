@@ -16,7 +16,7 @@
     <string name="changeLanguage">CHANGE LANGUAGE</string>
     <string name="changePassword">CHANGE PASSWORD</string>
     <string name="english">ENGLISH</string>
-    <string name="polish">POLISH</string>
+    <string name="polish">POLSKI</string>
     <string name="oldPassword">OLD PASSWORD</string>
     <string name="newPassword">NEW PASSWORD</string>
     <string name="passwordChangeFailure">Password change failed!\nTry again</string>

@@ -47,7 +47,7 @@ class PronunciationCheckActivity : BaseActivity(), PronunciationCheckView {
     private fun loadAnimationAndText() {
         animationFragment.animationView.setAnimation("animations/" + this.imageName + ".json")
         animationFragment.animationView.repeatCount = LottieDrawable.INFINITE
-        animationFragment.animationView.speed = 4f
+        animationFragment.animationView.speed = 1f
         animationFragment.animationView.playAnimation()
         var params = animationFragment.view?.layoutParams as LinearLayout.LayoutParams
         params.weight = 3.2F
