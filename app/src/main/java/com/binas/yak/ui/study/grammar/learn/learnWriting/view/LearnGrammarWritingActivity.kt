@@ -10,11 +10,16 @@ import androidx.core.text.color
 import com.binas.yak.R
 import com.binas.yak.ui.base.view.BaseActivity
 import com.binas.yak.ui.settings.view.SettingsActivity
+import com.binas.yak.ui.study.grammar.learn.learnWriting.interactor.LearnGrammarWritingInteractor
+import com.binas.yak.ui.study.grammar.learn.learnWriting.presenter.LearnGrammarWritingPresenter
 import com.binas.yak.ui.study.view.StudyActivity
 import kotlinx.android.synthetic.main.activity_learn_grammar_writing.*
+import javax.inject.Inject
 
 class LearnGrammarWritingActivity : BaseActivity(), LearnGrammarWritingView {
 
+    @Inject
+    lateinit var presenter: LearnGrammarWritingPresenter<LearnGrammarWritingView, LearnGrammarWritingInteractor>
     private var sentenceStart: String = ""
     private var grammar: String = ""
     private var sentenceEnd: String = ""
@@ -46,7 +51,9 @@ class LearnGrammarWritingActivity : BaseActivity(), LearnGrammarWritingView {
     }
 
     fun onClickGoNext(view: View) {
-        // TODO save studied
+        var id = intent.getLongExtra("id", -1L)
+        presenter?.markCardAsStudied(id)
+        presenter?.scheduleReviewCards(id)
         val intent = Intent(this, StudyActivity::class.java)
         startActivity(intent)
         overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom)

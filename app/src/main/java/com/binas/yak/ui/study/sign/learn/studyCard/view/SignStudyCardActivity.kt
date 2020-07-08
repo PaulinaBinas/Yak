@@ -29,6 +29,7 @@ class SignStudyCardActivity : BaseActivity(), SignStudyCardView {
     private var card: SignStudyFlashcard? = null
     private var sign: Sign? = null
     private var translation: Translation? = null
+    private var id: Long = -1L
     @Inject
     lateinit var presenter: SignStudyCardPresenter<SignStudyCardView, SignStudyCardInteractor>
 
@@ -54,6 +55,7 @@ class SignStudyCardActivity : BaseActivity(), SignStudyCardView {
     fun onClickGoToLearnNewSign(view: View) {
         val intent: Intent = Intent(this, LearnSignWritingActivity::class.java)
         intent.putExtra("imageName", imgName)
+        intent.putExtra("signId", id)
         startActivity(intent)
         overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom)
     }
@@ -94,5 +96,6 @@ class SignStudyCardActivity : BaseActivity(), SignStudyCardView {
         }
         imgName = sign!!.audioFileName.toString()
         soundName = sign!!.audioFileName.toString()
+        id = sign.id
     }
 }

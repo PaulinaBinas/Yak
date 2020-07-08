@@ -7,18 +7,25 @@ import com.airbnb.lottie.LottieDrawable
 import com.binas.yak.R
 import com.binas.yak.ui.base.view.BaseActivity
 import com.binas.yak.ui.settings.view.SettingsActivity
+import com.binas.yak.ui.study.sign.learn.writing.interactor.LearnSignWritingInteractor
+import com.binas.yak.ui.study.sign.learn.writing.presenter.LearnSignWritingPresenter
 import com.binas.yak.ui.study.view.StudyActivity
 import kotlinx.android.synthetic.main.activity_learn_sign_writing.*
 import kotlinx.android.synthetic.main.fragment_animation.*
+import javax.inject.Inject
 
 class LearnSignWritingActivity : BaseActivity(), LearnSignWritingView {
 
+    @Inject
+    lateinit var presenter: LearnSignWritingPresenter<LearnSignWritingView, LearnSignWritingInteractor>
     private var imageName: String = ""
+    private var id: Long = -1L
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_learn_sign_writing)
         imageName = intent.getStringExtra("imageName")
+        id = intent.getLongExtra("signId", -1L)
         loadAnimation()
     }
 
@@ -40,7 +47,8 @@ class LearnSignWritingActivity : BaseActivity(), LearnSignWritingView {
     }
 
     fun onClickGoNext(view: View) {
-        // TODO
+        presenter?.markCardAsStudied(id)
+        presenter?.scheduleReviewCards(id)
         val intent = Intent(this, StudyActivity::class.java)
         startActivity(intent)
         overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom)

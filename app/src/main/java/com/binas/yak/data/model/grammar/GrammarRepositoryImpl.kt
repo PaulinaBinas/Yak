@@ -28,4 +28,12 @@ class GrammarRepositoryImpl @Inject internal constructor(var grammarDao: Grammar
     override fun getScheduledRevisionFlashcards(today: LocalDate): List<GrammarRevisionFlashcard> {
         return grammarDao.getScheduledGrammarRevisionFlashcards(today)
     }
+
+    override fun markCardWithMatchingGrammarIdAsStudied(id: Long) {
+        grammarDao.markCardWithMatchingGrammarIdAsStudied(id)
+    }
+
+    override fun scheduleReviewsOfGrammar(id: Long, date: LocalDate) {
+        grammarDao.scheduleReviewsOfGrammar(id, date)
+    }
 }

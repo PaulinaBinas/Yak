@@ -2,10 +2,11 @@ package com.binas.yak.util.impl
 
 import com.binas.yak.data.model.Flashcard
 import com.binas.yak.util.DailyFlashcardQueue
+import com.binas.yak.util.UtilModule
+import dagger.Component
 import java.util.*
 import javax.inject.Singleton
 
-@Singleton
 class DailyFlashcardQueueImpl: DailyFlashcardQueue {
 
     override var todaysFlashcards: Queue<Flashcard> = PriorityQueue()
@@ -15,7 +16,7 @@ class DailyFlashcardQueueImpl: DailyFlashcardQueue {
     }
 
     override fun removeFlashcard() {
-        todaysFlashcards.remove()
+        todaysFlashcards.poll()
     }
 
     override fun getNextFlashcard(): Flashcard? {

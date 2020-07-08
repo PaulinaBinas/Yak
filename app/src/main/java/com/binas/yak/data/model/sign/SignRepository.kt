@@ -13,4 +13,6 @@ interface SignRepository {
     fun getAllStudiedCards(): List<SignStudyFlashcard>
     fun getRevisionFlashcardsWithSignId(id: Long): List<SignRevisionFlashcard>
     fun getScheduledRevisionFlashcards(today: LocalDate): List<SignRevisionFlashcard>
+    fun markCardAsStudied(id: Long)
+    fun scheduleReviewsOfSign(id: Long, date: LocalDate)
 }

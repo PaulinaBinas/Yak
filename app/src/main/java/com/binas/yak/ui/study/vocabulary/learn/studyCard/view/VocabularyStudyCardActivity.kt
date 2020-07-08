@@ -27,6 +27,7 @@ class VocabularyStudyCardActivity : BaseActivity(), VocabularyStudyCardView {
     private var playing: Boolean = false
     private var imageName: String = ""
     private var soundName: String = ""
+    private var id: Long = -1L
     @Inject
     lateinit var presenter: VocabularyStudyCardPresenter<VocabularyStudyCardView, VocabularyStudyCardInteractor>
 
@@ -52,6 +53,7 @@ class VocabularyStudyCardActivity : BaseActivity(), VocabularyStudyCardView {
         } else {
             translationTextView.text = text?.english
         }
+        id = vocab.id
     }
 
     override fun clickSoundButton() {
@@ -61,6 +63,7 @@ class VocabularyStudyCardActivity : BaseActivity(), VocabularyStudyCardView {
     fun onClickGoToLearnNewVocabulary(view: View) {
         val intent: Intent = Intent(this, LearnVocabularyWritingActivity::class.java)
         intent.putExtra("word", vocabularyTextView.text)
+        intent.putExtra("id", id)
         startActivity(intent)
         overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom)
     }

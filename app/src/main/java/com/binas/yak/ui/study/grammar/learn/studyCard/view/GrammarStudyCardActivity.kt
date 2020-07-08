@@ -33,6 +33,7 @@ class GrammarStudyCardActivity : BaseActivity(), GrammarStudyCardView {
     private var translation: String = ""
     private var soundName: String = ""
     private var playing: Boolean = false
+    private var grammarId: Long? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -67,6 +68,7 @@ class GrammarStudyCardActivity : BaseActivity(), GrammarStudyCardView {
         intent.putExtra("sentenceStart", sentenceStart)
         intent.putExtra("sentenceEnd", sentenceEnd)
         intent.putExtra("grammar", grammar)
+        intent.putExtra("id", grammarId)
         startActivity(intent)
         overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom)
     }
@@ -89,6 +91,7 @@ class GrammarStudyCardActivity : BaseActivity(), GrammarStudyCardView {
         this.sentenceStart = grammar.firstPartOfSentence.toString()
         this.sentenceEnd = grammar.secondPartOfSentence.toString()
         this.grammar = grammar.grammarPhase.toString()
+        this.grammarId = grammar.id
         if(Lingver.getInstance().getLanguage().equals("pl")) {
             this.translation = text?.polish.toString()
         } else {

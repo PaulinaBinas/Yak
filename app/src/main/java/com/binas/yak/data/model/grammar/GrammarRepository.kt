@@ -15,4 +15,8 @@ interface GrammarRepository {
     fun getRevisionFlashcardsWithGrammarId(id: Long): List<GrammarRevisionFlashcard>
 
     fun getScheduledRevisionFlashcards(today: LocalDate): List<GrammarRevisionFlashcard>
+
+    fun markCardWithMatchingGrammarIdAsStudied(id: Long)
+
+    fun scheduleReviewsOfGrammar(id: Long, date: LocalDate)
 }

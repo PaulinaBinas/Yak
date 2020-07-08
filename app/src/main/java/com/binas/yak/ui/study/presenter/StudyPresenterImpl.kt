@@ -86,7 +86,9 @@ class StudyPresenterImpl<V: StudyView, I: StudyInteractor> @Inject internal cons
         while(!coroutine.isCompleted) {}
         if(coroutine.isCompleted){
             cards = cards.shuffled()
-            queue.addFlashcards(cards)
+            for(item in cards) {
+                queue.addFlashcard(item)
+            }
         }
     }
 

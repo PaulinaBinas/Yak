@@ -10,10 +10,8 @@ import javax.inject.Singleton
 class UtilModule {
 
     @Provides
-    fun provideDailyFlashcardQueueImpl() = DailyFlashcardQueueImpl()
-
-    @Provides
-    fun provideDailyFlashcardQueue(queue: DailyFlashcardQueueImpl): DailyFlashcardQueue = queue
+    @Singleton
+    fun provideDailyFlashcardQueue(): DailyFlashcardQueue = DailyFlashcardQueueImpl()
 
     @Provides
     fun provideSpacedRepetitionScheduler(scheduler: SpacedRepetitionSchedulerImpl): SpacedRepetitionScheduler = scheduler

@@ -10,4 +10,6 @@ interface VocabularyRepository {
     fun getAllStudiedCards(): List<VocabularyStudyFlashcard>
     fun getRevisionFlashcardsWithVocabularyId(id: Long): List<VocabularyRevisionFlashcard>
     fun getScheduledRevisionFlashcards(today: LocalDate): List<VocabularyRevisionFlashcard>
+    fun markCardAsStudied(id: Long)
+    fun scheduleReviewsOfVocabulary(id: Long, date: LocalDate)
 }

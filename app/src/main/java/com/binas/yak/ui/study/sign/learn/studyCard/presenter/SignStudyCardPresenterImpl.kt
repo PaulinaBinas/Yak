@@ -30,9 +30,4 @@ class SignStudyCardPresenterImpl<V: SignStudyCardView, I: SignStudyCardInteracto
         }
     }
 
-    override fun goToLearnSignStudyCard() {
-        TODO("Not yet implemented")
-    }
-
-
 }

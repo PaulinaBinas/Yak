@@ -75,7 +75,8 @@ class SpacedRepetitionSchedulerTest {
         scheduler.schedule(flashcard, true)
 
         /* assert */
-        assertEquals(flashcard.interval, 34L)
-        assertEquals(flashcard.nextDisplayTime, LocalDate.now().plusDays(34))
+        assertEquals(flashcard.interval!!, 34L)
+        assertEquals(flashcard.nextDisplayTime, LocalDate.now().plusDays(34
+        ))
     }
 }

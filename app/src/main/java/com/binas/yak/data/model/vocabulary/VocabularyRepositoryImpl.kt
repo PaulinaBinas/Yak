@@ -28,4 +28,12 @@ class VocabularyRepositoryImpl @Inject internal constructor(var vocabularyDao: V
     override fun getScheduledRevisionFlashcards(today: LocalDate): List<VocabularyRevisionFlashcard> {
         return vocabularyDao.getScheduledGrammarRevisionFlashcards(today)
     }
+
+    override fun markCardAsStudied(id: Long) {
+        vocabularyDao.markCardAsStudied(id)
+    }
+
+    override fun scheduleReviewsOfVocabulary(id: Long, date: LocalDate) {
+        vocabularyDao.scheduleReviewsOfVocabulary(id, date)
+    }
 }

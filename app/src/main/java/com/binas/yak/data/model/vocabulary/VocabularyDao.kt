@@ -24,4 +24,10 @@ interface VocabularyDao {
 
     @Query("SELECT * FROM VocabularyRevisionFlashcard WHERE VocabularyRevisionFlashcard.nextDisplayTime <= :today")
     fun getScheduledGrammarRevisionFlashcards(today: LocalDate): List<VocabularyRevisionFlashcard>
+
+    @Query("UPDATE VocabularyStudyFlashcard SET ifStudied = 1 WHERE VocabularyStudyFlashcard.vocabularyId = :id")
+    fun markCardAsStudied(id: Long)
+
+    @Query("UPDATE VocabularyRevisionFlashcard SET nextDisplayTime = :date WHERE VocabularyRevisionFlashcard.vocabularyId = :id")
+    fun scheduleReviewsOfVocabulary(id: Long, date: LocalDate)
 }

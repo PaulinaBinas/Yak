@@ -11,9 +11,9 @@ import kotlin.math.exp
 @Singleton
 class SpacedRepetitionSchedulerImpl: SpacedRepetitionScheduler {
 
-    private val firstInterval: Long = 1
+    private val firstInterval: Long = 0
 
-    private val secondInterval: Long = 2
+    private val secondInterval: Long = 1
 
     override fun schedule(flashcard: RevisionFlashcard, remembered: Boolean) {
 
