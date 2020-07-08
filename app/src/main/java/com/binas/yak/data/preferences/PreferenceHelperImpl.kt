@@ -11,6 +11,7 @@ class PreferenceHelperImpl @Inject constructor(context: Context, @PreferenceInfo
 
     companion object {
         private val DAILY_CARD_LIMIT = "DAILY_CARD_LIMIT"
+        private val LANGUAGE_SET = "IS_LANGUAGE_SET"
     }
 
     private val mPrefs: SharedPreferences = context.getSharedPreferences(prefFileName, Context.MODE_PRIVATE)
@@ -23,5 +24,11 @@ class PreferenceHelperImpl @Inject constructor(context: Context, @PreferenceInfo
         mPrefs.edit { putInt(DAILY_CARD_LIMIT, limit) }
     }
 
+    override fun getIsLanguageSet(): Boolean {
+        return mPrefs.getBoolean(LANGUAGE_SET, false)
+    }
 
+    override fun setIsLanguageSet(value: Boolean) {
+        mPrefs.edit { putBoolean(LANGUAGE_SET, value) }
+    }
 }

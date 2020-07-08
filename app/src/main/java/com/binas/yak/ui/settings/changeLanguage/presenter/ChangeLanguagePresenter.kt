@@ -5,4 +5,6 @@ import com.binas.yak.ui.settings.changeLanguage.interactor.ChangeLanguageInterac
 import com.binas.yak.ui.settings.changeLanguage.view.ChangeLanguageView
 
 interface ChangeLanguagePresenter<V: ChangeLanguageView, I: ChangeLanguageInteractor>: Presenter<V, I> {
+
+    fun changeLanguageIsSet()
 }

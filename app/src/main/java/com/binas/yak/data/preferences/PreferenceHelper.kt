@@ -8,4 +8,8 @@ interface PreferenceHelper {
     fun getDailyCardLimit(): Int
 
     fun setDailyCardLimit(limit: Int)
+
+    fun getIsLanguageSet(): Boolean
+
+    fun setIsLanguageSet(value: Boolean)
 }

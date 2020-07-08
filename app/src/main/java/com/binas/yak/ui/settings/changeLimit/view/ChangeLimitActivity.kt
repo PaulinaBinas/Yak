@@ -30,8 +30,10 @@ class ChangeLimitActivity : BaseActivity(), ChangeLimitView {
     }
 
     fun saveNewLimit(view: View) {
-        var newNumber = editTextNumber.text.toString().toInt()
-        presenter?.changeDailyCardsLimit(newNumber)
+        var newNumber = editTextNumber.text.toString()
+        if(newNumber.isNotEmpty() && newNumber.toInt() > 0) {
+            presenter?.changeDailyCardsLimit(newNumber.toInt())
+        }
         onBackPressed()
     }
 

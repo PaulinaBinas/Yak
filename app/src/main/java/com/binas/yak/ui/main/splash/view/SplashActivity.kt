@@ -21,13 +21,10 @@ class SplashActivity : BaseActivity(), SplashView {
         setContentView(R.layout.activity_splash)
 
         Handler().postDelayed({
-            // This method will be executed once the timer is over
-            // Start your app main activity
             mAuth = FirebaseAuth.getInstance()
             val user = mAuth.currentUser
 
             updateUi(user)
-            // close this activity
             finish()
         }, SPLASH_SCREEN_TIME)
     }
