@@ -12,6 +12,7 @@ import com.binas.yak.data.model.grammar.Grammar
 import com.binas.yak.data.model.grammar.GrammarRevisionFlashcard
 import com.binas.yak.data.model.translation.Translation
 import com.binas.yak.ui.base.view.BaseActivity
+import com.binas.yak.ui.main.view.MainActivity
 import com.binas.yak.ui.settings.view.SettingsActivity
 import com.binas.yak.ui.study.grammar.reviseSound.interactor.GrammarReviseSoundInteractor
 import com.binas.yak.ui.study.grammar.reviseSound.presenter.GrammarReviseSoundPresenter
@@ -64,7 +65,11 @@ class GrammarReviseSoundActivity : BaseActivity(), GrammarReviseSoundView {
     }
 
     fun onClickBackButton(view: View) {
-        onBackPressed()
+        val intent = Intent(this, MainActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+        startActivity(intent)
+        overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_out_bottom)
+        finish()
     }
 
     fun onClickGoToPronunciationCheck(view: View) {

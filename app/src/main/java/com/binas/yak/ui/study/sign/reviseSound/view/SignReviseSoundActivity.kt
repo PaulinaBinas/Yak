@@ -8,6 +8,7 @@ import com.binas.yak.R
 import com.binas.yak.data.model.sign.Sign
 import com.binas.yak.data.model.sign.SignRevisionFlashcard
 import com.binas.yak.ui.base.view.BaseActivity
+import com.binas.yak.ui.main.view.MainActivity
 import com.binas.yak.ui.settings.view.SettingsActivity
 import com.binas.yak.ui.study.common.pronunciationCheck.view.PronunciationCheckActivity
 import com.binas.yak.ui.study.sign.reviseSound.interactor.SignReviseSoundInteractor
@@ -46,7 +47,11 @@ class SignReviseSoundActivity : BaseActivity(), SignReviseSoundView {
     }
 
     fun onClickBackButton(view: View) {
-        onBackPressed()
+        val intent = Intent(this, MainActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+        startActivity(intent)
+        overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_out_bottom)
+        finish()
     }
 
     fun onClickGoToPronunciationCheck(view: View) {

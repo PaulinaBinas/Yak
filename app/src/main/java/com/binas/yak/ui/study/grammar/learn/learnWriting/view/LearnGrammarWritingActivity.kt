@@ -10,6 +10,7 @@ import androidx.core.text.color
 import com.binas.yak.R
 import com.binas.yak.ui.base.view.BaseActivity
 import com.binas.yak.ui.settings.view.SettingsActivity
+import com.binas.yak.ui.study.view.StudyActivity
 import kotlinx.android.synthetic.main.activity_learn_grammar_writing.*
 
 class LearnGrammarWritingActivity : BaseActivity(), LearnGrammarWritingView {
@@ -44,5 +45,10 @@ class LearnGrammarWritingActivity : BaseActivity(), LearnGrammarWritingView {
         onBackPressed()
     }
 
-    fun onClickGoNext(view: View) {}
+    fun onClickGoNext(view: View) {
+        // TODO save studied
+        val intent = Intent(this, StudyActivity::class.java)
+        startActivity(intent)
+        overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom)
+    }
 }

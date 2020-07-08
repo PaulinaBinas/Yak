@@ -7,6 +7,7 @@ import com.airbnb.lottie.LottieDrawable
 import com.binas.yak.R
 import com.binas.yak.ui.base.view.BaseActivity
 import com.binas.yak.ui.settings.view.SettingsActivity
+import com.binas.yak.ui.study.view.StudyActivity
 import kotlinx.android.synthetic.main.activity_learn_sign_writing.*
 import kotlinx.android.synthetic.main.fragment_animation.*
 
@@ -39,5 +40,9 @@ class LearnSignWritingActivity : BaseActivity(), LearnSignWritingView {
     }
 
     fun onClickGoNext(view: View) {
+        // TODO
+        val intent = Intent(this, StudyActivity::class.java)
+        startActivity(intent)
+        overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom)
     }
 }

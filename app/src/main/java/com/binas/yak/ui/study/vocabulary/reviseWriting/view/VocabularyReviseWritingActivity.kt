@@ -9,6 +9,7 @@ import com.binas.yak.R
 import com.binas.yak.data.model.vocabulary.Vocabulary
 import com.binas.yak.data.model.vocabulary.VocabularyRevisionFlashcard
 import com.binas.yak.ui.base.view.BaseActivity
+import com.binas.yak.ui.main.view.MainActivity
 import com.binas.yak.ui.settings.view.SettingsActivity
 import com.binas.yak.ui.study.common.reviseWriting.view.ReviseWritingActivity
 import com.binas.yak.ui.study.vocabulary.reviseWriting.interactor.VocabularyReviseWritingInteractor
@@ -65,7 +66,11 @@ class VocabularyReviseWritingActivity : BaseActivity(), VocabularyReviseWritingV
     }
 
     fun onClickBackButton(view: View) {
-        onBackPressed()
+        val intent = Intent(this, MainActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+        startActivity(intent)
+        overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_out_bottom)
+        finish()
     }
 
     fun onClickPlaySound(view: View) {

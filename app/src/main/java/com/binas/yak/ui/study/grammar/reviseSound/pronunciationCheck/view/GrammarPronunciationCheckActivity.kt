@@ -16,6 +16,7 @@ import com.binas.yak.R
 import com.binas.yak.ui.base.view.BaseActivity
 import com.binas.yak.ui.settings.view.SettingsActivity
 import com.binas.yak.ui.study.common.meaningCheck.view.MeaningCheckView
+import com.binas.yak.ui.study.view.StudyActivity
 import kotlinx.android.synthetic.main.activity_grammar_pronunciation_check.*
 import kotlinx.android.synthetic.main.activity_grammar_pronunciation_check.playSoundButton
 import kotlinx.android.synthetic.main.activity_grammar_pronunciation_check.revealTranslation
@@ -98,5 +99,21 @@ class GrammarPronunciationCheckActivity : BaseActivity(), GrammarPronunciationCh
 
     override fun setTranslation() {
         translationTextView.text = this.translation
+    }
+
+    fun onClickCorrect(view: View) {
+        // TODO save studied
+        goToStudy()
+    }
+
+    fun onClickIncorrect(view: View) {
+        // TODO save studied
+        goToStudy()
+    }
+
+    private fun goToStudy() {
+        val intent = Intent(this, StudyActivity::class.java)
+        startActivity(intent)
+        overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom)
     }
 }

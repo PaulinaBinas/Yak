@@ -14,6 +14,7 @@ import com.binas.yak.data.model.grammar.Grammar
 import com.binas.yak.data.model.grammar.GrammarStudyFlashcard
 import com.binas.yak.data.model.translation.Translation
 import com.binas.yak.ui.base.view.BaseActivity
+import com.binas.yak.ui.main.view.MainActivity
 import com.binas.yak.ui.settings.view.SettingsActivity
 import com.binas.yak.ui.study.grammar.learn.learnWriting.view.LearnGrammarWritingActivity
 import com.binas.yak.ui.study.grammar.learn.studyCard.interactor.GrammarStudyCardInteractor
@@ -77,7 +78,11 @@ class GrammarStudyCardActivity : BaseActivity(), GrammarStudyCardView {
     }
 
     fun onClickBackButton(view: View) {
-        onBackPressed()
+        val intent = Intent(this, MainActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+        startActivity(intent)
+        overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_out_bottom)
+        finish()
     }
 
     override fun setContent(card: GrammarStudyFlashcard, grammar: Grammar, text: Translation?) {

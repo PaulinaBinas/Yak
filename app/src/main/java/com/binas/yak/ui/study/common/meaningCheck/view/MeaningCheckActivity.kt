@@ -12,6 +12,7 @@ import android.view.View
 import com.binas.yak.R
 import com.binas.yak.ui.base.view.BaseActivity
 import com.binas.yak.ui.settings.view.SettingsActivity
+import com.binas.yak.ui.study.view.StudyActivity
 import com.bumptech.glide.Glide
 import com.yariksoffice.lingver.Lingver
 import kotlinx.android.synthetic.main.activity_meaning_check.*
@@ -101,5 +102,21 @@ class MeaningCheckActivity : BaseActivity(), MeaningCheckView {
 
     override fun setTranslation() {
         translationTextView.text = this.translation
+    }
+
+    fun onClickCorrect(view: View) {
+        //TODO
+        goToStudy()
+    }
+
+    fun onClickIncorrect(view: View) {
+        //TODO
+        goToStudy()
+    }
+
+    private fun goToStudy() {
+        val intent = Intent(this, StudyActivity::class.java)
+        startActivity(intent)
+        overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom)
     }
 }
