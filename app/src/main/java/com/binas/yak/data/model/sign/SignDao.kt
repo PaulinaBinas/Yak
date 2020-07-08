@@ -4,6 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import com.binas.yak.data.model.RevisionType
+import java.time.LocalDate
 
 @Dao
 interface SignDao {
@@ -28,4 +29,7 @@ interface SignDao {
 
     @Query("SELECT * FROM SignRevisionFlashcard WHERE SignRevisionFlashcard.signId = :id")
     fun getSignRevisionFlashcardsWithSignId(id: Long): List<SignRevisionFlashcard>
+
+    @Query("SELECT * FROM SignRevisionFlashcard WHERE SignRevisionFlashcard.nextDisplayTime <= :today")
+    fun getScheduledSignRevisionFlashcards(today: LocalDate): List<SignRevisionFlashcard>
 }

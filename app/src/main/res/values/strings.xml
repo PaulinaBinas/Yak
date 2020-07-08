@@ -37,4 +37,7 @@
     <string name="changeLimit">CHANGE NEW DAILY CARDS LIMIT</string>
     <string name="newCardsPerDay">"New cards per day: "</string>
     <string name="save">SAVE</string>
+    <string name="congrats">Congratulations!</string>
+    <string name="youAreDone">You have finished the study for today. Come back tomorrow!</string>
+    <string name="finish">FINISH</string>
 </resources>

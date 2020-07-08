@@ -1,6 +1,7 @@
 package com.binas.yak.data.model.sign
 
 import com.binas.yak.data.model.RevisionType
+import java.time.LocalDate
 import javax.inject.Inject
 import kotlin.math.sign
 
@@ -31,5 +32,9 @@ class SignRepositoryImpl @Inject internal constructor(var signDao: SignDao): Sig
 
     override fun getRevisionFlashcardsWithSignId(id: Long): List<SignRevisionFlashcard> {
         return signDao.getSignRevisionFlashcardsWithSignId(id)
+    }
+
+    override fun getScheduledRevisionFlashcards(today: LocalDate): List<SignRevisionFlashcard> {
+        return signDao.getScheduledSignRevisionFlashcards(today)
     }
 }

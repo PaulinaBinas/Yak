@@ -2,6 +2,7 @@ package com.binas.yak.data.model.vocabulary
 
 import androidx.room.Dao
 import androidx.room.Query
+import java.time.LocalDate
 
 @Dao
 interface VocabularyDao {
@@ -20,4 +21,7 @@ interface VocabularyDao {
 
     @Query("SELECT * FROM VocabularyRevisionFlashcard WHERE VocabularyRevisionFlashcard.vocabularyId = :id")
     fun getVocabularyRevisionFlashcardsWithVocabularyId(id: Long): List<VocabularyRevisionFlashcard>
+
+    @Query("SELECT * FROM VocabularyRevisionFlashcard WHERE VocabularyRevisionFlashcard.nextDisplayTime <= :today")
+    fun getScheduledGrammarRevisionFlashcards(today: LocalDate): List<VocabularyRevisionFlashcard>
 }

@@ -1,5 +1,7 @@
 package com.binas.yak.data.model.grammar
 
+import java.time.LocalDate
+
 interface GrammarRepository {
 
     fun getGrammar(id: Long): Grammar
@@ -11,4 +13,6 @@ interface GrammarRepository {
     fun getAllStudiedGrammarStudyFlashcards(): List<GrammarStudyFlashcard>
 
     fun getRevisionFlashcardsWithGrammarId(id: Long): List<GrammarRevisionFlashcard>
+
+    fun getScheduledRevisionFlashcards(today: LocalDate): List<GrammarRevisionFlashcard>
 }

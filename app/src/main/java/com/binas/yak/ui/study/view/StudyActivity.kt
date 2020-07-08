@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.view.View
 import com.binas.yak.R
 import com.binas.yak.ui.base.view.BaseActivity
+import com.binas.yak.ui.main.view.MainActivity
+import com.binas.yak.ui.settings.view.SettingsActivity
 import com.binas.yak.ui.study.grammar.reviseSound.view.GrammarReviseSoundActivity
 import com.binas.yak.ui.study.grammar.reviseWriting.view.GrammarReviseWritingActivity
 import com.binas.yak.ui.study.grammar.learn.studyCard.view.GrammarStudyCardActivity
@@ -102,5 +104,22 @@ class StudyActivity : BaseActivity(), StudyView {
 
     override fun displayStudyOver() {
         setContentView(R.layout.activity_study)
+    }
+
+    fun onClickFinish(view: View) {
+        val intent = Intent(this, MainActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+        startActivity(intent)
+        overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_out_bottom)
+        finish()
+    }
+
+    fun onClickBackButton(view: View) {
+        onClickFinish(view)
+    }
+    fun onClickSettingsButton(view: View) {
+        val intent = Intent(this, SettingsActivity::class.java)
+        startActivity(intent)
+        overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_out_bottom)
     }
 }

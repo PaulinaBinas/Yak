@@ -37,4 +37,7 @@
     <string name="changeLimit">ZMIEŃ ILOŚĆ FISZEK NA DZIEŃ</string>
     <string name="newCardsPerDay">"Nowe fiszki na dzień: "</string>
     <string name="save">ZAPISZ</string>
+    <string name="congrats">Gratulacje!</string>
+    <string name="youAreDone">Koniec nauki na dziś. Wróć jutro!!</string>
+    <string name="finish">ZAKOŃCZ</string>
 </resources>

@@ -1,5 +1,6 @@
 package com.binas.yak.data.model.grammar
 
+import java.time.LocalDate
 import javax.inject.Inject
 
 class GrammarRepositoryImpl @Inject internal constructor(var grammarDao: GrammarDao): GrammarRepository {
@@ -22,5 +23,9 @@ class GrammarRepositoryImpl @Inject internal constructor(var grammarDao: Grammar
 
     override fun getRevisionFlashcardsWithGrammarId(id: Long): List<GrammarRevisionFlashcard> {
         return grammarDao.getGrammarRevisionFlashcardsWithGrammarId(id)
+    }
+
+    override fun getScheduledRevisionFlashcards(today: LocalDate): List<GrammarRevisionFlashcard> {
+        return grammarDao.getScheduledGrammarRevisionFlashcards(today)
     }
 }

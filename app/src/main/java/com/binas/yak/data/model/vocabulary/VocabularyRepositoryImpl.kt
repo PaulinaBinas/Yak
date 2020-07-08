@@ -1,5 +1,6 @@
 package com.binas.yak.data.model.vocabulary
 
+import java.time.LocalDate
 import javax.inject.Inject
 
 class VocabularyRepositoryImpl @Inject internal constructor(var vocabularyDao: VocabularyDao): VocabularyRepository {
@@ -22,5 +23,9 @@ class VocabularyRepositoryImpl @Inject internal constructor(var vocabularyDao: V
 
     override fun getRevisionFlashcardsWithVocabularyId(id: Long): List<VocabularyRevisionFlashcard> {
         return vocabularyDao.getVocabularyRevisionFlashcardsWithVocabularyId(id)
+    }
+
+    override fun getScheduledRevisionFlashcards(today: LocalDate): List<VocabularyRevisionFlashcard> {
+        return vocabularyDao.getScheduledGrammarRevisionFlashcards(today)
     }
 }

@@ -2,6 +2,7 @@ package com.binas.yak.data.model.grammar
 
 import androidx.room.Dao
 import androidx.room.Query
+import java.time.LocalDate
 
 @Dao
 interface GrammarDao {
@@ -20,4 +21,7 @@ interface GrammarDao {
 
     @Query("SELECT * FROM GrammarRevisionFlashcard WHERE GrammarRevisionFlashcard.grammarId = :id")
     fun getGrammarRevisionFlashcardsWithGrammarId(id: Long): List<GrammarRevisionFlashcard>
+
+    @Query("SELECT * FROM GrammarRevisionFlashcard WHERE GrammarRevisionFlashcard.nextDisplayTime <= :today")
+    fun getScheduledGrammarRevisionFlashcards(today: LocalDate): List<GrammarRevisionFlashcard>
 }

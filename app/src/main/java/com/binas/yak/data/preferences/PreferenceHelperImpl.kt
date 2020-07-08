@@ -12,6 +12,7 @@ class PreferenceHelperImpl @Inject constructor(context: Context, @PreferenceInfo
     companion object {
         private val DAILY_CARD_LIMIT = "DAILY_CARD_LIMIT"
         private val LANGUAGE_SET = "IS_LANGUAGE_SET"
+        private val ELEMENTS_STUDIED = "ELEMENTS_STUDIED"
     }
 
     private val mPrefs: SharedPreferences = context.getSharedPreferences(prefFileName, Context.MODE_PRIVATE)
@@ -30,5 +31,13 @@ class PreferenceHelperImpl @Inject constructor(context: Context, @PreferenceInfo
 
     override fun setIsLanguageSet(value: Boolean) {
         mPrefs.edit { putBoolean(LANGUAGE_SET, value) }
+    }
+
+    override fun setNumberOfElementsStudied(number: Int) {
+        mPrefs.edit { putInt(ELEMENTS_STUDIED, number) }
+    }
+
+    override fun getNumberOfElementsStudied(): Int {
+        return mPrefs.getInt(ELEMENTS_STUDIED, 0)
     }
 }

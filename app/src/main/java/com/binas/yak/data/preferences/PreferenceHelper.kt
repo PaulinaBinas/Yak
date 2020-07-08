@@ -12,4 +12,8 @@ interface PreferenceHelper {
     fun getIsLanguageSet(): Boolean
 
     fun setIsLanguageSet(value: Boolean)
+
+    fun setNumberOfElementsStudied(number: Int)
+
+    fun getNumberOfElementsStudied(): Int
 }

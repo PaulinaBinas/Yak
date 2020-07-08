@@ -30,4 +30,10 @@ class DailyFlashcardQueueImpl: DailyFlashcardQueue {
     override fun isQueueEmpty(): Boolean {
         return todaysFlashcards.isEmpty()
     }
+
+    override fun addFlashcards(cards: List<Flashcard>) {
+        for(item in cards) {
+            todaysFlashcards.add(item)
+        }
+    }
 }
