@@ -1,6 +1,7 @@
 package com.binas.yak.data.model.grammar
 
 import androidx.room.Dao
+import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
 import java.time.LocalDate
@@ -23,12 +24,15 @@ interface GrammarDao {
     @Query("SELECT * FROM GrammarRevisionFlashcard WHERE GrammarRevisionFlashcard.grammarId = :id")
     fun getGrammarRevisionFlashcardsWithGrammarId(id: Long): List<GrammarRevisionFlashcard>
 
-    @Query("SELECT * FROM GrammarRevisionFlashcard WHERE GrammarRevisionFlashcard.nextDisplayTime <= :today")
-    fun getScheduledGrammarRevisionFlashcards(today: LocalDate): List<GrammarRevisionFlashcard>
+    @Query("SELECT * FROM GrammarRevisionFlashcard WHERE GrammarRevisionFlashcard.nextDisplayTime BETWEEN :before AND :today")
+    fun getScheduledGrammarRevisionFlashcards(today: LocalDate, before: LocalDate): List<GrammarRevisionFlashcard>
 
     @Query("UPDATE GrammarStudyFlashcard SET ifStudied = 1 WHERE GrammarStudyFlashcard.grammarId = :id")
     fun markCardWithMatchingGrammarIdAsStudied(id: Long)
 
     @Query("UPDATE GrammarRevisionFlashcard SET nextDisplayTime = :date WHERE grammarId = :id")
     fun scheduleReviewsOfGrammar(id: Long, date: LocalDate)
+
+    @Update(onConflict = OnConflictStrategy.REPLACE)
+    fun saveRevisionCard(card: GrammarRevisionFlashcard)
 }

@@ -17,7 +17,7 @@ class Converters {
     }
 
     @TypeConverter
-    fun fromRevisionType(value: RevisionType) = value.name
+    fun fromRevisionType(value: RevisionType) = value.type
 
     @TypeConverter
     fun toDate(value: String?): LocalDate? = if (value != null) LocalDate.parse(value) else null

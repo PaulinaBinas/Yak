@@ -24,8 +24,13 @@ class StudyPresenterImpl<V: StudyView, I: StudyInteractor> @Inject internal cons
         interactor?.let { it ->
             var studyOrder: List<StudyOrder> = ArrayList()
             var newDailyItems = 0
+            var coroutine = GlobalScope.launch {
+                var day = it.getStudyDay()
+                newDailyItems = it.getStudyDay()?.elementsStudied ?: 0
+            }
+            while (!coroutine.isCompleted){}
             var dailyLimit = preferenceHelper.getDailyCardLimit()
-            lateinit var nextItem: Flashcard
+            var nextItem: Flashcard? = null
 
             if(queue.isQueueEmpty()) {
                 var coroutine = GlobalScope.launch {
@@ -41,12 +46,8 @@ class StudyPresenterImpl<V: StudyView, I: StudyInteractor> @Inject internal cons
                 addRevisionCardsToQueue(it)
             }
 
-            queue.getNextFlashcard().let { nextItem = it!! }
-            if(nextItem != null) {
-                goToNextView(nextItem)
-            } else {
-                getView()?.displayStudyOver()
-            }
+            queue.getNextFlashcard()?.let { nextItem = it }
+            nextItem?.let { goToNextView(it) } ?: getView()?.displayStudyOver()
         }
     }
 
@@ -116,7 +117,7 @@ class StudyPresenterImpl<V: StudyView, I: StudyInteractor> @Inject internal cons
             is GrammarRevisionFlashcard -> {
                 when((nextItem as GrammarRevisionFlashcard).revisionType) {
                     RevisionType.WRITING -> getView()?.onClickGoToGrammarReviseWriting((nextItem as GrammarRevisionFlashcard).id)
-                    RevisionType.PRONUNCIATION -> getView()?.onClickGoToGrammarReviseWriting((nextItem as GrammarRevisionFlashcard).id)
+                    RevisionType.PRONUNCIATION -> getView()?.onClickGoToGrammarReviseSound((nextItem as GrammarRevisionFlashcard).id)
                     else -> {}
                 }
             }

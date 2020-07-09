@@ -1,6 +1,7 @@
 package com.binas.yak.ui.study.sign.learn.writing.presenter
 
 import com.binas.yak.data.model.sign.SignRevisionFlashcard
+import com.binas.yak.data.model.studyDay.StudyDay
 import com.binas.yak.data.preferences.PreferenceHelper
 import com.binas.yak.ui.base.presenter.BasePresenter
 import com.binas.yak.ui.study.sign.learn.writing.interactor.LearnSignWritingInteractor
@@ -19,7 +20,14 @@ class LearnSignWritingPresenterImpl<V: LearnSignWritingView, I: LearnSignWriting
             var coroutine = GlobalScope.launch {
                 it.scheduleReviewsOfSign(id)
                 cards = it.getAllMatchingRevisionFlashcards(id)
-                preferenceHelper.setNumberOfElementsStudied(preferenceHelper.getNumberOfElementsStudied() + 1)
+                GlobalScope.launch {
+                    var studyDay = it.getStudyDate()
+                    if(studyDay == null) {
+                        studyDay = StudyDay(-1L)
+                    }
+                    studyDay.elementsStudied = studyDay.elementsStudied?.plus(1)
+                    it.saveStudyDay(studyDay)
+                }
             }
             while(!coroutine.isCompleted){}
             queue.removeFlashcard()

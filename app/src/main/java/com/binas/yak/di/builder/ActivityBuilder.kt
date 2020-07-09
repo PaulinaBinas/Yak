@@ -5,6 +5,7 @@ import com.binas.yak.data.DatabaseModule
 import com.binas.yak.data.model.achievements.AchievementsModule
 import com.binas.yak.data.model.grammar.GrammarModule
 import com.binas.yak.data.model.sign.SignModule
+import com.binas.yak.data.model.studyDay.StudyDayModule
 import com.binas.yak.data.model.studyOrder.StudyOrderModule
 import com.binas.yak.data.model.translation.TranslationModule
 import com.binas.yak.data.model.vocabulary.VocabularyModule
@@ -113,7 +114,7 @@ abstract class ActivityBuilder {
     @ContributesAndroidInjector(modules = [(VocabularyReviseWritingModule::class), (ImageProvider::class), (VocabularyModule::class), (DatabaseModule::class)])
     abstract fun bindVocabularyReviseWritingActivity(): VocabularyReviseWritingActivity
 
-    @ContributesAndroidInjector(modules = [(LearnVocabularyWritingModule::class), (DrawingProvider::class), (VocabularyModule::class), (DatabaseModule::class)])
+    @ContributesAndroidInjector(modules = [(LearnVocabularyWritingModule::class), (DrawingProvider::class), (StudyDayModule::class), (VocabularyModule::class), (DatabaseModule::class)])
     abstract fun bindLearnVocabularyWritingActivity(): LearnVocabularyWritingActivity
 
     @ContributesAndroidInjector(modules = [(VocabularyStudyCardModule::class), (ImageProvider::class), (VocabularyModule::class), (TranslationModule::class), (DatabaseModule::class)])
@@ -158,13 +159,13 @@ abstract class ActivityBuilder {
     @ContributesAndroidInjector(modules = [(StudiedElementsModule::class), (ImageProvider::class), (SignModule::class), (VocabularyModule::class), (GrammarModule::class), (TranslationModule::class), (DatabaseModule::class)])
     abstract fun bindStudiedElementsActivity(): StudiedElementsActivity
 
-    @ContributesAndroidInjector(modules = [(LearnGrammarWritingModule::class), (DrawingProvider::class), (GrammarModule::class), (DatabaseModule::class)])
+    @ContributesAndroidInjector(modules = [(LearnGrammarWritingModule::class), (DrawingProvider::class), (StudyDayModule::class), (GrammarModule::class), (DatabaseModule::class)])
     abstract fun bindLearnGrammarWritingActivity(): LearnGrammarWritingActivity
 
     @ContributesAndroidInjector(modules = [(GrammarStudyCardModule::class), (GrammarModule::class), (TranslationModule::class), (DatabaseModule::class)])
     abstract fun bindGrammarStudyCardActivity(): GrammarStudyCardActivity
 
-    @ContributesAndroidInjector(modules = [(GrammarPronunciationCheckModule::class)])
+    @ContributesAndroidInjector(modules = [(GrammarPronunciationCheckModule::class), (GrammarModule::class), (DatabaseModule::class)])
     abstract fun bindGrammarPronunciationCheckActivity(): GrammarPronunciationCheckActivity
 
     @ContributesAndroidInjector(modules = [(GrammarReviseSoundModule::class), (GrammarModule::class), (TranslationModule::class), (DatabaseModule::class)])
@@ -173,7 +174,7 @@ abstract class ActivityBuilder {
     @ContributesAndroidInjector(modules = [(SignStudyCardModule::class), (ImageProvider::class), (SignModule::class), (TranslationModule::class), (DatabaseModule::class)])
     abstract fun bindSignStudyCardActivity(): SignStudyCardActivity
 
-    @ContributesAndroidInjector(modules = [(LearnSignWritingModule::class), (DrawingProvider::class), (ImageProvider::class), (SignModule::class), (DatabaseModule::class)])
+    @ContributesAndroidInjector(modules = [(LearnSignWritingModule::class), (DrawingProvider::class), (StudyDayModule::class), (ImageProvider::class), (SignModule::class), (DatabaseModule::class)])
     abstract fun bindLearnSignWritingActivity(): LearnSignWritingActivity
 
     @ContributesAndroidInjector(modules = [(CompareWritingModule::class), (ImageProvider::class)])
@@ -194,6 +195,6 @@ abstract class ActivityBuilder {
     @ContributesAndroidInjector(modules = [(ReviseWritingModule::class), (DrawingProvider::class)])
     abstract fun bindReviseWritingActivity(): ReviseWritingActivity
 
-    @ContributesAndroidInjector(modules = [(StudyModule::class), (StudyOrderModule::class), (SignModule::class), (VocabularyModule::class), (GrammarModule::class), (DatabaseModule::class)])
+    @ContributesAndroidInjector(modules = [(StudyModule::class), (StudyDayModule::class), (StudyOrderModule::class), (SignModule::class), (VocabularyModule::class), (GrammarModule::class), (DatabaseModule::class)])
     abstract fun bindStudyActivity(): StudyActivity
 }

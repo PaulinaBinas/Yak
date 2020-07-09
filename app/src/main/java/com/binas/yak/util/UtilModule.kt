@@ -14,5 +14,6 @@ class UtilModule {
     fun provideDailyFlashcardQueue(): DailyFlashcardQueue = DailyFlashcardQueueImpl()
 
     @Provides
-    fun provideSpacedRepetitionScheduler(scheduler: SpacedRepetitionSchedulerImpl): SpacedRepetitionScheduler = scheduler
+    @Singleton
+    fun provideSpacedRepetitionScheduler(): SpacedRepetitionScheduler = SpacedRepetitionSchedulerImpl()
 }

@@ -10,7 +10,7 @@
 
     <fragment
         android:id="@+id/actionBar"
-        android:name="com.binas.yak.ui.others.ActionBar"
+        android:name="com.binas.yak.ui.main.view.TransparentActionBarFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"

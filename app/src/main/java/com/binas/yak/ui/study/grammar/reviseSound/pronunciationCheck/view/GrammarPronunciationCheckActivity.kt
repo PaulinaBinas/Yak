@@ -16,19 +16,25 @@ import com.binas.yak.R
 import com.binas.yak.ui.base.view.BaseActivity
 import com.binas.yak.ui.settings.view.SettingsActivity
 import com.binas.yak.ui.study.common.meaningCheck.view.MeaningCheckView
+import com.binas.yak.ui.study.grammar.reviseSound.pronunciationCheck.interactor.GrammarPronunciationCheckInteractor
+import com.binas.yak.ui.study.grammar.reviseSound.pronunciationCheck.presenter.GrammarPronunciationCheckPresenter
 import com.binas.yak.ui.study.view.StudyActivity
 import kotlinx.android.synthetic.main.activity_grammar_pronunciation_check.*
 import kotlinx.android.synthetic.main.activity_grammar_pronunciation_check.playSoundButton
 import kotlinx.android.synthetic.main.activity_grammar_pronunciation_check.revealTranslation
 import kotlinx.android.synthetic.main.activity_grammar_pronunciation_check.translationTextView
+import javax.inject.Inject
 
 class GrammarPronunciationCheckActivity : BaseActivity(), GrammarPronunciationCheckView {
 
+    @Inject
+    lateinit var presenter: GrammarPronunciationCheckPresenter<GrammarPronunciationCheckView, GrammarPronunciationCheckInteractor>
     private var sentenceStart: String = ""
     private var sentenceEnd: String = ""
     private var grammar: String = ""
     private var soundName: String = ""
     private var translation: String = ""
+    private var id: Long = -1L
     private var playing: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,6 +45,7 @@ class GrammarPronunciationCheckActivity : BaseActivity(), GrammarPronunciationCh
         this.grammar = intent.getStringExtra("grammar")
         this.soundName = intent.getStringExtra("sound")
         this.translation = intent.getStringExtra("translation")
+        this.id = intent.getLongExtra("id", -1L)
         setText()
     }
 
@@ -102,12 +109,12 @@ class GrammarPronunciationCheckActivity : BaseActivity(), GrammarPronunciationCh
     }
 
     fun onClickCorrect(view: View) {
-        // TODO save studied
+        presenter?.reviseCard(true, id)
         goToStudy()
     }
 
     fun onClickIncorrect(view: View) {
-        // TODO save studied
+        presenter?.reviseCard(false, id)
         goToStudy()
     }
 

@@ -1,5 +1,8 @@
 package com.binas.yak.ui.study.vocabulary.learn.learnWriting.presenter
 
+import com.binas.yak.data.model.grammar.GrammarRevisionFlashcard
+import com.binas.yak.data.model.studyDay.StudyDay
+import com.binas.yak.data.model.vocabulary.VocabularyRevisionFlashcard
 import com.binas.yak.data.preferences.PreferenceHelper
 import com.binas.yak.ui.base.presenter.BasePresenter
 import com.binas.yak.ui.study.vocabulary.learn.learnWriting.interactor.LearnVocabularyWritingInteractor
@@ -14,13 +17,23 @@ class LearnVocabularyWritingPresenterImpl<V: LearnVocabularyWritingView, I: Lear
 
     override fun scheduleReviewCards(id: Long) {
         interactor?.let {
-            GlobalScope.launch {
+            var cards: List<VocabularyRevisionFlashcard> = ArrayList()
+            var coroutine = GlobalScope.launch {
                 it.scheduleReviewsOfVocabulary(id)
-                queue.removeFlashcard()
-                for(item in it.getAllMatchingRevisionFlashcards(id)) {
-                    queue.addFlashcard(item)
+                cards = it.getAllMatchingRevisionFlashcards(id)
+                GlobalScope.launch {
+                    var studyDay = it.getStudyDay()
+                    if(studyDay == null) {
+                        studyDay = StudyDay(-1L)
+                    }
+                    studyDay.elementsStudied = studyDay.elementsStudied?.plus(1)
+                    it.saveStudyDay(studyDay)
                 }
-                preferenceHelper.setNumberOfElementsStudied(preferenceHelper.getNumberOfElementsStudied() + 1)
+            }
+            while(!coroutine.isCompleted){}
+            queue.removeFlashcard()
+            for(item in cards) {
+                queue.addFlashcard(item)
             }
         }
     }

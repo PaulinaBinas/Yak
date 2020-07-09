@@ -30,6 +30,7 @@ class GrammarReviseSoundActivity : BaseActivity(), GrammarReviseSoundView {
     private var sentenceEnd: String = ""
     private var audioFileName: String = ""
     private var translation: String = ""
+    private var id: Long = -1L
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,6 +57,7 @@ class GrammarReviseSoundActivity : BaseActivity(), GrammarReviseSoundView {
         } else {
             this.translation = text?.english.toString()
         }
+        this.id = card.id
     }
 
     fun onClickSettingsButton(view: View) {
@@ -79,6 +81,7 @@ class GrammarReviseSoundActivity : BaseActivity(), GrammarReviseSoundView {
         intent.putExtra("sentenceEnd", this.sentenceEnd)
         intent.putExtra("sound", this.audioFileName)
         intent.putExtra("translation", this.translation)
+        intent.putExtra("id", this.id)
         startActivity(intent)
         overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom)
     }

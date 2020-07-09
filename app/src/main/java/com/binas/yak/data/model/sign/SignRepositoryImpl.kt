@@ -33,7 +33,7 @@ class SignRepositoryImpl @Inject internal constructor(var signDao: SignDao): Sig
     }
 
     override fun getScheduledRevisionFlashcards(today: LocalDate): List<SignRevisionFlashcard> {
-        return signDao.getScheduledSignRevisionFlashcards(today)
+        return signDao.getScheduledSignRevisionFlashcards(today, LocalDate.of(2020,1,1))
     }
 
     override fun markCardAsStudied(id: Long) {

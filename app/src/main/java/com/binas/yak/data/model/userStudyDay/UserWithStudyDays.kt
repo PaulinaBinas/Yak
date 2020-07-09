@@ -3,7 +3,7 @@ package com.binas.yak.data.model.userStudyDay
 import androidx.room.Embedded
 import androidx.room.Junction
 import androidx.room.Relation
-import com.binas.yak.data.model.StudyDay
+import com.binas.yak.data.model.studyDay.StudyDay
 import com.binas.yak.data.model.User
 
 data class UserWithStudyDays (

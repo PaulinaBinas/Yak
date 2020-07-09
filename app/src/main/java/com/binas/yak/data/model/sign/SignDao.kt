@@ -30,8 +30,8 @@ interface SignDao {
     @Query("SELECT * FROM SignRevisionFlashcard WHERE SignRevisionFlashcard.signId = :id")
     fun getSignRevisionFlashcardsWithSignId(id: Long): List<SignRevisionFlashcard>
 
-    @Query("SELECT * FROM SignRevisionFlashcard WHERE SignRevisionFlashcard.nextDisplayTime <= :today")
-    fun getScheduledSignRevisionFlashcards(today: LocalDate): List<SignRevisionFlashcard>
+    @Query("SELECT * FROM SignRevisionFlashcard WHERE SignRevisionFlashcard.nextDisplayTime BETWEEN :past AND :today")
+    fun getScheduledSignRevisionFlashcards(today: LocalDate, past: LocalDate): List<SignRevisionFlashcard>
 
     @Query("UPDATE SignStudyFlashcard SET ifStudied = 1 WHERE SignStudyFlashcard.signId = :id")
     fun markCardAsStudied(id: Long)

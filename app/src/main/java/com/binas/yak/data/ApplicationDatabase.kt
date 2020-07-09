@@ -14,6 +14,8 @@ import com.binas.yak.data.model.sign.Sign
 import com.binas.yak.data.model.sign.SignDao
 import com.binas.yak.data.model.sign.SignRevisionFlashcard
 import com.binas.yak.data.model.sign.SignStudyFlashcard
+import com.binas.yak.data.model.studyDay.StudyDay
+import com.binas.yak.data.model.studyDay.StudyDayDao
 import com.binas.yak.data.model.studyOrder.StudyOrder
 import com.binas.yak.data.model.studyOrder.StudyOrderDao
 import com.binas.yak.data.model.translation.Translation
@@ -50,4 +52,5 @@ abstract class ApplicationDatabase: RoomDatabase() {
     abstract fun grammarDao(): GrammarDao
     abstract fun achievementsDao(): AchievementsDao
     abstract fun studyOrderDao(): StudyOrderDao
+    abstract fun studyDayDao(): StudyDayDao
 }

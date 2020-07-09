@@ -5,4 +5,6 @@ import com.binas.yak.ui.study.grammar.reviseSound.pronunciationCheck.interactor.
 import com.binas.yak.ui.study.grammar.reviseSound.pronunciationCheck.view.GrammarPronunciationCheckView
 
 interface GrammarPronunciationCheckPresenter<V: GrammarPronunciationCheckView, I: GrammarPronunciationCheckInteractor>: Presenter<V, I> {
+
+    fun reviseCard(remembered: Boolean, id: Long)
 }

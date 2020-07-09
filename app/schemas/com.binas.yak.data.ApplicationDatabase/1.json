@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "bdfb69000d66986039c3cc442c65784b",
+    "identityHash": "2c58ceb322c3fb4d9a40eb1d07fdab65",
     "entities": [
       {
         "tableName": "Sign",
@@ -985,7 +985,7 @@
       },
       {
         "tableName": "StudyDay",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `date` TEXT)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `date` TEXT, `elementsStudied` INTEGER)",
         "fields": [
           {
             "fieldPath": "id",
@@ -997,6 +997,12 @@
             "fieldPath": "date",
             "columnName": "date",
             "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "elementsStudied",
+            "columnName": "elementsStudied",
+            "affinity": "INTEGER",
             "notNull": false
           }
         ],
@@ -1117,7 +1123,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'bdfb69000d66986039c3cc442c65784b')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '2c58ceb322c3fb4d9a40eb1d07fdab65')"
     ]
   }
 }
