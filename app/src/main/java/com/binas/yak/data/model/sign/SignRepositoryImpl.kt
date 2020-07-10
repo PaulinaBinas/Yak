@@ -43,4 +43,8 @@ class SignRepositoryImpl @Inject internal constructor(var signDao: SignDao): Sig
     override fun scheduleReviewsOfSign(id: Long, date: LocalDate) {
         signDao.scheduleReviewsOfSign(id, date)
     }
+
+    override fun saveSignRevisionFlashcard(card: SignRevisionFlashcard) {
+        signDao.saveSignRevisionFlashcard(card)
+    }
 }

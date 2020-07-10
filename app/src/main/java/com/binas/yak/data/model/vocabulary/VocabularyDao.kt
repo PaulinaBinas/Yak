@@ -1,7 +1,9 @@
 package com.binas.yak.data.model.vocabulary
 
 import androidx.room.Dao
+import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.Update
 import java.time.LocalDate
 
 @Dao
@@ -30,4 +32,7 @@ interface VocabularyDao {
 
     @Query("UPDATE VocabularyRevisionFlashcard SET nextDisplayTime = :date WHERE VocabularyRevisionFlashcard.vocabularyId = :id")
     fun scheduleReviewsOfVocabulary(id: Long, date: LocalDate)
+
+    @Update(onConflict = OnConflictStrategy.REPLACE)
+    fun saveVocabularyRevisionFlashcard(card: VocabularyRevisionFlashcard)
 }

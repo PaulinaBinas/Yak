@@ -18,7 +18,7 @@ class LearnVocabularyWritingActivity : BaseActivity(), LearnVocabularyWritingVie
 
     @Inject
     lateinit var presenter: LearnVocabularyWritingPresenter<LearnVocabularyWritingView, LearnVocabularyWritingInteractor>
-    private var id: Long = -1L
+    private var id: Long? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,8 +39,10 @@ class LearnVocabularyWritingActivity : BaseActivity(), LearnVocabularyWritingVie
     }
 
     fun onClickGoNext(view: View) {
-        presenter?.markCardAsStudied(id)
-        presenter?.scheduleReviewCards(id)
+        id?.let {
+            presenter?.markCardAsStudied(it)
+            presenter?.scheduleReviewCards(it)
+        }
         val intent = Intent(this, StudyActivity::class.java)
         startActivity(intent)
         overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom)

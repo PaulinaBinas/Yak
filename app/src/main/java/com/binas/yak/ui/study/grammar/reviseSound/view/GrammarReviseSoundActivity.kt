@@ -30,7 +30,7 @@ class GrammarReviseSoundActivity : BaseActivity(), GrammarReviseSoundView {
     private var sentenceEnd: String = ""
     private var audioFileName: String = ""
     private var translation: String = ""
-    private var id: Long = -1L
+    private var id: Long? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

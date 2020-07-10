@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey
 import java.time.LocalDate
 
 @Entity(tableName = "StudyDay")
-data class StudyDay (@PrimaryKey(autoGenerate = true) var id: Long) {
+data class StudyDay (@PrimaryKey(autoGenerate = true) var id: Long?) {
     var date: LocalDate? = LocalDate.now()
     var elementsStudied: Int? = 0
 }

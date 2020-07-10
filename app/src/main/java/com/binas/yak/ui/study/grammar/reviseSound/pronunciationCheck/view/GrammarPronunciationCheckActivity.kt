@@ -34,7 +34,7 @@ class GrammarPronunciationCheckActivity : BaseActivity(), GrammarPronunciationCh
     private var grammar: String = ""
     private var soundName: String = ""
     private var translation: String = ""
-    private var id: Long = -1L
+    private var id: Long? = null
     private var playing: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {

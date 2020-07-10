@@ -23,10 +23,11 @@ class VocabularyReviseWritingActivity : BaseActivity(), VocabularyReviseWritingV
 
     @Inject
     lateinit var presenter: VocabularyReviseWritingPresenter<VocabularyReviseWritingView, VocabularyReviseWritingInteractor>
-    var playing: Boolean = false
-    var soundName: String = ""
-    var imageName: String = ""
-    var word: String = ""
+    private var playing: Boolean = false
+    private var soundName: String = ""
+    private var imageName: String = ""
+    private var id: Long? = null
+    private var word: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,11 +51,14 @@ class VocabularyReviseWritingActivity : BaseActivity(), VocabularyReviseWritingV
         this.soundName = vocabulary.audioFileName.toString()
         this.imageName = this.soundName
         this.word = vocabulary.tibetanWord.toString()
+        this.id = card.id
     }
 
     fun onClickGoToReviseWriting(view: View) {
         val intent = Intent(this, ReviseWritingActivity::class.java)
         intent.putExtra("word", word)
+        intent.putExtra("id", id)
+        intent.putExtra("type", "vocabulary")
         startActivity(intent)
         overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom)
     }

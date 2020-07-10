@@ -36,4 +36,8 @@ class VocabularyRepositoryImpl @Inject internal constructor(var vocabularyDao: V
     override fun scheduleReviewsOfVocabulary(id: Long, date: LocalDate) {
         vocabularyDao.scheduleReviewsOfVocabulary(id, date)
     }
+
+    override fun saveVocabularyRevisionFlashcard(card: VocabularyRevisionFlashcard) {
+        vocabularyDao.saveVocabularyRevisionFlashcard(card)
+    }
 }

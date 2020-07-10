@@ -19,9 +19,10 @@ import javax.inject.Inject
 
 class SignReviseWritingActivity : BaseActivity(), SignReviseWritingView {
 
-    var playing: Boolean = false
-    var imageName: String = ""
-    var audioName: String = ""
+    private var playing: Boolean = false
+    private var imageName: String = ""
+    private var audioName: String = ""
+    private var id: Long? = null
     @Inject
     lateinit var presenter: SignReviseWritingPresenter<SignReviseWritingView, SignReviseWritingInteractor>
 
@@ -35,6 +36,8 @@ class SignReviseWritingActivity : BaseActivity(), SignReviseWritingView {
     fun onClickGoToReviseWriting(view: View) {
         val intent = Intent(this, ReviseWritingActivity::class.java)
         intent.putExtra("image", imageName)
+        intent.putExtra("id", id)
+        intent.putExtra("type", "sign")
         startActivity(intent)
         overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom)
     }
@@ -69,6 +72,7 @@ class SignReviseWritingActivity : BaseActivity(), SignReviseWritingView {
     override fun setContent(card: SignRevisionFlashcard, sign: Sign) {
         this.audioName = sign.audioFileName.toString()
         this.imageName = audioName
+        this.id = card.id
     }
 
     override fun clickSoundButton() {

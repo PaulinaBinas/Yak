@@ -22,12 +22,12 @@ class GrammarReviseWritingActivity : BaseActivity(), GrammarReviseWritingView {
     @Inject
     internal lateinit var presenter: GrammarReviseWritingPresenter<GrammarReviseWritingView,
             GrammarReviseWritingInteractor>
-
     private var playing: Boolean = false
     private var sentenceStart: String = ""
     private var sentenceEnd: String = ""
     private var grammar: String = ""
     private var audioFileName: String = ""
+    private var id: Long? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,6 +41,8 @@ class GrammarReviseWritingActivity : BaseActivity(), GrammarReviseWritingView {
         intent.putExtra("sentenceStart", this.sentenceStart)
         intent.putExtra("sentenceEnd", this.sentenceEnd)
         intent.putExtra("grammar", grammar)
+        intent.putExtra("id", id)
+        intent.putExtra("type", "grammar")
         startActivity(intent)
         overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom)
     }
@@ -77,6 +79,7 @@ class GrammarReviseWritingActivity : BaseActivity(), GrammarReviseWritingView {
         this.sentenceStart = grammar.firstPartOfSentence.toString()
         this.sentenceEnd = grammar.secondPartOfSentence.toString()
         this.audioFileName = grammar.audioFileName.toString()
+        this.id = card.id
         sentence.text = "$sentenceStart..."
     }
 

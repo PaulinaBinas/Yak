@@ -29,7 +29,7 @@ class SignStudyCardActivity : BaseActivity(), SignStudyCardView {
     private var card: SignStudyFlashcard? = null
     private var sign: Sign? = null
     private var translation: Translation? = null
-    private var id: Long = -1L
+    private var id: Long? = null
     @Inject
     lateinit var presenter: SignStudyCardPresenter<SignStudyCardView, SignStudyCardInteractor>
 

@@ -13,19 +13,26 @@ import com.airbnb.lottie.LottieDrawable
 import com.binas.yak.R
 import com.binas.yak.ui.base.view.BaseActivity
 import com.binas.yak.ui.settings.view.SettingsActivity
+import com.binas.yak.ui.study.common.compareWriting.interactor.CompareWritingInteractor
+import com.binas.yak.ui.study.common.compareWriting.presenter.CompareWritingPresenter
 import com.binas.yak.ui.study.view.StudyActivity
 import kotlinx.android.synthetic.main.activity_compare_writing.*
 import kotlinx.android.synthetic.main.fragment_animation.*
 import kotlinx.android.synthetic.main.fragment_image.*
+import javax.inject.Inject
 
 
 class CompareWritingActivity : BaseActivity(), CompareWritingView {
 
+    @Inject
+    lateinit var presenter: CompareWritingPresenter<CompareWritingView, CompareWritingInteractor>
     private var sentenceStart: String = ""
     private var sentenceEnd: String = ""
     private var grammar: String = ""
     private var imageName: String = ""
     private var word: String = ""
+    private var type: String = ""
+    private var id: Long? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,6 +59,8 @@ class CompareWritingActivity : BaseActivity(), CompareWritingView {
             sentenceLinearLayout.layoutParams = params
             sentenceTextView.text = word
         }
+        this.type = intent.getStringExtra("type")
+        this.id = intent.getLongExtra("id", -1L)
         val bytes = intent.getByteArrayExtra("bitmap")
         val bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.size)
         imageFragment.imageView.setImageBitmap(bitmap)
@@ -83,11 +92,11 @@ class CompareWritingActivity : BaseActivity(), CompareWritingView {
     }
 
     fun onClickCorrect(view: View) {
-        // TODO save studied
+        this.id?.let { this.presenter?.reviseCard(this.type, it, true) }
         goToStudy()
     }
     fun onClickIncorrect(view: View) {
-        // TODO save studied
+        this.id?.let { this.presenter?.reviseCard(this.type, it, false) }
         goToStudy()
     }
 

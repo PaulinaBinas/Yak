@@ -12,4 +12,5 @@ interface VocabularyRepository {
     fun getScheduledRevisionFlashcards(today: LocalDate): List<VocabularyRevisionFlashcard>
     fun markCardAsStudied(id: Long)
     fun scheduleReviewsOfVocabulary(id: Long, date: LocalDate)
+    fun saveVocabularyRevisionFlashcard(card: VocabularyRevisionFlashcard)
 }

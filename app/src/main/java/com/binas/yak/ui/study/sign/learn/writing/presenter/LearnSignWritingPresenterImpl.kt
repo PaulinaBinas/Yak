@@ -23,7 +23,7 @@ class LearnSignWritingPresenterImpl<V: LearnSignWritingView, I: LearnSignWriting
                 GlobalScope.launch {
                     var studyDay = it.getStudyDate()
                     if(studyDay == null) {
-                        studyDay = StudyDay(-1L)
+                        studyDay = StudyDay(null)
                     }
                     studyDay.elementsStudied = studyDay.elementsStudied?.plus(1)
                     it.saveStudyDay(studyDay)

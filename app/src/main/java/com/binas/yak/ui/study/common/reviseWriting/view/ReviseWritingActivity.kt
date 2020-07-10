@@ -3,7 +3,6 @@ package com.binas.yak.ui.study.common.reviseWriting.view
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Canvas
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.binas.yak.R
@@ -14,6 +13,8 @@ import kotlinx.android.synthetic.main.fragment_drawing.*
 import java.io.ByteArrayOutputStream
 
 class ReviseWritingActivity : BaseActivity(), ReviseWritingView {
+
+    private var cardType: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,12 +54,16 @@ class ReviseWritingActivity : BaseActivity(), ReviseWritingView {
         var int = intent.extras
         if(intent.hasExtra("image")) {
             newIntent.putExtra("image", intent.getStringExtra("image"))
+            newIntent.putExtra("type", "sign")
         } else if(intent.hasExtra("sentenceStart") && intent.hasExtra("grammar") && intent.hasExtra("sentenceEnd")) {
             newIntent.putExtra("sentenceStart", intent.getStringExtra("sentenceStart"))
             newIntent.putExtra("sentenceEnd", intent.getStringExtra("sentenceEnd"))
             newIntent.putExtra("grammar", intent.getStringExtra("grammar"))
+            newIntent.putExtra("type", "grammar")
         } else if(intent.hasExtra("word")) {
             newIntent.putExtra("word", intent.getStringExtra("word"))
+            newIntent.putExtra("type", "vocabulary")
         }
+        newIntent.putExtra("id", intent.getLongExtra("id", -1L))
     }
 }

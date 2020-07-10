@@ -5,4 +5,6 @@ import com.binas.yak.ui.study.common.compareWriting.interactor.CompareWritingInt
 import com.binas.yak.ui.study.common.compareWriting.view.CompareWritingView
 
 interface CompareWritingPresenter<V: CompareWritingView, I: CompareWritingInteractor>: Presenter<V, I> {
+
+    fun reviseCard(type: String, id: Long, remembered: Boolean)
 }

@@ -1,8 +1,6 @@
 package com.binas.yak.data.model.sign
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 import com.binas.yak.data.model.RevisionType
 import java.time.LocalDate
 
@@ -38,4 +36,7 @@ interface SignDao {
 
     @Query("UPDATE SignRevisionFlashcard SET nextDisplayTime = :date WHERE signId = :id")
     fun scheduleReviewsOfSign(id: Long, date: LocalDate)
+
+    @Update(onConflict = OnConflictStrategy.REPLACE)
+    fun saveSignRevisionFlashcard(card: SignRevisionFlashcard)
 }

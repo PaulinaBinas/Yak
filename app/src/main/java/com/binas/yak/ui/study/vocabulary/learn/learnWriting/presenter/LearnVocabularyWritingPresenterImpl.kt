@@ -24,7 +24,7 @@ class LearnVocabularyWritingPresenterImpl<V: LearnVocabularyWritingView, I: Lear
                 GlobalScope.launch {
                     var studyDay = it.getStudyDay()
                     if(studyDay == null) {
-                        studyDay = StudyDay(-1L)
+                        studyDay = StudyDay(null)
                     }
                     studyDay.elementsStudied = studyDay.elementsStudied?.plus(1)
                     it.saveStudyDay(studyDay)

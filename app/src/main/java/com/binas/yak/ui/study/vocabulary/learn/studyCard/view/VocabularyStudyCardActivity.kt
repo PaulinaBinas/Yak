@@ -27,7 +27,7 @@ class VocabularyStudyCardActivity : BaseActivity(), VocabularyStudyCardView {
     private var playing: Boolean = false
     private var imageName: String = ""
     private var soundName: String = ""
-    private var id: Long = -1L
+    private var id: Long? = null
     @Inject
     lateinit var presenter: VocabularyStudyCardPresenter<VocabularyStudyCardView, VocabularyStudyCardInteractor>
 
