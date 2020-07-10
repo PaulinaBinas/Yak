@@ -186,7 +186,7 @@ abstract class ActivityBuilder {
     @ContributesAndroidInjector(modules = [(IncorrectModule::class)])
     abstract fun bindIncorrectActivity(): IncorrectActivity
 
-    @ContributesAndroidInjector(modules = [(MeaningCheckModule::class), (ImageProvider::class)])
+    @ContributesAndroidInjector(modules = [(MeaningCheckModule::class), (ImageProvider::class), (VocabularyModule::class), (DatabaseModule::class)])
     abstract fun bindMeaningCheckActivity(): MeaningCheckActivity
 
     @ContributesAndroidInjector(modules = [(PronunciationCheckModule::class), (SignModule::class), (VocabularyModule::class), (DatabaseModule::class), (ImageProvider::class)])

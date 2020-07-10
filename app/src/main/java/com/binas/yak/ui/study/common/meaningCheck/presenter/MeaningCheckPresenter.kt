@@ -5,4 +5,6 @@ import com.binas.yak.ui.study.common.meaningCheck.interactor.MeaningCheckInterac
 import com.binas.yak.ui.study.common.meaningCheck.view.MeaningCheckView
 
 interface MeaningCheckPresenter<V: MeaningCheckView, I: MeaningCheckInteractor>: Presenter<V, I> {
+
+    fun reviseCard(id: Long, remembered: Boolean)
 }

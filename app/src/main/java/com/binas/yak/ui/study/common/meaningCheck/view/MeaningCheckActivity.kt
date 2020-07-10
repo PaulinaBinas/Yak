@@ -12,21 +12,27 @@ import android.view.View
 import com.binas.yak.R
 import com.binas.yak.ui.base.view.BaseActivity
 import com.binas.yak.ui.settings.view.SettingsActivity
+import com.binas.yak.ui.study.common.meaningCheck.interactor.MeaningCheckInteractor
+import com.binas.yak.ui.study.common.meaningCheck.presenter.MeaningCheckPresenter
 import com.binas.yak.ui.study.view.StudyActivity
 import com.bumptech.glide.Glide
 import com.yariksoffice.lingver.Lingver
 import kotlinx.android.synthetic.main.activity_meaning_check.*
 import kotlinx.android.synthetic.main.fragment_image.*
 import java.security.AccessController.getContext
+import javax.inject.Inject
 
 
 class MeaningCheckActivity : BaseActivity(), MeaningCheckView {
 
-    var playing: Boolean = false
-    var soundName: String = ""
-    var imageName: String = ""
-    var tibetanWord: String = ""
-    var translation: String = ""
+    @Inject
+    lateinit var presenter: MeaningCheckPresenter<MeaningCheckView, MeaningCheckInteractor>
+    private var playing: Boolean = false
+    private var soundName: String = ""
+    private var imageName: String = ""
+    private var tibetanWord: String = ""
+    private var translation: String = ""
+    private var id: Long? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,6 +45,7 @@ class MeaningCheckActivity : BaseActivity(), MeaningCheckView {
         this.imageName = intent.getStringExtra("imageFileName").toString()
         this.soundName = intent.getStringExtra("audioFileName").toString()
         this.tibetanWord = intent.getStringExtra("word").toString()
+        this.id = intent.getLongExtra("id", -1L)
         if(Lingver.getInstance().getLanguage().equals("pl")) {
             this.translation = intent.getStringExtra("polish").toString()
         } else {
@@ -105,12 +112,12 @@ class MeaningCheckActivity : BaseActivity(), MeaningCheckView {
     }
 
     fun onClickCorrect(view: View) {
-        //TODO
+        this.id?.let { this.presenter?.reviseCard(it, true) }
         goToStudy()
     }
 
     fun onClickIncorrect(view: View) {
-        //TODO
+        this.id?.let { this.presenter?.reviseCard(it, false) }
         goToStudy()
     }
 

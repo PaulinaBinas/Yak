@@ -28,6 +28,7 @@ class VocabularyReviseMeaningActivity : BaseActivity(), VocabularyReviseMeaningV
     private var tibetanWord: String = ""
     private var polish: String = ""
     private var english: String = ""
+    private var id: Long? = null
     @Inject
     lateinit var presenter: VocabularyReviseMeaningPresenter<VocabularyReviseMeaningView, VocabularyReviseMeaningInteractor>
 
@@ -58,6 +59,7 @@ class VocabularyReviseMeaningActivity : BaseActivity(), VocabularyReviseMeaningV
         intent.putExtra("audioFileName", this.imageFileName)
         intent.putExtra("polish", this.polish)
         intent.putExtra("english", this.english)
+        intent.putExtra("id", this.id)
         startActivity(intent)
         overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom)
     }
@@ -86,6 +88,7 @@ class VocabularyReviseMeaningActivity : BaseActivity(), VocabularyReviseMeaningV
         this.tibetanWord = word.tibetanWord.toString()
         this.polish = translation?.polish.toString()
         this.english = translation?.english.toString()
+        this.id = card.id
     }
 
     override fun clickSoundButton() {
