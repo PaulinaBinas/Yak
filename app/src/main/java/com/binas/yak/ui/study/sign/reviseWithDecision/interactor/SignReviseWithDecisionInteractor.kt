@@ -9,4 +9,6 @@ interface SignReviseWithDecisionInteractor: Interactor {
     fun getSignRevisionFlashcard(id: Long): SignRevisionFlashcard
 
     fun getSign(id: Long): Sign
+
+    fun saveCard(card: SignRevisionFlashcard)
 }

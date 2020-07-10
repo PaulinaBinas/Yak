@@ -7,4 +7,6 @@ import com.binas.yak.ui.study.sign.reviseWithDecision.view.SignReviseWithDecisio
 interface SignReviseWithDecisionPresenter<V: SignReviseWithDecisionView, I: SignReviseWithDecisionInteractor>: Presenter<V, I> {
 
     fun start()
+
+    fun reviseCard(id: Long, remembered: Boolean)
 }

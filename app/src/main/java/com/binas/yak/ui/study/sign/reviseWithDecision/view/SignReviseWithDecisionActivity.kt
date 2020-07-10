@@ -26,6 +26,7 @@ class SignReviseWithDecisionActivity : BaseActivity(), SignReviseWithDecisionVie
     private var audioFileName: String = ""
     private var correctSign: String = ""
     private var incorrectSign: String = ""
+    private var id: Long? = null
     @Inject
     lateinit var presenter: SignReviseWithDecisionPresenter<SignReviseWithDecisionView, SignReviseWithDecisionInteractor>
 
@@ -88,12 +89,14 @@ class SignReviseWithDecisionActivity : BaseActivity(), SignReviseWithDecisionVie
     }
 
     private fun goToCorrectScreen() {
+        this.id?.let { this.presenter?.reviseCard(it, false) }
         val intent = Intent(this, CorrectActivity::class.java)
         startActivity(intent)
         overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom)
     }
 
     private fun goToIncorrectScreen() {
+        this.id?.let { this.presenter?.reviseCard(it, false) }
         val intent = Intent(this, IncorrectActivity::class.java)
         startActivity(intent)
         overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom)
@@ -103,6 +106,7 @@ class SignReviseWithDecisionActivity : BaseActivity(), SignReviseWithDecisionVie
         this.audioFileName = sign.audioFileName.toString()
         this.correctSign = sign.tibetanSign.toString()
         this.incorrectSign = incorrectSign?.tibetanSign.toString()
+        this.id = card.id
         this.prepareButtons()
     }
 }

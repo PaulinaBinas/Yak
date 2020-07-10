@@ -6,7 +6,10 @@ import android.os.Bundle
 import android.os.Handler
 import com.binas.yak.R
 import com.binas.yak.ui.base.view.BaseActivity
+import com.binas.yak.ui.study.common.correct.interactor.CorrectInteractor
+import com.binas.yak.ui.study.common.correct.presenter.CorrectPresenter
 import com.binas.yak.ui.study.view.StudyActivity
+import javax.inject.Inject
 
 class CorrectActivity : BaseActivity(), CorrectView {
 

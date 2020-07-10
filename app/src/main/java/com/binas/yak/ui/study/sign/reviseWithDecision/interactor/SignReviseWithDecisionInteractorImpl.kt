@@ -14,4 +14,8 @@ class SignReviseWithDecisionInteractorImpl @Inject internal constructor(var sign
     override fun getSign(id: Long): Sign {
         return signRepo.getSignByFlashcardId(id)
     }
+
+    override fun saveCard(card: SignRevisionFlashcard) {
+        signRepo.saveSignRevisionFlashcard(card)
+    }
 }
