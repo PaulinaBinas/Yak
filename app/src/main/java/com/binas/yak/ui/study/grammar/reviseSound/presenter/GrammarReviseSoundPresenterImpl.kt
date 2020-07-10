@@ -12,13 +12,14 @@ class GrammarReviseSoundPresenterImpl<V: GrammarReviseSoundView, I: GrammarRevis
 
     override fun start() {
         interactor?.let {
-            GlobalScope.launch {
+            var coroutine = GlobalScope.launch {
                 var card = it.getGrammarRevisionFlashcard(1)
                 var grammar = it.getGrammar(card.grammarId)
                 var translation = grammar.translationId?.let { it1 -> it.getTranslation(it1) }
                 getView()?.setContent(card, grammar, translation)
                 getView()?.loadText()
             }
+            while(!coroutine.isCompleted){}
         }
     }
 }

@@ -89,7 +89,7 @@ class SignReviseWithDecisionActivity : BaseActivity(), SignReviseWithDecisionVie
     }
 
     private fun goToCorrectScreen() {
-        this.id?.let { this.presenter?.reviseCard(it, false) }
+        this.id?.let { this.presenter?.reviseCard(it, true) }
         val intent = Intent(this, CorrectActivity::class.java)
         startActivity(intent)
         overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom)
