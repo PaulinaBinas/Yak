@@ -24,6 +24,7 @@ class VocabularyReviseSoundActivity : BaseActivity(), VocabularyReviseSoundView 
     private var imageName: String = ""
     private var tibetanWord: String = ""
     private var audioName: String = ""
+    private var id: Long? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,6 +37,7 @@ class VocabularyReviseSoundActivity : BaseActivity(), VocabularyReviseSoundView 
         this.audioName = vocabulary.audioFileName.toString()
         this.imageName = this.audioName
         this.tibetanWord = vocabulary.tibetanWord.toString()
+        this.id = card.id
     }
 
     override fun loadImage() {
@@ -51,6 +53,10 @@ class VocabularyReviseSoundActivity : BaseActivity(), VocabularyReviseSoundView 
     }
 
     fun onClickBackButton(view: View) {
+        this.onBackPressed()
+    }
+
+    override fun onBackPressed() {
         val intent = Intent(this, MainActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
         startActivity(intent)
@@ -63,6 +69,8 @@ class VocabularyReviseSoundActivity : BaseActivity(), VocabularyReviseSoundView 
         intent.putExtra("text", this.tibetanWord)
         intent.putExtra("image", this.imageName)
         intent.putExtra("sound", this.audioName)
+        intent.putExtra("id", this.id)
+        intent.putExtra("type", "vocabulary")
         startActivity(intent)
         overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom)
     }

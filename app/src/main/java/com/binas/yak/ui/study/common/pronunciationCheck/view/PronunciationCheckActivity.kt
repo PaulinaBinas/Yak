@@ -9,21 +9,29 @@ import android.widget.LinearLayout
 import com.airbnb.lottie.LottieDrawable
 import com.binas.yak.R
 import com.binas.yak.ui.base.view.BaseActivity
+import com.binas.yak.ui.main.view.MainActivity
 import com.binas.yak.ui.settings.view.SettingsActivity
+import com.binas.yak.ui.study.common.pronunciationCheck.interactor.PronunciationCheckInteractor
+import com.binas.yak.ui.study.common.pronunciationCheck.presenter.PronunciationCheckPresenter
 import com.binas.yak.ui.study.view.StudyActivity
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_pronunciation_check.*
 import kotlinx.android.synthetic.main.activity_vocabulary_revise_sound.*
 import kotlinx.android.synthetic.main.fragment_animation.*
 import kotlinx.android.synthetic.main.fragment_image.*
+import javax.inject.Inject
 
 class PronunciationCheckActivity : BaseActivity(), PronunciationCheckView {
 
+    @Inject
+    lateinit var presenenter: PronunciationCheckPresenter<PronunciationCheckView, PronunciationCheckInteractor>
     private var playing: Boolean = false
     private var text: String = ""
     private var imageName: String = ""
     private var animated: Boolean = false
     private var soundName: String = ""
+    private var id: Long? = null
+    private var type: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +40,8 @@ class PronunciationCheckActivity : BaseActivity(), PronunciationCheckView {
         imageName = intent.getStringExtra("image")
         soundName = intent.getStringExtra("sound")
         animated = intent.getBooleanExtra("animated", false)
+        id = intent.getLongExtra("id", -1L)
+        type = intent.getStringExtra("type")
         if(animated) {
             loadAnimationAndText()
         } else {
@@ -89,12 +99,12 @@ class PronunciationCheckActivity : BaseActivity(), PronunciationCheckView {
     }
 
     fun onClickCorrect(view: View) {
-        //TODO
+        this.id?.let { this.presenenter?.reviseCard(it, this.type, true) }
         goToStudy()
     }
 
     fun onClickIncorrect(view: View) {
-        //TODO
+        this.id?.let { this.presenenter?.reviseCard(it, this.type, false) }
         goToStudy()
     }
 

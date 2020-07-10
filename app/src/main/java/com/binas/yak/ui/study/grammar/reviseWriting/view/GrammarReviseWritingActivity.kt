@@ -54,6 +54,10 @@ class GrammarReviseWritingActivity : BaseActivity(), GrammarReviseWritingView {
     }
 
     fun onClickBackButton(view: View) {
+        this.onBackPressed()
+    }
+
+    override fun onBackPressed() {
         val intent = Intent(this, MainActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
         startActivity(intent)

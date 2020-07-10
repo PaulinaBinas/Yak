@@ -23,6 +23,7 @@ class SignReviseSoundActivity : BaseActivity(), SignReviseSoundView {
     private var imageFileName: String = ""
     private var tibetanSign: String = ""
     private var text: String = ""
+    private var id: Long? = null
     @Inject
     lateinit var presenter: SignReviseSoundPresenter<SignReviseSoundView, SignReviseSoundInteractor>
 
@@ -47,6 +48,10 @@ class SignReviseSoundActivity : BaseActivity(), SignReviseSoundView {
     }
 
     fun onClickBackButton(view: View) {
+        this.onBackPressed()
+    }
+
+    override fun onBackPressed() {
         val intent = Intent(this, MainActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
         startActivity(intent)
@@ -60,6 +65,8 @@ class SignReviseSoundActivity : BaseActivity(), SignReviseSoundView {
         intent.putExtra("image", this.imageFileName)
         intent.putExtra("sound", this.audioFileName)
         intent.putExtra("animated", true)
+        intent.putExtra("type", "sign")
+        intent.putExtra("id", id)
         startActivity(intent)
         overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom)
     }
@@ -69,5 +76,6 @@ class SignReviseSoundActivity : BaseActivity(), SignReviseSoundView {
         this.imageFileName = audioFileName
         this.tibetanSign = sign.tibetanSign.toString()
         this.text = this.tibetanSign + " (" + audioFileName + ")"
+        this.id = card.id
     }
 }

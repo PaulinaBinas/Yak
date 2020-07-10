@@ -109,12 +109,12 @@ class GrammarPronunciationCheckActivity : BaseActivity(), GrammarPronunciationCh
     }
 
     fun onClickCorrect(view: View) {
-        presenter?.reviseCard(true, id)
+        id?.let { presenter?.reviseCard(true, it) }
         goToStudy()
     }
 
     fun onClickIncorrect(view: View) {
-        presenter?.reviseCard(false, id)
+        id?.let { presenter?.reviseCard(false, it) }
         goToStudy()
     }
 
