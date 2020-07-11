@@ -45,7 +45,7 @@ class StudyPresenterImpl<V: StudyView, I: StudyInteractor> @Inject internal cons
                 }
                 addRevisionCardsToQueue(it)
             }
-
+            queue.sort()
             queue.getNextFlashcard()?.let { nextItem = it }
             nextItem?.let { goToNextView(it) } ?: getView()?.displayStudyOver()
         }

@@ -19,4 +19,6 @@ interface DailyFlashcardQueue {
     fun isQueueEmpty(): Boolean
 
     fun addFlashcards(cards: List<Flashcard>)
+
+    fun sort()
 }
