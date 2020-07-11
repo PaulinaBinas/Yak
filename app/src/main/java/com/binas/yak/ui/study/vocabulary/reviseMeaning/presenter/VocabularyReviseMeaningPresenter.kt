@@ -6,5 +6,5 @@ import com.binas.yak.ui.study.vocabulary.reviseMeaning.view.VocabularyReviseMean
 
 interface VocabularyReviseMeaningPresenter<V: VocabularyReviseMeaningView, I: VocabularyReviseMeaningInteractor>: Presenter<V, I> {
 
-    fun start()
+    fun start(id: Long)
 }

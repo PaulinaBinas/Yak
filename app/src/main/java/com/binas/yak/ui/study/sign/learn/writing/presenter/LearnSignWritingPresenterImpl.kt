@@ -20,14 +20,12 @@ class LearnSignWritingPresenterImpl<V: LearnSignWritingView, I: LearnSignWriting
             var coroutine = GlobalScope.launch {
                 it.scheduleReviewsOfSign(id)
                 cards = it.getAllMatchingRevisionFlashcards(id)
-                GlobalScope.launch {
                     var studyDay = it.getStudyDate()
                     if(studyDay == null) {
                         studyDay = StudyDay(null)
                     }
                     studyDay.elementsStudied = studyDay.elementsStudied?.plus(1)
                     it.saveStudyDay(studyDay)
-                }
             }
             while(!coroutine.isCompleted){}
             queue.removeFlashcard()

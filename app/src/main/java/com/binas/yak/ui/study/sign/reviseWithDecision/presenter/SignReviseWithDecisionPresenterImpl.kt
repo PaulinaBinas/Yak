@@ -12,10 +12,10 @@ import javax.inject.Inject
 class SignReviseWithDecisionPresenterImpl<V: SignReviseWithDecisionView, I: SignReviseWithDecisionInteractor>
     @Inject internal constructor(interactor: I, var scheduler: SpacedRepetitionScheduler, var queue: DailyFlashcardQueue): BasePresenter<V, I>(interactor = interactor), SignReviseWithDecisionPresenter<V, I> {
 
-    override fun start() {
+    override fun start(id: Long) {
         interactor?.let {
             var coroutine = GlobalScope.launch {
-                var card = it.getSignRevisionFlashcard(3)
+                var card = it.getSignRevisionFlashcard(id)
                 var sign = it.getSign(card.signId)
                 var wrongSign = card.comparisonSignId?.let { it1 -> it.getSign(it1) }
                 getView()?.setContent(card, sign, wrongSign)

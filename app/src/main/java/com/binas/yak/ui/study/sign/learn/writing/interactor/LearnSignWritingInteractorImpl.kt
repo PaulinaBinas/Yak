@@ -10,7 +10,7 @@ import javax.inject.Inject
 class LearnSignWritingInteractorImpl @Inject internal constructor(var signRepo: SignRepository, var studyDayRepo: StudyDayRepository): LearnSignWritingInteractor {
 
     override fun scheduleReviewsOfSign(id: Long) {
-        var today = LocalDate.now().plusDays(1)
+        var today = LocalDate.now()
         signRepo.scheduleReviewsOfSign(id, today)
     }
 

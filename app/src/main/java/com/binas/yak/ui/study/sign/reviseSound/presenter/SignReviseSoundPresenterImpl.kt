@@ -11,10 +11,10 @@ class SignReviseSoundPresenterImpl<V: SignReviseSoundView, I: SignReviseSoundInt
 @Inject internal constructor(interactor: I): BasePresenter<V, I>(interactor = interactor),
     SignReviseSoundPresenter<V, I> {
 
-    override fun start() {
+    override fun start(id: Long) {
         interactor?.let {
             var coroutine = GlobalScope.launch {
-                var card = it.getSignRevisionCard(3)
+                var card = it.getSignRevisionCard(id)
                 var sign = it.getSign(card.signId)
                 getView()?.setContent(card, sign)
             }

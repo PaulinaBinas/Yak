@@ -6,5 +6,5 @@ import com.binas.yak.ui.study.vocabulary.reviseSound.view.VocabularyReviseSoundV
 
 interface VocabularyReviseSoundPresenter<V: VocabularyReviseSoundView, I: VocabularyReviseSoundInteractor>: Presenter<V, I> {
 
-    fun start()
+    fun start(id: Long)
 }

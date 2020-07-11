@@ -12,10 +12,10 @@ class SignReviseWritingPresenterImpl<V: SignReviseWritingView, I: SignReviseWrit
     @Inject internal constructor(interactor: I): BasePresenter<V, I>(interactor = interactor),
     SignReviseWritingPresenter<V, I> {
 
-    override fun start() {
+    override fun start(id: Long) {
         interactor?.let {
             var coroutine = GlobalScope.launch {
-                var card = it.getSignRevisionFlashcard(1)
+                var card = it.getSignRevisionFlashcard(id)
                 var sign = it.getSign(card.signId)
                 getView()?.setContent(card, sign)
             }

@@ -35,8 +35,9 @@ class GrammarReviseSoundActivity : BaseActivity(), GrammarReviseSoundView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_grammar_revise_sound)
+        id = intent.getLongExtra("id", -1L)
         presenter?.onAttach(this)
-        presenter?.start()
+        presenter?.start(id!!)
     }
 
     override fun loadText() {

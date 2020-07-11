@@ -11,10 +11,10 @@ import javax.inject.Inject
 class VocabularyReviseSoundPresenterImpl<V: VocabularyReviseSoundView, I: VocabularyReviseSoundInteractor>
 @Inject internal constructor(interactor: I): BasePresenter<V, I>(interactor = interactor), VocabularyReviseSoundPresenter<V, I> {
 
-    override fun start() {
+    override fun start(id: Long) {
         interactor?.let {
             var coroutine = GlobalScope.launch {
-                var card = it.getVocabularyRevisionFlashcard(2)
+                var card = it.getVocabularyRevisionFlashcard(id)
                 var vocabulary = it.getVocabulary(card.vocabularyId)
                 getView()?.setContent(card, vocabulary)
             }

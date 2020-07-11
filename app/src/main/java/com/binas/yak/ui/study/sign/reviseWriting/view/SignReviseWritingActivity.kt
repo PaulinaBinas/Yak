@@ -29,8 +29,9 @@ class SignReviseWritingActivity : BaseActivity(), SignReviseWritingView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_revise_writing)
+        id = intent.getLongExtra("id", -1L)
         presenter?.onAttach(this)
-        presenter?.start()
+        presenter?.start(id!!)
     }
 
     fun onClickGoToReviseWriting(view: View) {

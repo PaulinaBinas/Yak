@@ -29,8 +29,9 @@ class VocabularyReviseSoundActivity : BaseActivity(), VocabularyReviseSoundView 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_vocabulary_revise_sound)
+        id = intent.getLongExtra("id", -1L)
         presenter?.onAttach(this)
-        presenter?.start()
+        presenter?.start(id!!)
     }
 
     override fun setContent(card: VocabularyRevisionFlashcard, vocabulary: Vocabulary) {

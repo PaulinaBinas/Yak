@@ -32,8 +32,9 @@ class VocabularyReviseWritingActivity : BaseActivity(), VocabularyReviseWritingV
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_vocabulary_revise_writing)
+        id = intent.getLongExtra("id", -1L)
         presenter?.onAttach(this)
-        presenter?.start()
+        presenter?.start(id!!)
     }
 
     override fun onStart() {

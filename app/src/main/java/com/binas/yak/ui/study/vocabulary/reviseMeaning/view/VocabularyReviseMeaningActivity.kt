@@ -35,8 +35,9 @@ class VocabularyReviseMeaningActivity : BaseActivity(), VocabularyReviseMeaningV
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_vocabulary_revise_meaning)
+        id = intent.getLongExtra("id", -1L)
         presenter?.onAttach(this)
-        presenter?.start()
+        presenter?.start(id!!)
     }
 
     fun onClickPlaySound(view: View) {

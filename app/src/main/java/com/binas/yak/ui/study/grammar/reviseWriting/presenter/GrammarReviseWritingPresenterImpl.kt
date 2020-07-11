@@ -10,10 +10,10 @@ import javax.inject.Inject
 class GrammarReviseWritingPresenterImpl<V: GrammarReviseWritingView, I: GrammarReviseWritingInteractor>
 @Inject internal constructor(interactor: I): BasePresenter<V, I>(interactor = interactor),
     GrammarReviseWritingPresenter<V, I> {
-    override fun start() {
+    override fun start(id: Long) {
         interactor?.let {
             var coroutine = GlobalScope.launch {
-                var card = it.getGrammarRevisionFlashcard(2)
+                var card = it.getGrammarRevisionFlashcard(id)
                 var grammar = it.getGrammar(card.grammarId)
                 getView()?.setContent(card, grammar)
             }

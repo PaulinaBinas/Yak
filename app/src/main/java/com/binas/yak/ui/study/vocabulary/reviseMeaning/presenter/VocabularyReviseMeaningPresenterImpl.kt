@@ -10,7 +10,7 @@ import javax.inject.Inject
 class VocabularyReviseMeaningPresenterImpl<V: VocabularyReviseMeaningView, I: VocabularyReviseMeaningInteractor>
 @Inject internal constructor(interactor: I): BasePresenter<V, I>(interactor = interactor), VocabularyReviseMeaningPresenter<V, I> {
 
-    override fun start() {
+    override fun start(id: Long) {
         interactor?.let {
             var coroutine = GlobalScope.launch {
                 var card = it.getVocabularyRevisionFlashcard(1)

@@ -6,5 +6,5 @@ import com.binas.yak.ui.study.vocabulary.reviseWriting.view.VocabularyReviseWrit
 
 interface VocabularyReviseWritingPresenter<V: VocabularyReviseWritingView, I: VocabularyReviseWritingInteractor>: Presenter<V, I> {
 
-    fun start()
+    fun start(id: Long)
 }
