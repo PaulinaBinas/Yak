@@ -8,6 +8,7 @@ import com.binas.yak.data.model.Flashcard
 import com.binas.yak.data.model.RevisionFlashcard
 import com.binas.yak.data.model.RevisionType
 import com.binas.yak.util.SpacedRepetitionScheduler
+import com.google.firebase.firestore.Exclude
 import java.time.LocalDate
 import javax.inject.Inject
 
@@ -16,27 +17,16 @@ import javax.inject.Inject
     childColumns = arrayOf("grammarId")))])
 data class GrammarRevisionFlashcard constructor(
 
-    @PrimaryKey(autoGenerate = true) val id: Long,
+    @PrimaryKey(autoGenerate = true) override val id: Long,
     var grammarId: Long,
     override var revisionType: RevisionType
 ) : RevisionFlashcard {
 
-    @Ignore
-    @Inject
-    lateinit var scheduler: SpacedRepetitionScheduler
     override var retention: Double? = 0.0
-    override var nextDisplayTime: LocalDate? = null
+    @set:Exclude @get:Exclude override var nextDisplayTime: LocalDate? = null
     override var interval: Long? = 0L
     var chosenVocabularyId: Long? = null
     var userDescription: String? = null
-
-    override fun forget() {
-        this.scheduler.schedule(this, false)
-    }
-
-    override fun reviseSuccessfully() {
-        this.scheduler.schedule(this, true)
-    }
 
     override fun compareTo(other: Flashcard): Int {
         return if(other is GrammarRevisionFlashcard && other.id > this.id) 0 else 1
