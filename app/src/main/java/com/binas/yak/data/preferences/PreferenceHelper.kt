@@ -1,9 +1,5 @@
 package com.binas.yak.data.preferences
 
-import android.content.Context
-import com.binas.yak.data.model.User
-import javax.inject.Inject
-
 interface PreferenceHelper {
 
     fun getDailyCardLimit(): Int
@@ -17,4 +13,8 @@ interface PreferenceHelper {
     fun getCurrentUserEmail(): String?
 
     fun setCurrentUserEmail(userEmail: String)
+
+    fun setCurrentUserId(id: Long)
+
+    fun getCurrentUserId(): Long
 }

@@ -2,9 +2,7 @@ package com.binas.yak.data.preferences
 
 import android.content.Context
 import android.content.SharedPreferences
-import android.provider.Settings.Global.putInt
 import androidx.core.content.edit
-import com.binas.yak.data.model.User
 import com.binas.yak.di.PreferenceInfo
 import javax.inject.Inject
 
@@ -13,7 +11,8 @@ class PreferenceHelperImpl @Inject constructor(context: Context, @PreferenceInfo
     companion object {
         private val DAILY_CARD_LIMIT = "DAILY_CARD_LIMIT"
         private val LANGUAGE_SET = "IS_LANGUAGE_SET"
-        private val CURRENT_USER = "CURRENT_USER"
+        private val CURRENT_USER_EMAIL = "CURRENT_USER_EMAIL"
+        private val CURRENT_USER_ID = "CURRENT_USER_ID"
     }
 
     private val mPrefs: SharedPreferences = context.getSharedPreferences(prefFileName, Context.MODE_PRIVATE)
@@ -35,10 +34,18 @@ class PreferenceHelperImpl @Inject constructor(context: Context, @PreferenceInfo
     }
 
     override fun getCurrentUserEmail(): String? {
-        return mPrefs.getString(CURRENT_USER, "")
+        return mPrefs.getString(CURRENT_USER_EMAIL, "")
     }
 
     override fun setCurrentUserEmail(userEmail: String) {
-        mPrefs.edit { putString(CURRENT_USER, userEmail) }
+        mPrefs.edit { putString(CURRENT_USER_EMAIL, userEmail) }
+    }
+
+    override fun setCurrentUserId(id: Long) {
+        mPrefs.edit { putLong(CURRENT_USER_ID, id) }
+    }
+
+    override fun getCurrentUserId(): Long {
+        return mPrefs.getLong(CURRENT_USER_ID, -1L)
     }
 }

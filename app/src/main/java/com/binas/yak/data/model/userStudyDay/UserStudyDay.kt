@@ -3,7 +3,7 @@ package com.binas.yak.data.model.userStudyDay
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import com.binas.yak.data.model.studyDay.StudyDay
-import com.binas.yak.data.model.User
+import com.binas.yak.data.model.user.User
 
 @Entity(tableName = "StudyDay_User", primaryKeys = ["userId"],
     foreignKeys = [(ForeignKey(entity = User::class,

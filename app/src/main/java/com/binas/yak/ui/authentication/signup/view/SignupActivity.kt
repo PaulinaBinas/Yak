@@ -4,9 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import com.binas.yak.R
-import com.binas.yak.data.model.User
+import com.binas.yak.data.model.user.User
 import com.binas.yak.ui.authentication.signup.interactor.SignupInteractor
 import com.binas.yak.ui.authentication.signup.presenter.SignupPresenter
 import com.binas.yak.ui.base.view.BaseActivity
@@ -38,9 +37,7 @@ class SignupActivity : BaseActivity(), SignupView {
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
                     val user = mAuth.currentUser
-                    var firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
-                    firestore.collection("users").document(email).set(User(email))
-                    presenter?.setCurrentUser(email)
+                    presenter?.addNewUser(email)
                     updateUI(user)
                 } else {
                     // If sign in fails, display a message to the user.

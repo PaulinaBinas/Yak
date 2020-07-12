@@ -3,7 +3,6 @@ package com.binas.yak.data
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.binas.yak.data.model.*
 import com.binas.yak.data.model.achievements.AchievementsDao
 import com.binas.yak.data.model.grammar.Grammar
 import com.binas.yak.data.model.grammar.GrammarDao
@@ -20,6 +19,8 @@ import com.binas.yak.data.model.studyOrder.StudyOrder
 import com.binas.yak.data.model.studyOrder.StudyOrderDao
 import com.binas.yak.data.model.translation.Translation
 import com.binas.yak.data.model.translation.TranslationDao
+import com.binas.yak.data.model.user.User
+import com.binas.yak.data.model.user.UserDao
 import com.binas.yak.data.model.userGrammarRevisionFlashcard.UserGrammarRevisionFlashcard
 import com.binas.yak.data.model.userGrammarStudyFlashcard.UserGrammarStudyFlashcard
 import com.binas.yak.data.model.userSignRevisionFlashcard.UserSignRevisionFlashcard
@@ -53,4 +54,5 @@ abstract class ApplicationDatabase: RoomDatabase() {
     abstract fun achievementsDao(): AchievementsDao
     abstract fun studyOrderDao(): StudyOrderDao
     abstract fun studyDayDao(): StudyDayDao
+    abstract fun userDao(): UserDao
 }

@@ -4,7 +4,7 @@ import androidx.room.Embedded
 import androidx.room.Junction
 import androidx.room.Relation
 import com.binas.yak.data.model.sign.SignStudyFlashcard
-import com.binas.yak.data.model.User
+import com.binas.yak.data.model.user.User
 
 data class UserWithSighStudyFlashcard (
     @Embedded

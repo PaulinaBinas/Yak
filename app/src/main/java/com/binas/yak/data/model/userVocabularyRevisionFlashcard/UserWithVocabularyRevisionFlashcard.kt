@@ -3,7 +3,7 @@ package com.binas.yak.data.model.userVocabularyRevisionFlashcard
 import androidx.room.Embedded
 import androidx.room.Junction
 import androidx.room.Relation
-import com.binas.yak.data.model.User
+import com.binas.yak.data.model.user.User
 import com.binas.yak.data.model.vocabulary.VocabularyRevisionFlashcard
 
 data class UserWithVocabularyRevisionFlashcard (

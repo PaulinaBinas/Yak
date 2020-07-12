@@ -6,7 +6,7 @@ import android.view.View
 import android.widget.Toast
 import com.binas.yak.ui.main.view.MainActivity
 import com.binas.yak.R
-import com.binas.yak.data.model.User
+import com.binas.yak.data.model.user.User
 import com.binas.yak.ui.authentication.login.interactor.LoginInteractor
 import com.binas.yak.ui.authentication.login.presenter.LoginPresenter
 import com.binas.yak.ui.authentication.resetPassword.view.ResetPasswordActivity
@@ -39,7 +39,7 @@ class LoginActivity : BaseActivity(), LoginView {
                         // Sign in success, update UI with the signed-in user's information
                         val user = mAuth.currentUser
                         if (user != null) {
-                            presenter.setCurrentUser(User(user.email!!))
+                            presenter.setCurrentUser(user.email!!)
                         }
                         updateUI(user)
                     } else {

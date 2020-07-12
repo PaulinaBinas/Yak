@@ -8,6 +8,7 @@ import com.binas.yak.data.model.sign.SignModule
 import com.binas.yak.data.model.studyDay.StudyDayModule
 import com.binas.yak.data.model.studyOrder.StudyOrderModule
 import com.binas.yak.data.model.translation.TranslationModule
+import com.binas.yak.data.model.user.UserModule
 import com.binas.yak.data.model.vocabulary.VocabularyModule
 import com.binas.yak.di.module.AppModule
 import com.binas.yak.ui.achievements.AchievementsActivityModule
@@ -126,7 +127,7 @@ abstract class ActivityBuilder {
     @ContributesAndroidInjector(modules = [(MainModule::class)])
     abstract fun bindMainActivity(): MainActivity
 
-    @ContributesAndroidInjector(modules = [(LoginModule::class)])
+    @ContributesAndroidInjector(modules = [(LoginModule::class), (UserModule::class), (DatabaseModule::class)])
     abstract fun bindLoginActivity(): LoginActivity
 
     @ContributesAndroidInjector(modules = [(AuthMenuModule::class)])
@@ -135,7 +136,7 @@ abstract class ActivityBuilder {
     @ContributesAndroidInjector(modules = [(ResetPasswordModule::class)])
     abstract fun bindResetPasswordActivity(): ResetPasswordActivity
 
-    @ContributesAndroidInjector(modules = [(SignupModule::class)])
+    @ContributesAndroidInjector(modules = [(SignupModule::class), (UserModule::class), (DatabaseModule::class)])
     abstract fun bindSignupActivity(): SignupActivity
 
     @ContributesAndroidInjector(modules = [(ChangeLimitModule::class)])

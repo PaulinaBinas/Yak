@@ -8,6 +8,7 @@ import com.binas.yak.data.model.sign.SignDao
 import com.binas.yak.data.model.studyDay.StudyDayDao
 import com.binas.yak.data.model.studyOrder.StudyOrderDao
 import com.binas.yak.data.model.translation.TranslationDao
+import com.binas.yak.data.model.user.UserDao
 import com.binas.yak.data.model.vocabulary.VocabularyDao
 import dagger.Module
 import dagger.Provides
@@ -35,6 +36,9 @@ class DatabaseModule {
 
     @Provides
     fun provideStudyDayDao(db: ApplicationDatabase): StudyDayDao = db.studyDayDao()
+
+    @Provides
+    fun provideUserDao(db: ApplicationDatabase): UserDao = db.userDao()
 
     @Provides
     fun provideDatabase(context: Application): ApplicationDatabase = Room

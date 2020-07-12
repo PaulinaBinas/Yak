@@ -1,4 +1,6 @@
 package com.binas.yak.ui.settings.interactor
 
-class SettingsInteractorImpl: SettingsInteractor {
+import javax.inject.Inject
+
+class SettingsInteractorImpl @Inject internal constructor(): SettingsInteractor {
 }

@@ -1,4 +1,4 @@
-package com.binas.yak.data.model
+package com.binas.yak.data.model.user
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -7,5 +7,5 @@ import androidx.room.PrimaryKey
 data class User (
     var email: String
 ) {
-    @PrimaryKey(autoGenerate = true) var id: Long? = 0
+    @PrimaryKey(autoGenerate = true) var id: Long? = null
 }
