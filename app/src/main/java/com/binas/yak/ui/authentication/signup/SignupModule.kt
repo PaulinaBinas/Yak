@@ -12,6 +12,9 @@ import dagger.Provides
 class SignupModule {
 
     @Provides
+    internal fun provideSignupInteractorImpl() = SignupInteractorImpl()
+
+    @Provides
     internal fun provideSignupInteractor(interactor: SignupInteractorImpl): SignupInteractor = interactor
 
     @Provides

@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "ede92018a4495a3d8e425f1262048a75",
+    "identityHash": "72eb49dbff259b19b7398a38e7e71fc5",
     "entities": [
       {
         "tableName": "Sign",
@@ -563,13 +563,13 @@
       },
       {
         "tableName": "User",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `email` TEXT NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `email` TEXT NOT NULL)",
         "fields": [
           {
             "fieldPath": "id",
             "columnName": "id",
             "affinity": "INTEGER",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "email",
@@ -1123,7 +1123,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'ede92018a4495a3d8e425f1262048a75')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '72eb49dbff259b19b7398a38e7e71fc5')"
     ]
   }
 }

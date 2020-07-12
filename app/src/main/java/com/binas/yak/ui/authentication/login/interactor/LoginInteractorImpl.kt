@@ -5,9 +5,9 @@ import com.binas.yak.data.preferences.PreferenceHelper
 import com.binas.yak.ui.base.interactor.BaseInteractor
 import javax.inject.Inject
 
-class LoginInteractorImpl @Inject internal constructor(preferenceHelper: PreferenceHelper): LoginInteractor, BaseInteractor() {
+class LoginInteractorImpl @Inject internal constructor(var preferenceHelper: PreferenceHelper): LoginInteractor, BaseInteractor() {
 
     override fun setCurrentUser(user: User) {
-        super.setCurrentUser(user)
+        preferenceHelper.setCurrentUserEmail(user.email)
     }
 }

@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.provider.Settings.Global.putInt
 import androidx.core.content.edit
+import com.binas.yak.data.model.User
 import com.binas.yak.di.PreferenceInfo
 import javax.inject.Inject
 
@@ -12,6 +13,7 @@ class PreferenceHelperImpl @Inject constructor(context: Context, @PreferenceInfo
     companion object {
         private val DAILY_CARD_LIMIT = "DAILY_CARD_LIMIT"
         private val LANGUAGE_SET = "IS_LANGUAGE_SET"
+        private val CURRENT_USER = "CURRENT_USER"
     }
 
     private val mPrefs: SharedPreferences = context.getSharedPreferences(prefFileName, Context.MODE_PRIVATE)
@@ -30,5 +32,13 @@ class PreferenceHelperImpl @Inject constructor(context: Context, @PreferenceInfo
 
     override fun setIsLanguageSet(value: Boolean) {
         mPrefs.edit { putBoolean(LANGUAGE_SET, value) }
+    }
+
+    override fun getCurrentUserEmail(): String? {
+        return mPrefs.getString(CURRENT_USER, "")
+    }
+
+    override fun setCurrentUserEmail(userEmail: String) {
+        mPrefs.edit { putString(CURRENT_USER, userEmail) }
     }
 }

@@ -40,4 +40,6 @@
     <string name="congrats">Gratulacje!</string>
     <string name="youAreDone">Koniec nauki na dziś. Wróć jutro!!</string>
     <string name="finish">ZAKOŃCZ</string>
+    <string name="registerFail">Rejestracja się nie powiodła. Spróbuj ponownie.</string>
+    <string name="passwordReset">"Link do zmiany hasła został wysłany na podany email."</string>
 </resources>

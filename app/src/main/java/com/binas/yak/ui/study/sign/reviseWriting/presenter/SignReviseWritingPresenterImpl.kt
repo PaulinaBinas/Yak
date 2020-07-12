@@ -18,11 +18,9 @@ class SignReviseWritingPresenterImpl<V: SignReviseWritingView, I: SignReviseWrit
                 var card = it.getSignRevisionFlashcard(id)
                 var sign = it.getSign(card.signId)
                 getView()?.setContent(card, sign)
-            }
-            while (!coroutine.isCompleted){}
-            if(coroutine.isCompleted) {
                 getView()?.clickSoundButton()
             }
+            while (!coroutine.isCompleted){}
         }
     }
 }
