@@ -4,6 +4,7 @@ import com.binas.yak.data.model.studyDay.StudyDay
 import com.binas.yak.data.model.studyDay.StudyDayRepository
 import com.binas.yak.data.model.vocabulary.VocabularyRepository
 import com.binas.yak.data.model.vocabulary.VocabularyRevisionFlashcard
+import com.binas.yak.data.model.vocabulary.VocabularyStudyFlashcard
 import java.time.LocalDate
 import javax.inject.Inject
 
@@ -29,5 +30,9 @@ class LearnVocabularyWritingInteractorImpl @Inject internal constructor(var stud
 
     override fun saveStudyDay(day: StudyDay) {
         studyDayRepo.updateStudyDay(day)
+    }
+
+    override fun getVocabularyStudyFlashcard(id: Long): VocabularyStudyFlashcard {
+        return vocabularyRepo.getVocabularyStudyFlashcardById(id)
     }
 }

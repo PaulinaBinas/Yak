@@ -2,6 +2,7 @@ package com.binas.yak.ui.study.grammar.learn.learnWriting.interactor
 
 import com.binas.yak.data.model.grammar.GrammarRepository
 import com.binas.yak.data.model.grammar.GrammarRevisionFlashcard
+import com.binas.yak.data.model.grammar.GrammarStudyFlashcard
 import com.binas.yak.data.model.studyDay.StudyDay
 import com.binas.yak.data.model.studyDay.StudyDayRepository
 import java.time.LocalDate
@@ -28,5 +29,9 @@ class LearnGrammarWritingInteractorImpl @Inject internal constructor(var studyDa
 
     override fun saveStudyDay(day: StudyDay) {
         studyDayRepo.updateStudyDay(day)
+    }
+
+    override fun getGrammarStudyFlashcard(id: Long): GrammarStudyFlashcard {
+        return grammarRepo.getGrammarStudyCard(id)
     }
 }

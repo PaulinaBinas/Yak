@@ -8,6 +8,8 @@ import com.binas.yak.ui.base.presenter.BasePresenter
 import com.binas.yak.ui.study.grammar.learn.learnWriting.interactor.LearnGrammarWritingInteractor
 import com.binas.yak.ui.study.grammar.learn.learnWriting.view.LearnGrammarWritingView
 import com.binas.yak.util.DailyFlashcardQueue
+import com.google.firebase.firestore.FieldValue
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -28,6 +30,12 @@ class LearnGrammarWritingPresenterImpl<V: LearnGrammarWritingView, I: LearnGramm
                     }
                     studyDay.elementsStudied = studyDay.elementsStudied?.plus(1)
                     it.saveStudyDay(studyDay)
+                    var flashcard = it.getGrammarStudyFlashcard(id)
+                    var firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
+                    preferenceHelper.getCurrentUserEmail()?.let { email ->
+                        var user = firestore.collection("users").document(email)
+                        user.update("studiedFlashcards", FieldValue.arrayUnion(flashcard))
+                    }
                 }
             }
             while(!coroutine.isCompleted){}
