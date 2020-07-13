@@ -1,128 +1,146 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/register"
-    android:weightSum="2"
     tools:context=".ui.authentication.signup.view.SignupActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:weightSum="2"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textView"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/open_sans_extrabold"
-            android:gravity="center"
-            android:padding="15dp"
-            android:text="@string/app_name"
-            android:textColor="@color/black"
-            android:textSize="17sp" />
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-
-            <ImageView
-                android:id="@+id/imageView"
+            <TextView
+                android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/small_yak" />
+                android:fontFamily="@font/open_sans_extrabold"
+                android:gravity="center"
+                android:padding="15dp"
+                android:text="@string/app_name"
+                android:textColor="@color/black"
+                android:textSize="17sp" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/small_yak" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:gravity="top"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/emailEditText"
+                android:cursorVisible="true"
+                android:textCursorDrawable="@null"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="45dp"
+                android:layout_marginEnd="45dp"
+                android:background="@drawable/rounded_input"
+                android:ems="10"
+                android:fontFamily="@font/open_sans_extrabold"
+                android:gravity="center"
+                android:hint="@string/email"
+                android:inputType="textEmailAddress"
+                android:padding="15dp"
+                android:textColor="@color/black"
+                android:textColorHint="@drawable/selector"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/passwordEditText"
+                android:cursorVisible="true"
+                android:textCursorDrawable="@null"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="45dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/rounded_input"
+                android:ems="10"
+                android:fontFamily="@font/open_sans_extrabold"
+                android:gravity="center"
+                android:hint="@string/password"
+                android:inputType="textPassword"
+                android:padding="15dp"
+                android:textColor="@color/black"
+                android:textColorHint="@drawable/selector"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/passwordRepeatEditText"
+                android:cursorVisible="true"
+                android:textCursorDrawable="@null"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="45dp"
+                android:layout_marginEnd="45dp"
+                android:background="@drawable/rounded_input"
+                android:ems="10"
+                android:fontFamily="@font/open_sans_extrabold"
+                android:gravity="center"
+                android:hint="@string/passwordRepeat"
+                android:inputType="textPassword"
+                android:padding="15dp"
+                android:textColor="@color/black"
+                android:textColorHint="@drawable/selector"
+                android:textSize="20sp" />
+
+            <ImageButton
+                android:id="@+id/signupButton"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="end"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="1dp"
+                android:background="@drawable/next_button"
+                android:onClick="signUpNewUser" />
+
+        </LinearLayout>
 
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:gravity="top"
-        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:gravity="bottom|center_horizontal"
         android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/emailEditText"
-            android:cursorVisible="true"
-            android:textCursorDrawable="@null"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="45dp"
-            android:layout_marginEnd="45dp"
-            android:background="@drawable/rounded_input"
-            android:ems="10"
-            android:fontFamily="@font/open_sans_extrabold"
-            android:gravity="center"
-            android:hint="@string/email"
-            android:inputType="textEmailAddress"
-            android:padding="15dp"
-            android:textColor="@color/black"
-            android:textColorHint="@drawable/selector"
-            android:textSize="20sp" />
-
-        <EditText
-            android:id="@+id/passwordEditText"
-            android:cursorVisible="true"
-            android:textCursorDrawable="@null"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="45dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="45dp"
-            android:layout_marginBottom="30dp"
-            android:background="@drawable/rounded_input"
-            android:ems="10"
-            android:fontFamily="@font/open_sans_extrabold"
-            android:gravity="center"
-            android:hint="@string/password"
-            android:inputType="textPassword"
-            android:padding="15dp"
-            android:textColor="@color/black"
-            android:textColorHint="@drawable/selector"
-            android:textSize="20sp" />
-
-        <EditText
-            android:id="@+id/passwordRepeatEditText"
-            android:cursorVisible="true"
-            android:textCursorDrawable="@null"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="45dp"
-            android:layout_marginEnd="45dp"
-            android:background="@drawable/rounded_input"
-            android:ems="10"
-            android:fontFamily="@font/open_sans_extrabold"
-            android:gravity="center"
-            android:hint="@string/passwordRepeat"
-            android:inputType="textPassword"
-            android:padding="15dp"
-            android:textColor="@color/black"
-            android:textColorHint="@drawable/selector"
-            android:textSize="20sp" />
-
-        <ImageButton
-            android:id="@+id/signupButton"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_gravity="end"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="1dp"
-            android:background="@drawable/next_button"
-            android:onClick="signUpNewUser" />
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/loadingAnimation"
+            android:layout_width="250dp"
+            android:layout_height="150dp" />
 
     </LinearLayout>
 
-
-</LinearLayout>
+</RelativeLayout>
