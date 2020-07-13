@@ -15,4 +15,6 @@ interface StudiedElementsView: BaseView {
     fun addNewVocabularyElement(card: VocabularyStudyFlashcard, vocabulary: Vocabulary)
 
     fun addNewGrammarElement(card: GrammarStudyFlashcard, grammar: Grammar)
+
+    fun removeNoElementsTextView()
 }

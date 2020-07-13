@@ -42,4 +42,6 @@
     <string name="finish">FINISH</string>
     <string name="registerFail">Registration failed. Try again.</string>
     <string name="passwordReset">"Password reset link has been sent to the provided email."</string>
+    <string name="noElementsStudied">You have not studied anything yet!</string>
+    <string name="loginFail">Login failed.</string>
 </resources>

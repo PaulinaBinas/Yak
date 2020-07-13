@@ -51,7 +51,7 @@ class LoginActivity : BaseActivity(), LoginView {
                         // If sign in fails, display a message to the user.
                         stopAnimation()
                         signupButton.isClickable = true
-                        Toast.makeText(baseContext, "Authentication failed.",
+                        Toast.makeText(baseContext, resources.getText(R.string.loginFail),
                             Toast.LENGTH_SHORT).show()
                         updateUI(null)
                         // ...

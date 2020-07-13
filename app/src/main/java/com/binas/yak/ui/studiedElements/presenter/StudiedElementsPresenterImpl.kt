@@ -1,6 +1,5 @@
 package com.binas.yak.ui.studiedElements.presenter
 
-import android.provider.Settings
 import com.binas.yak.data.model.grammar.Grammar
 import com.binas.yak.data.model.grammar.GrammarStudyFlashcard
 import com.binas.yak.data.model.sign.Sign
@@ -56,6 +55,9 @@ class StudiedElementsPresenterImpl<V: StudiedElementsView, I: StudiedElementsInt
                     var grammar = grammars[i]
                     getView()?.addNewGrammarElement(card, grammar)
                 }
+            }
+            if(signCards.isNotEmpty() || vocabularyCards.isNotEmpty() || grammarCards.isNotEmpty()) {
+                getView()?.removeNoElementsTextView()
             }
         }
     }
