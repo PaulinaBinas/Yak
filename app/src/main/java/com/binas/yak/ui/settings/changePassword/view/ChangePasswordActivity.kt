@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
+import com.airbnb.lottie.LottieDrawable
 import com.binas.yak.R
 import com.binas.yak.ui.base.view.BaseActivity
 import com.binas.yak.ui.settings.view.SettingsActivity
@@ -16,10 +16,12 @@ import kotlinx.android.synthetic.main.activity_change_password.*
 class ChangePasswordActivity : BaseActivity(), ChangePasswordView {
 
     private lateinit var mAuth: FirebaseAuth
+    private var animationFileName = "yak"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_change_password)
+        loadAnimation()
         mAuth = FirebaseAuth.getInstance()
     }
 
@@ -57,5 +59,12 @@ class ChangePasswordActivity : BaseActivity(), ChangePasswordView {
 
     fun onClickBackButton(view: View) {
         onBackPressed()
+    }
+
+    private fun loadAnimation() {
+        animation.setAnimation("animations/" + this.animationFileName + ".json")
+        animation.repeatCount = LottieDrawable.INFINITE
+        animation.speed = 1f
+        animation.playAnimation()
     }
 }

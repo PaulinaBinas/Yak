@@ -28,11 +28,11 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
-                android:id="@+id/imageView4"
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/animation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/small_yak"
+                android:gravity="center_horizontal"
                 app:layout_constraintBottom_toBottomOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

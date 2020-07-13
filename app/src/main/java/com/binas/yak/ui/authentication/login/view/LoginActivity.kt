@@ -23,11 +23,13 @@ class LoginActivity : BaseActivity(), LoginView {
 
     private lateinit var mAuth: FirebaseAuth
     private var imgName = "yak"
+    private var animationFileName = "yak"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         mAuth = FirebaseAuth.getInstance()
+        loadNormalAnimation()
     }
 
     fun onClickLoginButton(view: View) {
@@ -83,6 +85,13 @@ class LoginActivity : BaseActivity(), LoginView {
         loadingAnimation.speed = 1f
         loadingAnimation.visibility = View.VISIBLE
         loadingAnimation.playAnimation()
+    }
+
+    private fun loadNormalAnimation() {
+        animation.setAnimation("animations/" + this.animationFileName + ".json")
+        animation.repeatCount = LottieDrawable.INFINITE
+        animation.speed = 1f
+        animation.playAnimation()
     }
 
     private fun stopAnimation() {

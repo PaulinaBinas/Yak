@@ -1,9 +1,9 @@
 package com.binas.yak.ui.achievements.view
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import com.airbnb.lottie.LottieDrawable
 import com.binas.yak.R
 import com.binas.yak.ui.achievements.interactor.AchievementsInteractor
 import com.binas.yak.ui.achievements.presenter.AchievementsPresenter
@@ -16,10 +16,12 @@ class AchievementsActivity : BaseActivity(), AchievementsView {
 
     @Inject
     lateinit var presenter: AchievementsPresenter<AchievementsView, AchievementsInteractor>
+    private var animationFileName = "yak"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_achievements)
+        loadAnimation()
         presenter?.onAttach(this)
         presenter?.start()
     }
@@ -45,5 +47,12 @@ class AchievementsActivity : BaseActivity(), AchievementsView {
         signsCount.text = signsCount.text.toString() + " " + signsStudied + "/" + signsNo
         wordsCount.text = wordsCount.text.toString() + " " + wordsStudied + "/" + wordsNo
         grammarCount.text = grammarCount.text.toString() + " " + grammarStudied + "/" + grammarNo
+    }
+
+    private fun loadAnimation() {
+        animation.setAnimation("animations/" + this.animationFileName + ".json")
+        animation.repeatCount = LottieDrawable.INFINITE
+        animation.speed = 1f
+        animation.playAnimation()
     }
 }

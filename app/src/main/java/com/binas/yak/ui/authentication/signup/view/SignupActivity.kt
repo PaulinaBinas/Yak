@@ -21,11 +21,13 @@ class SignupActivity : BaseActivity(), SignupView {
     lateinit var presenter: SignupPresenter<SignupView, SignupInteractor>
     private lateinit var mAuth: FirebaseAuth
     private var imgName = "yak"
+    private var animationFileName = "yak"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
         mAuth = FirebaseAuth.getInstance()
+        loadNormalAnimation()
         presenter?.onAttach(this)
     }
 
@@ -44,6 +46,7 @@ class SignupActivity : BaseActivity(), SignupView {
                 } else {
                     // If sign in fails, display a message to the user.
                     signupButton.isClickable = true
+                    stopAnimation()
                     Toast.makeText(baseContext, resources.getString(R.string.registerFail),
                         Toast.LENGTH_LONG).show()
                     updateUI(null)
@@ -72,5 +75,12 @@ class SignupActivity : BaseActivity(), SignupView {
     private fun stopAnimation() {
         loadingAnimation.cancelAnimation()
         loadingAnimation.visibility = View.INVISIBLE
+    }
+
+    private fun loadNormalAnimation() {
+        animation.setAnimation("animations/" + this.animationFileName + ".json")
+        animation.repeatCount = LottieDrawable.INFINITE
+        animation.speed = 1f
+        animation.playAnimation()
     }
 }
