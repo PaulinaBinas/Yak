@@ -15,8 +15,9 @@ class CalendarActivity : BaseActivity(), BaseView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_calendar)
         var days = intent.getIntExtra("days", 0)
+        if(days < 0) days = 0
         var dayWord = if(days == 1) getString(R.string.one_day) else getString(R.string.days)
-        revise.text = revise.text.toString() + " " + intent.getIntExtra("days", 0) + " " + dayWord
+        revise.text = revise.text.toString() + " " + days + " " + dayWord
     }
 
     fun onClickSettingsButton(view: View) {

@@ -7,7 +7,7 @@
     <string name="enterEmail">WPISZ EMAIL</string>
     <string name="password">HASŁO</string>
     <string name="passwordRepeat">POWTÓRZ HASŁO</string>
-    <string name="remindPassword">PRZYPOMNIJ HASŁO</string>
+    <string name="remindPassword">RESETUJ HASŁO</string>
     <string name="studiedElements">PRZEROBIONY MATERIAŁ</string>
     <string name="study">NAUKA</string>
     <string name="achievements">OSIĄGNIĘCIA</string>

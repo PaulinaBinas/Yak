@@ -7,7 +7,7 @@
     <string name="enterEmail">ENTER EMAIL</string>
     <string name="password">PASSWORD</string>
     <string name="passwordRepeat">REPEAT PASSWORD</string>
-    <string name="remindPassword">REMIND PASSWORD</string>
+    <string name="remindPassword">RESET PASSWORD</string>
     <string name="studiedElements">ALL STUDIED ELEMENTS</string>
     <string name="study">STUDY</string>
     <string name="achievements">ACHIEVEMENTS</string>
