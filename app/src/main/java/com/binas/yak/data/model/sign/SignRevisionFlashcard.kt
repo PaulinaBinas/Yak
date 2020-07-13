@@ -28,7 +28,4 @@ class SignRevisionFlashcard constructor(
     var userDescription: String? = null
     var comparisonSignId: Long? = null
 
-    override fun compareTo(other: Flashcard): Int {
-        return if(other is SignRevisionFlashcard && other.id > this.id) 0 else 1
-    }
 }

@@ -5,7 +5,7 @@ import java.time.LocalDate
 
 interface RevisionFlashcard: Flashcard {
 
-    val id: Long
+    override val id: Long
     var retention: Double?
     var revisionType: RevisionType
     @set:Exclude @get:Exclude var nextDisplayTime: LocalDate?

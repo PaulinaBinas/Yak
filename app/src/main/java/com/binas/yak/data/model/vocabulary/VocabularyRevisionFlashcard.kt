@@ -28,7 +28,4 @@ data class VocabularyRevisionFlashcard (
     var chosenPictureId: Long? = null
     var userDescription: String? = null
 
-    override fun compareTo(other: Flashcard): Int {
-        return if(other is VocabularyRevisionFlashcard && other.id > this.id) 0 else 1
-    }
 }

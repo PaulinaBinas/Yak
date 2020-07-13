@@ -28,7 +28,4 @@ data class GrammarRevisionFlashcard constructor(
     var chosenVocabularyId: Long? = null
     var userDescription: String? = null
 
-    override fun compareTo(other: Flashcard): Int {
-        return if(other is GrammarRevisionFlashcard && other.id > this.id) 0 else 1
-    }
 }
