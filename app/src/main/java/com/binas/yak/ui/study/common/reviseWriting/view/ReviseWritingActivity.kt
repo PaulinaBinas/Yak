@@ -7,9 +7,10 @@ import android.os.Bundle
 import android.view.View
 import com.binas.yak.R
 import com.binas.yak.ui.base.view.BaseActivity
+import com.binas.yak.ui.others.drawing.view.DrawingFragment
 import com.binas.yak.ui.settings.view.SettingsActivity
 import com.binas.yak.ui.study.common.compareWriting.view.CompareWritingActivity
-import kotlinx.android.synthetic.main.fragment_drawing.*
+import kotlinx.android.synthetic.main.activity_revise_writing.*
 import java.io.ByteArrayOutputStream
 
 class ReviseWritingActivity : BaseActivity(), ReviseWritingView {
@@ -65,5 +66,16 @@ class ReviseWritingActivity : BaseActivity(), ReviseWritingView {
             newIntent.putExtra("type", "vocabulary")
         }
         newIntent.putExtra("id", intent.getLongExtra("id", -1L))
+    }
+
+    fun onEraserClick(view: View) {
+        var fragments = drawing_fragment.fragmentManager?.fragments
+        if (fragments != null) {
+            for(item in fragments) {
+                if(item is DrawingFragment) {
+                    item.onEraserClick(view)
+                }
+            }
+        }
     }
 }

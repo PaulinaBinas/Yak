@@ -1,15 +1,13 @@
 package com.binas.yak.ui.others.drawing.view
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
+import androidx.fragment.app.Fragment
 import com.binas.yak.R
 import com.binas.yak.ui.base.view.BaseFragment
-import com.binas.yak.ui.others.drawing.interactor.DrawingInteractor
-import com.binas.yak.ui.others.drawing.presenter.DrawingPresenter
+import kotlinx.android.synthetic.main.fragment_drawing.*
 import javax.inject.Inject
 
 /**
@@ -21,8 +19,6 @@ class DrawingFragment : BaseFragment(), DrawingView {
 
     @Inject
     internal lateinit var drawingAdapter: DrawingAdapter
-    @Inject
-    internal lateinit var presenter: DrawingPresenter<DrawingView, DrawingInteractor>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,5 +36,9 @@ class DrawingFragment : BaseFragment(), DrawingView {
         @JvmStatic
         fun newInstance() =
             DrawingFragment()
+    }
+
+    override fun onEraserClick(view: View) {
+            draw_view.clearCanvas()
     }
 }

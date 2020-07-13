@@ -2,13 +2,13 @@ package com.binas.yak.ui.study.grammar.learn.learnWriting.view
 
 import android.content.Intent
 import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.SpannableStringBuilder
 import android.view.View
 import androidx.core.text.color
 import com.binas.yak.R
 import com.binas.yak.ui.base.view.BaseActivity
+import com.binas.yak.ui.others.drawing.view.DrawingFragment
 import com.binas.yak.ui.settings.view.SettingsActivity
 import com.binas.yak.ui.study.grammar.learn.learnWriting.interactor.LearnGrammarWritingInteractor
 import com.binas.yak.ui.study.grammar.learn.learnWriting.presenter.LearnGrammarWritingPresenter
@@ -57,5 +57,16 @@ class LearnGrammarWritingActivity : BaseActivity(), LearnGrammarWritingView {
         val intent = Intent(this, StudyActivity::class.java)
         startActivity(intent)
         overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom)
+    }
+
+    fun onEraserClick(view: View) {
+        var fragments = drawing_fragment.fragmentManager?.fragments
+        if (fragments != null) {
+            for(item in fragments) {
+                if(item is DrawingFragment) {
+                    item.onEraserClick(view)
+                }
+            }
+        }
     }
 }

@@ -1,12 +1,11 @@
 package com.binas.yak.ui.study.vocabulary.learn.learnWriting.view
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.binas.yak.R
 import com.binas.yak.ui.base.view.BaseActivity
-import com.binas.yak.ui.base.view.BaseView
+import com.binas.yak.ui.others.drawing.view.DrawingFragment
 import com.binas.yak.ui.settings.view.SettingsActivity
 import com.binas.yak.ui.study.view.StudyActivity
 import com.binas.yak.ui.study.vocabulary.learn.learnWriting.interactor.LearnVocabularyWritingInteractor
@@ -46,5 +45,16 @@ class LearnVocabularyWritingActivity : BaseActivity(), LearnVocabularyWritingVie
         val intent = Intent(this, StudyActivity::class.java)
         startActivity(intent)
         overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom)
+    }
+
+    fun onEraserClick(view: View) {
+        var fragments = drawing_fragment.fragmentManager?.fragments
+        if (fragments != null) {
+            for(item in fragments) {
+                if(item is DrawingFragment) {
+                    item.onEraserClick(view)
+                }
+            }
+        }
     }
 }

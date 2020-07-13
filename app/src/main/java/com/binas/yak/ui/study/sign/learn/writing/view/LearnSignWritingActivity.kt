@@ -6,6 +6,7 @@ import android.view.View
 import com.airbnb.lottie.LottieDrawable
 import com.binas.yak.R
 import com.binas.yak.ui.base.view.BaseActivity
+import com.binas.yak.ui.others.drawing.view.DrawingFragment
 import com.binas.yak.ui.settings.view.SettingsActivity
 import com.binas.yak.ui.study.sign.learn.writing.interactor.LearnSignWritingInteractor
 import com.binas.yak.ui.study.sign.learn.writing.presenter.LearnSignWritingPresenter
@@ -54,5 +55,16 @@ class LearnSignWritingActivity : BaseActivity(), LearnSignWritingView {
         val intent = Intent(this, StudyActivity::class.java)
         startActivity(intent)
         overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom)
+    }
+
+    fun onEraserClick(view: View) {
+        var fragments = drawing_fragment.fragmentManager?.fragments
+        if (fragments != null) {
+            for(item in fragments) {
+                if(item is DrawingFragment) {
+                    item.onEraserClick(view)
+                }
+            }
+        }
     }
 }

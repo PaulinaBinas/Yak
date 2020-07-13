@@ -5,9 +5,25 @@
     android:layout_height="match_parent"
     tools:context=".ui.others.drawing.view.DrawingFragment">
 
-    <com.binas.yak.ui.others.DrawView
-        android:id="@+id/draw_view"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent">
+
+        <com.binas.yak.ui.others.DrawView
+            android:id="@+id/draw_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <ImageButton
+            android:id="@+id/eraserButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/eraser"
+            android:onClick="onEraserClick"/>
+
+    </RelativeLayout>
 
 </FrameLayout>
