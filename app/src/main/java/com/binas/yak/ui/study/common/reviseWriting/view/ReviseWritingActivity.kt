@@ -11,6 +11,7 @@ import com.binas.yak.ui.others.drawing.view.DrawingFragment
 import com.binas.yak.ui.settings.view.SettingsActivity
 import com.binas.yak.ui.study.common.compareWriting.view.CompareWritingActivity
 import kotlinx.android.synthetic.main.activity_revise_writing.*
+import kotlinx.android.synthetic.main.fragment_drawing.*
 import java.io.ByteArrayOutputStream
 
 class ReviseWritingActivity : BaseActivity(), ReviseWritingView {
