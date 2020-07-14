@@ -9,7 +9,7 @@
 
     <fragment
         android:id="@+id/loggedInActionBar"
-        android:name="com.binas.yak.ui.main.view.TransparentActionBarFragment"
+        android:name="com.binas.yak.ui.others.ActionBarWithTimer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"/>

@@ -15,4 +15,10 @@ interface UserDao {
 
     @Query("SELECT * FROM User WHERE User.email = :email")
     fun getUserByEmail(email: String): User
+
+    @Query("UPDATE User SET totalMinutesStudied = :minutes WHERE User.id = :id")
+    fun setTotalMinutesStudiedByUserId(id: Long, minutes: Double)
+
+    @Query("SELECT totalMinutesStudied FROM User WHERE User.id = :id")
+    fun getTotalMinutesStudiedByUserId(id: Long): Double
 }

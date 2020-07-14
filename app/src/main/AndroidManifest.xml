@@ -10,7 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.settings.changeLimit.view.ChangeLimitActivity"></activity>
+        <activity android:name=".ui.study.common.breakActivity.BreakActivity"></activity>
+        <activity android:name=".ui.settings.changeLimit.view.ChangeLimitActivity" />
         <activity android:name=".ui.study.grammar.learn.learnWriting.view.LearnGrammarWritingActivity" />
         <activity android:name=".ui.study.common.compareWriting.view.CompareWritingActivity" />
         <activity android:name=".ui.study.common.meaningCheck.view.MeaningCheckActivity" />

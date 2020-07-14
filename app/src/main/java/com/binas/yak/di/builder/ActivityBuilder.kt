@@ -1,6 +1,5 @@
 package com.binas.yak.di.builder
 
-import android.provider.ContactsContract
 import com.binas.yak.data.DatabaseModule
 import com.binas.yak.data.model.achievements.AchievementsModule
 import com.binas.yak.data.model.grammar.GrammarModule
@@ -10,7 +9,6 @@ import com.binas.yak.data.model.studyOrder.StudyOrderModule
 import com.binas.yak.data.model.translation.TranslationModule
 import com.binas.yak.data.model.user.UserModule
 import com.binas.yak.data.model.vocabulary.VocabularyModule
-import com.binas.yak.di.module.AppModule
 import com.binas.yak.ui.achievements.AchievementsActivityModule
 import com.binas.yak.ui.achievements.view.AchievementsActivity
 import com.binas.yak.ui.authentication.authMenu.AuthMenuModule
@@ -42,6 +40,7 @@ import com.binas.yak.ui.studiedElements.details.StudiedElementDetailsModule
 import com.binas.yak.ui.studiedElements.details.view.StudiedElementDetailsActivity
 import com.binas.yak.ui.studiedElements.view.StudiedElementsActivity
 import com.binas.yak.ui.study.StudyModule
+import com.binas.yak.ui.study.common.breakActivity.BreakActivity
 import com.binas.yak.ui.study.common.compareWriting.CompareWritingModule
 import com.binas.yak.ui.study.common.compareWriting.view.CompareWritingActivity
 import com.binas.yak.ui.study.common.correct.CorrectModule
@@ -175,7 +174,7 @@ abstract class ActivityBuilder {
     @ContributesAndroidInjector(modules = [(SignStudyCardModule::class), (ImageProvider::class), (SignModule::class), (TranslationModule::class), (DatabaseModule::class)])
     abstract fun bindSignStudyCardActivity(): SignStudyCardActivity
 
-    @ContributesAndroidInjector(modules = [(LearnSignWritingModule::class), (DrawingProvider::class), (StudyDayModule::class), (ImageProvider::class), (SignModule::class), (DatabaseModule::class)])
+    @ContributesAndroidInjector(modules = [(LearnSignWritingModule::class), (UserModule::class), (DrawingProvider::class), (StudyDayModule::class), (ImageProvider::class), (SignModule::class), (DatabaseModule::class)])
     abstract fun bindLearnSignWritingActivity(): LearnSignWritingActivity
 
     @ContributesAndroidInjector(modules = [(CompareWritingModule::class), (ImageProvider::class), (SignModule::class), (VocabularyModule::class), (GrammarModule::class), (DatabaseModule::class)])
@@ -198,4 +197,7 @@ abstract class ActivityBuilder {
 
     @ContributesAndroidInjector(modules = [(StudyModule::class), (StudyDayModule::class), (StudyOrderModule::class), (SignModule::class), (VocabularyModule::class), (GrammarModule::class), (DatabaseModule::class)])
     abstract fun bindStudyActivity(): StudyActivity
+
+    @ContributesAndroidInjector
+    abstract fun binBreakActivity(): BreakActivity
 }

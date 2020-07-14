@@ -8,4 +8,5 @@ data class User (
     var email: String
 ) {
     @PrimaryKey(autoGenerate = true) var id: Long? = null
+    var totalMinutesStudied: Double = 0.0
 }

@@ -7,4 +7,8 @@ interface UserRepository {
     fun getUserByEmail(email: String): User
 
     fun getUserById(id: Long): User
+
+    fun setTotalMinutesStudiedByUserId(id: Long, minutes: Double)
+
+    fun getTotalMinutesStudiedByUserId(id: Long): Double
 }

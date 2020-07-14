@@ -30,4 +30,8 @@ class SignStudyCardPresenterImpl<V: SignStudyCardView, I: SignStudyCardInteracto
         }
     }
 
+    override fun saveElapsedTime(time: Long) {
+        TODO("Not yet implemented")
+    }
+
 }

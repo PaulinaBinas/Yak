@@ -44,4 +44,5 @@
     <string name="passwordReset">"Link do zmiany hasła został wysłany na podany email."</string>
     <string name="noElementsStudied">Materiał nie został jeszcze przerobiony!</string>
     <string name="loginFail">Logowanie się nie powiodło.</string>
+    <string name="takeABreak">"Zrób sobie przerwę do "</string>
 </resources>

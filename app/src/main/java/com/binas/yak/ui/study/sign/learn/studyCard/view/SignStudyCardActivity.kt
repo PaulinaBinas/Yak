@@ -4,6 +4,7 @@ import android.content.Intent
 import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Bundle
+import android.os.SystemClock
 import android.view.View
 import com.airbnb.lottie.LottieDrawable
 import com.binas.yak.R
@@ -13,11 +14,13 @@ import com.binas.yak.data.model.translation.Translation
 import com.binas.yak.ui.base.view.BaseActivity
 import com.binas.yak.ui.main.view.MainActivity
 import com.binas.yak.ui.settings.view.SettingsActivity
+import com.binas.yak.ui.study.common.breakActivity.BreakActivity
 import com.binas.yak.ui.study.sign.learn.studyCard.interactor.SignStudyCardInteractor
 import com.binas.yak.ui.study.sign.learn.studyCard.presenter.SignStudyCardPresenter
 import com.binas.yak.ui.study.sign.learn.writing.view.LearnSignWritingActivity
 import com.yariksoffice.lingver.Lingver
 import kotlinx.android.synthetic.main.activity_sign_study_card.*
+import kotlinx.android.synthetic.main.fragment_action_bar_with_timer.*
 import kotlinx.android.synthetic.main.fragment_animation.*
 import javax.inject.Inject
 
@@ -30,6 +33,8 @@ class SignStudyCardActivity : BaseActivity(), SignStudyCardView {
     private var sign: Sign? = null
     private var translation: Translation? = null
     private var id: Long? = null
+    private var timeLeft = 0L
+    private var timeStarted = 0L
     @Inject
     lateinit var presenter: SignStudyCardPresenter<SignStudyCardView, SignStudyCardInteractor>
 
@@ -37,8 +42,11 @@ class SignStudyCardActivity : BaseActivity(), SignStudyCardView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_study_card)
+        timeLeft = intent.getLongExtra("time", 0L)
+        startTimer()
         presenter.onAttach(this)
         presenter?.start(intent.getLongExtra("id", -1))
+        timeStarted = SystemClock.elapsedRealtime()
     }
 
     override fun loadAnimation() {
@@ -56,6 +64,8 @@ class SignStudyCardActivity : BaseActivity(), SignStudyCardView {
         val intent: Intent = Intent(this, LearnSignWritingActivity::class.java)
         intent.putExtra("imageName", imgName)
         intent.putExtra("signId", id)
+        intent.putExtra("time", timeLeft)
+        intent.putExtra("timeStarted", timeStarted)
         startActivity(intent)
         overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom)
     }
@@ -101,5 +111,30 @@ class SignStudyCardActivity : BaseActivity(), SignStudyCardView {
         imgName = sign!!.audioFileName.toString()
         soundName = sign!!.audioFileName.toString()
         id = sign.id
+    }
+
+    private fun startTimer() {
+        fragment.timer.isCountDown = true
+        fragment.timer.base = SystemClock.elapsedRealtime() + timeLeft
+        fragment.timer.setOnChronometerTickListener {
+            timeLeft = fragment.timer.base - SystemClock.elapsedRealtime()
+            if (it.base - SystemClock.elapsedRealtime() <= 0) {
+                fragment.timer.stop()
+                var intent = Intent(this, BreakActivity::class.java)
+                intent.putExtra("time", 5 * 60 * 1000L)
+                startActivity(intent)
+            }
+        }
+        fragment.timer.start()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        fragment.timer.stop()
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        fragment.timer.start()
     }
 }

@@ -15,4 +15,12 @@ class UserRepositoryImpl @Inject internal constructor(var userDao: UserDao): Use
     override fun getUserById(id: Long): User {
         return userDao.getUserById(id)
     }
+
+    override fun setTotalMinutesStudiedByUserId(id: Long, minutes: Double) {
+        userDao.setTotalMinutesStudiedByUserId(id, minutes)
+    }
+
+    override fun getTotalMinutesStudiedByUserId(id: Long): Double {
+        return userDao.getTotalMinutesStudiedByUserId(id)
+    }
 }

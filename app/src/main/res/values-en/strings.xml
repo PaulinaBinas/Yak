@@ -44,4 +44,5 @@
     <string name="passwordReset">"Password reset link has been sent to the provided email."</string>
     <string name="noElementsStudied">You have not studied anything yet!</string>
     <string name="loginFail">Login failed.</string>
+    <string name="takeABreak">"Take a break until "</string>
 </resources>

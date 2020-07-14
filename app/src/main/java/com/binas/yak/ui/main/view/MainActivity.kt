@@ -43,6 +43,7 @@ class MainActivity : BaseActivity(), MainView {
 
     fun onClickGoToStudy(view: View) {
         val intent = Intent(this, StudyActivity::class.java)
+        intent.putExtra("time", (60*25*1000L))
         startActivity(intent)
         overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom)
     }
@@ -71,4 +72,6 @@ class MainActivity : BaseActivity(), MainView {
         animation.speed = 1f
         animation.playAnimation()
     }
+
+    override fun onBackPressed() {}
 }
