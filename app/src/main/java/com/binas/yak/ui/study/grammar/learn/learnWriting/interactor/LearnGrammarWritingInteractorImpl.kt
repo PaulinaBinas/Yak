@@ -5,10 +5,11 @@ import com.binas.yak.data.model.grammar.GrammarRevisionFlashcard
 import com.binas.yak.data.model.grammar.GrammarStudyFlashcard
 import com.binas.yak.data.model.studyDay.StudyDay
 import com.binas.yak.data.model.studyDay.StudyDayRepository
+import com.binas.yak.data.model.user.UserRepository
 import java.time.LocalDate
 import javax.inject.Inject
 
-class LearnGrammarWritingInteractorImpl @Inject internal constructor(var studyDayRepo: StudyDayRepository, var grammarRepo: GrammarRepository): LearnGrammarWritingInteractor {
+class LearnGrammarWritingInteractorImpl @Inject internal constructor(var userRepository: UserRepository, var studyDayRepo: StudyDayRepository, var grammarRepo: GrammarRepository): LearnGrammarWritingInteractor {
     override fun scheduleReviewsOfGrammar(id: Long) {
         var today = LocalDate.now()
         grammarRepo.scheduleReviewsOfGrammar(id, today)
@@ -33,5 +34,13 @@ class LearnGrammarWritingInteractorImpl @Inject internal constructor(var studyDa
 
     override fun getGrammarStudyFlashcard(id: Long): GrammarStudyFlashcard {
         return grammarRepo.getGrammarStudyCard(id)
+    }
+
+    override fun getUserStudyTime(id: Long): Double {
+        return userRepository.getTotalMinutesStudiedByUserId(id)
+    }
+
+    override fun setUserStudyTime(id: Long, time: Double) {
+        userRepository.setTotalMinutesStudiedByUserId(id, time)
     }
 }

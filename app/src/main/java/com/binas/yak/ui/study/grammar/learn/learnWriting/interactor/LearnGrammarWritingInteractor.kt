@@ -18,4 +18,8 @@ interface LearnGrammarWritingInteractor: Interactor {
     fun saveStudyDay(day: StudyDay)
 
     fun getGrammarStudyFlashcard(id: Long): GrammarStudyFlashcard
+
+    fun getUserStudyTime(id: Long): Double
+
+    fun setUserStudyTime(id: Long, time: Double)
 }

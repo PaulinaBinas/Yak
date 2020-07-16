@@ -54,7 +54,7 @@
             android:layout_height="wrap_content"
             android:textAlignment="center"
             app:layout_constraintTop_toBottomOf="@id/titleTextView"
-            android:textSize="18dp"/>
+            android:textSize="16sp"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

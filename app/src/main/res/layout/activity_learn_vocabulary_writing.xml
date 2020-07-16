@@ -8,7 +8,7 @@
     tools:context=".ui.study.vocabulary.learn.learnWriting.view.LearnVocabularyWritingActivity">
 
     <fragment
-        android:id="@+id/loggedInActionBar"
+        android:id="@+id/fragment"
         android:name="com.binas.yak.ui.others.ActionBarWithTimer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -21,10 +21,10 @@
         android:layout_weight="2"
         android:fontFamily="@font/noto_sans_tibetan_bold"
         android:textAlignment="center"
-        android:textSize="20sp"
-        android:layout_marginTop="120dp"
+        android:textSize="24sp"
+        android:layout_marginTop="130dp"
         app:layout_constraintBottom_toTopOf="@id/drawing_fragment"
-        app:layout_constraintTop_toBottomOf="@id/loggedInActionBar" />
+        app:layout_constraintTop_toBottomOf="@id/fragment" />
 
     <fragment
         android:id="@+id/drawing_fragment"

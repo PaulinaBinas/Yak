@@ -2,6 +2,7 @@ package com.binas.yak.ui.main.view
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.SystemClock
 import android.view.View
 import com.airbnb.lottie.LottieDrawable
 import com.binas.yak.R
@@ -43,7 +44,7 @@ class MainActivity : BaseActivity(), MainView {
 
     fun onClickGoToStudy(view: View) {
         val intent = Intent(this, StudyActivity::class.java)
-        intent.putExtra("time", (60*25*1000L))
+        intent.putExtra("time", SystemClock.elapsedRealtime() + (60*25*1000L))
         startActivity(intent)
         overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom)
     }

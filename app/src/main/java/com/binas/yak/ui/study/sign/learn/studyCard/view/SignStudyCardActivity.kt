@@ -35,6 +35,7 @@ class SignStudyCardActivity : BaseActivity(), SignStudyCardView {
     private var id: Long? = null
     private var timeLeft = 0L
     private var timeStarted = 0L
+    private var timeEnded = 0L
     @Inject
     lateinit var presenter: SignStudyCardPresenter<SignStudyCardView, SignStudyCardInteractor>
 
@@ -61,6 +62,7 @@ class SignStudyCardActivity : BaseActivity(), SignStudyCardView {
     }
 
     fun onClickGoToLearnNewSign(view: View) {
+        timeLeft = fragment.timer.base
         val intent: Intent = Intent(this, LearnSignWritingActivity::class.java)
         intent.putExtra("imageName", imgName)
         intent.putExtra("signId", id)
@@ -115,13 +117,11 @@ class SignStudyCardActivity : BaseActivity(), SignStudyCardView {
 
     private fun startTimer() {
         fragment.timer.isCountDown = true
-        fragment.timer.base = SystemClock.elapsedRealtime() + timeLeft
+        fragment.timer.base = timeLeft
         fragment.timer.setOnChronometerTickListener {
-            timeLeft = fragment.timer.base - SystemClock.elapsedRealtime()
             if (it.base - SystemClock.elapsedRealtime() <= 0) {
                 fragment.timer.stop()
                 var intent = Intent(this, BreakActivity::class.java)
-                intent.putExtra("time", 5 * 60 * 1000L)
                 startActivity(intent)
             }
         }

@@ -35,9 +35,9 @@ class LearnSignWritingActivity : BaseActivity(), LearnSignWritingView {
         imageName = intent.getStringExtra("imageName")
         id = intent.getLongExtra("signId", -1L)
         timeLeft = intent.getLongExtra("time", 0L)
+        timeStarted = intent.getLongExtra("timeStarted", SystemClock.elapsedRealtime())
         loadAnimation()
         startTimer()
-        timeStarted = intent.getLongExtra("timeStarted", SystemClock.elapsedRealtime())
     }
 
     private fun loadAnimation() {
@@ -64,7 +64,8 @@ class LearnSignWritingActivity : BaseActivity(), LearnSignWritingView {
             presenter?.scheduleReviewCards(it)
         }
         val intent = Intent(this, StudyActivity::class.java)
-        intent.putExtra("time", (25*60*1000L) - getDuration())  
+        timeLeft = loggedInActionBar.timer.base
+        intent.putExtra("time", timeLeft)
         startActivity(intent)
         overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom)
     }
@@ -82,13 +83,11 @@ class LearnSignWritingActivity : BaseActivity(), LearnSignWritingView {
 
     private fun startTimer() {
         loggedInActionBar.timer.isCountDown = true
-        loggedInActionBar.timer.base = SystemClock.elapsedRealtime() + timeLeft
+        loggedInActionBar.timer.base = timeLeft
         loggedInActionBar.timer.setOnChronometerTickListener {
-            timeLeft = loggedInActionBar.timer.base
             if (it.base - SystemClock.elapsedRealtime() <= 0) {
                 loggedInActionBar.timer.stop()
                 var intent = Intent(this, BreakActivity::class.java)
-                intent.putExtra("time", timeLeft)
                 startActivity(intent)
             }
         }

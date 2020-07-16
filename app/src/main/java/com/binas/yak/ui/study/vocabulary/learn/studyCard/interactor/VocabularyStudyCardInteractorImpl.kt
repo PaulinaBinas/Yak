@@ -4,7 +4,6 @@ import com.binas.yak.data.model.translation.Translation
 import com.binas.yak.data.model.translation.TranslationRepository
 import com.binas.yak.data.model.vocabulary.Vocabulary
 import com.binas.yak.data.model.vocabulary.VocabularyRepository
-import com.binas.yak.data.model.vocabulary.VocabularyRevisionFlashcard
 import com.binas.yak.data.model.vocabulary.VocabularyStudyFlashcard
 import javax.inject.Inject
 

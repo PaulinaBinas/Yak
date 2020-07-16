@@ -27,15 +27,14 @@ class BreakActivity : BaseActivity() {
     }
 
     private fun setTime() {
-        var time = LocalTime.now().plus(timeLeft, ChronoUnit.MILLIS)
+        var time = LocalTime.now().plus(5, ChronoUnit.MINUTES)
         message.text = message.text.toString() + time.hour + ":" + time.minute
     }
 
     private fun startTimer() {
         timer.isCountDown = true
-        timer.base = SystemClock.elapsedRealtime() + timeLeft
+        timer.base = SystemClock.elapsedRealtime() + (5*60*1000)
         timer.setOnChronometerTickListener {
-            timeLeft = timer.base - SystemClock.elapsedRealtime()
             if (it.base - SystemClock.elapsedRealtime() <= 0) {
                 timer.stop()
                 var intent = Intent(this, StudyActivity::class.java)

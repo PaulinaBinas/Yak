@@ -1,7 +1,6 @@
 package com.binas.yak.ui.study.grammar.learn.learnWriting.presenter
 
 import com.binas.yak.data.model.grammar.GrammarRevisionFlashcard
-import com.binas.yak.data.model.sign.SignRevisionFlashcard
 import com.binas.yak.data.model.studyDay.StudyDay
 import com.binas.yak.data.preferences.PreferenceHelper
 import com.binas.yak.ui.base.presenter.BasePresenter
@@ -19,8 +18,10 @@ class LearnGrammarWritingPresenterImpl<V: LearnGrammarWritingView, I: LearnGramm
 
     override fun scheduleReviewCards(id: Long) {
         interactor?.let {
+            var timeStudiedMilies = getView()?.getDuration()
             var cards: List<GrammarRevisionFlashcard> = ArrayList()
             var coroutine = GlobalScope.launch {
+                updateTimeStudied(it, timeStudiedMilies)
                 it.scheduleReviewsOfGrammar(id)
                 cards = it.getAllMatchingRevisionFlashcards(id)
                 GlobalScope.launch {
@@ -43,6 +44,18 @@ class LearnGrammarWritingPresenterImpl<V: LearnGrammarWritingView, I: LearnGramm
             for(item in cards) {
                 queue.addFlashcard(item)
             }
+        }
+    }
+
+    private fun updateTimeStudied(it: LearnGrammarWritingInteractor, time: Long?) {
+        var id = preferenceHelper.getCurrentUserId()
+        var currentTotal = it.getUserStudyTime(id)
+        var totalMinutes = currentTotal + ((time!!.toDouble() / 1000 ) / 60)
+        it.setUserStudyTime(id, totalMinutes)
+        var firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
+        preferenceHelper.getCurrentUserEmail()?.let { email ->
+            firestore.collection("users").document(email)
+                .update("totalMinutesStudied", totalMinutes)
         }
     }
 

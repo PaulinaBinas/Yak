@@ -114,7 +114,7 @@ abstract class ActivityBuilder {
     @ContributesAndroidInjector(modules = [(VocabularyReviseWritingModule::class), (ImageProvider::class), (VocabularyModule::class), (DatabaseModule::class)])
     abstract fun bindVocabularyReviseWritingActivity(): VocabularyReviseWritingActivity
 
-    @ContributesAndroidInjector(modules = [(LearnVocabularyWritingModule::class), (DrawingProvider::class), (StudyDayModule::class), (VocabularyModule::class), (DatabaseModule::class)])
+    @ContributesAndroidInjector(modules = [(LearnVocabularyWritingModule::class), (UserModule::class), (DrawingProvider::class), (StudyDayModule::class), (VocabularyModule::class), (DatabaseModule::class)])
     abstract fun bindLearnVocabularyWritingActivity(): LearnVocabularyWritingActivity
 
     @ContributesAndroidInjector(modules = [(VocabularyStudyCardModule::class), (ImageProvider::class), (VocabularyModule::class), (TranslationModule::class), (DatabaseModule::class)])
@@ -159,7 +159,7 @@ abstract class ActivityBuilder {
     @ContributesAndroidInjector(modules = [(StudiedElementsModule::class), (ImageProvider::class), (SignModule::class), (VocabularyModule::class), (GrammarModule::class), (TranslationModule::class), (DatabaseModule::class)])
     abstract fun bindStudiedElementsActivity(): StudiedElementsActivity
 
-    @ContributesAndroidInjector(modules = [(LearnGrammarWritingModule::class), (DrawingProvider::class), (StudyDayModule::class), (GrammarModule::class), (DatabaseModule::class)])
+    @ContributesAndroidInjector(modules = [(LearnGrammarWritingModule::class), (UserModule::class), (DrawingProvider::class), (StudyDayModule::class), (GrammarModule::class), (DatabaseModule::class)])
     abstract fun bindLearnGrammarWritingActivity(): LearnGrammarWritingActivity
 
     @ContributesAndroidInjector(modules = [(GrammarStudyCardModule::class), (GrammarModule::class), (TranslationModule::class), (DatabaseModule::class)])
