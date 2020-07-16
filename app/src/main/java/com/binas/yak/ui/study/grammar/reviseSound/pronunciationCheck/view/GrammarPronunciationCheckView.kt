@@ -5,4 +5,5 @@ import com.binas.yak.ui.base.view.BaseView
 interface GrammarPronunciationCheckView: BaseView {
 
     fun setTranslation()
+    fun getDuration(): Long
 }

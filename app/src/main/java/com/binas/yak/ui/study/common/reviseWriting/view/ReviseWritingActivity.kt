@@ -4,23 +4,30 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.os.Bundle
+import android.os.SystemClock
 import android.view.View
 import com.binas.yak.R
 import com.binas.yak.ui.base.view.BaseActivity
 import com.binas.yak.ui.others.drawing.view.DrawingFragment
 import com.binas.yak.ui.settings.view.SettingsActivity
+import com.binas.yak.ui.study.common.breakActivity.BreakActivity
 import com.binas.yak.ui.study.common.compareWriting.view.CompareWritingActivity
 import kotlinx.android.synthetic.main.activity_revise_writing.*
+import kotlinx.android.synthetic.main.fragment_action_bar_with_timer.*
 import kotlinx.android.synthetic.main.fragment_drawing.*
 import java.io.ByteArrayOutputStream
 
 class ReviseWritingActivity : BaseActivity(), ReviseWritingView {
 
-    private var cardType: String = ""
+    private var timeLeft = 0L
+    private var timeStarted = 0L
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_revise_writing)
+        timeLeft = intent.getLongExtra("time", 0L)
+        startTimer()
+        timeStarted = intent.getLongExtra("timeStarted", SystemClock.elapsedRealtime())
     }
 
     fun onClickSettingsButton(view: View) {
@@ -34,6 +41,7 @@ class ReviseWritingActivity : BaseActivity(), ReviseWritingView {
     }
 
     fun onClickGoNext(view: View) {
+        timeLeft = loggedInActionBar.timer.base
         val intent = Intent(this, CompareWritingActivity::class.java)
         val stream = ByteArrayOutputStream()
         viewToBitmap(draw_view)?.compress(Bitmap.CompressFormat.PNG, 100, stream)
@@ -67,6 +75,8 @@ class ReviseWritingActivity : BaseActivity(), ReviseWritingView {
             newIntent.putExtra("type", "vocabulary")
         }
         newIntent.putExtra("id", intent.getLongExtra("id", -1L))
+        newIntent.putExtra("time", timeLeft)
+        newIntent.putExtra("timeStarted", timeStarted)
     }
 
     fun onEraserClick(view: View) {
@@ -78,5 +88,28 @@ class ReviseWritingActivity : BaseActivity(), ReviseWritingView {
                 }
             }
         }
+    }
+
+    private fun startTimer() {
+        loggedInActionBar.timer.isCountDown = true
+        loggedInActionBar.timer.base = timeLeft
+        loggedInActionBar.timer.setOnChronometerTickListener {
+            if (it.base - SystemClock.elapsedRealtime() <= 0) {
+                loggedInActionBar.timer.stop()
+                var intent = Intent(this, BreakActivity::class.java)
+                startActivity(intent)
+            }
+        }
+        loggedInActionBar.timer.start()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        loggedInActionBar.timer.stop()
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        loggedInActionBar.timer.start()
     }
 }

@@ -8,4 +8,6 @@ interface MeaningCheckInteractor: Interactor {
     fun saveCard(card: VocabularyRevisionFlashcard)
 
     fun getCard(id: Long): VocabularyRevisionFlashcard
+    fun getUserStudyTime(id: Long): Double
+    fun setUserStudyTime(id: Long, time: Double)
 }

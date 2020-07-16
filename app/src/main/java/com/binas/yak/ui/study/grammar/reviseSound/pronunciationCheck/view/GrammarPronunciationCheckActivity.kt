@@ -8,6 +8,7 @@ import android.graphics.Color
 import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Bundle
+import android.os.SystemClock
 import android.text.SpannableStringBuilder
 import android.view.MotionEvent
 import android.view.View
@@ -15,14 +16,12 @@ import androidx.core.text.color
 import com.binas.yak.R
 import com.binas.yak.ui.base.view.BaseActivity
 import com.binas.yak.ui.settings.view.SettingsActivity
-import com.binas.yak.ui.study.common.meaningCheck.view.MeaningCheckView
+import com.binas.yak.ui.study.common.breakActivity.BreakActivity
 import com.binas.yak.ui.study.grammar.reviseSound.pronunciationCheck.interactor.GrammarPronunciationCheckInteractor
 import com.binas.yak.ui.study.grammar.reviseSound.pronunciationCheck.presenter.GrammarPronunciationCheckPresenter
 import com.binas.yak.ui.study.view.StudyActivity
 import kotlinx.android.synthetic.main.activity_grammar_pronunciation_check.*
-import kotlinx.android.synthetic.main.activity_grammar_pronunciation_check.playSoundButton
-import kotlinx.android.synthetic.main.activity_grammar_pronunciation_check.revealTranslation
-import kotlinx.android.synthetic.main.activity_grammar_pronunciation_check.translationTextView
+import kotlinx.android.synthetic.main.fragment_action_bar_with_timer.*
 import javax.inject.Inject
 
 class GrammarPronunciationCheckActivity : BaseActivity(), GrammarPronunciationCheckView {
@@ -36,16 +35,23 @@ class GrammarPronunciationCheckActivity : BaseActivity(), GrammarPronunciationCh
     private var translation: String = ""
     private var id: Long? = null
     private var playing: Boolean = false
+    private var timeLeft = 0L
+    private var timeStarted = 0L
+    private var timeEnded = 0L
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_grammar_pronunciation_check)
+        presenter?.onAttach(this)
         this.sentenceStart = intent.getStringExtra("sentenceStart")
         this.sentenceEnd = intent.getStringExtra("sentenceEnd")
         this.grammar = intent.getStringExtra("grammar")
         this.soundName = intent.getStringExtra("sound")
         this.translation = intent.getStringExtra("translation")
         this.id = intent.getLongExtra("id", -1L)
+        this.timeLeft = intent.getLongExtra("time", 0L)
+        this.timeStarted = intent.getLongExtra("timeStarted", SystemClock.elapsedRealtime())
+        startTimer()
         setText()
     }
 
@@ -109,18 +115,50 @@ class GrammarPronunciationCheckActivity : BaseActivity(), GrammarPronunciationCh
     }
 
     fun onClickCorrect(view: View) {
+        timeEnded = SystemClock.elapsedRealtime()
+        timeLeft = fragment.timer.base
         id?.let { presenter?.reviseCard(true, it) }
         goToStudy()
     }
 
     fun onClickIncorrect(view: View) {
+        timeLeft = fragment.timer.base
+        timeEnded = SystemClock.elapsedRealtime()
         id?.let { presenter?.reviseCard(false, it) }
         goToStudy()
     }
 
     private fun goToStudy() {
         val intent = Intent(this, StudyActivity::class.java)
+        intent.putExtra("time", timeLeft)
         startActivity(intent)
         overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom)
+    }
+
+    private fun startTimer() {
+        fragment.timer.isCountDown = true
+        fragment.timer.base = timeLeft
+        fragment.timer.setOnChronometerTickListener {
+            if (it.base - SystemClock.elapsedRealtime() <= 0) {
+                fragment.timer.stop()
+                var intent = Intent(this, BreakActivity::class.java)
+                startActivity(intent)
+            }
+        }
+        fragment.timer.start()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        fragment.timer.stop()
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        fragment.timer.start()
+    }
+
+    override fun getDuration(): Long {
+        return timeEnded - timeStarted
     }
 }

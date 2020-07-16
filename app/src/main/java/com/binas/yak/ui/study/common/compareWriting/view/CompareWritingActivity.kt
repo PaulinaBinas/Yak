@@ -4,6 +4,7 @@ import android.content.Intent
 import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.os.Bundle
+import android.os.SystemClock
 import android.text.SpannableStringBuilder
 import android.view.View
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
@@ -13,10 +14,12 @@ import com.airbnb.lottie.LottieDrawable
 import com.binas.yak.R
 import com.binas.yak.ui.base.view.BaseActivity
 import com.binas.yak.ui.settings.view.SettingsActivity
+import com.binas.yak.ui.study.common.breakActivity.BreakActivity
 import com.binas.yak.ui.study.common.compareWriting.interactor.CompareWritingInteractor
 import com.binas.yak.ui.study.common.compareWriting.presenter.CompareWritingPresenter
 import com.binas.yak.ui.study.view.StudyActivity
 import kotlinx.android.synthetic.main.activity_compare_writing.*
+import kotlinx.android.synthetic.main.fragment_action_bar_with_timer.*
 import kotlinx.android.synthetic.main.fragment_animation.*
 import kotlinx.android.synthetic.main.fragment_image.*
 import javax.inject.Inject
@@ -33,10 +36,17 @@ class CompareWritingActivity : BaseActivity(), CompareWritingView {
     private var word: String = ""
     private var type: String = ""
     private var id: Long? = null
+    private var timeLeft = 0L
+    private var timeStarted = 0L
+    private var timeEnded = 0L
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_compare_writing)
+        presenter?.onAttach(this)
+        timeLeft = intent.getLongExtra("time", 0L)
+        timeStarted = intent.getLongExtra("timeStarted", SystemClock.elapsedRealtime())
+        startTimer()
     }
 
     override fun onStart() {
@@ -92,17 +102,49 @@ class CompareWritingActivity : BaseActivity(), CompareWritingView {
     }
 
     fun onClickCorrect(view: View) {
+        timeEnded = SystemClock.elapsedRealtime()
+        timeLeft = fragment.timer.base
         this.id?.let { this.presenter?.reviseCard(this.type, it, true) }
         goToStudy()
     }
     fun onClickIncorrect(view: View) {
+        timeEnded = SystemClock.elapsedRealtime()
+        timeLeft = fragment.timer.base
         this.id?.let { this.presenter?.reviseCard(this.type, it, false) }
         goToStudy()
     }
 
     private fun goToStudy() {
         val intent = Intent(this, StudyActivity::class.java)
+        intent.putExtra("time", timeLeft)
         startActivity(intent)
         overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom)
+    }
+
+    private fun startTimer() {
+        fragment.timer.isCountDown = true
+        fragment.timer.base = timeLeft
+        fragment.timer.setOnChronometerTickListener {
+            if (it.base - SystemClock.elapsedRealtime() <= 0) {
+                fragment.timer.stop()
+                var intent = Intent(this, BreakActivity::class.java)
+                startActivity(intent)
+            }
+        }
+        fragment.timer.start()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        fragment.timer.stop()
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        fragment.timer.start()
+    }
+
+    override fun getDuration(): Long {
+        return timeEnded - timeStarted
     }
 }

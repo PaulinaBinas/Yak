@@ -11,4 +11,6 @@ interface SignReviseWithDecisionInteractor: Interactor {
     fun getSign(id: Long): Sign
 
     fun saveCard(card: SignRevisionFlashcard)
+    fun getUserStudyTime(id: Long): Double
+    fun setUserStudyTime(id: Long, time: Double)
 }

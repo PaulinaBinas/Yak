@@ -99,7 +99,7 @@ abstract class ActivityBuilder {
     @ContributesAndroidInjector(modules = [(SignReviseWritingModule::class), (SignModule::class), (DatabaseModule::class)])
     abstract fun bindSignReviseWritingActivity(): SignReviseWritingActivity
 
-    @ContributesAndroidInjector(modules= [(SignReviseWithDecisionModule::class), (SignModule::class), (DatabaseModule::class)])
+    @ContributesAndroidInjector(modules= [(SignReviseWithDecisionModule::class), (UserModule::class), (SignModule::class), (DatabaseModule::class)])
     abstract fun bindSignReviseWithDecisionActivity(): SignReviseWithDecisionActivity
 
     @ContributesAndroidInjector(modules = [(SignReviseSoundModule::class), (ImageProvider::class), (SignModule::class), (DatabaseModule::class)])
@@ -165,7 +165,7 @@ abstract class ActivityBuilder {
     @ContributesAndroidInjector(modules = [(GrammarStudyCardModule::class), (GrammarModule::class), (TranslationModule::class), (DatabaseModule::class)])
     abstract fun bindGrammarStudyCardActivity(): GrammarStudyCardActivity
 
-    @ContributesAndroidInjector(modules = [(GrammarPronunciationCheckModule::class), (GrammarModule::class), (DatabaseModule::class)])
+    @ContributesAndroidInjector(modules = [(GrammarPronunciationCheckModule::class), (UserModule::class), (GrammarModule::class), (DatabaseModule::class)])
     abstract fun bindGrammarPronunciationCheckActivity(): GrammarPronunciationCheckActivity
 
     @ContributesAndroidInjector(modules = [(GrammarReviseSoundModule::class), (GrammarModule::class), (TranslationModule::class), (DatabaseModule::class)])
@@ -177,7 +177,7 @@ abstract class ActivityBuilder {
     @ContributesAndroidInjector(modules = [(LearnSignWritingModule::class), (UserModule::class), (DrawingProvider::class), (StudyDayModule::class), (ImageProvider::class), (SignModule::class), (DatabaseModule::class)])
     abstract fun bindLearnSignWritingActivity(): LearnSignWritingActivity
 
-    @ContributesAndroidInjector(modules = [(CompareWritingModule::class), (ImageProvider::class), (SignModule::class), (VocabularyModule::class), (GrammarModule::class), (DatabaseModule::class)])
+    @ContributesAndroidInjector(modules = [(CompareWritingModule::class), (UserModule::class), (ImageProvider::class), (SignModule::class), (VocabularyModule::class), (GrammarModule::class), (DatabaseModule::class)])
     abstract fun bindCompareWritingActivity(): CompareWritingActivity
 
     @ContributesAndroidInjector(modules = [(CorrectModule::class)])
@@ -186,10 +186,10 @@ abstract class ActivityBuilder {
     @ContributesAndroidInjector(modules = [(IncorrectModule::class)])
     abstract fun bindIncorrectActivity(): IncorrectActivity
 
-    @ContributesAndroidInjector(modules = [(MeaningCheckModule::class), (ImageProvider::class), (VocabularyModule::class), (DatabaseModule::class)])
+    @ContributesAndroidInjector(modules = [(MeaningCheckModule::class), (UserModule::class), (ImageProvider::class), (VocabularyModule::class), (DatabaseModule::class)])
     abstract fun bindMeaningCheckActivity(): MeaningCheckActivity
 
-    @ContributesAndroidInjector(modules = [(PronunciationCheckModule::class), (SignModule::class), (VocabularyModule::class), (DatabaseModule::class), (ImageProvider::class)])
+    @ContributesAndroidInjector(modules = [(PronunciationCheckModule::class), (UserModule::class), (SignModule::class), (VocabularyModule::class), (DatabaseModule::class), (ImageProvider::class)])
     abstract fun bindPronunciationCheckActivity(): PronunciationCheckActivity
 
     @ContributesAndroidInjector(modules = [(ReviseWritingModule::class), (DrawingProvider::class)])

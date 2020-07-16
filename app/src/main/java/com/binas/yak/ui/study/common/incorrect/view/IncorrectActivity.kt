@@ -11,12 +11,14 @@ import kotlinx.android.synthetic.main.activity_incorrect.*
 
 class IncorrectActivity : BaseActivity(), IncorrectView {
 
-    private val SCREEN_TIME: Long = 1000;
+    private val SCREEN_TIME: Long = 1000
     private var imageFileName = "yak"
+    var timeLeft = 0L
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_incorrect)
+        timeLeft = intent.getLongExtra("time", 0L)
         loadAnimation()
         Handler().postDelayed({
             goToStudy()
@@ -25,6 +27,7 @@ class IncorrectActivity : BaseActivity(), IncorrectView {
 
     private fun goToStudy() {
         val intent = Intent(this, StudyActivity::class.java)
+        intent.putExtra("time", timeLeft)
         startActivity(intent)
         overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom)
     }

@@ -7,19 +7,21 @@ import android.content.Intent
 import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Bundle
+import android.os.SystemClock
 import android.view.MotionEvent
 import android.view.View
 import com.binas.yak.R
 import com.binas.yak.ui.base.view.BaseActivity
 import com.binas.yak.ui.settings.view.SettingsActivity
+import com.binas.yak.ui.study.common.breakActivity.BreakActivity
 import com.binas.yak.ui.study.common.meaningCheck.interactor.MeaningCheckInteractor
 import com.binas.yak.ui.study.common.meaningCheck.presenter.MeaningCheckPresenter
 import com.binas.yak.ui.study.view.StudyActivity
 import com.bumptech.glide.Glide
 import com.yariksoffice.lingver.Lingver
 import kotlinx.android.synthetic.main.activity_meaning_check.*
+import kotlinx.android.synthetic.main.fragment_action_bar_with_timer.*
 import kotlinx.android.synthetic.main.fragment_image.*
-import java.security.AccessController.getContext
 import javax.inject.Inject
 
 
@@ -33,12 +35,19 @@ class MeaningCheckActivity : BaseActivity(), MeaningCheckView {
     private var tibetanWord: String = ""
     private var translation: String = ""
     private var id: Long? = null
+    private var timeStarted = 0L
+    private var timeLeft = 0L
+    private var timeEnded = 0L
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_meaning_check)
+        presenter?.onAttach(this)
         this.setContent()
         loadImage()
+        timeLeft = intent.getLongExtra("time", 0L)
+        startTimer()
+        timeStarted = intent.getLongExtra("timeStarted", SystemClock.elapsedRealtime())
     }
 
     private fun setContent() {
@@ -112,18 +121,50 @@ class MeaningCheckActivity : BaseActivity(), MeaningCheckView {
     }
 
     fun onClickCorrect(view: View) {
+        timeEnded = SystemClock.elapsedRealtime()
+        timeLeft = fragment.timer.base
         this.id?.let { this.presenter?.reviseCard(it, true) }
         goToStudy()
     }
 
     fun onClickIncorrect(view: View) {
+        timeEnded = SystemClock.elapsedRealtime()
+        timeLeft = fragment.timer.base
         this.id?.let { this.presenter?.reviseCard(it, false) }
         goToStudy()
     }
 
     private fun goToStudy() {
         val intent = Intent(this, StudyActivity::class.java)
+        intent.putExtra("time", timeLeft)
         startActivity(intent)
         overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom)
+    }
+
+    private fun startTimer() {
+        fragment.timer.isCountDown = true
+        fragment.timer.base = timeLeft
+        fragment.timer.setOnChronometerTickListener {
+            if (it.base - SystemClock.elapsedRealtime() <= 0) {
+                fragment.timer.stop()
+                var intent = Intent(this, BreakActivity::class.java)
+                startActivity(intent)
+            }
+        }
+        fragment.timer.start()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        fragment.timer.stop()
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        fragment.timer.start()
+    }
+
+    override fun getDuration(): Long {
+        return timeEnded - timeStarted
     }
 }

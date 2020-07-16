@@ -8,4 +8,8 @@ interface GrammarPronunciationCheckInteractor: Interactor {
     fun getCard(id: Long): GrammarRevisionFlashcard
 
     fun saveCard(card: GrammarRevisionFlashcard)
+
+    fun getUserStudyTime(id: Long): Double
+
+    fun setUserStudyTime(id: Long, time: Double)
 }

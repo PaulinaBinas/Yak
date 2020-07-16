@@ -6,7 +6,6 @@ import com.binas.yak.ui.study.grammar.reviseSound.pronunciationCheck.interactor.
 import com.binas.yak.ui.study.grammar.reviseSound.pronunciationCheck.view.GrammarPronunciationCheckView
 import com.binas.yak.util.DailyFlashcardQueue
 import com.binas.yak.util.SpacedRepetitionScheduler
-import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -17,7 +16,9 @@ class GrammarPronunciationCheckPresenterImpl<V: GrammarPronunciationCheckView, I
 
     override fun reviseCard(remembered: Boolean, id: Long) {
         interactor?.let {
+            var timeStudiedMilies = getView()?.getDuration()
             var coroutine = GlobalScope.launch {
+                updateTimeStudied(it, timeStudiedMilies)
                 var card = it.getCard(id)
                 scheduler?.schedule(card, remembered)
                 it.saveCard(card)
@@ -33,6 +34,18 @@ class GrammarPronunciationCheckPresenterImpl<V: GrammarPronunciationCheckView, I
                 }
             }
             while (!coroutine.isCompleted){}
+        }
+    }
+
+    private fun updateTimeStudied(it: GrammarPronunciationCheckInteractor, time: Long?) {
+        var id = preferenceHelper.getCurrentUserId()
+        var currentTotal = it.getUserStudyTime(id)
+        var totalMinutes = currentTotal + ((time!!.toDouble() / 1000 ) / 60)
+        it.setUserStudyTime(id, totalMinutes)
+        var firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
+        preferenceHelper.getCurrentUserEmail()?.let { email ->
+            firestore.collection("users").document(email)
+                .update("totalMinutesStudied", totalMinutes)
         }
     }
 }

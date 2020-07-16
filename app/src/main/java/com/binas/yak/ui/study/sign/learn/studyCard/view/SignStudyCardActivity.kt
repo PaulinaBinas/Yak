@@ -35,7 +35,6 @@ class SignStudyCardActivity : BaseActivity(), SignStudyCardView {
     private var id: Long? = null
     private var timeLeft = 0L
     private var timeStarted = 0L
-    private var timeEnded = 0L
     @Inject
     lateinit var presenter: SignStudyCardPresenter<SignStudyCardView, SignStudyCardInteractor>
 

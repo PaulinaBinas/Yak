@@ -9,4 +9,6 @@ interface SignReviseWithDecisionView: BaseView {
     fun setContent(card: SignRevisionFlashcard, sign: Sign, incorrectSign: Sign?)
 
     fun clickSoundButton()
+
+    fun getDuration(): Long
 }

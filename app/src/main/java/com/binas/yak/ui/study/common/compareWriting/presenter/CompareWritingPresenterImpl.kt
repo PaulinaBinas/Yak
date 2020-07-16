@@ -6,7 +6,6 @@ import com.binas.yak.ui.study.common.compareWriting.interactor.CompareWritingInt
 import com.binas.yak.ui.study.common.compareWriting.view.CompareWritingView
 import com.binas.yak.util.DailyFlashcardQueue
 import com.binas.yak.util.SpacedRepetitionScheduler
-import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -17,7 +16,9 @@ class CompareWritingPresenterImpl<V: CompareWritingView, I: CompareWritingIntera
 
     override fun reviseCard(type: String, id: Long, remembered: Boolean) {
         interactor?.let {
+            var timeStudiedMilies = getView()?.getDuration()
             var coroutine = GlobalScope.launch {
+                updateTimeStudied(it, timeStudiedMilies)
                 var card = it.getCard(id, type)
                 if (card != null) {
                     scheduler?.schedule(card, remembered)
@@ -40,6 +41,18 @@ class CompareWritingPresenterImpl<V: CompareWritingView, I: CompareWritingIntera
                 }
             }
             while (!coroutine.isCompleted){}
+        }
+    }
+
+    private fun updateTimeStudied(it: CompareWritingInteractor, time: Long?) {
+        var id = preferenceHelper.getCurrentUserId()
+        var currentTotal = it.getUserStudyTime(id)
+        var totalMinutes = currentTotal + ((time!!.toDouble() / 1000 ) / 60)
+        it.setUserStudyTime(id, totalMinutes)
+        var firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
+        preferenceHelper.getCurrentUserEmail()?.let { email ->
+            firestore.collection("users").document(email)
+                .update("totalMinutesStudied", totalMinutes)
         }
     }
 }
