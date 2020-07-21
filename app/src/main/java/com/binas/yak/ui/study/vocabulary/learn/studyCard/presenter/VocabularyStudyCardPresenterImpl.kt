@@ -11,10 +11,10 @@ import javax.inject.Inject
 class VocabularyStudyCardPresenterImpl<V: VocabularyStudyCardView, I: VocabularyStudyCardInteractor>
 @Inject internal constructor(interactor: I, var preferenceHelper: PreferenceHelper): BasePresenter<V, I>(interactor = interactor), VocabularyStudyCardPresenter<V, I> {
 
-    override fun start() {
+    override fun start(id: Long) {
         interactor?.let {
             var coroutine = GlobalScope.launch {
-                var card = it.getVocabularyStudyFlashcard(1)
+                var card = it.getVocabularyStudyFlashcard(id)
                 var vocab = it.getVocabulary(card.vocabularyId)
                 var translation = vocab.translationId?.let { it1 -> it.getTranslation(it1) }
                 getView()?.setContent(card, vocab, translation)

@@ -6,5 +6,5 @@ import com.binas.yak.ui.study.vocabulary.learn.studyCard.view.VocabularyStudyCar
 
 interface VocabularyStudyCardPresenter<V: VocabularyStudyCardView, I: VocabularyStudyCardInteractor>: Presenter<V, I> {
 
-    fun start()
+    fun start(id: Long)
 }

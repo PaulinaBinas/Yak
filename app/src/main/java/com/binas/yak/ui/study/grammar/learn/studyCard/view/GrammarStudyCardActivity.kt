@@ -38,13 +38,15 @@ class GrammarStudyCardActivity : BaseActivity(), GrammarStudyCardView {
     private var grammarId: Long? = null
     private var timeLeft = 0L
     private var timeStarted = 0L
+    private var id = 0L
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_grammar_study_card)
         timeLeft = intent.getLongExtra("time", 0L)
+        id = intent.getLongExtra("id", 1L)
         presenter?.onAttach(this)
-        presenter?.start()
+        presenter?.start(id)
         timeStarted = SystemClock.elapsedRealtime()
         startTimer()
     }

@@ -29,7 +29,7 @@ class VocabularyStudyCardActivity : BaseActivity(), VocabularyStudyCardView {
     private var playing: Boolean = false
     private var imageName: String = ""
     private var soundName: String = ""
-    private var id: Long? = null
+    private var id = 0L
     private var timeLeft = 0L
     private var timeStarted = 0L
     private var timeEnded = 0L
@@ -40,8 +40,9 @@ class VocabularyStudyCardActivity : BaseActivity(), VocabularyStudyCardView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_vocabulary_study_card)
         timeLeft = intent.getLongExtra("time", 0L)
+        id = intent.getLongExtra("id", 1L)
         presenter?.onAttach(this)
-        presenter?.start()
+        presenter?.start(id)
         startTimer()
         timeStarted = SystemClock.elapsedRealtime()
     }
