@@ -20,10 +20,11 @@ import javax.inject.Inject
 
 class StudyPresenterImpl<V: StudyView, I: StudyInteractor> @Inject internal constructor(var preferenceHelper: PreferenceHelper, interactor: I, var queue: DailyFlashcardQueue): BasePresenter<V, I>(interactor = interactor), StudyPresenter<V, I> {
 
+    private var newDailyItems = 0
+
     override fun start() {
         interactor?.let { it ->
             var studyOrder: List<StudyOrder> = ArrayList()
-            var newDailyItems = 0
             var coroutine = GlobalScope.launch {
                 var day = it.getStudyDay()
                 newDailyItems = it.getStudyDay()?.elementsStudied ?: 0
@@ -40,7 +41,6 @@ class StudyPresenterImpl<V: StudyView, I: StudyInteractor> @Inject internal cons
                 for(item in studyOrder) {
                     if (newDailyItems < dailyLimit) {
                         addStudyCardToQueue(item, it)
-                        newDailyItems++
                     }
                 }
                 addRevisionCardsToQueue(it)
@@ -56,16 +56,19 @@ class StudyPresenterImpl<V: StudyView, I: StudyInteractor> @Inject internal cons
                 var card = it.getSignStudyCard(item.signStudyId!!)
                 if(card.ifStudied == 0L) {
                     queue.addFlashcard(card)
+                    newDailyItems++
                 }
             } else if (item.vocabularyStudyId != null) {
                 var card = it.getVocabularyStudyFlashcard(item.vocabularyStudyId!!)
                 if(card.ifStudied == 0L) {
                     queue.addFlashcard(card)
+                    newDailyItems++
                 }
             } else if (item.grammarStudyId != null) {
                 var card = it.getGrammarStudyFlashcard(item.grammarStudyId!!)
                 if(card.ifStudied == 0L) {
                     queue.addFlashcard(card)
+                    newDailyItems++
                 }
             }
         }
