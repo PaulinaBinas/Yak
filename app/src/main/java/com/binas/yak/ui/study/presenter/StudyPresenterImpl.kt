@@ -16,7 +16,9 @@ import com.binas.yak.ui.study.view.StudyView
 import com.binas.yak.util.DailyFlashcardQueue
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import java.util.*
 import javax.inject.Inject
+import kotlin.collections.ArrayList
 
 class StudyPresenterImpl<V: StudyView, I: StudyInteractor> @Inject internal constructor(var preferenceHelper: PreferenceHelper, interactor: I, var queue: DailyFlashcardQueue): BasePresenter<V, I>(interactor = interactor), StudyPresenter<V, I> {
 
@@ -44,6 +46,10 @@ class StudyPresenterImpl<V: StudyView, I: StudyInteractor> @Inject internal cons
                     }
                 }
                 addRevisionCardsToQueue(it)
+            } else if(newDailyItems >= dailyLimit) {
+                var shuffledList = LinkedList<Flashcard>()
+                queue.todaysFlashcards.shuffled().forEach { card -> shuffledList.add(card) }
+                queue.todaysFlashcards = shuffledList
             }
             queue.getNextFlashcard()?.let { nextItem = it }
             nextItem?.let { goToNextView(it) } ?: getView()?.displayStudyOver()
