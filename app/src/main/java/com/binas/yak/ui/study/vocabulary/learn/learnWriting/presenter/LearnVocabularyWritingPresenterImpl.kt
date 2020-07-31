@@ -36,6 +36,11 @@ class LearnVocabularyWritingPresenterImpl<V: LearnVocabularyWritingView, I: Lear
                     preferenceHelper.getCurrentUserEmail()?.let { email ->
                         var user = firestore.collection("users").document(email)
                         user.update("studiedFlashcards", FieldValue.arrayUnion(flashcard))
+                        val data = hashMapOf(
+                            "day" to studyDay.date.toString(),
+                            "elementsStudied" to studyDay.elementsStudied
+                        )
+                        user.collection("studyDays").document(studyDay.date.toString()).set(data)
                     }
                 }
             }
