@@ -13,7 +13,9 @@ class DailyFlashcardQueueImpl: DailyFlashcardQueue {
     }
 
     override fun removeFlashcard() {
-        todaysFlashcards.remove()
+        if(todaysFlashcards.isNotEmpty()) {
+            todaysFlashcards.remove()
+        }
     }
 
     override fun getNextFlashcard(): Flashcard? {
