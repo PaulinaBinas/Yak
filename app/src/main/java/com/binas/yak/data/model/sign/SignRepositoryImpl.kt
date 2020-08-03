@@ -17,7 +17,9 @@ class SignRepositoryImpl @Inject internal constructor(var signDao: SignDao): Sig
     }
 
     override fun getSignByFlashcardId(id: Long): Sign {
-        return signDao.getSignByFlashcardId(id)
+        var sign = signDao.getSignByFlashcardId(id)
+        if(sign.id == 21L && sign.audioFileName.equals("sha")) sign.audioFileName = "zha"
+        return sign
     }
 
     override fun addSignStudyFlashcards(flashcards: List<SignStudyFlashcard>) {
