@@ -16,11 +16,14 @@ class SpacedRepetitionSchedulerTest {
         /* arrange */
         val scheduler: SpacedRepetitionScheduler =
             SpacedRepetitionSchedulerImpl()
+        var revisionFlashcard = SignRevisionFlashcard(1, RevisionType.PRONUNCIATION, 1)
 
         /* act */
+        scheduler.schedule(revisionFlashcard, false)
 
         /* assert */
-
+        assertEquals(revisionFlashcard.nextDisplayTime, LocalDate.now())
+        assertEquals(revisionFlashcard.retention, 0.0)
     }
 
     @Test

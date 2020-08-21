@@ -4,7 +4,6 @@ import com.binas.yak.data.model.RevisionFlashcard
 import com.binas.yak.util.SpacedRepetitionScheduler
 import java.time.LocalDate
 import java.time.temporal.ChronoUnit
-import javax.inject.Inject
 import javax.inject.Singleton
 import kotlin.math.exp
 

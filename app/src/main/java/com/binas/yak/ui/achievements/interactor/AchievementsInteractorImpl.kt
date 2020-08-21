@@ -5,7 +5,7 @@ import com.binas.yak.data.preferences.PreferenceHelper
 import com.binas.yak.ui.base.interactor.BaseInteractor
 import javax.inject.Inject
 
-class AchievementsInteractorImpl @Inject internal constructor(preferenceHelper: PreferenceHelper, var achievementsRepo: AchievementsRepository):
+open class AchievementsInteractorImpl @Inject internal constructor(preferenceHelper: PreferenceHelper, var achievementsRepo: AchievementsRepository):
     BaseInteractor(preferenceHelper), AchievementsInteractor {
 
     override fun getSignsStudied(): Int {

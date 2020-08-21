@@ -23,4 +23,8 @@ class AchievementsPresenterImpl<V: AchievementsView, I: AchievementsInteractor>
             }
         }
     }
+
+    override fun setInteractor(interactor: I) {
+        this.interactor = interactor
+    }
 }
