@@ -41,8 +41,10 @@ class SignReviseWithDecisionPresenterImpl<V: SignReviseWithDecisionView, I: Sign
                     var firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
                     preferenceHelper.getCurrentUserEmail()?.let { email ->
                         var idNumber = "1" + card.id.toString()
-                        firestore.collection("users").document(email)
-                            .collection("revisedFlashcards").document(idNumber).set(card)
+                        if(email.isNotEmpty()) {
+                            firestore.collection("users").document(email)
+                                .collection("revisedFlashcards").document(idNumber).set(card)
+                        }
                     }
                     queue.removeFlashcard()
                     if(!remembered) {
@@ -61,8 +63,10 @@ class SignReviseWithDecisionPresenterImpl<V: SignReviseWithDecisionView, I: Sign
         it.setUserStudyTime(id, totalMinutes)
         var firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
         preferenceHelper.getCurrentUserEmail()?.let { email ->
-            firestore.collection("users").document(email)
-                .update("totalMinutesStudied", totalMinutes)
+            if(email.isNotEmpty()) {
+                firestore.collection("users").document(email)
+                    .update("totalMinutesStudied", totalMinutes)
+            }
         }
     }
 

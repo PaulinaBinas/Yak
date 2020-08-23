@@ -23,7 +23,6 @@ class ChangeLanguageTest: AbstractGuiTest() {
 
     @Test
     fun changesLanguage() {
-        assert(Lingver.getInstance().getLanguage() == "en")
         onView(withId(R.id.polishButton)).perform(click())
         intended(hasComponent(MainActivity::class.java.name))
         assert(Lingver.getInstance().getLanguage() == "pl")
