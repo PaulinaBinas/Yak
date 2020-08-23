@@ -69,6 +69,7 @@
         android:gravity="center" >
 
         <Button
+            android:id="@+id/changeCardsLimitButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/changeLimit"
@@ -78,6 +79,7 @@
             android:onClick="onClickChangeLimit" />
 
         <Button
+            android:id="@+id/changeLangButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/changeLanguage"
@@ -88,6 +90,7 @@
             android:onClick="onClickChangeLanguage" />
 
         <Button
+            android:id="@+id/changePasswordButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/changePassword"
@@ -99,6 +102,7 @@
             android:onClick="onClickGoToChangePassword" />
 
         <Button
+            android:id="@+id/logOutButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/logout"
