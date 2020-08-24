@@ -13,7 +13,7 @@ class VocabularyReviseMeaningPresenterImpl<V: VocabularyReviseMeaningView, I: Vo
     override fun start(id: Long) {
         interactor?.let {
             var coroutine = GlobalScope.launch {
-                var card = it.getVocabularyRevisionFlashcard(1)
+                var card = it.getVocabularyRevisionFlashcard(id)
                 var word = it.getVocabulary(card.vocabularyId)
                 var translation = word.translationId?.let { it1 -> it.getTranslation(it1) }
                 getView()?.setContent(card, word, translation)

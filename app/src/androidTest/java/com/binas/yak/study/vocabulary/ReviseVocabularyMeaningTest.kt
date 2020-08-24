@@ -13,30 +13,32 @@ import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.rule.ActivityTestRule
 import com.binas.yak.AbstractGuiTest
 import com.binas.yak.R
-import com.binas.yak.ui.study.common.pronunciationCheck.view.PronunciationCheckActivity
-import com.binas.yak.ui.study.vocabulary.reviseSound.view.VocabularyReviseSoundActivity
+import com.binas.yak.ui.study.common.meaningCheck.view.MeaningCheckActivity
+import com.binas.yak.ui.study.vocabulary.reviseMeaning.view.VocabularyReviseMeaningActivity
 import org.junit.Rule
 import org.junit.Test
 
 @LargeTest
-class ReviseVocabularySoundTest: AbstractGuiTest() {
+class ReviseVocabularyMeaningTest: AbstractGuiTest() {
 
     @get:Rule
-    val mActivityTestRule: ActivityTestRule<VocabularyReviseSoundActivity> =
-        object : ActivityTestRule<VocabularyReviseSoundActivity>(VocabularyReviseSoundActivity::class.java) {
+    val mActivityTestRule: ActivityTestRule<VocabularyReviseMeaningActivity> =
+        object : ActivityTestRule<VocabularyReviseMeaningActivity>(VocabularyReviseMeaningActivity::class.java) {
             override fun getActivityIntent(): Intent {
                 val targetContext = InstrumentationRegistry.getInstrumentation().targetContext
-                return Intent(targetContext, VocabularyReviseSoundActivity::class.java).apply {
-                    putExtra("id", 5L)
+                return Intent(targetContext, VocabularyReviseMeaningActivity::class.java).apply {
+                    putExtra("id", 4L)
                     putExtra("time", 100_000_000L)
                 }
             }
         }
 
     @Test
-    fun  displaysAllActivitiesCorrect() {
+    fun displaysAllActivitiesCorrectly() {
+        onView(withId(R.id.vocabularyTextView)).check(matches(withText("ང་")))
         onView(withId(R.id.nextButton)).perform(click())
-        intended(hasComponent(PronunciationCheckActivity::class.java.name))
-        onView(withId(R.id.textView)).check(matches(withText("ང་")))
+        intended(hasComponent(MeaningCheckActivity::class.java.name))
+        onView(withId(R.id.translationTextView)).check(matches(withText("I")))
+        onView(withId(R.id.tibetanWordTextView)).check(matches(withText("ང་")))
     }
 }
