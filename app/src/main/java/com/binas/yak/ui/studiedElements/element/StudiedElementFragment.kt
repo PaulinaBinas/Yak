@@ -1,7 +1,5 @@
 package com.binas.yak.ui.studiedElements.element
 
-import android.app.Activity
-import android.content.Intent
 import android.content.res.Resources
 import android.graphics.Color
 import android.media.MediaPlayer
@@ -11,7 +9,6 @@ import android.text.SpannableStringBuilder
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.FrameLayout
 import android.widget.LinearLayout
 import androidx.core.text.color
 import androidx.fragment.app.Fragment
@@ -20,7 +17,6 @@ import com.binas.yak.data.model.grammar.Grammar
 import com.binas.yak.data.model.sign.Sign
 import com.binas.yak.data.model.vocabulary.Vocabulary
 import com.binas.yak.ui.others.animation.AnimationFragment
-import com.binas.yak.ui.studiedElements.details.view.StudiedElementDetailsActivity
 import com.binas.yak.ui.studiedElements.view.StudiedElementsActivity
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.fragment_animation.*
@@ -85,6 +81,7 @@ class StudiedElementFragment : Fragment() {
         fragment.animationView.setOnClickListener {
             (activity as StudiedElementsActivity).onClickGoToStudiedElementDetails(sign, null, null)
         }
+        fragment.animationView.contentDescription = "sign" + this.sign?.id
     }
 
     private fun setupVocabulary(){
