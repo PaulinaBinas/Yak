@@ -34,13 +34,15 @@ class LearnGrammarWritingPresenterImpl<V: LearnGrammarWritingView, I: LearnGramm
                     var flashcard = it.getGrammarStudyFlashcard(id)
                     var firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
                     preferenceHelper.getCurrentUserEmail()?.let { email ->
-                        var user = firestore.collection("users").document(email)
-                        user.update("studiedFlashcards", FieldValue.arrayUnion(flashcard))
-                        val data = hashMapOf(
-                            "day" to studyDay.date.toString(),
-                            "elementsStudied" to studyDay.elementsStudied
-                        )
-                        user.collection("studyDays").document(studyDay.date.toString()).set(data)
+                        if(email.isNotEmpty()) {
+                            var user = firestore.collection("users").document(email)
+                            user.update("studiedFlashcards", FieldValue.arrayUnion(flashcard))
+                            val data = hashMapOf(
+                                "day" to studyDay.date.toString(),
+                                "elementsStudied" to studyDay.elementsStudied
+                            )
+                            user.collection("studyDays").document(studyDay.date.toString()).set(data)
+                        }
                     }
                 }
             }
@@ -59,8 +61,10 @@ class LearnGrammarWritingPresenterImpl<V: LearnGrammarWritingView, I: LearnGramm
         it.setUserStudyTime(id, totalMinutes)
         var firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
         preferenceHelper.getCurrentUserEmail()?.let { email ->
-            firestore.collection("users").document(email)
-                .update("totalMinutesStudied", totalMinutes)
+            if(email.isNotEmpty()) {
+                firestore.collection("users").document(email)
+                    .update("totalMinutesStudied", totalMinutes)
+            }
         }
     }
 
