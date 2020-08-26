@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.activity_learn_vocabulary_writing.*
 import kotlinx.android.synthetic.main.fragment_action_bar_with_timer.*
 import javax.inject.Inject
 
-class LearnVocabularyWritingActivity : BaseActivity(), LearnVocabularyWritingView {
+open class LearnVocabularyWritingActivity : BaseActivity(), LearnVocabularyWritingView {
 
     @Inject
     lateinit var presenter: LearnVocabularyWritingPresenter<LearnVocabularyWritingView, LearnVocabularyWritingInteractor>

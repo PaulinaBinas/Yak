@@ -24,7 +24,7 @@ import kotlinx.android.synthetic.main.fragment_action_bar_with_timer.*
 import kotlinx.android.synthetic.main.fragment_animation.*
 import javax.inject.Inject
 
-class SignStudyCardActivity : BaseActivity(), SignStudyCardView {
+open class SignStudyCardActivity : BaseActivity(), SignStudyCardView {
 
     private var playing: Boolean = false
     private var imgName: String = ""

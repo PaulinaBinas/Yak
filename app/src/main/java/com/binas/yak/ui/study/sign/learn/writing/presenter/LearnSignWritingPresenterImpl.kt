@@ -21,9 +21,9 @@ class LearnSignWritingPresenterImpl<V: LearnSignWritingView, I: LearnSignWriting
             var timeStudiedMilies = getView()?.getDuration()
             var cards: List<SignRevisionFlashcard> = ArrayList()
             var coroutine = GlobalScope.launch {
+                cards = it.getAllMatchingRevisionFlashcards(id)
                 updateTimeStudied(it, timeStudiedMilies)
                 it.scheduleReviewsOfSign(id)
-                cards = it.getAllMatchingRevisionFlashcards(id)
                 var studyDay = it.getStudyDate()
                 if(studyDay == null) {
                     studyDay = StudyDay(null)

@@ -9,7 +9,7 @@ import com.binas.yak.data.model.user.UserRepository
 import java.time.LocalDate
 import javax.inject.Inject
 
-class LearnGrammarWritingInteractorImpl @Inject internal constructor(var userRepository: UserRepository, var studyDayRepo: StudyDayRepository, var grammarRepo: GrammarRepository): LearnGrammarWritingInteractor {
+open class LearnGrammarWritingInteractorImpl @Inject internal constructor(var userRepository: UserRepository, var studyDayRepo: StudyDayRepository, var grammarRepo: GrammarRepository): LearnGrammarWritingInteractor {
     override fun scheduleReviewsOfGrammar(id: Long) {
         var today = LocalDate.now()
         grammarRepo.scheduleReviewsOfGrammar(id, today)

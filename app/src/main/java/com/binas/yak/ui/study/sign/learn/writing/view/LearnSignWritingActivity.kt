@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.fragment_action_bar_with_timer.*
 import kotlinx.android.synthetic.main.fragment_animation.*
 import javax.inject.Inject
 
-class LearnSignWritingActivity : BaseActivity(), LearnSignWritingView {
+open class LearnSignWritingActivity : BaseActivity(), LearnSignWritingView {
 
     @Inject
     lateinit var presenter: LearnSignWritingPresenter<LearnSignWritingView, LearnSignWritingInteractor>

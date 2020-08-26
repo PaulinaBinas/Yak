@@ -12,7 +12,7 @@ import org.junit.Rule
 import org.junit.Test
 
 @LargeTest
-class AchievementsTest {
+class AchievementsUITest {
 
     @get:Rule
     val activityRule = ActivityTestRule(AchievementsActivity::class.java)
@@ -20,7 +20,7 @@ class AchievementsTest {
     @Test
     fun displaysCorrectData() {
         onView(withId(R.id.signsCount)).check(matches(withSubstring("0/111")))
-        onView(withId(R.id.wordsCount)).check(matches(withSubstring("0/500")))
+        onView(withId(R.id.wordsCount)).check(matches(withSubstring("1/500")))
         onView(withId(R.id.grammarCount)).check(matches(withSubstring("0/205")))
     }
 }

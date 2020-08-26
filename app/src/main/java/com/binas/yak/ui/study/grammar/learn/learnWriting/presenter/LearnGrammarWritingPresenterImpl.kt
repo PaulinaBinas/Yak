@@ -21,9 +21,9 @@ class LearnGrammarWritingPresenterImpl<V: LearnGrammarWritingView, I: LearnGramm
             var timeStudiedMilies = getView()?.getDuration()
             var cards: List<GrammarRevisionFlashcard> = ArrayList()
             var coroutine = GlobalScope.launch {
+                cards = it.getAllMatchingRevisionFlashcards(id)
                 updateTimeStudied(it, timeStudiedMilies)
                 it.scheduleReviewsOfGrammar(id)
-                cards = it.getAllMatchingRevisionFlashcards(id)
                 GlobalScope.launch {
                     var studyDay = it.getStudyDay()
                     if(studyDay == null) {

@@ -25,7 +25,7 @@ import kotlinx.android.synthetic.main.activity_grammar_study_card.*
 import kotlinx.android.synthetic.main.fragment_action_bar_with_timer.*
 import javax.inject.Inject
 
-class GrammarStudyCardActivity : BaseActivity(), GrammarStudyCardView {
+open class GrammarStudyCardActivity : BaseActivity(), GrammarStudyCardView {
 
     @Inject
     lateinit var presenter: GrammarStudyCardPresenter<GrammarStudyCardView, GrammarStudyCardInteractor>

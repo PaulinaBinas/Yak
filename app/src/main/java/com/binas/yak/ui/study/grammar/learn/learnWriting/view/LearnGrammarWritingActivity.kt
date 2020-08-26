@@ -19,7 +19,7 @@ import kotlinx.android.synthetic.main.activity_learn_grammar_writing.*
 import kotlinx.android.synthetic.main.fragment_action_bar_with_timer.*
 import javax.inject.Inject
 
-class LearnGrammarWritingActivity : BaseActivity(), LearnGrammarWritingView {
+open class LearnGrammarWritingActivity : BaseActivity(), LearnGrammarWritingView {
 
     @Inject
     lateinit var presenter: LearnGrammarWritingPresenter<LearnGrammarWritingView, LearnGrammarWritingInteractor>

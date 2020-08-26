@@ -24,7 +24,7 @@ import kotlinx.android.synthetic.main.fragment_action_bar_with_timer.*
 import kotlinx.android.synthetic.main.fragment_image.*
 import javax.inject.Inject
 
-class VocabularyStudyCardActivity : BaseActivity(), VocabularyStudyCardView {
+open class VocabularyStudyCardActivity : BaseActivity(), VocabularyStudyCardView {
 
     private var playing: Boolean = false
     private var imageName: String = ""

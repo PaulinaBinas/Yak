@@ -26,10 +26,10 @@ class SpacedRepetitionSchedulerImpl: SpacedRepetitionScheduler {
     }
 
     override fun calculateRetention(days: Int, interval: Long): Double {
-        if(interval != 0L)  {
+        return if(interval != 0L)  {
             val argument = (days * (-1)) / (4.5 * interval)
-            return exp(argument)
-        } else return 0.0
+            exp(argument)
+        } else 0.0
     }
 
     private fun calculateNextDisplayTime(flashcard: RevisionFlashcard): LocalDate {
@@ -48,7 +48,7 @@ class SpacedRepetitionSchedulerImpl: SpacedRepetitionScheduler {
         var current: Long = 1
         var next: Long = 2
         while(current != number) {
-            next = current + next
+            next += current
             current = next - current
         }
         return next;

@@ -9,7 +9,7 @@ import com.binas.yak.data.model.vocabulary.VocabularyStudyFlashcard
 import java.time.LocalDate
 import javax.inject.Inject
 
-class LearnVocabularyWritingInteractorImpl @Inject internal constructor(var userRepo: UserRepository, var studyDayRepo: StudyDayRepository ,var vocabularyRepo: VocabularyRepository): LearnVocabularyWritingInteractor {
+open class LearnVocabularyWritingInteractorImpl @Inject internal constructor(var userRepo: UserRepository, var studyDayRepo: StudyDayRepository ,var vocabularyRepo: VocabularyRepository): LearnVocabularyWritingInteractor {
 
     override fun scheduleReviewsOfVocabulary(id: Long) {
         var today = LocalDate.now()

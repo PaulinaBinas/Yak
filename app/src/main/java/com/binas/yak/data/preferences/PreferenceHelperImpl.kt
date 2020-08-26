@@ -6,7 +6,7 @@ import androidx.core.content.edit
 import com.binas.yak.di.PreferenceInfo
 import javax.inject.Inject
 
-class PreferenceHelperImpl @Inject constructor(context: Context, @PreferenceInfo prefFileName: String): PreferenceHelper {
+open class PreferenceHelperImpl @Inject constructor(context: Context, @PreferenceInfo prefFileName: String): PreferenceHelper {
 
     companion object {
         private val DAILY_CARD_LIMIT = "DAILY_CARD_LIMIT"

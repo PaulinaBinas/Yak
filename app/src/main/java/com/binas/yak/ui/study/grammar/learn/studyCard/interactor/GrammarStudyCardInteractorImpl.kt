@@ -7,7 +7,7 @@ import com.binas.yak.data.model.translation.Translation
 import com.binas.yak.data.model.translation.TranslationRepository
 import javax.inject.Inject
 
-class GrammarStudyCardInteractorImpl @Inject internal constructor(var grammarRepo: GrammarRepository, var translationRepo: TranslationRepository): GrammarStudyCardInteractor {
+open class GrammarStudyCardInteractorImpl @Inject internal constructor(var grammarRepo: GrammarRepository, var translationRepo: TranslationRepository): GrammarStudyCardInteractor {
 
     override fun getGrammarStudyCard(id: Long): GrammarStudyFlashcard {
         return grammarRepo.getGrammarStudyCard(id)

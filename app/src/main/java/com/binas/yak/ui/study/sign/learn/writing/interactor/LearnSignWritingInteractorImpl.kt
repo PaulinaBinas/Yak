@@ -9,7 +9,7 @@ import com.binas.yak.data.model.user.UserRepository
 import java.time.LocalDate
 import javax.inject.Inject
 
-class LearnSignWritingInteractorImpl @Inject internal constructor(var signRepo: SignRepository, var studyDayRepo: StudyDayRepository, var userRepo: UserRepository): LearnSignWritingInteractor {
+open class LearnSignWritingInteractorImpl @Inject internal constructor(var signRepo: SignRepository, var studyDayRepo: StudyDayRepository, var userRepo: UserRepository): LearnSignWritingInteractor {
 
     override fun scheduleReviewsOfSign(id: Long) {
         var today = LocalDate.now()
