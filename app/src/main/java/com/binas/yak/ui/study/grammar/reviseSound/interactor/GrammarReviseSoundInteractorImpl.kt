@@ -7,7 +7,7 @@ import com.binas.yak.data.model.translation.Translation
 import com.binas.yak.data.model.translation.TranslationRepository
 import javax.inject.Inject
 
-class GrammarReviseSoundInteractorImpl @Inject internal constructor(var grammarRepo: GrammarRepository, var translationRepo: TranslationRepository): GrammarReviseSoundInteractor {
+open class GrammarReviseSoundInteractorImpl @Inject internal constructor(var grammarRepo: GrammarRepository, var translationRepo: TranslationRepository): GrammarReviseSoundInteractor {
 
     override fun getGrammarRevisionFlashcard(id: Long): GrammarRevisionFlashcard {
         return grammarRepo.getGrammarRevisionCard(id)

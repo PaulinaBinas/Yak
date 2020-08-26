@@ -20,7 +20,7 @@ import kotlinx.android.synthetic.main.activity_grammar_revise_writing.*
 import kotlinx.android.synthetic.main.fragment_action_bar_with_timer.*
 import javax.inject.Inject
 
-class GrammarReviseWritingActivity : BaseActivity(), GrammarReviseWritingView {
+open class GrammarReviseWritingActivity : BaseActivity(), GrammarReviseWritingView {
 
     @Inject
     internal lateinit var presenter: GrammarReviseWritingPresenter<GrammarReviseWritingView,

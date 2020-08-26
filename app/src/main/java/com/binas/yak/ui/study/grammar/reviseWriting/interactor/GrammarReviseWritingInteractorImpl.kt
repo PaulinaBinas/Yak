@@ -7,7 +7,7 @@ import com.binas.yak.data.preferences.PreferenceHelper
 import com.binas.yak.ui.base.interactor.BaseInteractor
 import javax.inject.Inject
 
-class GrammarReviseWritingInteractorImpl @Inject internal constructor(preferenceHelper: PreferenceHelper, var grammarRepo: GrammarRepository):
+open class GrammarReviseWritingInteractorImpl @Inject internal constructor(preferenceHelper: PreferenceHelper, var grammarRepo: GrammarRepository):
     BaseInteractor(preferenceHelper), GrammarReviseWritingInteractor {
 
     override fun getGrammarRevisionFlashcard(id: Long): GrammarRevisionFlashcard {

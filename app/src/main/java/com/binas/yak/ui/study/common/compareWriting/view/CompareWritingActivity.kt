@@ -25,7 +25,7 @@ import kotlinx.android.synthetic.main.fragment_image.*
 import javax.inject.Inject
 
 
-class CompareWritingActivity : BaseActivity(), CompareWritingView {
+open class CompareWritingActivity : BaseActivity(), CompareWritingView {
 
     @Inject
     lateinit var presenter: CompareWritingPresenter<CompareWritingView, CompareWritingInteractor>

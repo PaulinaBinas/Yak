@@ -10,4 +10,8 @@ interface CompareWritingInteractor: Interactor {
     fun saveCard(card: RevisionFlashcard, type: String)
     fun getUserStudyTime(id: Long): Double
     fun setUserStudyTime(id: Long, time: Double)
+
+    fun updateTimeStudied(email: String, time: Double)
+
+    fun updateRevisedFlashcards(email: String, card: RevisionFlashcard, type: String)
 }

@@ -24,7 +24,7 @@ import kotlinx.android.synthetic.main.activity_grammar_pronunciation_check.*
 import kotlinx.android.synthetic.main.fragment_action_bar_with_timer.*
 import javax.inject.Inject
 
-class GrammarPronunciationCheckActivity : BaseActivity(), GrammarPronunciationCheckView {
+open class GrammarPronunciationCheckActivity : BaseActivity(), GrammarPronunciationCheckView {
 
     @Inject
     lateinit var presenter: GrammarPronunciationCheckPresenter<GrammarPronunciationCheckView, GrammarPronunciationCheckInteractor>

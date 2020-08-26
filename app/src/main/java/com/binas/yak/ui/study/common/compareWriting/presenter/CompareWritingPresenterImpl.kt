@@ -23,16 +23,8 @@ class CompareWritingPresenterImpl<V: CompareWritingView, I: CompareWritingIntera
                 if (card != null) {
                     scheduler?.schedule(card, remembered)
                     it.saveCard(card, type)
-                    var firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
                     preferenceHelper.getCurrentUserEmail()?.let { email ->
-                        var idNumber = when(type) {
-                            "sign" -> "1" + card.id.toString()
-                            "vocabulary" -> "2" + card.id.toString()
-                            "grammar" -> "3" + card.id.toString()
-                            else -> card.id.toString()
-                        }
-                        firestore.collection("users").document(email)
-                            .collection("revisedFlashcards").document(idNumber).set(card)
+                        it.updateRevisedFlashcards(email, card, type)
                     }
                     queue.removeFlashcard()
                     if(!remembered) {
@@ -49,10 +41,8 @@ class CompareWritingPresenterImpl<V: CompareWritingView, I: CompareWritingIntera
         var currentTotal = it.getUserStudyTime(id)
         var totalMinutes = currentTotal + ((time!!.toDouble() / 1000 ) / 60)
         it.setUserStudyTime(id, totalMinutes)
-        var firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
         preferenceHelper.getCurrentUserEmail()?.let { email ->
-            firestore.collection("users").document(email)
-                .update("totalMinutesStudied", totalMinutes)
+            it.updateTimeStudied(email, totalMinutes)
         }
     }
 }

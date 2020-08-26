@@ -23,7 +23,7 @@ import kotlinx.android.synthetic.main.activity_grammar_revise_sound.*
 import kotlinx.android.synthetic.main.fragment_action_bar_with_timer.*
 import javax.inject.Inject
 
-class GrammarReviseSoundActivity : BaseActivity(), GrammarReviseSoundView {
+open class GrammarReviseSoundActivity : BaseActivity(), GrammarReviseSoundView {
 
     @Inject
     lateinit var presenter: GrammarReviseSoundPresenter<GrammarReviseSoundView, GrammarReviseSoundInteractor>
