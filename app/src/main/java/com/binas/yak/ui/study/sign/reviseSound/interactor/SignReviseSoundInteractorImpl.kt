@@ -1,12 +1,11 @@
 package com.binas.yak.ui.study.sign.reviseSound.interactor
 
-import com.binas.yak.data.model.RevisionType
 import com.binas.yak.data.model.sign.Sign
 import com.binas.yak.data.model.sign.SignRepository
 import com.binas.yak.data.model.sign.SignRevisionFlashcard
 import javax.inject.Inject
 
-class SignReviseSoundInteractorImpl @Inject internal constructor(var signRepo: SignRepository): SignReviseSoundInteractor {
+open class SignReviseSoundInteractorImpl @Inject internal constructor(var signRepo: SignRepository): SignReviseSoundInteractor {
 
     override fun getSignRevisionCard(id: Long): SignRevisionFlashcard {
         return signRepo.getSignRevisionFlashcardById(id)

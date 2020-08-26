@@ -22,7 +22,7 @@ import kotlinx.android.synthetic.main.fragment_animation.*
 import kotlinx.android.synthetic.main.fragment_image.*
 import javax.inject.Inject
 
-class PronunciationCheckActivity : BaseActivity(), PronunciationCheckView {
+open class PronunciationCheckActivity : BaseActivity(), PronunciationCheckView {
 
     @Inject
     lateinit var presenenter: PronunciationCheckPresenter<PronunciationCheckView, PronunciationCheckInteractor>

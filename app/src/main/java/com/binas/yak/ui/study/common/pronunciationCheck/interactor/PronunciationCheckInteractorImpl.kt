@@ -8,7 +8,7 @@ import com.binas.yak.data.model.vocabulary.VocabularyRepository
 import com.binas.yak.data.model.vocabulary.VocabularyRevisionFlashcard
 import javax.inject.Inject
 
-class PronunciationCheckInteractorImpl @Inject internal constructor(var userRepo: UserRepository, var signRepo: SignRepository, var vocabularyRepo: VocabularyRepository): PronunciationCheckInteractor {
+open class PronunciationCheckInteractorImpl @Inject internal constructor(var userRepo: UserRepository, var signRepo: SignRepository, var vocabularyRepo: VocabularyRepository): PronunciationCheckInteractor {
 
     override fun getCard(id: Long, type: String): RevisionFlashcard? {
         when(type) {

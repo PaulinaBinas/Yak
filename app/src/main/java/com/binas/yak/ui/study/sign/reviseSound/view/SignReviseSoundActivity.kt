@@ -20,7 +20,7 @@ import kotlinx.android.synthetic.main.fragment_action_bar_with_timer.*
 import kotlinx.android.synthetic.main.fragment_animation.*
 import javax.inject.Inject
 
-class SignReviseSoundActivity : BaseActivity(), SignReviseSoundView {
+open class SignReviseSoundActivity : BaseActivity(), SignReviseSoundView {
 
     private var audioFileName: String = ""
     private var imageFileName: String = ""

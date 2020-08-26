@@ -53,14 +53,14 @@ class ReviseGrammarWritingUnitTest {
         var queue = DailyFlashcardQueueImpl()
         var scheduler = SpacedRepetitionSchedulerImpl()
         var presenter = CompareWritingPresenterImpl<CompareWritingView, CompareWritingInteractor>(checkInteractor, queue, scheduler, preferenceHelper)
-        `when`(checkInteractor.getCard(1L, "writing")).thenReturn(grammarRevisionFlashcard)
+        `when`(checkInteractor.getCard(1L, "grammar")).thenReturn(grammarRevisionFlashcard)
 
         /* act */
         presenter.onAttach(checkView)
         presenter.reviseCard("writing", 1L, true)
 
         /* assert */
-        verify(checkInteractor).saveCard(grammarRevisionFlashcard, "writing")
+        verify(checkInteractor).saveCard(grammarRevisionFlashcard, "grammar")
         assert(queue.isQueueEmpty())
         assert(grammarRevisionFlashcard.interval == 13L)
         assert(grammarRevisionFlashcard.nextDisplayTime == LocalDate.now().plusDays(13))
@@ -74,11 +74,11 @@ class ReviseGrammarWritingUnitTest {
         var queue = DailyFlashcardQueueImpl()
         var scheduler = SpacedRepetitionSchedulerImpl()
         var presenter = CompareWritingPresenterImpl<CompareWritingView, CompareWritingInteractor>(checkInteractor, queue, scheduler, preferenceHelper)
-        `when`(checkInteractor.getCard(1L, "writing")).thenReturn(grammarRevisionFlashcard)
+        `when`(checkInteractor.getCard(1L, "grammar")).thenReturn(grammarRevisionFlashcard)
 
         /* act */
         presenter.onAttach(checkView)
-        presenter.reviseCard("writing", 1L, false)
+        presenter.reviseCard("grammar", 1L, false)
 
         /* assert */
         verify(checkInteractor).saveCard(grammarRevisionFlashcard, "writing")
