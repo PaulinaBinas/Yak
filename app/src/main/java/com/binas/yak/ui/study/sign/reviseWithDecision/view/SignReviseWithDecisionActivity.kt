@@ -22,7 +22,7 @@ import kotlinx.android.synthetic.main.fragment_action_bar_with_timer.*
 import javax.inject.Inject
 import kotlin.random.Random
 
-class SignReviseWithDecisionActivity : BaseActivity(), SignReviseWithDecisionView {
+open class SignReviseWithDecisionActivity : BaseActivity(), SignReviseWithDecisionView {
 
     private var playing: Boolean = false
     private var audioFileName: String = ""

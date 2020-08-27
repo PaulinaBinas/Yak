@@ -20,7 +20,7 @@ import kotlinx.android.synthetic.main.activity_sign_revise_writing.*
 import kotlinx.android.synthetic.main.fragment_action_bar_with_timer.*
 import javax.inject.Inject
 
-class SignReviseWritingActivity : BaseActivity(), SignReviseWritingView {
+open class SignReviseWritingActivity : BaseActivity(), SignReviseWritingView {
 
     private var playing: Boolean = false
     private var imageName: String = ""

@@ -7,8 +7,6 @@ import com.binas.yak.ui.base.presenter.BasePresenter
 import com.binas.yak.ui.study.vocabulary.learn.learnWriting.interactor.LearnVocabularyWritingInteractor
 import com.binas.yak.ui.study.vocabulary.learn.learnWriting.view.LearnVocabularyWritingView
 import com.binas.yak.util.DailyFlashcardQueue
-import com.google.firebase.firestore.FieldValue
-import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -32,15 +30,8 @@ class LearnVocabularyWritingPresenterImpl<V: LearnVocabularyWritingView, I: Lear
                     studyDay.elementsStudied = studyDay.elementsStudied?.plus(1)
                     it.saveStudyDay(studyDay)
                     var flashcard = it.getVocabularyStudyFlashcard(id)
-                    var firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
                     preferenceHelper.getCurrentUserEmail()?.let { email ->
-                        var user = firestore.collection("users").document(email)
-                        user.update("studiedFlashcards", FieldValue.arrayUnion(flashcard))
-                        val data = hashMapOf(
-                            "day" to studyDay.date.toString(),
-                            "elementsStudied" to studyDay.elementsStudied
-                        )
-                        user.collection("studyDays").document(studyDay.date.toString()).set(data)
+                        it.updateElementsStudied(email, flashcard, studyDay)
                     }
                 }
             }
@@ -57,10 +48,8 @@ class LearnVocabularyWritingPresenterImpl<V: LearnVocabularyWritingView, I: Lear
         var currentTotal = it.getUserStudyTime(id)
         var totalMinutes = currentTotal + ((time!!.toDouble() / 1000 ) / 60)
         it.setUserStudyTime(id, totalMinutes)
-        var firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
         preferenceHelper.getCurrentUserEmail()?.let { email ->
-            firestore.collection("users").document(email)
-                .update("totalMinutesStudied", totalMinutes)
+            it.updateTotalTime(email, totalMinutes)
         }
     }
 

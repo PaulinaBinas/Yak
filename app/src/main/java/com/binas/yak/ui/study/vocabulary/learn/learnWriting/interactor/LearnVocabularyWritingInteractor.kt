@@ -22,4 +22,8 @@ interface LearnVocabularyWritingInteractor: Interactor {
     fun getUserStudyTime(id: Long): Double
 
     fun setUserStudyTime(id: Long, time: Double)
+
+    fun updateTotalTime(email: String, time: Double)
+
+    fun updateElementsStudied(email: String, flashcard: VocabularyStudyFlashcard, studyDay: StudyDay)
 }

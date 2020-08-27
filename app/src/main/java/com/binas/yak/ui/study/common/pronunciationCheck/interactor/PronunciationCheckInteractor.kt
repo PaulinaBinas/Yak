@@ -10,4 +10,8 @@ interface PronunciationCheckInteractor: Interactor {
     fun saveCard(card: RevisionFlashcard, type: String)
     fun getUserStudyTime(id: Long): Double
     fun setUserStudyTime(id: Long, time: Double)
+
+    fun updateTotalMinutes(email: String, time: Double)
+
+    fun updateRevisedFlashcards(email: String, id: String, flashcard: RevisionFlashcard)
 }

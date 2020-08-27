@@ -6,6 +6,7 @@ import com.binas.yak.data.model.sign.SignRevisionFlashcard
 import com.binas.yak.data.model.user.UserRepository
 import com.binas.yak.data.model.vocabulary.VocabularyRepository
 import com.binas.yak.data.model.vocabulary.VocabularyRevisionFlashcard
+import com.google.firebase.firestore.FirebaseFirestore
 import javax.inject.Inject
 
 open class PronunciationCheckInteractorImpl @Inject internal constructor(var userRepo: UserRepository, var signRepo: SignRepository, var vocabularyRepo: VocabularyRepository): PronunciationCheckInteractor {
@@ -31,5 +32,17 @@ open class PronunciationCheckInteractorImpl @Inject internal constructor(var use
 
     override fun setUserStudyTime(id: Long, time: Double) {
         userRepo.setTotalMinutesStudiedByUserId(id, time)
+    }
+
+    override fun updateTotalMinutes(email: String, time: Double) {
+        var firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
+        firestore.collection("users").document(email)
+            .update("totalMinutesStudied", time)
+    }
+
+    override fun updateRevisedFlashcards(email: String, id: String, flashcard: RevisionFlashcard) {
+        var firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
+        firestore.collection("users").document(email)
+            .collection("revisedFlashcards").document(id).set(flashcard)
     }
 }

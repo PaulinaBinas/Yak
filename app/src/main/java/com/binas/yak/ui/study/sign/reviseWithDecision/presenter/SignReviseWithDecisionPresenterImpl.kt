@@ -6,7 +6,6 @@ import com.binas.yak.ui.study.sign.reviseWithDecision.interactor.SignReviseWithD
 import com.binas.yak.ui.study.sign.reviseWithDecision.view.SignReviseWithDecisionView
 import com.binas.yak.util.DailyFlashcardQueue
 import com.binas.yak.util.SpacedRepetitionScheduler
-import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -38,13 +37,9 @@ class SignReviseWithDecisionPresenterImpl<V: SignReviseWithDecisionView, I: Sign
                 if (card != null) {
                     scheduler?.schedule(card, remembered)
                     it.saveCard(card)
-                    var firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
                     preferenceHelper.getCurrentUserEmail()?.let { email ->
                         var idNumber = "1" + card.id.toString()
-                        if(email.isNotEmpty()) {
-                            firestore.collection("users").document(email)
-                                .collection("revisedFlashcards").document(idNumber).set(card)
-                        }
+                        it.updateReviseFlashcards(email, idNumber, card)
                     }
                     queue.removeFlashcard()
                     if(!remembered) {
@@ -61,12 +56,8 @@ class SignReviseWithDecisionPresenterImpl<V: SignReviseWithDecisionView, I: Sign
         var currentTotal = it.getUserStudyTime(id)
         var totalMinutes = currentTotal + ((time!!.toDouble() / 1000 ) / 60)
         it.setUserStudyTime(id, totalMinutes)
-        var firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
         preferenceHelper.getCurrentUserEmail()?.let { email ->
-            if(email.isNotEmpty()) {
-                firestore.collection("users").document(email)
-                    .update("totalMinutesStudied", totalMinutes)
-            }
+            it.updateTotalTime(email, totalMinutes)
         }
     }
 

@@ -8,7 +8,7 @@ import com.binas.yak.ui.base.interactor.BaseInteractor
 import javax.inject.Inject
 import kotlin.math.sign
 
-class SignReviseWritingInteractorImpl @Inject internal constructor(preferenceHelper: PreferenceHelper, var signRepo: SignRepository):
+open class SignReviseWritingInteractorImpl @Inject internal constructor(preferenceHelper: PreferenceHelper, var signRepo: SignRepository):
     BaseInteractor(preferenceHelper), SignReviseWritingInteractor {
 
     override fun getSignRevisionFlashcard(id: Long): SignRevisionFlashcard {

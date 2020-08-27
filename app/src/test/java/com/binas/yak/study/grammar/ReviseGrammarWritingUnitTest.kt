@@ -57,7 +57,7 @@ class ReviseGrammarWritingUnitTest {
 
         /* act */
         presenter.onAttach(checkView)
-        presenter.reviseCard("writing", 1L, true)
+        presenter.reviseCard("grammar", 1L, true)
 
         /* assert */
         verify(checkInteractor).saveCard(grammarRevisionFlashcard, "grammar")
@@ -81,7 +81,7 @@ class ReviseGrammarWritingUnitTest {
         presenter.reviseCard("grammar", 1L, false)
 
         /* assert */
-        verify(checkInteractor).saveCard(grammarRevisionFlashcard, "writing")
+        verify(checkInteractor).saveCard(grammarRevisionFlashcard, "grammar")
         assert(!queue.isQueueEmpty())
         assert(queue.todaysFlashcards.contains(grammarRevisionFlashcard))
         assert(grammarRevisionFlashcard.interval == 0L)
