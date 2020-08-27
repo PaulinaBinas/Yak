@@ -19,6 +19,7 @@ class VocabularyReviseMeaningPresenterImpl<V: VocabularyReviseMeaningView, I: Vo
                 getView()?.setContent(card, word, translation)
                 getView()?.clickSoundButton()
             }
+            while (!coroutine.isCompleted){}
         }
     }
 }

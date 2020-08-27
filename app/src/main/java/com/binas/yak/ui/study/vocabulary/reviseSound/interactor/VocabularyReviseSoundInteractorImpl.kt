@@ -5,7 +5,7 @@ import com.binas.yak.data.model.vocabulary.VocabularyRepository
 import com.binas.yak.data.model.vocabulary.VocabularyRevisionFlashcard
 import javax.inject.Inject
 
-class VocabularyReviseSoundInteractorImpl @Inject internal constructor(var vocabularyRepo: VocabularyRepository): VocabularyReviseSoundInteractor {
+open class VocabularyReviseSoundInteractorImpl @Inject internal constructor(var vocabularyRepo: VocabularyRepository): VocabularyReviseSoundInteractor {
 
     override fun getVocabularyRevisionFlashcard(id: Long): VocabularyRevisionFlashcard {
         return vocabularyRepo.getVocabularyRevisionFlashcardById(id)

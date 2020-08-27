@@ -21,7 +21,7 @@ import kotlinx.android.synthetic.main.activity_vocabulary_revise_meaning.*
 import kotlinx.android.synthetic.main.fragment_action_bar_with_timer.*
 import javax.inject.Inject
 
-class VocabularyReviseMeaningActivity : BaseActivity(), VocabularyReviseMeaningView {
+open class VocabularyReviseMeaningActivity : BaseActivity(), VocabularyReviseMeaningView {
 
     private var playing: Boolean = false
     private var soundName: String = ""

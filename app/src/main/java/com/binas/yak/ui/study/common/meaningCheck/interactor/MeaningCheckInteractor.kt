@@ -10,4 +10,6 @@ interface MeaningCheckInteractor: Interactor {
     fun getCard(id: Long): VocabularyRevisionFlashcard
     fun getUserStudyTime(id: Long): Double
     fun setUserStudyTime(id: Long, time: Double)
+    fun updateTotalTime(email: String, time: Double)
+    fun updateRevisedFlashcards(email: String, card: VocabularyRevisionFlashcard)
 }

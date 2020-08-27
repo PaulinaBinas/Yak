@@ -20,7 +20,7 @@ import kotlinx.android.synthetic.main.fragment_action_bar_with_timer.*
 import kotlinx.android.synthetic.main.fragment_image.*
 import javax.inject.Inject
 
-class VocabularyReviseSoundActivity : BaseActivity(), VocabularyReviseSoundView {
+open class VocabularyReviseSoundActivity : BaseActivity(), VocabularyReviseSoundView {
 
     @Inject
     lateinit var presenter: VocabularyReviseSoundPresenter<VocabularyReviseSoundView, VocabularyReviseSoundInteractor>

@@ -22,7 +22,7 @@ import kotlinx.android.synthetic.main.fragment_action_bar_with_timer.*
 import kotlinx.android.synthetic.main.fragment_image.*
 import javax.inject.Inject
 
-class VocabularyReviseWritingActivity : BaseActivity(), VocabularyReviseWritingView {
+open class VocabularyReviseWritingActivity : BaseActivity(), VocabularyReviseWritingView {
 
     @Inject
     lateinit var presenter: VocabularyReviseWritingPresenter<VocabularyReviseWritingView, VocabularyReviseWritingInteractor>

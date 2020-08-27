@@ -25,7 +25,7 @@ import kotlinx.android.synthetic.main.fragment_image.*
 import javax.inject.Inject
 
 
-class MeaningCheckActivity : BaseActivity(), MeaningCheckView {
+open class MeaningCheckActivity : BaseActivity(), MeaningCheckView {
 
     @Inject
     lateinit var presenter: MeaningCheckPresenter<MeaningCheckView, MeaningCheckInteractor>
